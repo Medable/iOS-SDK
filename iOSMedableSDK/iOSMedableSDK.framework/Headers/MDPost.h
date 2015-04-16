@@ -89,7 +89,7 @@
  */
 @property (nonatomic, readonly) NSArray* body;
 
-- (void)synchronizeObjectWithParameters:(MDAPIParameters *)externalParameters
+- (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
                                callback:(MDObjectFaultCallback)callback;
 
 @end

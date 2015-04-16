@@ -21,8 +21,6 @@
 - (void)checkToLoadPaginatedObjectsWithCallback:(MDObjectCallback)callback NOTNULL(1);
 - (void)checkToLoadNewObjectsWithCallback:(MDObjectCallback)callback NOTNULL(1);
 
-- (void)synchronizeObjectWithId:(MDObjectId*)objectId withCallback:(MDObjectCallback)callback NOTNULL(1);
-
 - (void)resetPagination;
 
 @end

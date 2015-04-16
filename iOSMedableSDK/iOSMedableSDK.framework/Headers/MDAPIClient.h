@@ -78,7 +78,7 @@
  */
 - (void)getOrgInfoWithCallback:(void (^)(MDOrg* org, MDFault* fault))callback;
 
-#pragma mark - Propety pathing
+#pragma mark - Property pathing
 
 /**
  * Retrieve the value of a property for a certain instance.
@@ -87,21 +87,9 @@
  * @param propertyPath The path, represented as a string, to the property being queried. This path can be any standard URL suffix.
  * @param callback The block that will fire asynchronously once the value is obtained.
  */
-- (void)propetyValueWithInstance:(MDObjectInstance*)instance
-                    propertyPath:(NSString*)propertyPath
-                        callback:(void (^)(id value, MDFault* fault))callback;
-
-/**
- * Create a property with a value in a certain instance.
- *
- * @param instance The instance you are creating to..
- * @param propertyPath The path, represented as a string, to the property being created. This path can be any standard URL suffix.
- * @param callback The block that will fire asynchronously once the API call returns.
- */
-- (void)createPropetyForInstance:(MDObjectInstance*)instance
-                    propertyPath:(NSString*)propertyPath
-                           value:(id)value
-                        callback:(void (^)(MDObjectInstance* modifiedInstance, MDFault* fault))callback;
+- (void)propertyValueWithInstance:(MDObjectInstance*)instance
+                     propertyPath:(NSString*)propertyPath
+                         callback:(void (^)(id value, MDFault* fault))callback;
 
 /**
  * Modify the value of a property for a certain instance.
@@ -110,20 +98,9 @@
  * @param propertyPath The path, represented as a string, to the property being modified. This path can be any standard URL suffix.
  * @param callback The block that will fire asynchronously once the service call returns.
  */
-- (void)modifyPropetyValueForInstance:(MDObjectInstance*)instance
-                         propertyPath:(NSString*)propertyPath
-                                value:(id)value
-                             callback:(void (^)(MDObjectInstance* modifiedInstance, MDFault* fault))callback;
-
-/**
- * Delete the value of a property for a certain instance.
- *
- * @param instance The instance you are modifying.
- * @param propertyPath The path, represented as a string, to the property being deleted. This path can be any standard URL suffix.
- * @param callback The block that will fire asynchronously once the service call returns.
- */
-- (void)deletePropetyValueWithInstance:(MDObjectInstance*)instance
+- (void)modifyPropertyValueForInstance:(MDObjectInstance*)instance
                           propertyPath:(NSString*)propertyPath
+                                 value:(id)value
                               callback:(void (^)(MDObjectInstance* modifiedInstance, MDFault* fault))callback;
 
 
@@ -252,7 +229,7 @@
  *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are filterCaller, roles and expand.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)connectionWithId:(NSString*)connectionId
+- (void)connectionWithId:(MDObjectId*)connectionId
               parameters:(MDAPIParameters*)parameters
                 callback:(void (^)(MDConnection* connection, MDFault* fault))callback;
 
@@ -417,37 +394,15 @@
                  parameters:(MDAPIParameters*)parameters
                    callback:(void (^)(NSArray* comments, NSNumber* hasMore, MDFault* fault))callback;
 
-
-/**
- * Get the definition of feed posts for a certain type of Object class
- *
- *  @param objectId The ID of the Object class we wish to get it's posts definition for
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are comments, profile, new, postTypes, expand, include, paths and either (limit, skip, sort) or (rangeField, rangeStart, rangeEnd, previous and ascending).
- *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
- */
-- (void)feedDefinitionForObjectId:(MDObjectId*)objectId
-                       parameters:(MDAPIParameters*)parameters
-                         callback:(void (^)(MDFeedDefinition* feedDefinition, MDFault* fault))callback;
-
 /**
  * Gets a feed post
  *  @param postId Post ObjectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are skip, limit, expand, include and paths.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)readPostWithPostId:(MDObjectId*)postId
-                parameters:(MDAPIParameters*)parameters
-                  callback:(void (^)(MDPost* post, MDFault* fault))callback;
-
-/**
- * Gets a post comment
- *  @param commentId Comment ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are skip, limit, expand, include and paths.
- *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
- */
-- (void)readPostCommentWithId:(MDObjectId*)commentId
-                   parameters:(MDAPIParameters*)parameters
-                     callback:(void (^)(MDPostComment* comment, MDFault* fault))callback;
+- (void)postWithId:(MDObjectId*)postId
+        parameters:(MDAPIParameters*)parameters
+          callback:(void (^)(MDPost* post, MDFault* fault))callback;
 
 /**
  * Posts to a context's feed
@@ -598,16 +553,6 @@
 - (void)getBundleWithUrl:(NSString *)bundleUrl
                 callback:(void (^)(NSDictionary *response, MDFault* fault))callback;
 
-
-#pragma mark - Legal agreements
-
-/**
- *  Accepts a legal agreement.
- */
-- (void)acceptLegalAgreement:(NSString*)agreement
-                     version:(NSString*)version
-                   accountId:(MDObjectId*)accountId
-                    callback:(void (^)(MDFault* fault))callback;
 
 #pragma mark - Org
 
@@ -846,7 +791,7 @@
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
       byDeletingAttachmentWithId:(MDObjectId*)attachmentId
-                     finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
+                     finishBlock:(void (^)(MDFault* fault))finishBlock;
 
 /**
  * Updates a context object

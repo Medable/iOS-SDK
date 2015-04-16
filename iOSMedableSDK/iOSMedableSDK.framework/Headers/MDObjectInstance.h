@@ -104,19 +104,17 @@
  */
 @property (nonatomic, readonly) NSDictionary* customProperties;
 
-#pragma mark - Optional
-/*
- The following properties are returned only when passed in the "include" query parameter,
- e.g. ?include[]=connections&include[]=invitations.
- */
-
 /**
- * A list of accounts that have at least Connected access to the object. Returned as a list of Account objects when reading a single object, an an array of ObjectIds when reading a list of objects.
+ * A list of connection objects. Connections might be either in active or pending state.
+ *
+ * This property is nil unless synchronizeConnectionsWithParameters:callback: is called and there are available posts for this object.
  */
 @property (nonatomic, readonly) NSArray* connections;
 
 /**
  * The object feed. This allows a single call to get both an object and it's first page of posts. Feed query arguments are supported.
+ *
+ * This property is nil unless synchronizePostsWithParameters:callback: is called and there are available posts for this object.
  */
 @property (nonatomic, readonly) NSArray* posts;
 

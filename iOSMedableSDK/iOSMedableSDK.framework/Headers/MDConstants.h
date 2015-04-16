@@ -24,7 +24,7 @@ extern NSString* const kAcceptLanguageKey;
 extern NSString* const kAuthKey;
 extern NSString* const kLoginKey;
 extern NSString* const kLogoutKey;
-extern NSString* const kRequestPasswordRequestKey;
+extern NSString* const kRequestPasswordResetKey;
 extern NSString* const kResetPasswordKey;
 extern NSString* const kUpdatePasswordKey;
 extern NSString* const kResendVerificationKey;

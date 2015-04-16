@@ -60,7 +60,7 @@
  */
 @property (nonatomic, readonly) MDPost* parentPost;
 
-- (void)synchronizeObjectWithParameters:(MDAPIParameters *)externalParameters
+- (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
                                callback:(MDObjectFaultCallback)callback;
 
 @end
