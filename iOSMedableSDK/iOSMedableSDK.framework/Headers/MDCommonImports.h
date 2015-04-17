@@ -45,7 +45,7 @@
 #import "MDBundleManager.h"
 #import "MDBundle.h"
 #import "MDPropertyDefinition.h"
-#import "MDProcessor.h"
+#import "MDFacetDefinition.h"
 #import "MDACLObject.h"
 #import "MDObjectDefinition.h"
 #import "MDSchemaManager.h"

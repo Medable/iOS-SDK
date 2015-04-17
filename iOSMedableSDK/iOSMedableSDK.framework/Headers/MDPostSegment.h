@@ -8,56 +8,45 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * An instance of a segment inside of a post.
+ */
 @interface MDPostSegment : NSObject
 
+/// Definition for this segment
 @property (nonatomic, readonly) MDPostSegmentDefinition* segmentDefinition;
+
+/**
+ * Attributes of the segment, mapping property names to property values
+ *
+ * @see MDPropertyInstance
+ */
 @property (nonatomic, readonly) NSDictionary* attributes;
 
+/**
+ * Create post segment.
+ *
+ * @param attributes Original attributes matching property names to it's values from a JSON reply.
+ * @param definition Context definition of the segment.
+ *
+ * @warning Users of the SDK are encourage to avoid calling this method directly.
+ */
 + (MDPostSegment*)postSegmentWithAttributes:(NSDictionary*)attributes definition:(MDPostSegmentDefinition*)definition NOTNULL(1,2);
 
+/**
+ * Get the value of a property.
+ *
+ * @param propertyName Name of the property.
+ * @return The value of the property if it exists, nil otherwise.
+ */
 - (id)valueForPropertyWithName:(NSString*)propertyName NOTNULL(1);
+
+/**
+ * Get the value of a property from it's definition.
+ *
+ * @param propertyDefinition Definition of the property.
+ * @return The value of the property if it exists, nil otherwise.
+ */
 - (id)valueForProperty:(MDPostSegmentPropertyDefinition*)propertyDefinition NOTNULL(1);
-
-@end
-
-
-@interface MDPostSegments : NSObject
-
-/**
- *  Creates post segments
- */
-+ (MDPostSegments*)postSegmentsWithText:(NSString*)text
-                        imageAndOverlay:(NSDictionary*)imageAndOverlay
-                              diagnoses:(NSArray*)diagnoses;
-
-/**
- *  Creates post segments
- *	filesAndOverlays is a NSDictionary with:
- *      'key': filename / file upload name
- *      'object': overlay / overlay uplaod name
- *	Note: if no overlay set 'object': kEmptyString
- *	i.e.
- *	NSDictionary* filesAndOverlays = @{ @"fileUpload1", kEmptyString,
- *	                                    @"fileUpload2", @"fileUpload2Overlay" };
- */
-+ (MDPostSegments*)postSegmentsWithFilesAndOverlays:(NSOrderedDictionary*)filesAndOverlays NOTNULL(1);
-
-+ (MDPostSegments*)postSegmentsWithPostSegments:(MDPostSegments*)firstObject, ...;
-
-
-/**
- *  Return all the file names that where configured by filesAndOverlays parameter
- */
-- (NSArray*)files;
-
-/**
- *  Checks if the file has an overlay and returns its name or nil if it doesn't have.
- */
-- (NSString*)overlayForFile:(NSString*)file NOTNULL(1);
-
-/**
- *  Serializes the object to the format the API expects.
- */
-- (NSArray*)apiFormat;
 
 @end

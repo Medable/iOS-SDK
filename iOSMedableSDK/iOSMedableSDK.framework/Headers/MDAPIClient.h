@@ -32,14 +32,9 @@
 @property (nonatomic, readonly) MDOrg *currentOrg;
 
 /**
- * Value of the current session's cookie.
+ * Logged in user's account. Will be nil when nobody is logged in.
  */
-@property (nonatomic, readonly) NSString* currentSessionId;
-
-/**
- * Current email, as stored in the keychain. This will hold the value of the last logged in user, even when not currently logged in.
- */
-@property (nonatomic, readonly) NSString* currentUserEmail;
+@property (nonatomic, readonly) MDAccount* currentUser;
 
 /**
  * Token string for APNS.
@@ -53,9 +48,9 @@
 @property (nonatomic, strong) NSString* invitationToken;
 
 /**
- * Logged in user's account. Will be nil when nobody is logged in.
+ * Use this accessor to change the network logging level
  */
-@property (nonatomic, readonly) MDAccount* localUser;
+@property (nonatomic, assign) MDAPIClientNetworkLoggerLevel loggerLevel;
 
 /**
  *  Returns the shared API client instance.
@@ -144,7 +139,7 @@
                               mobile:(NSString*)mobile
                             password:(NSString*)password
                               gender:(NSString*)gender
-                                 dob:(NSString*)dob
+                                 dob:(NSDate*)dob
                                 role:(NSString*)role
                          profileInfo:(MDProfileInfo*)profileInfo
                           thumbImage:(UIImage *)thumbImage

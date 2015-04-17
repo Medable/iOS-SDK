@@ -6,6 +6,18 @@
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
+#pragma mark - Console log levels
+
+typedef enum : NSUInteger
+{
+    MDAPIClientNetworkLoggerLevelOff,
+    MDAPIClientNetworkLoggerLevelDebug,
+    MDAPIClientNetworkLoggerLevelInfo,
+    MDAPIClientNetworkLoggerLevelWarn,
+    MDAPIClientNetworkLoggerLevelError,
+    MDAPIClientNetworkLoggerLevelFatal = MDAPIClientNetworkLoggerLevelOff,
+} MDAPIClientNetworkLoggerLevel;
+
 #pragma mark - Gender
 
 typedef enum : NSUInteger

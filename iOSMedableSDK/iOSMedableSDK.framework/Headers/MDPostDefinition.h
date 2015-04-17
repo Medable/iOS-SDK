@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Definition of a post type, this includes definitions on all the segments the post must include.
+ */
 @interface MDPostDefinition : NSObject
 
+/// User ready string representing the name of the post type in the Org's locale.
 @property (nonatomic, readonly) NSString *label;
+
+/// Read access on this definition.
 @property (nonatomic, readonly) MDACLLevel readAccess;
+
+/// Create access on this definition.
 @property (nonatomic, readonly) MDACLLevel createAccess;
 @property (nonatomic, readonly) NSNumber *active;
 @property (nonatomic, readonly) NSString *postType;
@@ -30,7 +38,20 @@
 @property (nonatomic, readonly) NSArray *body;
 @property (nonatomic, readonly) NSArray *comments;
 
+/**
+ * Get one comment segment definition from it's name.
+ *
+ * @param definitionName Name of the segment.
+ * @return The post segment definition that corresponds to this name, nil if none do.
+ */
 - (MDPostSegmentDefinition*)commentSegmentDefinitionWithName:(NSString*)definitionName NOTNULL(1);
+
+/**
+ * Get one segment definition from it's name.
+ *
+ * @param definitionName Name of the segment.
+ * @return The post segment definition that corresponds to this name, nil if none do.
+ */
 - (MDPostSegmentDefinition*)segmentDefinitionWithName:(NSString*)definitionName NOTNULL(1);
 
 @end

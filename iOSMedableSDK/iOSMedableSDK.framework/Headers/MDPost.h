@@ -10,6 +10,18 @@
 
 @class MDConversation;
 
+/**
+ * Posts are messages that users can generate. They are associated with a source context, such as a 
+ * Conversation or Account. Organizations create feed definitions through the Object admininstration interface.
+ *
+ * Posts are organized into post types and segments. A post type is the class of post, and segments are 
+ * document types within the post itself. Each post type can be configured with various access permissions
+ * and have multiple segments, each with its own set of custom properties. See the section on Feeds for more details.
+ *
+ * Each post type can also be configured to support Comments, each with their own configurable segments.
+ *
+ * This flexibility enables a multitude of use cases, from polls to question/answer to device data point storage.
+ */
 @interface MDPost : NSObject
 
 /**
@@ -27,6 +39,9 @@
  */
 @property (nonatomic, readonly) MDReference* context;
 
+/**
+ * Reference to the definition of this post.
+ */
 @property (nonatomic, readonly) MDPostDefinition* postDefinition;
 
 /**
@@ -43,6 +58,11 @@
  * The account that updated the post
  */
 @property (nonatomic, readonly) MDReference* updater;
+
+/**
+ * The current caller’s level of access to the context
+ */
+@property (nonatomic, readonly) MDACLLevel access;
 
 /**
  * The type of post being created. The type determines how the post is handled depending on the object feed configuration
@@ -89,6 +109,12 @@
  */
 @property (nonatomic, readonly) NSArray* body;
 
+/**
+ * Synchronize this object with the latest from the backend.
+ *
+ * @param parameters Extra API parameters.
+ * @param callback Asynchronous callback where the results are passed.
+ */
 - (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
                                callback:(MDObjectFaultCallback)callback;
 

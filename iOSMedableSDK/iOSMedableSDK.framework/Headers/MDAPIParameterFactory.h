@@ -490,3 +490,54 @@ typedef NSMutableDictionary MDFileParameterValue;
      inProperty:(MDPropertyDefinition *)propertyDefinition;
 
 @end
+
+/**
+ * Helper to construct post segment parameters.
+ */
+@interface MDPostSegments : NSObject
+
+/**
+ * Creates a post segment.
+ *
+ * @param text Text.
+ * @param imageAndOverlay A dictionary mapping original source and overlay for an image.
+ * @param diagnoses List of diagnoses.
+ *
+ */
++ (MDPostSegments*)postSegmentsWithText:(NSString*)text
+                        imageAndOverlay:(NSDictionary*)imageAndOverlay
+                              diagnoses:(NSArray*)diagnoses;
+
+/**
+ *  Creates post segments
+ *	filesAndOverlays is a NSDictionary with:
+ *      'key': filename / file upload name
+ *      'object': overlay / overlay uplaod name
+ *	Note: if no overlay set 'object': kEmptyString
+ *	i.e.
+ *	NSDictionary* filesAndOverlays = @{ @"fileUpload1", kEmptyString,
+ *	                                    @"fileUpload2", @"fileUpload2Overlay" };
+ */
++ (MDPostSegments*)postSegmentsWithFilesAndOverlays:(NSOrderedDictionary*)filesAndOverlays NOTNULL(1);
+
+/**
+ * Composition, create a segments object from other segments objects.
+ */
++ (MDPostSegments*)postSegmentsWithPostSegments:(MDPostSegments*)firstObject, ...;
+
+/**
+ *  Return all the file names that where configured by filesAndOverlays parameter
+ */
+- (NSArray*)files;
+
+/**
+ *  Checks if the file has an overlay and returns its name or nil if it doesn't have.
+ */
+- (NSString*)overlayForFile:(NSString*)file NOTNULL(1);
+
+/**
+ *  Serializes the object to the format the API expects.
+ */
+- (NSArray*)apiFormat;
+
+@end

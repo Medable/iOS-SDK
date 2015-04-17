@@ -11,6 +11,12 @@
 #import "MDObjectDefinition.h"
 #import "MDPropertyContainer.h"
 
+/**
+ * An object instance is a concrete object of a given class, also known as a context.
+ * Each instance follows the form given by the Definition of that class.
+ *
+ * @see MDObjectDefinition
+ */
 @interface MDObjectInstance : NSObject
 <MDPropertyContainer>
 
@@ -20,52 +26,52 @@
 @property (nonatomic, readonly) MDObjectId* Id;
 
 /**
- * Object definition's Id
+ * Object definition for this instance.
  */
 @property (nonatomic, readonly) MDObjectDefinition* object;
 
 /**
- *  The account id of the context creator
+ *  A reference to the account id of the context creator.
  */
 @property (nonatomic, readonly) MDReference* creator;
 
 /**
- * The account id of the context owner
+ * The account id of the context owner.
  */
 @property (nonatomic, readonly) MDReference* owner;
 
 /**
- * The date the latest update was made to a context’s properties
+ * The date the latest update was made to a context’s properties.
  */
 @property (nonatomic, readonly) NSDate* updated;
 
 /**
- * The account id of the context updater
+ * The account id of the context updater.
  */
 @property (nonatomic, readonly) MDReference* updater;
 
 /**
- * The current caller’s level of access to the context
+ * The current caller’s level of access to the context.
  */
 @property (nonatomic, readonly) MDACLLevel access;
 
 /**
- *
+ * Whether this context is archived.
  */
 @property (nonatomic, readonly) NSNumber* archived;
 
 /**
- *
+ * Date of archival for the context.
  */
 @property (nonatomic, readonly) NSDate* archiveDate;
 
 /**
- *
+ * A reference to the account ID of the archiver.
  */
 @property (nonatomic, readonly) MDReference* archiver;
 
 /**
- * Marked as favorite
+ * Whether it's marked as favorite by the current user.
  */
 @property (nonatomic, readonly) NSNumber* favorite;
 
@@ -75,32 +81,32 @@
 @property (nonatomic, readonly) NSNumber* shared;
 
 /**
- *
+ * Set of tags in the context.
  */
 @property (nonatomic, readonly) NSArray* tags;
 
 /**
- *
+ * Version number of the instance.
  */
 @property (nonatomic, readonly) NSUInteger version;
 
 /**
- *
+ * Version number of the context.
  */
 @property (nonatomic, readonly) NSUInteger contextVersion;
 
 /**
- *
+ * Creation date.
  */
 @property (nonatomic, readonly) NSDate* created;
 
 /**
- *
+ * Maps base property keys to their values.
  */
 @property (nonatomic, readonly) NSDictionary* baseProperties;
 
 /**
- *
+ * Maps custom property keys to their values, these custom properties have a "c_" prefix.
  */
 @property (nonatomic, readonly) NSDictionary* customProperties;
 
@@ -118,19 +124,97 @@
  */
 @property (nonatomic, readonly) NSArray* posts;
 
-
+/**
+ * Get the value for a given property name. This name can correspond to either a base or custom property.
+ *
+ * A property name is mapped to a `MDPropertyInstance`. This return's that property instance's value.
+ *
+ * @return Value for the property instance mapped to this property name.
+ *
+ * @see MDPropertyInstance
+ */
 - (id)valueForPropertyWithName:(NSString*)name NOTNULL(1);
+
+/**
+ * Type (enum) of a given property.
+ *
+ * @param The name of the property.
+ * @return The property's type if a property with this name exists, `MDPropertyTypeBaseUnknown` otherwise.
+ *
+ * @see MDPropertyDefinition
+ */
 - (MDPropertyType)typeForPropertyWithName:(NSString*)name NOTNULL(1);
 
-- (NSDictionary*)baseValueWithPropertyName:(NSString*)name NOTNULL(1);
+/**
+ * Boolean value (represented by a Number) of the property.
+ *
+ * @param name Property name.
+ * @return The number representing the bool value for this property.
+ */
 - (NSNumber*)booleanValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Dictionary value of the property of type Any.
+ *
+ * @param name Property name.
+ * @return The dictionary representing the value for this property.
+ */
 - (NSDictionary*)anyValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Date value of the property of type Date.
+ *
+ * @param name Property name.
+ * @return The date representing the value for this property.
+ */
 - (NSDate*)dateValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Dictionary value of the property of type Document.
+ *
+ * @param name Property name.
+ * @return The dictionary representing the value for this property.
+ */
 - (NSDictionary*)documentValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Dictionary value of the property of type File.
+ *
+ * @param name Property name.
+ * @return The dictionary representing the value for this property.
+ */
 - (NSDictionary*)filesValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Number value of the property of type Number.
+ *
+ * @param name Property name.
+ * @return The number representing the value for this property.
+ */
 - (NSNumber*)numberValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * ObjectID value of the property of type ObjectID.
+ *
+ * @param name Property name.
+ * @return The `MDObjectID` instance representing the value for this property.
+ */
 - (MDObjectId*)objectIdValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * Reference value of the property of type Reference.
+ *
+ * @param name Property name.
+ * @return The `MDReference` instance representing the value for this property.
+ */
 - (MDReference*)referenceValueWithPropertyName:(NSString*)name NOTNULL(1);
+
+/**
+ * String value of the property of type String.
+ *
+ * @param name Property name.
+ * @return The string representing the value for this property.
+ */
 - (NSString*)stringValueWithPropertyName:(NSString*)name NOTNULL(1);
 
 /**

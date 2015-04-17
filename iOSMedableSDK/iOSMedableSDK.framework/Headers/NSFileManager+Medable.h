@@ -10,22 +10,14 @@
 
 @interface NSFileManager (Medable)
 
-- (NSString *)cacheDirectoryPath;
-- (NSString *)documentsDirectoryPath;
+- (NSString*)cacheDirectoryPath;
 
-- (NSString *)cacheDirectoryPathForUserID:(NSString *)inUserID;
-- (NSString *)documentsDirectoryPathForUserID:(NSString *)inUserID;
+- (NSString*)currentUserPath;
+- (BOOL)deleteCurrentUserDiskCache;
 
-- (NSString *)currentUserPath;
-- (NSString *)imagesDiskCachePath;
-- (NSString *)pathForContext:(NSString *)context contextID:(NSString *)contextID NOTNULL(1,2);
-- (void)deleteCurrentDiskCache;
-
-- (NSString *)imageCacheDirectoryForUserID:(NSString *)inUserID;
-
-- (NSString *)saveImageToCacheDirectory:(UIImage *)image forUserID:(NSString *)inUserID;
-- (void)deleteGeneralCacheDirectoryForUserID:(NSString *)inUserID;
-- (void)removePhotoAtPath:(NSString *)inPath;
-
+/*
+ *  @Warning The image is not encrypted using this method. Use MDAssetManager instead if you want it to be encrypted.
+ */
+- (NSString*)saveImageToCacheDirectory:(UIImage*)image png:(BOOL)png NOTNULL(1);
 
 @end

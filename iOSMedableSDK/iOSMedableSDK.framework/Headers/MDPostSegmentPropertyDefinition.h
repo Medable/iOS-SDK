@@ -2,12 +2,14 @@
 //  MDPostSegmentPropertyDefinition.h
 //  iOSMedableSDK
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import "MDPropertyDefinition.h"
 
+/**
+ * Segment's property definition. They extend basic property definitions.
+ */
 @interface MDPostSegmentPropertyDefinition : MDPropertyDefinition
 
 @property (nonatomic, readonly) NSNumber *canPull;

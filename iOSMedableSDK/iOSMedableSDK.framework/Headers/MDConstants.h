@@ -139,6 +139,7 @@ extern NSString* const kUpdateKey;
 extern NSString* const kDeleteKey;
 extern NSString* const kPullKey;
 extern NSString* const kPushKey;
+extern NSString* const kDateOnlyKey;
 extern NSString* const kDefinitionKey;
 extern NSString* const kShareChainKey;
 extern NSString* const kTaggableKey;
@@ -387,9 +388,6 @@ extern NSString* const kUnknownETag;
 extern NSString* const kSchemasETagKey;
 extern NSString* const kLogoKey;
 extern NSString* const kFaviconKey;
-
-#pragma mark - Keychain keys
-extern NSString* const kKeychainEmailKey;
 
 #pragma mark - Notifications
 extern NSString* const kMDNotificationAPIIsNotLoggedIn;

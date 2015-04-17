@@ -10,6 +10,11 @@
 
 #import "MDObjectInstance.h"
 
+/**
+ * The Patient File is for providers to use as a collection for patient info, data, and 
+ * collaborations. A patient file can be connected directly to a patient account to facilitate
+ * collaboration, through it’s account property.
+ */
 @interface MDPatientFile : MDObjectInstance
 
 /**
@@ -38,12 +43,12 @@
 @property (nonatomic, readonly) NSNumber* connectionPending;
 
 /**
- * Patient age
+ * Patient age.
  */
 @property (nonatomic, readonly) NSNumber* age;
 
 /**
- * The object context name
+ * The object context name.
  */
 @property (nonatomic, readonly) NSString* context;
 
@@ -53,17 +58,17 @@
 @property (nonatomic, readonly) NSString* patientFileDescription;
 
 /**
- * Patient date of birth
+ * Patient date of birth.
  */
 @property (nonatomic, readonly) NSDate* dob;
 
 /**
- * A patient email address
+ * A patient email address.
  */
 @property (nonatomic, readonly) NSString* email;
 
 /**
- * Patient gender
+ * Patient gender.
  */
 @property (nonatomic, readonly) MDGender gender;
 
@@ -73,7 +78,7 @@
 @property (nonatomic, readonly) MDFilePropertyValue* image;
 
 /**
- * Medical Record Number
+ * Medical Record Number.
  */
 @property (nonatomic, readonly) NSString* mrn;
 
@@ -83,11 +88,20 @@
 @property (nonatomic, readonly) MDReference* org;
 
 /**
- * A patient contact phone number
+ * A patient contact phone number.
  */
 @property (nonatomic, readonly) NSString* phone;
 
+/**
+ * Patient thumbnail.
+ *
+ * @param callback Asynchronous callback where the results are returned.
+ */
 - (void)thumbnailWithCallback:(MDImageOrFaultCallback)callback NOTNULL(1);
+
+/**
+ * Helper function to assemble the full name of the patient.
+ */
 - (NSString*)fullName;
 
 @end
