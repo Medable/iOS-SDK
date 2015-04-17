@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
             capabilities into your application.
                         DESC
     s.homepage         = "https://github.com/Medable/iOS-SDK"
-    s.license          = 'BSD 3-clause', :file => 'LICENSE'
+    s.license          = { :type => 'BSD 3-clause', :file => 'LICENSE' }
     s.author           = { "Medable Inc." => "hello@medable.com" }
     s.source           = { :git => "https://github.com/Medable/iOS-SDK.git", :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/medableinc'
