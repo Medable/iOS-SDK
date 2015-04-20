@@ -1,12 +1,50 @@
-iOSSDK
+About the Medable SDK
 ======
 
-iOS Client SDK for Medable
+Welcome to the iOS Client SDK for [Medable](https://www.medable.com). This library provides a wrapper for the [backend API](https://dev.medable.com/) as well as several helper tools to directly integrate those features to your iOS application.
 
-Integration Guide:
+The Medable iOS SDK is targeted to be used in apps that have a base SDK of iOS 7 and the following instructions are targeted for Xcode 5 users, consider updating if you have an older version.
+
+Installation
+======
+
+Using Cocoapods
 ------
 
-##### Get the framework
+#### Step 1: Download CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like Medable in your projects.
+
+CocoaPods is distributed as a ruby gem, and is installed by running the following commands in your Terminal:
+
+    $ sudo gem install cocoapods
+    $ pod setup
+
+> Depending on your Ruby installation, you may not have to run as `sudo` to install the cocoapods gem.
+
+#### Step 2: Create a Podfile
+
+Project dependencies to be managed by CocoaPods are specified in a file called `Podfile`. Create this file in the same directory as your Xcode project (`.xcodeproj`) file.
+
+Copy and paste the following lines into the file:  
+    
+    platform :ios, '7.0'
+    pod 'Medable'
+
+#### Step 3: Install Dependencies
+
+Now you can install the dependencies in your project:
+
+    $ pod install
+
+From now on, be sure to always open the generated Xcode workspace (`.xcworkspace`) instead of the project file when building your project:
+
+    $ open <YourProjectName>.xcworkspace
+
+That's it, you are now ready to use the Medable SDK. Head on over to the [Integration](#integration) guide to continue your setup.
+
+Install the framework manually
+------
 
 [Download the latest version](https://www.medable.com/downloads/ios/sdk/latest) and place it wherever you like inside your project structure.
 
@@ -28,8 +66,10 @@ Enable Core Location services
 + Add an entry to your app's info.plist file with this key NSLocationWhenInUseUsageDescription. The value you use for this is the message users will be presented when asking for permission to use location services.
 + Now hit build and check everything goes well.
 
+Integration
+------
 
-##### Add the Environments.plist configuration file
+### Add the Environments.plist configuration file
 
 The Sample App contains an example configuration file, containing such things as your org code, api key, and target domain. The compound base URL produced will look like https://api.dev.medable.com/medable/v1.
 
@@ -39,7 +79,7 @@ The Sample App contains an example configuration file, containing such things as
 Note: If you have your project and our sample app opened, locate Environments.plist file in our Sample project, drag and drop the file to your project and make sure you check “Copy items into destination group’s folder (if needed)’ when you get the popup.
 
 
-##### Add an entry in the Info.plist file
+### Add an entry in the Info.plist file
 
 The SDK uses this setup at runtime to read values from the Environments.plist file.
 + Locate your project’s Info.plist file. In XCode 5 it’s located in ‘Supporting Files’ group. The file is called ‘YourProjectName-Info.plist’.
@@ -48,7 +88,7 @@ The SDK uses this setup at runtime to read values from the Environments.plist fi
 + Save.
 
 
-##### Add a linker flag (-ObjC)
+### Add a linker flag (-ObjC)
 
 This linker flag allows you to use class extensions provided by our framework.
 
@@ -57,43 +97,25 @@ This linker flag allows you to use class extensions provided by our framework.
 + Press the plus button.
 + And write ‘-Objc’, without the quotes.
 
-##### Setup Imports
+### Setup Imports
 
-+ You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <iOSMedableSDK/MDCommonImports.h>`)
-+ or import SDK classes one by one on demand in different places of your project (eg. `#import <iOSMedableSDK/MDAccount.h>`).
++ You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <Medable/Medable.h>`)
++ or import SDK classes one by one on demand in different places of your project (eg. `#import <Medable/MDAccount.h>`).
 
-##### Initialize the Assets Manager
+### Initialize the Assets Manager
 
 + Add `[MDAssetsManager sharedManager]` to your app's application:didFinishLaunchingWithOptions: method delegate.
 
 Note: The Assets Manager must be initialized before authentication.
 
-##### Download new content from the server
+### Download new content from the server
 
 The REST API includes a Bundle API that enables orgs to store versioned, localized, often-changing string tables and property lists. Using MDContentDownloader as shown in the sample app, you can check for new content on application startup. There are two notifications indicating the beginning and end of the content download so you can give visual feedback, if needed.
-
-##### Import 3rd party classes
-
-Our SDK uses the well known ‘AFNetworking’ (v2.0) framework as the communications base framework. 
-
-Some bundled 3rd party classes are not included in MDCommonImports and need to be explicitly imported, the first of which is used to change the level of networking events logging to the console (very useful for debugging!).
-
-  `#import <iOSMedableSDK/AFNetworkingActivityLogger.h>`
-
-The second is used to either enable or disable a spinning wheel on the status bar, to display visual feedback while any networking is happening in the background.
-
-  `#import <iOSMedableSDK/AFNetworkingActivityIndicatorManager.h>`
 
 Optional Integration Steps
 ------
 
-##### Setting of networking level
-  
-  `MDAppDelegate @ application:didFinishLaunchingWithOptions:`
-
-##### Enabling spinning wheel on status bar to give feedback while there’s some networking happening in the background.
-
-##### Handling particular events by listening to notifications.
+### Handling particular events by listening to notifications.
 
 kMDNotificationAPIServerErrorDidOccur: This notification comes with the corresponding MDFault object, ready to be handled. Fault codes are listed in MDConstants.h.
 
@@ -101,7 +123,7 @@ kMDNotificationUserDidLogout: This notification is used to forward the app to th
 
 Note: More notifications are defined in MDConstants.h.
 
-##### A few more things the Sample App covers...
+### A few more things the Sample App covers...
 
 <table>
   <thead><tr><th>What</th><th>Where</th></tr></thead>

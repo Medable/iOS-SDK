@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "Medable"
-    s.version          = "0.9.3"
+    s.version          = "0.9.4"
     s.summary          = "Medable iOS SDK."
     s.description      = <<-DESC
             Medable is a cloud platform that provides HIPAA-compliant services to mobile
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
-    s.ios.vendored_frameworks = 'iOSMedableSDK/iOSMedableSDK.framework'
+    s.ios.vendored_frameworks = 'iOSMedableSDK/Medable.framework'
 
-    s.public_header_files = 'iOSMedableSDK/iOSMedableSDK.framework/Headers/MD*.h'
+    s.public_header_files = 'iOSMedableSDK/Medable.framework/Headers/M*.h'
     s.frameworks = 'ImageIO', 'SystemConfiguration', 'CoreText', 'MobileCoreServices', 'QuartzCore', 'CoreLocation','CFNetwork','CoreGraphics'
 end
