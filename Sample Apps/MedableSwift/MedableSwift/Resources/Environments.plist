@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Debug</key>
+	<dict>
+		<key>Medable-Client-Key</key>
+		<string>&lt;put your medable client key for debugging here&gt;</string>
+		<key>org</key>
+		<string>&lt;put your medable org code here&gt;</string>
+		<key>Protocol</key>
+		<string>https</string>
+		<key>BASEURL</key>
+		<string>&lt;medable.com based base URL, e.g. dev.medable.com&gt;</string>
+		<key>APIPrefix</key>
+		<string>&lt;put your medable api prefix here, e.g. api&gt;</string>
+	</dict>
+	<key>Release</key>
+	<dict>
+		<key>Medable-Client-Key</key>
+		<string>&lt;put your medable client key for release here&gt;</string>
+		<key>org</key>
+		<string>&lt;put your medable org code here&gt;</string>
+		<key>Protocol</key>
+		<string>https</string>
+		<key>BASEURL</key>
+		<string>&lt;medable.com based base URL, e.g. dev.medable.com&gt;</string>
+		<key>APIPrefix</key>
+		<string>&lt;put your medable api prefix here, e.g. api&gt;</string>
+	</dict>
+	<key>Production</key>
+	<dict>
+		<key>Medable-Client-Key</key>
+		<string>&lt;put your medable client key for production here&gt;</string>
+		<key>org</key>
+		<string>&lt;put your medable org code here&gt;</string>
+		<key>Protocol</key>
+		<string>https</string>
+		<key>BASEURL</key>
+		<string>&lt;medable.com based base URL, e.g. medable.com&gt;</string>
+		<key>APIPrefix</key>
+		<string>&lt;put your medable api prefix here, e.g. api&gt;</string>
+	</dict>
+</dict>
+</plist>

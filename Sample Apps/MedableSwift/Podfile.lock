@@ -1,0 +1,10 @@
+PODS:
+  - Medable (0.9.4)
+
+DEPENDENCIES:
+  - Medable
+
+SPEC CHECKSUMS:
+  Medable: df59eac9f56ebbb29ad73427de2cf66ca89adabc
+
+COCOAPODS: 0.36.4

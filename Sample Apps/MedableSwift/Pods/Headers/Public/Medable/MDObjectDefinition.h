@@ -1,0 +1,1 @@
+../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDObjectDefinition.h

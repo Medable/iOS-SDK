@@ -1,0 +1,4 @@
+target 'MedableSwift' do
+    platform :ios, '7.0'
+    pod 'Medable'
+end
