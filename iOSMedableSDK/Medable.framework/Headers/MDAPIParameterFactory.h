@@ -494,36 +494,16 @@ typedef NSMutableDictionary MDFileParameterValue;
 /**
  * Helper to construct post segment parameters.
  */
-@interface MDPostSegments : NSObject
+@interface MDImageOverlaysMap : NSObject
 
 /**
- * Creates a post segment.
- *
- * @param text Text.
- * @param imageAndOverlay A dictionary mapping original source and overlay for an image.
- * @param diagnoses List of diagnoses.
- *
- */
-+ (MDPostSegments*)postSegmentsWithText:(NSString*)text
-                        imageAndOverlay:(NSDictionary*)imageAndOverlay
-                              diagnoses:(NSArray*)diagnoses;
-
-/**
- *  Creates post segments
- *	filesAndOverlays is a NSDictionary with:
+ *  Creates a map with images and optional overlays
+ *	filesAndOverlays is a NSOrderedDictionary with:
  *      'key': filename / file upload name
  *      'object': overlay / overlay uplaod name
  *	Note: if no overlay set 'object': kEmptyString
- *	i.e.
- *	NSDictionary* filesAndOverlays = @{ @"fileUpload1", kEmptyString,
- *	                                    @"fileUpload2", @"fileUpload2Overlay" };
  */
-+ (MDPostSegments*)postSegmentsWithFilesAndOverlays:(NSOrderedDictionary*)filesAndOverlays NOTNULL(1);
-
-/**
- * Composition, create a segments object from other segments objects.
- */
-+ (MDPostSegments*)postSegmentsWithPostSegments:(MDPostSegments*)firstObject, ...;
++ (MDImageOverlaysMap*)mapWithFilesAndOverlays:(NSOrderedDictionary*)filesAndOverlays NOTNULL(1);
 
 /**
  *  Return all the file names that where configured by filesAndOverlays parameter

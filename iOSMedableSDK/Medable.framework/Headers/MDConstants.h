@@ -48,7 +48,6 @@ extern NSString* const kSingleUseKey;
 extern NSString* const kVerificationTokenKey;
 extern NSString* const kRoleKey;
 extern NSString* const kRolesKey;
-extern NSString* const kRolePatient;
 extern NSString* const kRoleProvider;
 extern NSString* const kBodyKey;
 extern NSString* const kDocumentsKey;
@@ -305,6 +304,7 @@ extern NSString* const kMDAPIErrorLocationClientMismatch;
 extern NSString* const kMDAPIErrorAccessDenied;
 extern NSString* const kMDAPIErrorInvalidCredentials;
 extern NSString* const kMDAPIErrorCallbackNotFound;
+extern NSString* const kMDAPIErrorInvalidFingerprint;
 
 #pragma mark - Multiple uses
 extern NSString* const kIDKey;
@@ -433,6 +433,7 @@ extern NSString* const kSenderKey;
 #pragma mark - Post
 extern NSString* const kCommentKey;
 extern NSString* const kCommentsKey;
+extern NSString* const kCommentIdsKey;
 extern NSString* const kTagsKey;
 extern NSString* const kSequenceKey;
 extern NSString* const kVoteKey;

@@ -21,7 +21,7 @@
 @class MDConnection;
 @class MDPost;
 @class MDPostComment;
-@class MDPostSegments;
+@class MDImageOverlaysMap;
 @class MDFeedDefinition;
 
 @interface MDAPIClient : NSObject
@@ -143,7 +143,7 @@
                                 role:(NSString*)role
                          profileInfo:(MDProfileInfo*)profileInfo
                           thumbImage:(UIImage *)thumbImage
-                            callback:(void (^)(NSDictionary* result, MDFault* fault))callback;
+                            callback:(void (^)(MDAccount* account, MDFault* fault))callback;
 
 /**
  *  Changes current account's password.
@@ -153,7 +153,7 @@
  */
 - (void)updatePasswordWithCurrentPassword:(NSString*)currentPassword
                               newPassword:(NSString*)newPassword
-                                 callback:(void (^)(NSDictionary* result, MDFault* fault))callback;
+                                 callback:(void (^)(MDFault* fault))callback;
 
 
 #pragma mark - Authorization
@@ -200,7 +200,7 @@
 
 /**
  * List Connections
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are filterCaller, roles and expand.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConnectionsWithParameters:(MDAPIParameters*)parameters
@@ -210,7 +210,7 @@
  * - a context object's connections and invitations to/from the caller (optionally, within a given context). The resulting array will consist of account objects and invitation objects.
  *  @param context (required)
  *  @param contextId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are filterCaller, roles and expand.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConnectionsWithContext:(NSString*)context
@@ -221,7 +221,7 @@
 /**
  * Get connection by Id
  *  @param connectionId The id of the connection
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are filterCaller, roles and expand.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)connectionWithId:(MDObjectId*)connectionId
@@ -231,7 +231,7 @@
 /**
  * Get connection by token for annonymous users
  *  @param token connection token
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are filterCaller, roles and expand.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)connectionWithToken:(NSString*)token
@@ -361,7 +361,7 @@
 /**
  * Get all post instances.
  *
- * @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are: account, creator, filterCaller, new, objects, participants, patientFile, postTypes.
+ * @param parameters Construct parameters using MDAPIParameterFactory. 
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  **/
 - (void)listAllPostsWithParameters:(MDAPIParameters*)parameters
@@ -371,7 +371,7 @@
  * Lists a context feed
  *  @param context Context (required)
  *  @param objectId Context Object Id (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are: account, creator, filterCaller, new, objects, participants, patientFile, postTypes.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listFeedWithContext:(NSString*)context
@@ -392,7 +392,7 @@
 /**
  * Gets a feed post
  *  @param postId Post ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are skip, limit, expand, include and paths.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)postWithId:(MDObjectId*)postId
@@ -501,7 +501,7 @@
 
 /**
  * Lists current API notifications (not APN notifications)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are limit, skip and expand.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listNotificationsWithParameters:(MDAPIParameters*)parameters
@@ -527,6 +527,24 @@
                           objectId:(MDObjectId*)objectId
                           callback:(void (^)(MDFault* fault))callback;
 
+/**
+ * Clears feed update (code 1) notifications. Returns the number of notifications removed.
+ *  @param postsIds A subset of post ids to clear. If not present, all post notifications are cleared.
+ *  @param postTypes A list of post types to clear. If not present, notifications for all post types are cleared.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)clearPostNotifcationsWithIDs:(NSArray*)postsIds
+                           postTypes:(NSArray*)postTypes
+                            callback:(void (^)(MDFault *))callback;
+
+/**
+ * Clears comment update (code 4) notifications. Returns the number of notifications removed.
+ *  @param commentsIds A subset of comment ids to clear.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)clearCommentNotifcationsWithIDs:(NSArray*)commentsIds
+                               callback:(void (^)(MDFault *))callback;
+
 
 #pragma mark - Media Download
 
@@ -551,9 +569,27 @@
 
 #pragma mark - Org
 
+/**
+ * Gets an Org object by Id.
+ *
+ * @param orgId The Id of the Org to retrieve.
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ * @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
 - (void)orgWithId:(MDObjectId*)orgId
        parameters:(MDAPIParameters*)parameters
          callback:(void (^)(MDOrg* org, MDFault* fault))callback;
+
+/**
+ * Update an Org object by Id.
+ *
+ * @param orgId The Id of the Org to retrieve.
+ * @param body Org body with properties and values to modify.
+ * @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)updateOrgWithId:(MDObjectId*)orgId
+                   body:(NSDictionary*)body
+               callback:(void (^)(MDOrg* org, MDFault* fault))callback;
 
 #pragma mark -
 #pragma mark Context Objects
@@ -568,7 +604,7 @@
  */
 - (void)createObjectWithContext:(NSString*)context
                            body:(NSDictionary*)body
-                       callback:(void (^)(id object, MDFault* fault))callback;
+                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 /**
  * Delete an existing object
@@ -592,12 +628,12 @@
  */
 - (void)editObject:(MDObjectInstance *)object
           withBody:(NSDictionary *)body
-          callback:(void (^)(id object, MDFault* fault))callback;
+          callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 /**
  * List context objects
  *  @param context Context (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include, paths, either (limit, skip, sort) or (rangeField, rangeStart, rangeEnd, previous and ascending), accountRoles, search, patient, patientFile, tags, diagnoses, 'and', and search.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listObjectsWithContext:(NSString*)context
@@ -608,13 +644,13 @@
  * Gets a context object
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include and paths.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)objectWithContext:(NSString*)context
                  objectId:(MDObjectId*)objectId
                parameters:(MDAPIParameters*)parameters
-                 callback:(void (^)(id object, MDFault* fault))callback;
+                 callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 /**
  * Updates a context object
@@ -626,7 +662,7 @@
 - (void)updateObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
                            body:(NSDictionary*)body
-                       callback:(void (^)(id object, MDFault* fault))callback;
+                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 
 #pragma mark - Account
@@ -661,7 +697,7 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include, paths, either (limit, skip, sort) or (rangeField, rangeStart, rangeEnd, previous and ascending), accountRoles, search, patient, patientFile, tags, diagnoses, 'and', and search.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listPatientFilesWithParameters:(MDAPIParameters*)parameters
@@ -670,7 +706,7 @@
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include and paths.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)patientFileWithId:(MDObjectId*)patientFileId
@@ -722,7 +758,7 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include, paths, either (limit, skip, sort) or (rangeField, rangeStart, rangeEnd, previous and ascending), accountRoles, search, patient, patientFile, tags, diagnoses, 'and', and search.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConversationsWithParameters:(MDAPIParameters*)parameters
@@ -731,7 +767,7 @@
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include and paths.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)conversationWithId:(MDObjectId*)conversationId
@@ -747,7 +783,7 @@
                               patientFile:(MDPatientFile*)patientFile
                               attachments:(NSArray*)attachments
                            censorOverlays:(NSArray*)censorOverlays
-                             bodySegments:(MDPostSegments*)bodySegments
+                             bodySegments:(MDImageOverlaysMap*)bodySegments
                          customPropValues:(NSDictionary*)customPropValues
                               finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
 
@@ -756,13 +792,13 @@
  *  @param conversationId   The conversation's Id
  *  @param attachments      An array of attachments to append
  *  @param censorOverlays   An array of optional overlays for the attachments
- *  @param bodySegments     Provides the relation between attachments and censorOverlays, see: MDPostSegments - postSegmentsWithFilesAndOverlays
+ *  @param bodySegments     Provides the relation between attachments and censorOverlays, see: MDImageOverlaysMap - mapWithFilesAndOverlays
  *  @param finishBlock
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
           byAppendingAttachments:(NSArray*)attachments
               withCensorOverlays:(NSArray*)censorOverlays
-                    bodySegments:(MDPostSegments*)bodySegments
+                    bodySegments:(MDImageOverlaysMap*)bodySegments
                      finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
 
 /**
@@ -812,7 +848,7 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include, paths, either (limit, skip, sort) or (rangeField, rangeStart, rangeEnd, previous and ascending), accountRoles, search, patient, patientFile, tags, diagnoses, 'and', and search.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listTeamsWithParameters:(MDAPIParameters*)parameters
@@ -821,7 +857,7 @@
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. Available parameters in this service are accessLevel, expand, include and paths.
+ *  @param parameters Construct parameters using MDAPIParameterFactory. 
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)teamWithId:(MDObjectId*)teamId
