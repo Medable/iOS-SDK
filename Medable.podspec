@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "Medable"
-    s.version          = "0.9.4"
+    s.version          = "1.0"
     s.summary          = "Medable iOS SDK."
     s.description      = <<-DESC
             Medable is a cloud platform that provides HIPAA-compliant services to mobile
