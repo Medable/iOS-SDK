@@ -8,7 +8,7 @@
 
 // Medable
 #define COCOAPODS_POD_AVAILABLE_Medable
-#define COCOAPODS_VERSION_MAJOR_Medable 0
-#define COCOAPODS_VERSION_MINOR_Medable 9
-#define COCOAPODS_VERSION_PATCH_Medable 4
+#define COCOAPODS_VERSION_MAJOR_Medable 1
+#define COCOAPODS_VERSION_MINOR_Medable 0
+#define COCOAPODS_VERSION_PATCH_Medable 1
 

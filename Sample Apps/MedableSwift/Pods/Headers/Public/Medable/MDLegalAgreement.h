@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDLegalAgreement.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDLegalAgreement.h

@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDDataFriendly.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDDataFriendly.h

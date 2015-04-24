@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDSchemaManager.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDSchemaManager.h

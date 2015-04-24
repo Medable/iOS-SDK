@@ -44,22 +44,24 @@ class ViewController: UIViewController {
                 self.orgCode?.text = org.code
                 self.status?.text = "Ok"
             }
-            
-            if let fault = fault
+            else
             {
                 self.status?.text = "Error"
-                
-                var alert : UIKit.UIAlertController = UIAlertController()
-                alert.title = "Error"
-                alert.message = fault.message
-                
-                let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
-                }
-                alert.addAction(cancelAction)
-                
-                self.presentViewController(alert, animated: true, completion: { () -> Void in
+
+                if let fault = fault
+                {
+                    var alert : UIKit.UIAlertController = UIAlertController()
+                    alert.title = "Error"
+                    alert.message = fault.message
                     
-                })
+                    let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                    }
+                    alert.addAction(cancelAction)
+                    
+                    self.presentViewController(alert, animated: true, completion: { () -> Void in
+                        
+                    })
+                }
             }
         }
     }

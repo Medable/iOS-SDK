@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDPostSegmentPropertyDefinition.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDPostSegmentPropertyDefinition.h

@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDPostComment.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDPostComment.h

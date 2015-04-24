@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDTeam.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDTeam.h

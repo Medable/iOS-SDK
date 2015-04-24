@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDNotificationManager.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDNotificationManager.h

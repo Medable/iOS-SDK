@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDFeedDefinition.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDFeedDefinition.h

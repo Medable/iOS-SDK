@@ -49,28 +49,30 @@
             self.orgCode.text = org.code;
             self.status.text = @"Ok";
         }
-        
-        if ( fault != nil )
+        else
         {
             self.status.text = @"Error";
             
-            UIAlertController *alert = [UIAlertController new];
-            alert.title = @"Error";
-            alert.message = fault.message;
-            
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok"
-                                                                   style:UIAlertActionStyleCancel
-                                                                 handler:^(UIAlertAction *action)
+            if ( fault != nil )
             {
-                                                                     
-            }];
-            
-            [alert addAction:cancelAction];
-            
-            [self presentViewController:alert animated:YES completion:^
-            {
+                UIAlertController *alert = [UIAlertController new];
+                alert.title = @"Error";
+                alert.message = fault.message;
                 
-            }];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                                       style:UIAlertActionStyleCancel
+                                                                     handler:^(UIAlertAction *action)
+                                               {
+                                                   
+                                               }];
+                
+                [alert addAction:cancelAction];
+                
+                [self presentViewController:alert animated:YES completion:^
+                 {
+                     
+                 }];
+            }
         }
     }];
 }

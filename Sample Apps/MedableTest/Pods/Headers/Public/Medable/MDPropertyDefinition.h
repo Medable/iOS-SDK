@@ -1,1 +1,1 @@
-../../../Medable/iOSMedableSDK/Medable.framework/Headers/MDPropertyDefinition.h
+../../../../../../iOSMedableSDK/Medable.framework/Headers/MDPropertyDefinition.h
