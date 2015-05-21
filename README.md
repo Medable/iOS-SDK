@@ -137,7 +137,7 @@ Integration
 
 ### Add the Environments.plist configuration file
 
-The Sample App contains an example configuration file, containing such things as your org code, api key, and target domain. The compound base URL produced will look like https://api.dev.medable.com/medable/v1.
+The Sample App contains an example configuration file, containing such things as your org code, api key, and target domain. The compound base URL produced will look like https://api.dev.medable.com/medable/v2.
 
 + Copy this file to your project and add a reference to it so you see it in your project’s navigator.
 + Configure values in Environments.plist.
@@ -158,11 +158,11 @@ The SDK uses this setup at runtime to read values from the Environments.plist fi
 + You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <Medable/Medable.h>`)
 + or import SDK classes one by one on demand in different places of your project (eg. `#import <Medable/MDAccount.h>`).
 
-### Initialize the Assets Manager
+### Initialize the Asset Manager
 
-+ Add `[MDAssetsManager sharedManager]` to your app's application:didFinishLaunchingWithOptions: method delegate.
++ Add `[MDAssetManager sharedManager];` to your app's application:didFinishLaunchingWithOptions: method delegate.
 
-Note: The Assets Manager must be initialized before authentication.
+Note: The Asset Manager must be initialized before authentication.
 
 ### Download new content from the server
 
