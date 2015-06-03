@@ -12,7 +12,7 @@
 
 /**
  * Posts are messages that users can generate. They are associated with a source context, such as a 
- * Conversation or Account. Organizations create feed definitions through the Object admininstration interface.
+ * Conversation or Account. Organizations create feed definitions through the Object administration interface.
  *
  * Posts are organized into post types and segments. A post type is the class of post, and segments are 
  * document types within the post itself. Each post type can be configured with various access permissions

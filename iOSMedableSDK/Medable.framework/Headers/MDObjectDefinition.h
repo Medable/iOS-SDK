@@ -19,7 +19,7 @@
  This information can be conceived as all model information regarding
  a certain class of objects.
  
- See `MDOBjectInstance` for model information about an instance.
+ See `MDObjectInstance` for model information about an instance.
  
  The principal instance variables are the name (plural and regular),
  the Id and properties (which is the array of properties defined for

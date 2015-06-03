@@ -158,18 +158,19 @@ The SDK uses this setup at runtime to read values from the Environments.plist fi
 + You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <Medable/Medable.h>`)
 + or import SDK classes one by one on demand in different places of your project (eg. `#import <Medable/MDAccount.h>`).
 
-### Initialize the Asset Manager
-
-+ Add `[MDAssetManager sharedManager];` to your app's application:didFinishLaunchingWithOptions: method delegate.
-
-Note: The Asset Manager must be initialized before authentication.
-
 ### Download new content from the server
 
 The REST API includes a Bundle API that enables orgs to store versioned, localized, often-changing string tables and property lists. Using MDContentDownloader as shown in the sample app, you can check for new content on application startup. There are two notifications indicating the beginning and end of the content download so you can give visual feedback, if needed.
 
 Optional Integration Steps
 ------
+### Set log level
+```objective-c
+// Setup network calls. Log to console in debug builds.
+[MDAPIClient sharedClient].loggerLevel = MDAPIClientNetworkLoggerLevelInfo;
+
+// If not set, the default loggerLevel is MDAPIClientNetworkLoggerLevelDebug.
+```
 
 ### Handling particular events by listening to notifications.
 
