@@ -21,7 +21,6 @@
 @class MDConnection;
 @class MDPost;
 @class MDPostComment;
-@class MDImageOverlaysMap;
 @class MDFeedDefinition;
 
 @interface MDAPIClient : NSObject
@@ -143,6 +142,7 @@
                                 role:(NSString*)role
                          profileInfo:(MDProfileInfo*)profileInfo
                           thumbImage:(UIImage *)thumbImage
+                    customPropValues:(NSDictionary*)customPropValues
                             callback:(void (^)(MDAccount* account, MDFault* fault))callback;
 
 /**
@@ -273,7 +273,7 @@
  */
 - (void)createConnectionWithContext:(NSString*)context
                            objectId:(MDObjectId*)objectId
-                            targets:(NSArray*)targets
+                            targets:(MDTargets*)targets
                            callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -304,12 +304,14 @@
  *  @param context Context (required)
  *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
  *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
+ *  @param autoAccept setting this to YES, creates the connection directly, without waiting for user acceptance. This needs to be configured properly in the object definition.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)inviteByAccountId:(MDObjectId*)accountId
                   context:(NSString*)context
                  objectId:(MDObjectId*)objectId
               accessLevel:(MDACLLevel)accessLevel
+               autoAccept:(NSNumber*)autoAccept
                  callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -319,6 +321,7 @@
  *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
  *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
  *  @param roles When the recipient is a team, the roles array limits invitations to those members having a matching role.
+ *  @param autoAccept setting this to YES, creates the connection directly, without waiting for user acceptance. This needs to be configured properly in the object definition.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)inviteByTeamId:(MDObjectId*)teamId
@@ -326,6 +329,7 @@
               objectId:(MDObjectId*)objectId
            accessLevel:(MDACLLevel)accessLevel
                  roles:(NSArray*)roles
+            autoAccept:(NSNumber*)autoAccept
               callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -348,12 +352,20 @@
                       callback:(void (^)(MDFault* fault))callback;
 
 /**
- * Gets a connection thumbnail
+ * Gets a connection's creator thumbnail
  *  @param tokenOrId Connection token or Id (required)
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)connectionThumbnailWithTokenOrId:(NSString*)tokenOrId
-                                callback:(MDImageOrFaultCallback)callback;
+- (void)connectionCreatorThumbnailWithTokenOrId:(NSString*)tokenOrId
+                                       callback:(MDImageOrFaultCallback)callback;
+
+/**
+ * Gets a connection's target thumbnail
+ *  @param tokenOrId Connection token or Id (required)
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)connectionTargetThumbnailWithTokenOrId:(NSString*)tokenOrId
+                                      callback:(MDImageOrFaultCallback)callback;
 
 
 #pragma mark - Feed
@@ -405,7 +417,9 @@
  *  @param objectId Object's Id (required)
  *  @param postType Post type. See each object's list of supported post types and segments.
  *  @param bodySegments An array of body segments
- *  @param targets
+ *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
+ *  Connected access any team targets. For teams, a roles array will limit the connections to those
+ *  members having the specified role(s).
  *  @param voted
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -413,7 +427,7 @@
             objectId:(MDObjectId *)objectId
             postType:(NSString*)postType
         bodySegments:(NSArray *)bodySegments
-             targets:(NSArray*)targets
+             targets:(MDTargets*)targets
                voted:(NSNumber*)voted
          finishBlock:(void (^)(MDPost* post, MDFault* fault))finishBlock;
 
@@ -453,12 +467,15 @@
  * Edits an existing post
  *  @param post Post Object (required)
  *  @param bodySegments Array of body segment.
+ *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
+ *  Connected access any team targets. For teams, a roles array will limit the connections to those
+ *  members having the specified role(s).
  *  @param voted Whether this post gets voted.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)editPost:(MDPost *)post
     bodySegments:(NSArray *)bodySegments
-         targets:(NSArray*)targets
+         targets:(MDTargets*)targets
            voted:(NSNumber*)voted
         callback:(void (^)(MDPost* post, MDFault* fault))callback;
 
@@ -725,6 +742,7 @@
                                 gender:(MDGender)gender
                                    mrn:(NSString*)mrn
                                  phone:(NSString*)phone
+                               account:(NSObject*)account
                                  image:(UIImage*)image
                            finishBlock:(void (^)(MDPatientFile* patientFile, MDFault* fault))finishBlock;
 
@@ -781,9 +799,7 @@
 - (void)createConversationWithDescription:(NSString*)description
                                  favorite:(NSNumber*)favorite
                               patientFile:(MDPatientFile*)patientFile
-                              attachments:(NSArray*)attachments
-                           censorOverlays:(NSArray*)censorOverlays
-                             bodySegments:(MDImageOverlaysMap*)bodySegments
+                              attachments:(MDAttachmentMaps*)attachments
                          customPropValues:(NSDictionary*)customPropValues
                               finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
 
@@ -791,27 +807,22 @@
  *  Updates a conversation's attachments by appending more attachments to the existing ones
  *  @param conversationId   The conversation's Id
  *  @param attachments      An array of attachments to append
- *  @param censorOverlays   An array of optional overlays for the attachments
- *  @param bodySegments     Provides the relation between attachments and censorOverlays, see: MDImageOverlaysMap - mapWithFilesAndOverlays
  *  @param finishBlock
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
-          byAppendingAttachments:(NSArray*)attachments
-              withCensorOverlays:(NSArray*)censorOverlays
-                    bodySegments:(MDImageOverlaysMap*)bodySegments
+          byAppendingAttachments:(MDAttachmentMaps*)attachments
                      finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
 
 /**
  *  Updates a conversation's attachments by replacing a particular attachment with a new one
  *  @param conversationId   The conversation's Id
  *  @param attachmentId     The Id of the attachment to replace
- *  @param censorOverlay    An optional overlay for the attachment
+ *  @param attachment       An attachment and optional overlay for the attachment
  *  @param finishBlock
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
      byReplacingAttachmentWithId:(MDObjectId*)attachmentId
-                      attachment:(UIImage*)attachment
-                   censorOverlay:(UIImage*)censorOverlay
+                      attachment:(MDAttachmentMaps*)attachment
                      finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
 
 /**

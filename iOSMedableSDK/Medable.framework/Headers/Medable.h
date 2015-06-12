@@ -17,7 +17,6 @@
 #import "MDTypedefs.h"
 #import "MDEnvironment.h"
 #import "MDGeneralBlocks.h"
-#import "NSOrderedDictionary.h"
 
 // Utils
 #import "MDDataFriendly.h"
@@ -32,8 +31,11 @@
 #import "MDNotificationManager.h"
 #import "MDAssetManager.h"
 #import "MDUploadOperations.h"
+#import "MDImageOverlayPair.h"
+#import "MDAttachmentMaps.h"
 
 // Model
+#import "MDTarget.h"
 #import "MDObjectId.h"
 #import "MDReference.h"
 #import "MDFault.h"
@@ -78,6 +80,7 @@
 #import "MDAPIClient.h"
 
 // Extensions
+#import "NSDate+MongoDB.h"
 #import "NSDictionary+JSONPrettyString.h"
 #import "NSArray+JSONPrettyString.h"
 #import "NSDictionary+Path.h"

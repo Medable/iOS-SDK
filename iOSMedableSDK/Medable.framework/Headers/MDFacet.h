@@ -52,7 +52,7 @@
 @property (nonatomic, readonly) MDObjectId* creator;
 
 /// Whether it's a private facet.
-@property (nonatomic, readonly) BOOL private;
+@property (nonatomic, readonly) BOOL isPrivate;
 
 /// Constructed by using path+ETag, will end with kUnknownETag if it's unknown.
 @property (nonatomic, readonly) NSString *fileName;

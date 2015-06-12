@@ -116,6 +116,8 @@ typedef enum : NSInteger
 @property (nonatomic, readonly) NSArray* validators;
 
 @property (nonatomic, readonly) NSDictionary* doc;
+
+/// For date properties use date only format or complete date. Respectively 'YYYY'-'DD'-'MM' OR 'yyyy'-'MM'-'dd'T'HH':'mm':'SS'.000Z' i.e. 1983-05-05T00:00:00.000Z
 @property (nonatomic, readonly) NSNumber* dateOnly;
 
 /// Subproperties in case it's a Document type.
@@ -206,5 +208,10 @@ typedef enum : NSInteger
  * @return True if a caller with this access level can push this property.
  */
 - (BOOL)canPushWithAccess:(MDACLLevel)access;
+
+/**
+ *  Debug helper. Useful to get a minimum valid json representation of this object.
+ **/
+- (NSDictionary*)friendlyRepresentation;
 
 @end

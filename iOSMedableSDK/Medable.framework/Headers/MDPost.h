@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MDConversation;
+@class MDPostSegment;
 
 /**
  * Posts are messages that users can generate. They are associated with a source context, such as a 
@@ -117,6 +118,24 @@
  */
 - (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
                                callback:(MDObjectFaultCallback)callback;
+
+/**
+ * Update the receiver with the latest data from the backend.
+ * This is the special call to update comments and be able to expand comments' subproperties, since it's not possible to do so
+ * using the synchronizeObjectWithParameters:callback: method.
+ *
+ * @param parameter Extra parameters in the API call.
+ * @param callback The asynchronous callback, called upon receiving a response from the backend.
+ */
+- (void)synchronizeCommentsWithParameters:(MDAPIParameters *)parameters
+                                 callback:(MDObjectFaultCallback)callback;
+
+/**
+ * Get the body segment with name.
+ *
+ * @param name The name of the post segment.
+ */
+- (MDPostSegment*)bodySegmentWithName:(NSString*)name;
 
 @end
 

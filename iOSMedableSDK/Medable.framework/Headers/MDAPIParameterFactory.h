@@ -94,9 +94,10 @@
  * optional properties.
  *
  * @param paths Array with paths to include.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the include paths.
  */
-+ (MDAPIParameters*)parametersWithIncludePaths:(NSArray*)paths;
++ (MDAPIParameters*)parametersWithIncludePaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;
 
 /**
  * Creates a parameter with a list of paths you only wish to see returned. See each context object for
@@ -151,24 +152,6 @@
  * @result The parameter collection containing a parameter specifying to only return new posts.
  */
 + (MDAPIParameters*)parametersWithNew;
-
-/**
- * Creates a parameter to target objects. A post type that is configured to support targeting 
- * allows the poster to make the post redable only by selected accounts or roles.
- *
- * @param accountId The id of the account to target.
- * @result The parameter collection containing a parameter specifying to the target account.
- */
-+ (MDAPIParameters*)parametersWithTargetAccountId:(MDObjectId*)accountId;
-
-/**
- * Creates a parameter to target objects. A post type that is configured to support targeting 
- * allows the poster to make the post redable only by selected accounts or roles.
- *
- * @param role The role of the account to target.
- * @result The parameter collection containing a parameter specifying the target role.
- */
-+ (MDAPIParameters*)parametersWithTargetRole:(MDAccountRole*)role;
 
 /**
  * Creates a parameter to limit objects with a particular favorite value.
@@ -488,36 +471,5 @@ typedef NSMutableDictionary MDFileParameterValue;
    withMimeType:(NSString *)mimeType
   forFacetNamed:(NSString *)facet
      inProperty:(MDPropertyDefinition *)propertyDefinition;
-
-@end
-
-/**
- * Helper to construct post segment parameters.
- */
-@interface MDImageOverlaysMap : NSObject
-
-/**
- *  Creates a map with images and optional overlays
- *	filesAndOverlays is a NSOrderedDictionary with:
- *      'key': filename / file upload name
- *      'object': overlay / overlay uplaod name
- *	Note: if no overlay set 'object': kEmptyString
- */
-+ (MDImageOverlaysMap*)mapWithFilesAndOverlays:(NSOrderedDictionary*)filesAndOverlays NOTNULL(1);
-
-/**
- *  Return all the file names that where configured by filesAndOverlays parameter
- */
-- (NSArray*)files;
-
-/**
- *  Checks if the file has an overlay and returns its name or nil if it doesn't have.
- */
-- (NSString*)overlayForFile:(NSString*)file NOTNULL(1);
-
-/**
- *  Serializes the object to the format the API expects.
- */
-- (NSArray*)apiFormat;
 
 @end

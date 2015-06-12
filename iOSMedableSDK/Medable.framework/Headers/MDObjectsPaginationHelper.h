@@ -32,6 +32,11 @@
 @interface MDObjectsPaginationHelper : NSObject
 
 /**
+ * Use it to check if there are more pages to load.
+ */
+@property (nonatomic, readonly) BOOL morePagesToLoad;
+
+/**
  * Initializer passing page size and delegate.
  *
  * @param pageSize The size of the pages in the results.

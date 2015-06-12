@@ -45,4 +45,9 @@
  */
 - (MDPostSegmentPropertyDefinition *)propertyWithName:(NSString *)name NOTNULL(1);
 
+/**
+ *  Debug helper. Useful to get a minimum valid json representation of this object.
+ **/
+- (NSDictionary*)friendlyRepresentation;
+
 @end

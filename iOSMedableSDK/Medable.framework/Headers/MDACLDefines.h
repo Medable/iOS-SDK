@@ -16,39 +16,39 @@
 #pragma mark - Access Levels
 
 /// Public: A principal with this access can scan public details (eg, Org logo).
-+ (NSUInteger)aclLevelPublic;
++ (MDACLLevel)aclLevelPublic;
 
 ///Connected: Granted when making Connections, and typically provides read access to context properties.
-+ (NSUInteger)aclLevelConnected;
++ (MDACLLevel)aclLevelConnected;
 
 ///Reserved: Reserved for a future release.
-+ (NSUInteger)aclLevelReserved;
++ (MDACLLevel)aclLevelReserved;
 
 ///Read: Grants access to private context properties. For example, accounts get read access to themselves and can read the account’s email property.
-+ (NSUInteger)aclLevelRead;
++ (MDACLLevel)aclLevelRead;
 
 ///Share: Those with share access can create connections to a context using object’s Share Chain
-+ (NSUInteger)aclLevelShare;
++ (MDACLLevel)aclLevelShare;
 
 ///Update: Update access typically provides write access to context properties.
-+ (NSUInteger)aclLevelUpdate;
++ (MDACLLevel)aclLevelUpdate;
 
 ///Delete: Grants access to delete delete/archive a context.
-+ (NSUInteger)aclLevelDelete;
++ (MDACLLevel)aclLevelDelete;
 
 ///Admin: Administrator access.
-+ (NSUInteger)aclLevelAdmin;
++ (MDACLLevel)aclLevelAdmin;
 
 #pragma mark - Targets
 
 /// Type value used when targeting accounts. Set this as the type and accompany it with an account ID to connect to other accounts.
-+ (NSUInteger)aclAccessTargetAccount;
++ (MDACLAccessTarget)aclAccessTargetAccount;
 
 /// Type value used when targeting teams. Set this as the type and accompany it with a team ID to connect to other teams.
-+ (NSUInteger)aclAccessTargetTeam;
++ (MDACLAccessTarget)aclAccessTargetTeam;
 
 /// Type value used when targeting roles.
-+ (NSUInteger)aclAccessTargetRole;
++ (MDACLAccessTarget)aclAccessTargetRole;
 
 #pragma mark - Helpers
 

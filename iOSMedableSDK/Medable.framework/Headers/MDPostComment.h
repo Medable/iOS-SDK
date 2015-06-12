@@ -81,4 +81,11 @@
 - (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
                                callback:(MDObjectFaultCallback)callback;
 
+/**
+ * Get the body segment with name.
+ *
+ * @param name The name of the post segment.
+ */
+- (MDPostSegment*)bodySegmentWithName:(NSString*)name;
+
 @end

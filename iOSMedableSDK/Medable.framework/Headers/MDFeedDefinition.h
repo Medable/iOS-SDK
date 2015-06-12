@@ -35,4 +35,9 @@
  */
 - (MDPostDefinition*)postDefinitionWithType:(NSString*)postType NOTNULL(1);
 
+/**
+ *  Debug helper. Useful to get a minimum valid json representation of this object.
+ **/
+- (NSArray*)friendlyRepresentation;
+
 @end

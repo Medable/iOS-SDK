@@ -121,7 +121,7 @@ typedef enum : NSUInteger
 typedef enum : NSUInteger
 {
     /*
-     Currently in https://github.com/dermtap/DermTapAPI/blob/object-definitions/lib/consts.js
+     Currently in https://github.com/medable/DermTapAPI/blob/object-definitions/lib/consts.js
      
      Pending: 0, // waiting for upload
      Processing: 1,  // transcoding, manual processing, etc.

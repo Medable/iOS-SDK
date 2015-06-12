@@ -110,7 +110,6 @@ extern NSString* const kMeKey;
 extern NSString* const kVersionKey;
 extern NSString* const kLocaleKey;
 extern NSString* const kFaultsKey;
-extern NSString* const kDermtapKey;
 extern NSString* const kDiagnosisKey;
 extern NSString* const kDiagnosesKey;
 extern NSString* const kTreatmentsKey;
@@ -357,7 +356,9 @@ extern NSString* const kBase64Key;
 extern NSString* const kLabelKey;
 extern NSString* const kDefaultKey;
 extern NSString* const kCommaKey;
+extern NSString* const kDotCharacterKey;
 extern NSString* const kExclamationKey;
+extern NSString* const kUnderscoreKey;
 extern NSString* const kIPhoneKey;
 extern NSString* const kPlaceholder;
 extern NSString* const kNPIHealthUSPreffix;
@@ -388,6 +389,7 @@ extern NSString* const kUnknownETag;
 extern NSString* const kSchemasETagKey;
 extern NSString* const kLogoKey;
 extern NSString* const kFaviconKey;
+extern NSString* const kAutoKey;
 
 #pragma mark - Notifications
 extern NSString* const kMDNotificationAPIIsNotLoggedIn;

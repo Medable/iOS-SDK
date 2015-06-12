@@ -48,11 +48,6 @@
 @property (nonatomic, readonly) NSNumber* age;
 
 /**
- * The object context name.
- */
-@property (nonatomic, readonly) NSString* context;
-
-/**
  * A description of the Patient File. The result varies depending on the caller's access level.
  */
 @property (nonatomic, readonly) NSString* patientFileDescription;
