@@ -332,6 +332,107 @@ NSDictionary* body = @{ aCustomProp1Definition.name: @"a string value for prop 1
 // As you see, you can get any information you need form an object, either custom or not, by accessing its definitions' reference properties.
 ```
 
+### How do I post to a feed?
+
+##### References
+- [File](https://dev.medable.com/?objective_c#files)
+- [Post](https://dev.medable.com/?objective_c#posts)
+
+##### Sample code
+```objective-c
+
+/*
+   - In this case, let's suppose we have an object whose feed definition consists of posts of type "c_post".
+   - Each "c_post" has two body segments called "c_text" --of type String, and "c_image" --of type File[], that is, an array of File objects.
+   - Each File object is composed by four facets, called "c_original", "c_overlay", "c_thumbnail" and "c_content".
+   - There are two facet processors, that take "c_original" and "c_overlay" as inputs and produce "c_content" --the original image with the overlay included, and "c_thumbnail" --a reduced version of "c_content".
+*/
+
+// Let's create a post with a message saying "Hi, this is a post with text and images", and two images, one with overlay and one without overlay.
+
+// The context object
+MDObjectInstance *contextObject;
+
+// Message
+NSString *text = @"Hi, this is a post with text and images";
+    
+// Images
+// faceImage is the UIImage with the picture of the patient's face
+// chestImage is the UIImage with the picture of the patient's chest
+// faceOverlay is the UIImage with the transparent overlay to cover the patient's face
+UIImage *faceImage;
+UIImage *faceOverlay;
+UIImage *chestImage;
+
+// Prepare the body segments
+NSMutableArray *postSegments = [NSMutableArray new];
+
+// Get the object's feed definition
+MDFeedDefinition *feedDefinition = contextObject.object.feedDefinition;
+
+// Get the post's definition
+MDPostDefinition *postDefinition = [feedDefinition postDefinitionWithType:@"c_post"];
+
+for (MDPostSegmentDefinition *segmentDefinition in postDefinition.body)
+{
+    // Configure the Text segment
+    if ([segmentDefinition.name isEqualToString:@"c_text"] &&
+        [text length])
+    {
+        MDCallingPostSegment *textSegment = [MDCallingPostSegment new];
+        textSegment.postName = segmentDefinition.name;
+        
+        // Get the post segment property definition
+        [postSegment addProperty:@"c_text" withValue:text];
+        
+        // Add the post body's text segment
+        [postSegments addObject:[textSegment apiFormat]];
+    }
+    
+    // Configure the Image segment
+    else if ([segmentDefinition.name isEqualToString:@"c_image"])
+    {
+        // Get the post segment property's definition
+        MDPostSegmentPropertyDefinition *propertyDefinition = [segmentDefinition propertyWithName:@"c_image"];
+        
+        MDCallingPostSegment *imagesSegment = [MDCallingPostSegment new];
+        imagesSegment.postName = segmentDefinition.name;
+        
+        // It's an array of Files... In this case, we have 2
+        NSMutableArray* files = [[NSMutableArray alloc] initWithCapacity:2];
+
+        MDFileParameterValue* faceWithOverlayFile = [MDFileParameterValue new];
+        [faceWithOverlayFile addImage:faceImage forFacetNamed:@"c_original" inProperty:propertyDefinition];
+        [faceWithOverlayFile addImage:overlay forFacetNamed:@"c_overlay" inProperty:propertyDefinition];
+
+        MDFileParameterValue* chestWOOverlayFile = [MDFileParameterValue new];
+        [chestWOOverlayFile addImage:chestImage forFacetNamed:@"c_original" inProperty:propertyDefinition];
+            
+        [files addObject:faceWithOverlayFile];
+        [files addObject:chestWOOverlayFile];
+        
+        [imagesSegment addProperty:@"c_image" withValue:files];
+
+        [postSegments addObject:[imagesSegment apiFormat]];
+    }
+}
+
+[[MDAPIClient sharedClient]
+ postToObject:[contextObject.object pluralNameForAPICalls]
+ objectId:contextObject.Id
+ postType:@"c_post"
+ bodySegments:postSegments
+ targets:nil
+ voted:nil
+ finishBlock:^(MDPost *post, MDFault *fault)
+ {
+     if (fault)
+     {
+            // Fault handling
+     }
+ }];
+```
+
 ### Why can't I mod an object instance? why is that there are no setters?
 
 All the modifications need to go through the api, and then you need to synchronize your object instance. This is to make it easier to avoid inconsistences between the client and the api.

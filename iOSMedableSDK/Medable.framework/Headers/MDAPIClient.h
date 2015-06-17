@@ -563,12 +563,17 @@
                                callback:(void (^)(MDFault *))callback;
 
 
-#pragma mark - Media Download
+#pragma mark - Media Upload / Download
+
+/**
+ * General purpose upload for a property's facet
+ */
++ (void)uploadData:(NSData *)data mimeType:(NSString *)mimeType forUpload:(MDFileUpload*)upload;
 
 /**
  * General purpose download for a property's facet
  */
-- (void)downloadFileAtPath:(NSString *)filePath
++ (void)downloadFileAtPath:(NSString *)filePath
                   callback:(void (^)(id streamData, MDFault* fault))callback;
 
 
@@ -635,17 +640,6 @@
                        objectId:(MDObjectId*)objectId
                          reason:(MDAPIParameters*)reason
                        callback:(void (^)(MDFault* fault))callback;
-
-/**
- * Modify an existing object, it will only change those properties passed in the body
- *
- * @param object The object being modified
- * @param body A key/value mapping property paths to values
- * @param callback The completion callback
- */
-- (void)editObject:(MDObjectInstance *)object
-          withBody:(NSDictionary *)body
-          callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 /**
  * List context objects
