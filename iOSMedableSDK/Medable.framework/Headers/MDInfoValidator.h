@@ -81,7 +81,7 @@ typedef enum : NSUInteger
  * @param type Validator type.
  * @return The data validator instance.
  */
-- (id)initWithType:(MDInfoValidatorBundleType)type;
+- (instancetype)initWithType:(MDInfoValidatorBundleType)type;
 
 /**
  * Validate data.

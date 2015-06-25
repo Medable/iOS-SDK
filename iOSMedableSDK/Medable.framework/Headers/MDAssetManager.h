@@ -68,4 +68,9 @@
  */
 - (void)deleteAllFilesMatchingRegularExpression:(NSRegularExpression *)regex NOTNULL(1);
 
+/**
+ * Remove all cached images from the decrypted memory cache.
+ */
+- (void)cleanMemoryCache;
+
 @end

@@ -29,6 +29,6 @@
  */
 - (MDFeedPaginationHelper*)initWithContextObject:(MDObjectInstance*)contextObject
                                         pageSize:(NSUInteger)pageSize
-                                        delegate:(id<MDObjectsPaginationHelperDelegate>)delegate NOTNULL(1,3);
+                                        delegate:(id<MDObjectsPaginationHelperDelegate>)delegate NOTNULL(3);
 
 @end

@@ -278,6 +278,9 @@ extern NSString* const kActivateKey;
 extern NSString* const kVerifyKey;
 extern NSString* const kPublicKey;
 extern NSString* const kProviderKey;
+extern NSString* const kProviderKey;
+extern NSString* const kAdministratorKey;
+extern NSString* const kDeveloperKey;
 extern NSString* const kAdminKey;
 extern NSString* const kFractionCompletedKey;
 

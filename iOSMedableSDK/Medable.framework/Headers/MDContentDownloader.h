@@ -28,7 +28,7 @@ extern NSString* const kContentDownloadedDidFinishDownloads;
  *
  * @param callback The asynchronous callback block that will be called every time a new bundle is downloaded.
  */
-- (id)initWithCallback:(MDNoArgumentCallback)callback;
+- (instancetype)initWithCallback:(MDNoArgumentCallback)callback;
 
 /**
  * Get the latest bundle and download all class definition schemas. Call the asynchronous callback used
