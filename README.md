@@ -66,14 +66,25 @@ Enable Core Location services
 + Add an entry to your app's info.plist file with this key NSLocationWhenInUseUsageDescription. The value you use for this is the message users will be presented when asking for permission to use location services.
 + Now hit build and check everything goes well.
 
-### Add a linker flag (-ObjC)
+### Linker
 
-This linker flag allows you to use class extensions provided by our framework.
+Add a linker flag (-ObjC), this allows you to use class extensions provided by our framework.
 
 + In XCode, click in your project’s root, select ‘Build Settings’ tab on the right, and search for ‘other linker flags’.
 + Double click on the right side of it.
 + Press the plus button.
 + And write ‘-Objc’, without the quotes.
+
+Also, be sure to include the following system frameworks:
+
++ ImageIO.framework
++ SystemConfiguration.framework
++ CoreText.framework
++ MobileCoreServices.framework
++ QuartzCore.framework
++ CoreLocation.framework
++ CFNetwork.framework
++ CoreGraphics.framework
 
 Swift
 -----

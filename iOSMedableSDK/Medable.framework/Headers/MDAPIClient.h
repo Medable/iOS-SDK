@@ -738,6 +738,7 @@
                                  phone:(NSString*)phone
                                account:(NSObject*)account
                                  image:(UIImage*)image
+                      customPropValues:(NSDictionary*)customPropValues
                            finishBlock:(void (^)(MDPatientFile* patientFile, MDFault* fault))finishBlock;
 
 /**
