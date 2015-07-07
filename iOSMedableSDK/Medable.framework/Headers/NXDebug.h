@@ -125,4 +125,8 @@ void _NXDie(NSString *reason, const char *filename, int line, const char *functi
 // Release and set to nil in a single line.
 #define	NXReleaseAndNil(x) { [x release], x = nil; }
 
-
+// Parameter validations
+#define VALID_STRING(x) ([x isKindOfClass:[NSString class]] && [x length])?YES:NO
+#define VALID_CLASS(x, y) ([x isKindOfClass:[y class]])?YES:NO
+#define VALID_ARRAY(x) ([x isKindOfClass:[NSArray class]] && [x count])?YES:NO
+#define VALID_DICTIONARY(x) ([x isKindOfClass:[NSDictionary class]] && [x count])?YES:NO

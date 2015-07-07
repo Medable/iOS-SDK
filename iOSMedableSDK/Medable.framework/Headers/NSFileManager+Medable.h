@@ -14,6 +14,7 @@
 
 - (NSString*)currentUserPath;
 - (BOOL)deleteCurrentUserDiskCache;
+- (BOOL)deleteCurrentUserTempFiles;
 
 /*
  *  @Warning The image is not encrypted using this method. Use MDAssetManager instead if you want it to be encrypted.

@@ -23,28 +23,29 @@
 @class MDPostComment;
 @class MDFeedDefinition;
 
+NS_ASSUME_NONNULL_BEGIN
 @interface MDAPIClient : NSObject
 
 /**
  * Current Organization instance.
  */
-@property (nonatomic, readonly) MDOrg *currentOrg;
+@property (nonatomic, readonly, nullable) MDOrg *currentOrg;
 
 /**
  * Logged in user's account. Will be nil when nobody is logged in.
  */
-@property (nonatomic, readonly) MDAccount* currentUser;
+@property (nonatomic, readonly, nullable) MDAccount* currentUser;
 
 /**
  * Token string for APNS.
  */
-@property (nonatomic, readonly) NSString* currentPushNotificationToken;
+@property (nonatomic, readonly, nullable) NSString* currentPushNotificationToken;
 
 /**
  * Set this value if you've received an invitation and are activating an account with it. Typically contained as the
  * last element of a URL redirect to your app.
  */
-@property (nonatomic, strong) NSString* invitationToken;
+@property (nonatomic, strong, nullable) NSString* invitationToken;
 
 /**
  * Use this accessor to change the network logging level
@@ -60,7 +61,7 @@
  *  Stores current Apple Push Notification token.
  *  @param APN token received in UIApplicationDelegate's application:didRegisterForRemoteNotificationsWithDeviceToken:
  */
-- (void)setPushNotificationToken:(NSData*)token;
+- (void)setPushNotificationToken:(nullable NSData*)token;
 
 
 #pragma mark - Root
@@ -70,7 +71,7 @@
  *
  * @param callback The callback for asynchronous return.
  */
-- (void)getOrgInfoWithCallback:(void (^)(MDOrg* org, MDFault* fault))callback;
+- (void)getOrgInfoWithCallback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
 
 #pragma mark - Property pathing
 
@@ -95,7 +96,7 @@
 - (void)modifyPropertyValueForInstance:(MDObjectInstance*)instance
                           propertyPath:(NSString*)propertyPath
                                  value:(id)value
-                              callback:(void (^)(MDObjectInstance* modifiedInstance, MDFault* fault))callback;
+                              callback:(void (^)(MDObjectInstance* __nullable modifiedInstance, MDFault* __nullable fault))callback;
 
 
 #pragma mark - Current account methods
@@ -104,7 +105,7 @@
  *  Gets latest data for current logged in account
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)currentAccount:(void (^)(MDAccount* account, MDFault* fault))callback;
+- (void)currentAccount:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 
 /**
  *  Activates an account.
@@ -135,15 +136,15 @@
 - (void)registerAccountWithFirstName:(NSString*)firstName
                             lastName:(NSString*)lastName
                                email:(NSString*)email
-                              mobile:(NSString*)mobile
+                              mobile:(nullable NSString*)mobile
                             password:(NSString*)password
-                              gender:(NSString*)gender
-                                 dob:(NSDate*)dob
-                                role:(NSString*)role
-                         profileInfo:(MDProfileInfo*)profileInfo
-                          thumbImage:(UIImage *)thumbImage
-                    customPropValues:(NSDictionary*)customPropValues
-                            callback:(void (^)(MDAccount* account, MDFault* fault))callback;
+                              gender:(nullable NSString*)gender
+                                 dob:(nullable NSDate*)dob
+                                role:(nullable NSString*)role
+                         profileInfo:(nullable MDProfileInfo*)profileInfo
+                          thumbImage:(nullable UIImage *)thumbImage
+                    customPropValues:(nullable NSDictionary*)customPropValues
+                            callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 
 /**
  *  Changes current account's password.
@@ -174,9 +175,9 @@
  */
 - (void)authenticateSessionWithEmail:(NSString*)email
                             password:(NSString*)password
-                   verificationToken:(NSString*)token
+                   verificationToken:(nullable NSString*)token
                            singleUse:(BOOL)singleUse
-                            callback:(void (^)(MDAccount* localUser, MDFault* fault))callback;
+                            callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
 
 /**
  *  Requests a password reset.
@@ -200,43 +201,43 @@
 
 /**
  * List Connections
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)listConnectionsWithParameters:(MDAPIParameters*)parameters
-                             callback:(void (^)(NSArray* connections, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listConnectionsWithParameters:(nullable MDAPIParameters*)parameters
+                             callback:(void (^)(NSArray* __nullable connections, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * - a context object's connections and invitations to/from the caller (optionally, within a given context). The resulting array will consist of account objects and invitation objects.
  *  @param context (required)
  *  @param contextId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConnectionsWithContext:(NSString*)context
                           objectId:(MDObjectId*)objectId
-                        parameters:(MDAPIParameters*)parameters
-                          callback:(void (^)(NSArray* connections, NSNumber* hasMore, MDFault* fault))callback;
+                        parameters:(nullable MDAPIParameters*)parameters
+                          callback:(void (^)(NSArray* __nullable connections, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Get connection by Id
  *  @param connectionId The id of the connection
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)connectionWithId:(MDObjectId*)connectionId
-              parameters:(MDAPIParameters*)parameters
-                callback:(void (^)(MDConnection* connection, MDFault* fault))callback;
+              parameters:(nullable MDAPIParameters*)parameters
+                callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
 
 /**
  * Get connection by token for annonymous users
  *  @param token connection token
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)connectionWithToken:(NSString*)token
-                 parameters:(MDAPIParameters*)parameters
-                   callback:(void (^)(MDConnection* connection, MDFault* fault))callback;
+                 parameters:(nullable MDAPIParameters*)parameters
+                   callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
 
 /**
  * Reject a collaboration invitation.
@@ -264,10 +265,10 @@
 
 /**
  * Create a new connection to an object instance and several targets.
- * 
+ *
  * @param context The name of the object class you are creating a connection in.
  * @param objectId The ID of the object instance for this class that's being connected.
- * @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have 
+ * @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
  *  Connected access any team targets. For teams, a roles array will limit the connections to those
  *  members having the specified role(s).
  */
@@ -291,8 +292,8 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)inviteByEmail:(NSString*)email
-     inviteeFirstName:(NSString*)inviteeFirstName
-      inviteeLastName:(NSString*)inviteeLastName
+     inviteeFirstName:(nullable NSString*)inviteeFirstName
+      inviteeLastName:(nullable NSString*)inviteeLastName
               context:(NSString*)context
              objectId:(MDObjectId*)objectId
           accessLevel:(MDACLLevel)accessLevel
@@ -311,7 +312,7 @@
                   context:(NSString*)context
                  objectId:(MDObjectId*)objectId
               accessLevel:(MDACLLevel)accessLevel
-               autoAccept:(NSNumber*)autoAccept
+               autoAccept:(nullable NSNumber*)autoAccept
                  callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -328,8 +329,8 @@
                context:(NSString*)context
               objectId:(MDObjectId*)objectId
            accessLevel:(MDACLLevel)accessLevel
-                 roles:(NSArray*)roles
-            autoAccept:(NSNumber*)autoAccept
+                 roles:(nullable NSArray*)roles
+            autoAccept:(nullable NSNumber*)autoAccept
               callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -341,7 +342,7 @@
  */
 - (void)updateConnectionWithId:(MDObjectId*)connectionId
                           body:(NSDictionary*)body
-                      callback:(void (^)(MDConnection* connection, MDFault* fault))callback;
+                      callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
 
 /**
  * Removes a collaboration.
@@ -373,23 +374,23 @@
 /**
  * Get all post instances.
  *
- * @param parameters Construct parameters using MDAPIParameterFactory. 
+ * @param parameters Construct parameters using MDAPIParameterFactory.
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  **/
-- (void)listAllPostsWithParameters:(MDAPIParameters*)parameters
-                          callback:(void (^)(NSArray* feed, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listAllPostsWithParameters:(nullable MDAPIParameters*)parameters
+                          callback:(void (^)(NSArray* __nullable feed, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Lists a context feed
  *  @param context Context (required)
  *  @param objectId Context Object Id (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listFeedWithContext:(NSString*)context
                    objectId:(MDObjectId*)objectId
-                 parameters:(MDAPIParameters*)parameters
-                   callback:(void (^)(NSArray* feed, NSNumber* hasMore, MDFault* fault))callback;
+                 parameters:(nullable MDAPIParameters*)parameters
+                   callback:(void (^)(NSArray* __nullable feed, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Lists the comments in a post
@@ -398,18 +399,18 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listCommentsForPost:(MDPost*)post
-                 parameters:(MDAPIParameters*)parameters
-                   callback:(void (^)(NSArray* comments, NSNumber* hasMore, MDFault* fault))callback;
+                 parameters:(nullable MDAPIParameters*)parameters
+                   callback:(void (^)(NSArray* __nullable comments, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Gets a feed post
  *  @param postId Post ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)postWithId:(MDObjectId*)postId
-        parameters:(MDAPIParameters*)parameters
-          callback:(void (^)(MDPost* post, MDFault* fault))callback;
+        parameters:(nullable MDAPIParameters*)parameters
+          callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Posts to a context's feed
@@ -427,9 +428,9 @@
             objectId:(MDObjectId *)objectId
             postType:(NSString*)postType
         bodySegments:(NSArray *)bodySegments
-             targets:(MDTargets*)targets
-               voted:(NSNumber*)voted
-         finishBlock:(void (^)(MDPost* post, MDFault* fault))finishBlock;
+             targets:(nullable MDTargets*)targets
+               voted:(nullable NSNumber*)voted
+            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Posts a comment to a post
@@ -439,8 +440,8 @@
  */
 - (void)postCommentToPost:(MDPost*)post
              bodySegments:(NSArray*)bodySegments
-                    voted:(NSNumber*)voted
-                 callback:(void (^)(MDPostComment* post, MDFault* fault))callback;
+                    voted:(nullable NSNumber*)voted
+                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Votes a post / comment
@@ -458,7 +459,7 @@
  * @param commentId The Object ID of the post comment object.
  * @param voted Boolean value specifying the vote type.
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
- */ 
+ */
 - (void)voteCommentWithId:(MDObjectId*)commentId
                     voted:(BOOL)voted
                  callback:(void (^)(MDFault* fault))callback;
@@ -475,9 +476,9 @@
  */
 - (void)editPost:(MDPost *)post
     bodySegments:(NSArray *)bodySegments
-         targets:(MDTargets*)targets
-           voted:(NSNumber*)voted
-        callback:(void (^)(MDPost* post, MDFault* fault))callback;
+         targets:(nullable MDTargets*)targets
+           voted:(nullable NSNumber*)voted
+        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Modify a post comment.
@@ -488,8 +489,8 @@
  */
 - (void)editComment:(MDPostComment *)comment
        bodySegments:(NSArray *)bodySegments
-              voted:(NSNumber*)voted
-           callback:(void (^)(MDPostComment* postComment, MDFault* fault))callback;
+              voted:(nullable NSNumber*)voted
+           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback;
 
 /**
  * Deletes an existing post.
@@ -499,7 +500,7 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deletePostWithId:(MDObjectId*)postId
-              parameters:(MDAPIParameters*)parameters
+              parameters:(nullable MDAPIParameters*)parameters
                 callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -510,7 +511,7 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteCommentWithId:(MDObjectId*)commentId
-                 parameters:(MDAPIParameters*)parameters
+                 parameters:(nullable MDAPIParameters*)parameters
                    callback:(void (^)(MDFault* fault))callback;
 
 
@@ -518,11 +519,11 @@
 
 /**
  * Lists current API notifications (not APN notifications)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)listNotificationsWithParameters:(MDAPIParameters*)parameters
-                               callback:(void (^)(NSArray* notifications, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listNotificationsWithParameters:(nullable MDAPIParameters*)parameters
+                               callback:(void (^)(NSArray* __nullable notifications, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Clears a notification
@@ -540,8 +541,8 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)clearNotificationsWithType:(MDNotificationType)type
-                           context:(NSString*)context
-                          objectId:(MDObjectId*)objectId
+                           context:(nullable NSString*)context
+                          objectId:(nullable MDObjectId*)objectId
                           callback:(void (^)(MDFault* fault))callback;
 
 /**
@@ -551,7 +552,7 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)clearPostNotifcationsWithIDs:(NSArray*)postsIds
-                           postTypes:(NSArray*)postTypes
+                           postTypes:(nullable NSArray*)postTypes
                             callback:(void (^)(MDFault *))callback;
 
 /**
@@ -599,8 +600,8 @@
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)orgWithId:(MDObjectId*)orgId
-       parameters:(MDAPIParameters*)parameters
-         callback:(void (^)(MDOrg* org, MDFault* fault))callback;
+       parameters:(nullable MDAPIParameters*)parameters
+         callback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
 
 /**
  * Update an Org object by Id.
@@ -611,7 +612,7 @@
  */
 - (void)updateOrgWithId:(MDObjectId*)orgId
                    body:(NSDictionary*)body
-               callback:(void (^)(MDOrg* org, MDFault* fault))callback;
+               callback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
 
 #pragma mark -
 #pragma mark Context Objects
@@ -626,7 +627,7 @@
  */
 - (void)createObjectWithContext:(NSString*)context
                            body:(NSDictionary*)body
-                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
+                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
 
 /**
  * Delete an existing object
@@ -638,30 +639,30 @@
  */
 - (void)deleteObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
-                         reason:(MDAPIParameters*)reason
+                         reason:(nullable MDAPIParameters*)reason
                        callback:(void (^)(MDFault* fault))callback;
 
 /**
  * List context objects
  *  @param context Context (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listObjectsWithContext:(NSString*)context
-                    parameters:(MDAPIParameters*)parameters
-                      callback:(void (^)(NSArray* objects, NSNumber* hasMore, MDFault* fault))callback;
+                    parameters:(nullable MDAPIParameters*)parameters
+                      callback:(void (^)(NSArray* __nullable objects, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Gets a context object
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)objectWithContext:(NSString*)context
                  objectId:(MDObjectId*)objectId
-               parameters:(MDAPIParameters*)parameters
-                 callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
+               parameters:(nullable MDAPIParameters*)parameters
+                 callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
 
 /**
  * Updates a context object
@@ -673,7 +674,7 @@
 - (void)updateObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
                            body:(NSDictionary*)body
-                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
+                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
 
 
 #pragma mark - Account
@@ -683,24 +684,24 @@
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateAccountWithID:(MDObjectId*)userID
-                  firstName:(NSString*)firstName
-                   lastName:(NSString*)lastName
-                     gender:(NSString*)gender
-                     mobile:(NSString*)mobile
-                        dob:(NSString*)dob
-                profileInfo:(MDProfileInfo*)profileInfo
-                   favorite:(NSNumber*)favorite
-                preferences:(NSDictionary*)preferences
-                      image:(UIImage*)image
-           customPropValues:(NSDictionary*)customPropValues
-                finishBlock:(void (^)(MDAccount* account, MDFault* fault))finishBlock;
+                  firstName:(nullable NSString*)firstName
+                   lastName:(nullable NSString*)lastName
+                     gender:(nullable NSString*)gender
+                     mobile:(nullable NSString*)mobile
+                        dob:(nullable NSString*)dob
+                profileInfo:(nullable MDProfileInfo*)profileInfo
+                   favorite:(nullable NSNumber*)favorite
+                preferences:(nullable NSDictionary*)preferences
+                      image:(nullable UIImage*)image
+           customPropValues:(nullable NSDictionary*)customPropValues
+                   callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 
 /**
  * Deletes context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteAccountWithId:(MDObjectId*)accountId
-                     reason:(MDAPIParameters*)reason
+                     reason:(nullable MDAPIParameters*)reason
                    callback:(void (^)(MDFault* fault))callback;
 
 
@@ -708,21 +709,21 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)listPatientFilesWithParameters:(MDAPIParameters*)parameters
-                              callback:(void (^)(NSArray* patientFiles, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listPatientFilesWithParameters:(nullable MDAPIParameters*)parameters
+                              callback:(void (^)(NSArray* __nullable patientFiles, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)patientFileWithId:(MDObjectId*)patientFileId
-               parameters:(MDAPIParameters*)parameters
-                 callback:(void (^)(MDPatientFile* patientFile, MDFault* fault))callback;
+               parameters:(nullable MDAPIParameters*)parameters
+                 callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
 
 /**
  * Creates a context object
@@ -731,39 +732,39 @@
 - (void)createPatientfileWithFirstName:(NSString*)firstName
                               lastName:(NSString*)lastName
                                    dob:(NSDate*)dob
-                                 email:(NSString*)email
+                                 email:(nullable NSString*)email
                               favorite:(BOOL)favorite
                                 gender:(MDGender)gender
-                                   mrn:(NSString*)mrn
-                                 phone:(NSString*)phone
-                               account:(NSObject*)account
-                                 image:(UIImage*)image
-                      customPropValues:(NSDictionary*)customPropValues
-                           finishBlock:(void (^)(MDPatientFile* patientFile, MDFault* fault))finishBlock;
+                                   mrn:(nullable NSString*)mrn
+                                 phone:(nullable NSString*)phone
+                               account:(nullable NSObject*)account
+                                 image:(nullable UIImage*)image
+                      customPropValues:(nullable NSDictionary*)customPropValues
+                              callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
 
 /**
  * Updates a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updatePatientFileWithId:(MDObjectId*)patientFileId
-                      firstName:(NSString*)firstName
-                       lastName:(NSString*)lastName
-                            dob:(NSString*)dob
-                          email:(NSString*)email
-                       favorite:(NSNumber*)favorite
+                      firstName:(nullable NSString*)firstName
+                       lastName:(nullable NSString*)lastName
+                            dob:(nullable NSString*)dob
+                          email:(nullable NSString*)email
+                       favorite:(nullable NSNumber*)favorite
                          gender:(MDGender)gender
-                            mrn:(NSString*)mrn
-                          phone:(NSString*)phone
-                          image:(UIImage*)image
-               customPropValues:(NSDictionary*)customPropValues
-                    finishBlock:(void (^)(MDPatientFile* patientFile, MDFault* fault))finishBlock;
+                            mrn:(nullable NSString*)mrn
+                          phone:(nullable NSString*)phone
+                          image:(nullable UIImage*)image
+               customPropValues:(nullable NSDictionary*)customPropValues
+                       callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
 
 /**
  * Deletes a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deletePatientfileWithId:(MDObjectId*)patientFileId
-                         reason:(MDAPIParameters*)reason
+                         reason:(nullable MDAPIParameters*)reason
                        callback:(void (^)(MDFault* fault))callback;
 
 
@@ -771,82 +772,82 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)listConversationsWithParameters:(MDAPIParameters*)parameters
-                               callback:(void (^)(NSArray* conversations, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listConversationsWithParameters:(nullable MDAPIParameters*)parameters
+                               callback:(void (^)(NSArray* __nullable conversations, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)conversationWithId:(MDObjectId*)conversationId
-                parameters:(MDAPIParameters*)parameters
-                  callback:(void (^)(MDConversation* conversation, MDFault* fault))callback;
+                parameters:(nullable MDAPIParameters*)parameters
+                  callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
  * Creates a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)createConversationWithDescription:(NSString*)description
-                                 favorite:(NSNumber*)favorite
-                              patientFile:(MDPatientFile*)patientFile
-                              attachments:(MDAttachmentMaps*)attachments
-                         customPropValues:(NSDictionary*)customPropValues
-                              finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
+- (void)createConversationWithDescription:(nullable NSString*)description
+                                 favorite:(nullable NSNumber*)favorite
+                              patientFile:(nullable MDPatientFile*)patientFile
+                              attachments:(nullable MDAttachmentMaps*)attachments
+                         customPropValues:(nullable NSDictionary*)customPropValues
+                                 callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
  *  Updates a conversation's attachments by appending more attachments to the existing ones
  *  @param conversationId   The conversation's Id
  *  @param attachments      An array of attachments to append
- *  @param finishBlock
+ *  @param callback
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
           byAppendingAttachments:(MDAttachmentMaps*)attachments
-                     finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
  *  Updates a conversation's attachments by replacing a particular attachment with a new one
  *  @param conversationId   The conversation's Id
  *  @param attachmentId     The Id of the attachment to replace
  *  @param attachment       An attachment and optional overlay for the attachment
- *  @param finishBlock
+ *  @param callback
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
      byReplacingAttachmentWithId:(MDObjectId*)attachmentId
                       attachment:(MDAttachmentMaps*)attachment
-                     finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
  *  Updates a conversation's attachments by deleting a particular attachment
  *  @param conversationId   The conversation's Id
  *  @param attachmentId     The Id of the attachment to delete
- *  @param finishBlock
+ *  @param callback
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
       byDeletingAttachmentWithId:(MDObjectId*)attachmentId
-                     finishBlock:(void (^)(MDFault* fault))finishBlock;
+                        callback:(void (^)(MDFault* fault))callback;
 
 /**
  * Updates a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
-                     description:(NSString*)description
-                     patientFile:(MDPatientFile*)patientFile
-                        favorite:(NSNumber*)favorite
-                customPropValues:(NSDictionary*)customPropValues
-                     finishBlock:(void (^)(MDConversation* conversation, MDFault* fault))finishBlock;
+                     description:(nullable NSString*)description
+                     patientFile:(nullable MDPatientFile*)patientFile
+                        favorite:(nullable NSNumber*)favorite
+                customPropValues:(nullable NSDictionary*)customPropValues
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
  * Deletes a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteConversationWithId:(MDObjectId*)conversationId
-                          reason:(MDAPIParameters*)reason
+                          reason:(nullable MDAPIParameters*)reason
                         callback:(void (^)(MDFault* fault))callback;
 
 
@@ -854,21 +855,21 @@
 
 /**
  * List context objects
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)listTeamsWithParameters:(MDAPIParameters*)parameters
-                       callback:(void (^)(NSArray* teams, NSNumber* hasMore, MDFault* fault))callback;
+- (void)listTeamsWithParameters:(nullable MDAPIParameters*)parameters
+                       callback:(void (^)(NSArray* __nullable teams, NSNumber* hasMore, MDFault* __nullable fault))callback;
 
 /**
  * Gets a context object
  *  @param objectId Context ObjectId (required)
- *  @param parameters Construct parameters using MDAPIParameterFactory. 
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)teamWithId:(MDObjectId*)teamId
-        parameters:(MDAPIParameters*)parameters
-          callback:(void (^)(MDTeam* team, MDFault* fault))callback;
+        parameters:(nullable MDAPIParameters*)parameters
+          callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
 
 /**
  * Creates a context object
@@ -876,27 +877,28 @@
  */
 - (void)createTeamWithName:(NSString*)name
                description:(NSString*)description
-                  favorite:(NSNumber*)favorite
-          customPropValues:(NSDictionary*)customPropValues
-               finishBlock:(void (^)(MDTeam* team, MDFault* fault))finishBlock;
+                  favorite:(nullable NSNumber*)favorite
+          customPropValues:(nullable NSDictionary*)customPropValues
+                  callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
 
 /**
  * Updates a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateTeamWithId:(MDObjectId*)teamId
-                    name:(NSString*)name
-             description:(NSString*)description
-                favorite:(NSNumber*)favorite
-        customPropValues:(NSDictionary*)customPropValues
-             finishBlock:(void (^)(MDTeam* team, MDFault* fault))finishBlock;
+                    name:(nullable NSString*)name
+             description:(nullable NSString*)description
+                favorite:(nullable NSNumber*)favorite
+        customPropValues:(nullable NSDictionary*)customPropValues
+                callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
 
 /**
  * Deletes a context object
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteTeamWithId:(MDObjectId*)teamId
-                  reason:(MDAPIParameters*)reason
+                  reason:(nullable MDAPIParameters*)reason
                 callback:(void (^)(MDFault* fault))callback;
 
 @end
+NS_ASSUME_NONNULL_END

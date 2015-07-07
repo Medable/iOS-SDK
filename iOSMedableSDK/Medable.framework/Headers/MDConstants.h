@@ -308,6 +308,21 @@ extern NSString* const kMDAPIErrorInvalidCredentials;
 extern NSString* const kMDAPIErrorCallbackNotFound;
 extern NSString* const kMDAPIErrorInvalidFingerprint;
 
+#pragma mark - Local Faults
+extern NSString* const kLocalFaultName;
+
+extern NSString* const kLocalFaultCodeIllegalParameter;
+extern NSString* const kLocalFaultCodeUnhandledError;
+extern NSString* const kLocalFaultCodeCantParseNSErrorOrFault;
+
+extern NSString* const kLocalFaultMessageParameterCantBeNil;
+extern NSString* const kLocalFaultMessageFailureCallbackWithNoFault;
+extern NSString* const kLocalFaultMessageCantParseNSErrorOrFault;
+extern NSString* const kLocalFaultMessageInvalidParameter;
+
+extern NSString* const kCallback;
+extern NSString* const kParameters;
+
 #pragma mark - Multiple uses
 extern NSString* const kIDKey;
 extern NSString* const kNameKey;
@@ -402,9 +417,9 @@ extern NSString* const kMDNotificationNetworkReachabilityInternetConnectionAvail
 extern NSString* const kMDNotificationAPIServerErrorDidOccur;
 extern NSString* const kMDNotificationUserDidLogin;
 extern NSString* const kMDNotificationUserDidLogout;
-extern NSString* const kMDNotificationImageDownloaded;
 extern NSString* const kMDNotificationHTTPErrorStatusCodeReceived;
-extern NSString* const kMDStartedUploadOperation;
+extern NSString* const kMDNotificationStartedUploadOperation;
+extern NSString* const kMDNotificationLocalFaultNotification;
 
 #pragma mark - MDNotification
 extern NSString* const kNotificationContextKey;

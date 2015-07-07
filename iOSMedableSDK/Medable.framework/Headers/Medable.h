@@ -39,6 +39,7 @@
 #import "MDObjectId.h"
 #import "MDReference.h"
 #import "MDFault.h"
+#import "MDLocalFault.h"
 #import "MDAccountRole.h"
 #import "MDNotification.h"
 #import "MDProfileInfo.h"

@@ -43,14 +43,14 @@
 @property (nonatomic, readonly) NSDictionary* meta;
 
 /**
- * Unique identifier of the object this notification corresponds to.
+ * The object name (notification).
  */
-@property (nonatomic, readonly) MDObjectId* object;
+@property (nonatomic, readonly) NSString* object;
 
 /**
- * Type.
+ * Notification Type.
  */
-@property (nonatomic, readonly) NSNumber* type;
+@property (nonatomic, readonly) MDObjectId* type;
 
 /**
  * Type enumeration.
@@ -60,9 +60,18 @@
 @property (nonatomic, readonly) MDNotificationType typeEnumerated;
 
 /**
+ * Returns the ObjectId representing the type of notification.
+ *
+ * @param type type of notification
+ *
+ * @return MDObjectId representing the type of notification.
+ */
++ (MDObjectId*)typeIdWithType:(MDNotificationType)type;
+
+/**
  * Create a new notification object from a received notification.
  *
- * @param attributes Notification information, as received.
+ * @param notifAttributes Notification information, as received.
  *
  * @return Instance representing the received notification.
  */

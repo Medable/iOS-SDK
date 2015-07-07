@@ -84,10 +84,11 @@ typedef enum : NSUInteger
 typedef enum : NSInteger
 {
     MDNotificationTypeNotSpecified = -1,
-    MDNotificationTypePostUpdate = 1,
-    MDNotificationTypeInvitation = 2,
-    MDNotificationTypeTransferRequest = 3,
-    MDNotificationTypeCommentUpdate = 4
+    MDNotificationTypePostUpdate,
+    MDNotificationTypeConnectionCreated,
+    MDNotificationTypeInvitation,
+    MDNotificationTypeTransferRequest,
+    MDNotificationTypeCommentUpdate
 } MDNotificationType;
 
 typedef enum : NSUInteger

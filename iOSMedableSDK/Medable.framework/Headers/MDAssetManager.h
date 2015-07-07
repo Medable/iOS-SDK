@@ -22,15 +22,6 @@
 @property (nonatomic, assign) BOOL useDecryptedDataMemoryCache;
 
 /**
- * Decrypt a file stored in permanent storage.
- *
- * @param filename File name to decrypt.
- * @param callback Asynchronous return callback.
- */
-- (void)decryptedDataWithFilename:(NSString*)filename
-                         callback:(MDObjectCallback)callback NOTNULL(1,2);
-
-/**
  * Get a file's data by retrieving it from it's most convenient location. Will pull from memory
  * if it's stored there.
  *

@@ -228,6 +228,14 @@
  */
 + (MDAPIParameters*)parametersWithPatientFileId:(MDObjectId*)patientFileId;
 
+/**
+ * Creates a parameter to specify a notification type.
+ *
+ * @param notificationType The type (ObjectId) of the notifications.
+ * @result The parameter specifying the type of notifications.
+ */
++ (MDAPIParameters*)parametersWithNotificationType:(MDObjectId*)notificationType;
+
 @end
 
 /**
