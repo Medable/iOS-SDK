@@ -8,6 +8,7 @@
 
 @interface NSArray (JSONPrettyString)
 
+- (NSString*)jsonString;
 - (NSString*)jsonPrettyString;
 
 @end

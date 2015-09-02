@@ -40,4 +40,6 @@
 /// Array of fields that must be included when uploading this file.
 @property (nonatomic, readonly) NSArray *fields;
 
+- (NSString*)mimeType;
+
 @end

@@ -48,6 +48,11 @@
  */
 @property (nonatomic, readonly) MDReference* patientFile;
 
+/**
+ * Get the collaborators of this conversation
+ *
+ * @return collaborators of this conversation
+ */
 - (NSArray*)collaborators;
 
 /**

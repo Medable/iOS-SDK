@@ -14,22 +14,13 @@
  * for other orgs to access data in yours. Each org is identified with an OrganizationId, and all data
  * within your org is keyed to that Id.
  */
-@interface MDOrg : NSObject
-
-/// Unique Identified
-@property (nonatomic, readonly) MDObjectId* Id;
-
-/// Name of object class, which is "Org" in this case.
-@property (nonatomic, readonly) NSString* object;
-
-/// Access level the user has on this Org.
-@property (nonatomic, readonly) MDACLLevel access;
+@interface MDOrg : MDObjectInstance
 
 /// Name of the organization.
 @property (nonatomic, readonly) NSString* name;
 
 /// ETag for the bundle.
-@property (nonatomic, readonly) NSString* bundleETag;
+@property (nonatomic, readonly) NSString* bundleVersion;
 
 /// ETag for the schemas.
 @property (nonatomic, readonly) NSString* schemasETag;
@@ -49,6 +40,24 @@
 /// The Org’s configured roles.
 @property (nonatomic, readonly) NSArray* roles;
 
+/// The Org’s configured applications.
+@property (nonatomic, readonly) NSArray* apps;
+
+/// Org configuration settings.
+@property (nonatomic, readonly) NSDictionary* configuration;
+
+/// Org registration settings.
+@property (nonatomic, readonly) NSDictionary* registration;
+
+/// Org security settings.
+@property (nonatomic, readonly) NSDictionary* security;
+
+/// The Org state.
+@property (nonatomic, readonly) NSString* state;
+
+/// The Org website, available for use as a variable in email templates (org.website).
+@property (nonatomic, readonly) NSString* website;
+
 /**
  * Convenience method to find the role in the roles array to match a given role name.
  *
@@ -56,14 +65,5 @@
  * @return Account role instance that matches the name, nil if none do.
  */
 - (MDAccountRole*)accountRoleWithName:(NSString*)roleName NOTNULL(1);
-
-/**
- * Synchronize this object with the latest from the backend.
- *
- * @param parameters Extra API parameters.
- * @param callback The asynchronous callback that gets called after the API call returns.
- */
-- (void)synchronizeObjectWithParameters:(MDAPIParameters*)parameters
-                               callback:(MDObjectFaultCallback)callback;
 
 @end

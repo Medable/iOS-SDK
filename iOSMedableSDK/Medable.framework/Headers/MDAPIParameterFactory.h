@@ -26,6 +26,15 @@
  */
 + (NSString*)pathStringWithComponents:(NSArray*)pathComponents;
 
+
+/**
+ * Construct a path string from it's path components.
+ *
+ * @param pathComponents variadic list of components. Requires nil termination.
+ * @return The string representing the assembled path.
+ */
++ (NSString*)pathWithComponents:(NSString*)pathComponent, ... NS_REQUIRES_NIL_TERMINATION;
+
 @end
 
 /**
@@ -38,7 +47,8 @@
  *
  * @param parameters The other parameter collection.
  */
-- (void)addParametersWithParameters:(MDAPIParameters*)parameters;
+- (void)addParameters:(MDAPIParameters*)parameters;
+- (void)addParametersWithParameters:(MDAPIParameters*)parameters __attribute__((deprecated));
 
 /**
  * Add parameters from a dictionary instead of another collection.
@@ -78,16 +88,17 @@
  * @param accessLevel The minium access level to filter with.
  * @result The paramter collection containing the minimum access level parameter only.
  */
-+ (MDAPIParameters*)parametersWithMinimunAccessLevel:(MDACLLevel)accessLevel;
++ (MDAPIParameters*)parametersWithminimumAccessLevel:(MDACLLevel)accessLevel;
 
 /**
  * Creates a parameter with a list of paths to expand from referenced ids. See each context object for
  * expandable properties. Items are expanded with the caller's access level (Public access is granted).
  *
  * @param paths Array with paths to expand.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the expand paths.
  */
-+ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths;
++ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;;
 
 /**
  * Creates a parameter with a list of optional paths to include. See each context object for
@@ -104,9 +115,10 @@
  * optional properties.
  *
  * @param paths Array with paths to limit the result to.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the paths limitations.
  */
-+ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths;
++ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;;
 
 /**
  * Creates a parameter with a limit on the resulting list.
@@ -116,6 +128,7 @@
  */
 + (MDAPIParameters*)parametersWithLimitResultsTo:(NSUInteger)count;
 
+
 /**
  * Creates a parameter with a first and last object IDs you want in the results. Both parameters
  * are optional, but at least one must be defined.
@@ -123,9 +136,42 @@
  * @param startingAfter Returns the next page of results, not including the startingAfter id.
  * @param endingBefore Returns the previous page of results, not including the endingBefore id.
  * @result The parameter collection containing a parameter that will limit the range of results.
- */
+*/
 + (MDAPIParameters*)parametersWithStartingAfter:(MDObjectId*)startingAfter
-                                   endingBefore:(MDObjectId*)endingBefore;
+                                   endingBefore:(MDObjectId*)endingBefore __attribute__((deprecated));
+
+/**
+ * Creates a parameter with the first object ID you want in the results.
+ *
+ * @param startingAfter Returns the next page of results, not including the startingAfter id.
+ * @result The parameter collection containing a parameter that will limit the range of results.
+*/
++ (MDAPIParameters*)parametersWithStartingAfter:(MDObjectId*)startingAfter;
+
+/**
+ * Creates a parameter with the last object ID you want in the results.
+ *
+ * @param endingBefore Returns the previous page of results, not including the endingBefore id.
+ * @result The parameter collection containing a parameter that will limit the range of results.
+ */
++ (MDAPIParameters*)parametersWithEndingBefore:(MDObjectId*)endingBefore;
+
+/**
+ * Creates a parameter with a skip count on the resulting list.
+ *
+ * @param count The amount of results to skip. Useful when getting paginated results.
+ * @result The parameter collection containing a parameter that will skip the amount of results.
+ */
++ (MDAPIParameters*)parametersWithSkip:(NSUInteger)count;
+
+/**
+ * Sorting and filtering queries.
+ *
+ * @param sortParams Sorting parameters.
+ * @param where Sorting filter parameters.
+ * @result The parameter collection containing a parameter that will skip the amount of results.
+ */
++ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams where:(NSDictionary*)where;
 
 /**
  * Creates a parameter with a reason for archiving the object.
@@ -145,13 +191,6 @@
  */
 + (MDAPIParameters*)parametersWithIncludePostTypes:(NSArray*)includePostTypes
                                   excludePostTypes:(NSArray*)excludePostTypes;
-
-/**
- * Creates a parameter where only posts unread by the caller are returned.
- *
- * @result The parameter collection containing a parameter specifying to only return new posts.
- */
-+ (MDAPIParameters*)parametersWithNew;
 
 /**
  * Creates a parameter to limit objects with a particular favorite value.

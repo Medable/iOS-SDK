@@ -28,13 +28,11 @@
  * @param pageSize Size of resulting pages.
  * @param baseParameters Base API parameters.
  * @param customParameters Custom API parameters.
- * @param delegate Delegate.
  * @return The context object pagination helper instance.
  */
 - (MDContextObjectPaginationHelper*)initWithContext:(NSString*)context
                                            pageSize:(NSUInteger)pageSize
                                      baseParameters:(MDAPIParameters*)baseParameters
-                                   customParameters:(MDAPIParameters*)customParameters
-                                           delegate:(id<MDObjectsPaginationHelperDelegate>)delegate NOTNULL(1,5);
+                                   customParameters:(MDAPIParameters*)customParameters NOTNULL(1);
 
 @end

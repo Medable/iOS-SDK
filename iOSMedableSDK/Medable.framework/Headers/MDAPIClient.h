@@ -67,11 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Root
 
 /**
- * Obtain the current Organization's information. This will be downloaded once in an app's lifecycle.
+ * Obtain the public Organization's information.
  *
  * @param callback The callback for asynchronous return.
  */
-- (void)getOrgInfoWithCallback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
+- (void)getPublicOrgInfoWithCallback:(void (^)(NSDictionary* __nullable orgInfo, MDFault* __nullable fault))callback;
 
 #pragma mark - Property pathing
 
@@ -80,10 +80,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param instance The instance you are querying.
  * @param propertyPath The path, represented as a string, to the property being queried. This path can be any standard URL suffix.
+ * @param parameters Construct parameters using MDAPIParameterFactory.
  * @param callback The block that will fire asynchronously once the value is obtained.
  */
 - (void)propertyValueWithInstance:(MDObjectInstance*)instance
                      propertyPath:(NSString*)propertyPath
+                       parameters:(nullable MDAPIParameters*)parameters
                          callback:(void (^)(id value, MDFault* fault))callback;
 
 /**
@@ -157,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
                                  callback:(void (^)(MDFault* fault))callback;
 
 
-#pragma mark - Authorization
+#pragma mark - Authentication
 
 /**
  *  Logout an authenticated session client.
@@ -189,6 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reset password.
+ *  @param token
  *  @param password
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -527,7 +530,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Clears a notification
- *  @param notificaitonId Notification ID
+ *  @param notificationId Notification ID
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)clearNotificationWithId:(MDObjectId*)notificationId
@@ -551,17 +554,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param postTypes A list of post types to clear. If not present, notifications for all post types are cleared.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)clearPostNotifcationsWithIDs:(NSArray*)postsIds
-                           postTypes:(nullable NSArray*)postTypes
-                            callback:(void (^)(MDFault *))callback;
+- (void)clearPostNotificationsWithIDs:(NSArray*)postsIds
+                            postTypes:(nullable NSArray*)postTypes
+                             callback:(void (^)(MDFault *))callback;
 
 /**
  * Clears comment update (code 4) notifications. Returns the number of notifications removed.
  *  @param commentsIds A subset of comment ids to clear.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)clearCommentNotifcationsWithIDs:(NSArray*)commentsIds
-                               callback:(void (^)(MDFault *))callback;
+- (void)clearCommentNotificationsWithIDs:(NSArray*)commentsIds
+                                callback:(void (^)(MDFault *))callback;
 
 
 #pragma mark - Media Upload / Download
@@ -569,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * General purpose upload for a property's facet
  */
-+ (void)uploadData:(NSData *)data mimeType:(NSString *)mimeType forUpload:(MDFileUpload*)upload;
++ (void)uploadData:(NSData *)data forUpload:(MDFileUpload*)upload;
 
 /**
  * General purpose download for a property's facet
@@ -581,7 +584,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Bundle
 
 /**
- * Gets a bundle.
+ * Gets the app's bundle.
  *
  * @param bundleUrl The URL of the bundle.
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
@@ -681,6 +684,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates context object
+ *  @param userID
+ *  @param accountInfo
+ *  @param favorite
+ *  @param preferences
+ *  @param thumbnailImage
+ *  @param customPropValues
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateAccountWithID:(MDObjectId*)userID
@@ -789,7 +798,13 @@ NS_ASSUME_NONNULL_BEGIN
                   callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
 
 /**
- * Creates a context object
+ * Creates a conversation object
+ *
+ *  @param description
+ *  @param favorite
+ *  @param patientFile
+ *  @param attachments
+ *  @param customPropValues
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createConversationWithDescription:(nullable NSString*)description

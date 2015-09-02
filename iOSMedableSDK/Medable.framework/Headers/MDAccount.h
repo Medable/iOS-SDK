@@ -61,11 +61,6 @@
 @property (nonatomic, readonly) MDFilePropertyValue* image;
 
 /**
- * List of teams that the Account belongs to.
- */
-@property (nonatomic, readonly) NSArray* teams;
-
-/**
  * Institutional affiliation of the provider.
  */
 @property (nonatomic, readonly) NSString* affiliation;

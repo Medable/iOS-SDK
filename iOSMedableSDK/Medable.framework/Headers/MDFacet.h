@@ -74,6 +74,13 @@
 - (void)imageWithCallback:(MDImageWithSourceOrFaultCallback)callback;
 
 /**
+ * Checks the disk cache and returns if this facet is disk cached
+ *
+ * @return Returns if this facet is disk cached
+ **/
+- (BOOL)isCached;
+
+/**
  * Locally cache an image for this facet. Since the ETag value is unknown, it will be cached
  * with a suffix of kUnknownETag.
  *
@@ -83,5 +90,6 @@
  * and the SDK will serve the incorrect image.
  */
 - (void)cacheImage:(UIImage *)image;
+- (void)cacheImage:(UIImage *)image finishBlock:(MDBoolArgumentCallback)finishBlock;
 
 @end

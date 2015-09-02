@@ -14,6 +14,7 @@ extern NSString* const kBaseURLKey;
 extern NSString* const kAPIPrefixKey;
 extern NSString* const kProtocolKey;
 extern NSString* const kOrgKey;
+extern NSString* const kOrgsKey;
 
 #pragma mark - APIClient
 extern NSString* const kMedableClientKey;
@@ -54,8 +55,7 @@ extern NSString* const kDocumentsKey;
 extern NSString* const kLimitKey;
 extern NSString* const kSkipKey;
 extern NSString* const kSortKey;
-extern NSString* const kStartingAfterKey;
-extern NSString* const kEndingBeforeKey;
+extern NSString* const kWhereKey;
 extern NSString* const kShowKey;
 extern NSString* const kRangeStartKey;
 extern NSString* const kRangeEndKey;
@@ -105,6 +105,8 @@ extern NSString* const kExpiresAtKey;
 extern NSString* const kApplyKey;
 extern NSString* const kLockedKey;
 extern NSString* const kMeKey;
+extern NSString* const kStartingAfterKey;
+extern NSString* const kEndingBeforeKey;
 
 #pragma mark - Bundle
 extern NSString* const kVersionKey;
@@ -253,7 +255,6 @@ extern NSString* const kUnspecifiedString;
 extern NSString* const kAgeKey;
 extern NSString* const kDOBKey;
 extern NSString* const kProfileKey;
-extern NSString* const kNewKey;
 extern NSString* const kSpecialtyKey;
 extern NSString* const kAffiliationKey;
 extern NSString* const kNPIKey;
@@ -283,6 +284,7 @@ extern NSString* const kAdministratorKey;
 extern NSString* const kDeveloperKey;
 extern NSString* const kAdminKey;
 extern NSString* const kFractionCompletedKey;
+extern NSString* const kContentTypeFieldKey;
 
 #pragma mark - Data Encryption
 extern NSString* const kClientKeyVirtual;
@@ -408,6 +410,10 @@ extern NSString* const kSchemasETagKey;
 extern NSString* const kLogoKey;
 extern NSString* const kFaviconKey;
 extern NSString* const kAutoKey;
+extern NSString* const kAppsKey;
+extern NSString* const kRegistrationKey;
+extern NSString* const kSecurityKey;
+extern NSString* const kWebsiteKey;
 
 #pragma mark - Notifications
 extern NSString* const kMDNotificationAPIIsNotLoggedIn;

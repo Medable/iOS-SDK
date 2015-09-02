@@ -28,7 +28,6 @@
  * @return The feed object pagination helper instance.
  */
 - (MDFeedPaginationHelper*)initWithContextObject:(MDObjectInstance*)contextObject
-                                        pageSize:(NSUInteger)pageSize
-                                        delegate:(id<MDObjectsPaginationHelperDelegate>)delegate NOTNULL(3);
+                                        pageSize:(NSUInteger)pageSize;
 
 @end

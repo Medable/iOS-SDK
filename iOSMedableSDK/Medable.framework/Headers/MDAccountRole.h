@@ -13,16 +13,16 @@
  */
 @interface MDAccountRole : NSObject
 
-/// Unique identifier.
+/// The role identifier.
 @property (nonatomic, readonly) MDObjectId* Id;
 
-/// All roles of the account.
+/// A list of all included roles, including those grouped inside any included roles. ObjectId[].
 @property (nonatomic, readonly) NSArray* all;
 
-/// All included roles of the account.
+/// Custom roles may be grouped to include other custom roles. Accounts holding the role will be also considered to hold the included roles. ObjectId[].
 @property (nonatomic, readonly) NSArray* include;
 
-/// The name of the role.
+/// The role name (eg. “Care Giver”).
 @property (nonatomic, readonly) NSString* name;
 
 @end

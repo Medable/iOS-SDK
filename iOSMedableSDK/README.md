@@ -169,9 +169,40 @@ The SDK uses this setup at runtime to read values from the Environments.plist fi
 + You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <Medable/Medable.h>`)
 + or import SDK classes one by one on demand in different places of your project (eg. `#import <Medable/MDAccount.h>`).
 
-### Download new content from the server
+### Download SDK content from the server
 
-The REST API includes a Bundle API that enables orgs to store versioned, localized, often-changing string tables and property lists. Using MDContentDownloader as shown in the sample app, you can check for new content on application startup. There are two notifications indicating the beginning and end of the content download so you can give visual feedback, if needed.
+The REST API includes a Bundle API that enables orgs to store versioned, localized, often-changing string tables and property lists. Also, we have all the definitions information, handled by the MDSchemaManager singleton. As a **first step**, and even before sending the user to the login or registration screens, all this information needs to be downloaded from our servers; to do this, MDContentDownloader should be used as follows:
+```objective-c
+// First, register to listen to MDContentDownloader notifications
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(downloadStarted: )
+         name:kContentDownloadedDidStartDownloads
+         object:nil];
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(downloadFinished: )
+         name:kContentDownloadedDidFinishDownloads
+         object:nil];
+
+// Then, create the content downloader store it and start it when your app is ready
+_contentDownloader = [[MDContentDownloader alloc] initWithCallback:callback];
+...
+[contentDownloader checkForDownloads];
+
+...
+// Handling the notifications
+- (void)downloadStarted:(NSNotification*)notification
+{
+	// Show visual feedback... "Downloading..." or something
+}
+
+- (void)downloadFinished:(NSNotification*)notification
+{
+	// Continue to login screen
+}
+```
 
 Optional Integration Steps
 ------

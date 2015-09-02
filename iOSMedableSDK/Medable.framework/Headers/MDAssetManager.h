@@ -22,6 +22,13 @@
 @property (nonatomic, assign) BOOL useDecryptedDataMemoryCache;
 
 /**
+ * Check if a file is disk cached.
+ *
+ * @param fileName The name of the file.
+ */
+- (BOOL)isFileCachedWithFileName:(NSString*)fileName NOTNULL(1);
+
+/**
  * Get a file's data by retrieving it from it's most convenient location. Will pull from memory
  * if it's stored there.
  *
@@ -50,7 +57,7 @@
  */
 - (void)saveData:(NSData*)data
         fileName:(NSString*)fileName
-     finishBlock:(void (^)())finishBlock NOTNULL(1,2,3);
+     finishBlock:(MDBoolArgumentCallback)finishBlock NOTNULL(1,2,3);
 
 /**
  * Delete all files with file names matching a regular expression.
