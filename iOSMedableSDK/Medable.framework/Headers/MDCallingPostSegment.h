@@ -22,7 +22,7 @@
  * Arrays of properties matched to their values contained in this segment.
  * Each entry in the array is a dictionary that maps the two.
  */
-@property (nonatomic, readonly) NSMutableArray *properties;
+- (NSArray*)allProperties;
 
 /**
  * Add an entry mapping a property name to a value.

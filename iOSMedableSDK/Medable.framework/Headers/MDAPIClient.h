@@ -274,6 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
  *  Connected access any team targets. For teams, a roles array will limit the connections to those
  *  members having the specified role(s).
+ * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createConnectionWithContext:(NSString*)context
                            objectId:(MDObjectId*)objectId
@@ -283,15 +284,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Sends a collaboration invitation.
  *  @param email Email address of invitee
- *  @param context Context (required)
- *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
- *  @param object Some contexts suppport creation upon invitation. In those cases the new object's details are provided in this dictionary.
  *  @param inviteeFirstName A placeholder name used for the invitation when no account exists
  *  @param inviteeLastName A placeholder name used for the invitation when no account exists
- *  @param transfer If true, transfers ownership to the invitee for supported contexts
- *  @param connect If true, also requests an account connection (Implicit for account invitations).
+ *  @param context Context
+ *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
  *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
- *  @param role Upon acceptance, the invitee assumes the specified object role. Only required for patientFile and conversation contexts.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)inviteByEmail:(NSString*)email
@@ -305,8 +302,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Sends a collaboration invitation.
  *  @param accountId Account id of invitee
- *  @param context Context (required)
- *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
+ *  @param context Context
+ *  @param objectId Context Object Id. Some contexts support creation upon invitation. See the collaborationCreatable of each context object.
  *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
  *  @param autoAccept setting this to YES, creates the connection directly, without waiting for user acceptance. This needs to be configured properly in the object definition.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
@@ -321,8 +318,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Sends a collaboration invitation.
  *  @param teamId Team id of invitees
- *  @param contet Context (required)
- *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
+ *  @param context Context
+ *  @param objectId Context Object Id. Some contexts support creation upon invitation. See the collaborationCreatable of each context object.
  *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
  *  @param roles When the recipient is a team, the roles array limits invitations to those members having a matching role.
  *  @param autoAccept setting this to YES, creates the connection directly, without waiting for user acceptance. This needs to be configured properly in the object definition.
@@ -437,7 +434,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Posts a comment to a post
- *  @param postId Post ObjectId (required)
+ *  @param post Post post (required)
  *  @param bodySegments Array of body segments
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -449,7 +446,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Votes a post / comment
  *  @param postId Post ObjectId (required)
- *  @param commentId Optionally you could vote a comment by providing its commentId
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)votePostWithId:(MDObjectId*)postId
@@ -486,6 +482,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Modify a post comment.
  *
+ * @param comment MDPostComment object.
  * @param bodySegments Array of body segments that specify the modifications being made.
  * @param voted Whether this post gets voted.
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
@@ -499,7 +496,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Deletes an existing post.
  *
  *  @param postId Post ObjectId (required)
- *  @param commentId Optionally you could delete a comment by providing its commentId
+ *  @param parameters Extra parameters on the call.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deletePostWithId:(MDObjectId*)postId

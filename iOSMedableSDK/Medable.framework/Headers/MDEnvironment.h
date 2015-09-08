@@ -15,6 +15,9 @@
 /// Singleton Instance
 + (MDEnvironment*)environment;
 
+/// Current configuration
+- (NSString*)configuration;
+
 /// Base URL of the API
 - (NSString*)APIbaseURL;
 
