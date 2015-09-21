@@ -41,12 +41,12 @@
 {
     MDAPIClient *client = [MDAPIClient sharedClient];
     
-    [client getOrgInfoWithCallback:^(MDOrg *org, MDFault *fault)
+    [client getPublicOrgInfoWithCallback:^(NSDictionary *orgInfo, MDFault *fault)
     {
-        if ( org != nil )
+        if ( orgInfo != nil )
         {
-            self.orgName.text = org.name;
-            self.orgCode.text = org.code;
+            self.orgName.text = orgInfo[@"name"];
+            self.orgCode.text = orgInfo[@"code"];
             self.status.text = @"Ok";
         }
         else
