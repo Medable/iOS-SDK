@@ -1,0 +1,1 @@
+../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSFileManager+Medable.h

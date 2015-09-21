@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController
+{
     @IBOutlet var orgName : UIKit.UILabel?
     @IBOutlet var status : UIKit.UILabel?
     @IBOutlet var orgCode : UIKit.UILabel?
@@ -20,51 +20,42 @@ class ViewController: UIViewController {
         self.orgName?.text = ""
         self.orgCode?.text = ""
         
-        let client = MDAPIClient.sharedClient()
-        
-        if let client = client
-        {
-            self.status?.text = "Initialized"
-        }
-        else
-        {
-            self.status?.text = "Error on Init"
-        }
+        self.status?.text = "Initialized"
     }
 
     @IBAction func getOrganization(sender: AnyObject)
     {
         let client = MDAPIClient.sharedClient()
         
-        client.getOrgInfoWithCallback { ( org: MDOrg?, fault: MDFault?) -> Void in
-            
-            if let org = org
-            {
-                self.orgName?.text = org.name
-                self.orgCode?.text = org.code
-                self.status?.text = "Ok"
-            }
-            else
-            {
-                self.status?.text = "Error"
-
-                if let fault = fault
+        client.getPublicOrgInfoWithCallback(
+            { (orgInfo, fault) -> Void in
+                
+                if let orgInfo = orgInfo
                 {
-                    var alert : UIKit.UIAlertController = UIAlertController()
-                    alert.title = "Error"
-                    alert.message = fault.message
-                    
-                    let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
-                    }
-                    alert.addAction(cancelAction)
-                    
-                    self.presentViewController(alert, animated: true, completion: { () -> Void in
-                        
-                    })
+                    self.orgName?.text = orgInfo["name"] as? String
+                    self.orgCode?.text = orgInfo["code"] as? String
+                    self.status?.text = "Ok"
                 }
-            }
-        }
+                else
+                {
+                    self.status?.text = "Error"
+                    
+                    if let fault = fault
+                    {
+                        let alert = UIAlertController()
+                        alert.title = "Error"
+                        alert.message = fault.message
+                        
+                        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                        }
+                        alert.addAction(cancelAction)
+                        
+                        self.presentViewController(alert, animated: true, completion: { () -> Void in
+                            
+                        })
+                    }
+                }
+            })
     }
-
 }
 
