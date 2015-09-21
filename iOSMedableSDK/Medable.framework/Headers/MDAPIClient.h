@@ -704,6 +704,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Deletes context object
+ *  @param accountId MDObjectId the Id of the account to be deleted.
+ *  @param reason MDAPIParameters deletion reason.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteAccountWithId:(MDObjectId*)accountId
@@ -723,7 +725,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Gets a context object
- *  @param objectId Context ObjectId (required)
+ *  @param patientFileId Context ObjectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -733,6 +735,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Creates a context object
+ *  @param firstName
+ *  @param lastName
+ *  @param dob
+ *  @param email
+ *  @param favorite
+ *  @param gender
+ *  @param mrn
+ *  @param phone
+ *  @param account
+ *  @param image
+ *  @param customPropValues
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createPatientfileWithFirstName:(NSString*)firstName
@@ -750,6 +763,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates a context object
+ *  @param patientFileId
+ *  @param firstName
+ *  @param lastName
+ *  @param dob
+ *  @param email
+ *  @param favorite
+ *  @param gender
+ *  @param mrn
+ *  @param phone
+ *  @param image
+ *  @param customPropValues
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updatePatientFileWithId:(MDObjectId*)patientFileId
@@ -767,6 +791,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Deletes a context object
+ *  @param patientFileId
+ *  @param parameters Construct reason parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deletePatientfileWithId:(MDObjectId*)patientFileId
@@ -845,6 +871,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates a context object
+ *  @param conversationId
+ *  @param description
+ *  @param patientFile
+ *  @param favorite
+ *  @param customPropValues
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
@@ -856,6 +887,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Deletes a context object
+ *  @param conversationId
+ *  @param deletion reason parameter
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteConversationWithId:(MDObjectId*)conversationId
