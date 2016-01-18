@@ -20,7 +20,7 @@ CocoaPods is distributed as a ruby gem, and is installed by running the followin
     $ sudo gem install cocoapods
     $ pod setup
 
-> Depending on your Ruby installation, you may not have to run as `sudo` to install the cocoapods gem.
+> Depending on your Ruby installation, you may have to run as `sudo` to install the cocoapods gem.
 
 #### Step 2: Create a Podfile
 
@@ -43,53 +43,15 @@ From now on, be sure to always open the generated Xcode workspace (`.xcworkspace
 
 That's it, you are now ready to use the Medable SDK. Head on over to the [Integration](#integration) guide to continue your setup.
 
-Install the framework manually
+Manual Installation
 ------
 
-[Download the latest version](https://www.medable.com/downloads/ios/sdk/latest) and place it wherever you like inside your project structure.
-
-##### Now let’s link your project against the framework
-
-+ In XCode, click in your project’s root, select ‘General’ tab on the right, and scroll up until you see the ‘Linked Frameworks and Libraries’ section.
-+ Press the plus button.
-+ Select ‘Add other…’, browse to where you put the framework, select it and click ‘Open’.
-+ Now hit build and check everything goes well. 
-+ Good!, now you have your project linked to iOSMedableSDK.framework.
-
-##### Now let’s link your project against required frameworks
-
-Enable Core Location services
-
-+ In XCode, click in your project’s root, select ‘General’ tab on the right, and scroll up until you see the ‘Linked Frameworks and Libraries’ section.
-+ Press the plus button.
-+ Search and add CoreLocation.framework.
-+ Add an entry to your app's info.plist file with this key NSLocationWhenInUseUsageDescription. The value you use for this is the message users will be presented when asking for permission to use location services.
-+ Now hit build and check everything goes well.
-
-### Linker
-
-Add a linker flag (-ObjC), this allows you to use class extensions provided by our framework.
-
-+ In XCode, click in your project’s root, select ‘Build Settings’ tab on the right, and search for ‘other linker flags’.
-+ Double click on the right side of it.
-+ Press the plus button.
-+ And write ‘-Objc’, without the quotes.
-
-Also, be sure to include the following system frameworks:
-
-+ ImageIO.framework
-+ SystemConfiguration.framework
-+ CoreText.framework
-+ MobileCoreServices.framework
-+ QuartzCore.framework
-+ CoreLocation.framework
-+ CFNetwork.framework
-+ CoreGraphics.framework
+Follow the [Manual Installation Guide](Documentation/manualInstall.md) for instructions on how to install the Medable iOS SDK manually.
 
 Swift
 -----
 
-The Medable is written in Objective-C but using it from your Swift application is pretty straightforward. Just add a bridging header to your app target:
+The Medable SDK is written in Objective-C but using it from your Swift application is straightforward. Just add a bridging header to your app target:
 
     //
     //  MedableSwift-Bridging-Header.h
@@ -110,106 +72,58 @@ Make sure your Build Settings for the app target specify the bridging header (th
 
 Finally, you can use Medable classes directly:
 
-    let client = MDAPIClient.sharedClient()
-
-**Warning:** *There is currently no nullability annotations in the public Objective-C headers. This means that Swift will import your declarations as implicitly unwrapped optionals: `Type!`. Except in  MDAPIClient's header, which has such annotations.*
-
-This means that using explicit non optional types will be allowed at compilation time but might crash your app (with an `EXC_BAD_INSTRUCTION` exception). See for instance this code:
-
-    client.getOrgInfoWithCallback { ( org: MDOrg!, fault: MDFault!) -> Void in
-
-        self.status?.text = "Error"
-    
-        var alert : UIKit.UIAlertController = UIAlertController()
-        alert.title = "Error"
-        alert.message = fault.message
-
-The fault object itself is optional, but since the Objective-C code isn't annotated for nullability, this is not explicitly stated and the compiler allows the developer to use non optional types.
-
-**Solution: Use optional types.**
-
-Using optional types explicitly will force the compiler to check your usage for you:
-
-
-    client.getOrgInfoWithCallback { ( org: MDOrg?, fault: MDFault?) -> Void in
-
-        self.status?.text = "Error"
-            
-        var alert : UIKit.UIAlertController = UIAlertController()
-        alert.title = "Error"
-        alert.message = fault.message
-
-This will issue an error due to the use of an unwrapped optional and force you to write the corresponding wrappers.
-
-*As a general rule of thumb, assume values will be nullable.*
+    let client = Medable.client()
 
 Integration
+=====
+
+Configuring the Client
 ------
 
-### Add the Environments.plist configuration file
+You need to provide a Medable Client Key and your Organization name to the SDK. The simplest way to do this is to add an entry to your app's ```plist``` file with this information.
 
-The Sample App contains an example configuration file, containing such things as your org code, api key, and target domain. The compound base URL produced will look like https://api.dev.medable.com/medable/v2.
+Here is a template of that format:
 
-+ Copy this file to your project and add a reference to it so you see it in your project’s navigator.
-+ Configure values in Environments.plist.
-
-Note: If you have your project and our sample app opened, locate Environments.plist file in our Sample project, drag and drop the file to your project and make sure you check “Copy items into destination group’s folder (if needed)’ when you get the popup.
-
-
-### Add an entry in the Info.plist file
-
-The SDK uses this setup at runtime to read values from the Environments.plist file.
-+ Locate your project’s Info.plist file. In XCode 5 it’s located in ‘Supporting Files’ group. The file is called ‘YourProjectName-Info.plist’.
-+ Select it, right click and select ‘Add Row’.
-+ Specify ‘Configuration’ for Key and ‘${CONFIGURATION}’ for Value. Type is ‘String’ by default. Put those strings without the ‘’.
-+ Save.
-
-### Setup Imports
-
-+ You can either add one general import in your pch file (YourProjectName-Prefix.pch) and forget about it (eg. `#import <Medable/Medable.h>`)
-+ or import SDK classes one by one on demand in different places of your project (eg. `#import <Medable/MDAccount.h>`).
-
-### Download SDK content from the server
-
-The REST API includes a Bundle API that enables orgs to store versioned, localized, often-changing string tables and property lists. Also, we have all the definitions information, handled by the MDSchemaManager singleton. As a **first step**, and even before sending the user to the login or registration screens, all this information needs to be downloaded from our servers; to do this, MDContentDownloader should be used as follows:
-```objective-c
-// First, register to listen to MDContentDownloader notifications
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(downloadStarted: )
-         name:kContentDownloadedDidStartDownloads
-         object:nil];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(downloadFinished: )
-         name:kContentDownloadedDidFinishDownloads
-         object:nil];
-
-// Then, create the content downloader store it and start it when your app is ready
-_contentDownloader = [[MDContentDownloader alloc] initWithCallback:callback];
-...
-[contentDownloader checkForDownloads];
-
-...
-// Handling the notifications
-- (void)downloadStarted:(NSNotification*)notification
+```
+"Medable" : 
 {
-	// Show visual feedback... "Downloading..." or something
-}
-
-- (void)downloadFinished:(NSNotification*)notification
-{
-	// Continue to login screen
+    "ClientKey": "SomeObscureString",
+    "Organization": "theclinic"
 }
 ```
 
+The next figure shows how this would look when viewing the main ```.plist``` file:
+
+![Medable Entry](Documentation/png/dictionaryEntry.png)
+
+Other optional entries in the "Medable" dictionary include:
+
+- ```"url"```: Base URL of the medable backend, the default is ```"medable.com"```.
+- ```"Protocol"```: HTTP protocol used to communicate with the backend, the default is ```"https"```.
+- ```"APIPrefix"```: API Prefix of the backend, the default is ```"api"```.
+
+It's possible to also define different environments for different build configurations (Debug, Release, etc) and even define your custom configurations. For a walkthrough of those steps, follow the [Advanced Integration Steps Guide](Documentation/integrationSteps.md).
+
+
 Optional Integration Steps
 ------
+
+### Start the Organization Content Download process along with your app
+
+It's not required, but is a good idea anyway, to initialize the Medable SDK in your app delegate, to do so just place this line in your app delegate:
+
+```objective-c
+[Medable start];
+```
+
+You may also wish to register for notifications about that download process. To do so, check the [Advanced Integration Steps Guide](Documentation/integrationSteps.md) for further instructions.
+
+The reason this is a good idea is that Medable will be required to download your Organization's data before it can make other HTTP requests, if you don't initialize the SDK, this will happen when you make your first request, delaying it marginally.
+
 ### Set log level
 ```objective-c
 // Change log level
-[MDAPIClient sharedClient].loggerLevel = MDAPIClientNetworkLoggerLevelDebug;
+[Medable client].loggerLevel = MDAPIClientNetworkLoggerLevelDebug;
 
 // If not set, the default loggerLevel is MDAPIClientNetworkLoggerLevelInfo.
 ```
@@ -222,293 +136,28 @@ kMDNotificationUserDidLogout: This notification is used to forward the app to th
 
 Note: More notifications are defined in MDConstants.h.
 
+Getting Started
+======
 
-Example use cases - going beyond simple API calls
+You can access the Medable iOS SDK API at [Cocoadocs](http://cocoadocs.org/docsets/Medable). The main API class is `MDAPIClient` which you can access by getting the shared client using this line:
+
+```objective-c
+MDAPIClient *medableAPI = [Medable client];
+```
+
+From there, check the SDK API, the examples or tutorials to accomplish specific things.
+
+Examples
 ------
-The following use cases reference many Medable objects. Please refer to the <a href="https://dev.medable.com/#objects" target="_blank">API documentation</a> for more information on Medable objects and their properties.
 
-### How do I get the images (attachments) for a <a href="https://dev.medable.com/#conversation-attachments-property" target="_blank">conversation</a>?
-```objective-c
-[aConversation
- imagesWithCallback:^(NSString* imageId, UIImage *image)
- {
-     if (image)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-			// Set image to UI object
-         });
-     }
- }];
-```
-### How do I get the thumbnail of an <a href="https://dev.medable.com/#account-image-property" target="_blank">account</a>?
-```objective-c
-[anAccount thumbnailWithCallback:^(UIImage *image, MDFault *fault)
-{
-     if (image)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-			// Set image to UI object
-         });
-     }
-}];
-```
+Check out the [Code Samples](Documentation/examples.md) for a few examples on how to get some specific things done with the Medable SDK.
 
-### How do I get the account thumbnail for the creator of a <a href="https://dev.medable.com/#connection-creator-property" target="_blank">connection</a>?
-```objective-c
-[aConnection thumbnailWithCallback:^(UIImage *image, MDFault *fault)
-{
-     if (image)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-			// Set image to UI object
-         });
-     }
-}];
-```
+Tutorials
+------
 
-### How do I use the synchronize methods?
+Check out the [Tutorials](Documentation/tutorial.md)
 
-All objects have three synchronize methods that receive parameters such as includes, expands, paths filters, etc --
-one for the object itself, one for posts, and one for connections. The reason for three methods instead of one is that each uses the base route to each resourse, providing for more access, and more options for the parameter inputs.
+FAQ
+------
 
-A conversation expanding its patientFile property:
-```objective-c
-[aConversation synchronizeObjectWithParameters:[MDAPIParameterFactory parametersWithExpandPaths:@[ kPatientFileKey ]]
-                                      callback:^(id object, MDFault *fault)
-{
-
-}];
-```
-An account expanding account.connections.context:
-```objective-c
-[anAccount
- synchronizeConnectionsWithParameters:[MDAPIParameterFactory parametersWithExpandPaths:@[ kContextKey ]]
- callback:^(MDAccount* updatedAccount, MDFault *fault)
- {
-
- }];
-```
-
-An account with its posts:
-```objective-c
-[anAccount
- synchronizePostsWithParameters:nil
- callback:^(MDAccount* updatedAccount, MDFault *fault)
- {
-
- }];
-```
-
-### How do I use the asset manager to encrypt and cache media?
-```objective-c
-UIImage* imageToSave;
-NSData* imageData = UIImageJPEGRepresentation(imageToSave, 1.0f);
-NSString* fileName = @"aGoodFileNameHere";
-
-[[MDAssetManager sharedManager]
- saveData:imageData
- fileName:fileName
- finishBlock:^{
-     
- }];
-```
-That image is saved in an encrypted cache on disk, which works on a per user basis and is encrypted with a different key for different users. Those keys change when the account's password is changed, as explained in the API documentation.
-
-### How do I use the SDK to manage <a href="https://dev.medable.com/#custom-objects" target="_blank">custom objects</a>?
-```objective-c
-// Let's suppose you have a custom object named 'c_aCustomObject', with a string property called 'c_aCustomProp1' and a number property called 'c_aCustomProp2'
-// in addition to the base properties, inherited from MDObjectInstance, which is the base class for all objects.
-
-// Get its definition
-MDObjectDefinition* aCustomObjectDefinition = [[MDSchemaManager sharedInstance] objectWithName:@"c_aCustomObject"];
-
-// You could get all of its custom property definitions like this:
-NSArray* customProperties = [aCustomObjectDefinition customProperties];
-
-// Or you could get the properties definitions by name, like this:
-MDPropertyDefinition* aCustomProp1Definition = [aCustomObjectDefinition propertyWithName:@"c_aCustomProp1"];
-MDPropertyDefinition* aCustomProp2Definition = [aCustomObjectDefinition propertyWithName:@"c_aCustomProp2"];
-
-// From there you could check what type of primitive each property is
-MDPropertyType type1 = aCustomProp1Definition.type;      // That type would be MDPropertyTypeString
-MDPropertyType type2 = aCustomProp2Definition.type;      // That type would be MDPropertyTypeNumber
-
-// Also, you can check if that object has a feed definition, and access all the post types it supports, each post's segments, comment definitions, etc
-// Starting from here:
-MDFeedDefinition* aCustomObjectFeedDefinition = [aCustomObjectDefinition feedDefinition];
-
-// We could get all the posts' definitions for the posts its feed accepts
-NSArray* postDefinitions = [aCustomObjectFeedDefinition postDefinitions];
-
-// That would be an array of these objects:
-MDPostDefinition* postDefinition = [postDefinitions firstObject];
-
-// Let's check the different segments this type of post has
-NSArray* postSegments = [postDefinition body];
-
-MDPostSegmentDefinition* aPostSegmentDefinition = [postSegments firstObject];
-
-// And the different comments' definitions for this particular type of post.
-// Notice that the comments definitions are also segment defintions, since they share the same structure.
-NSArray* comments = [postDefinition comments];
-MDPostSegmentDefinition* commentDefinition = [comments firstObject];
-
-// Ok, enough of structure for now. That's the definition world. Then we have the instances world. That is, object instances with all those
-// definitions. Let's say we want to modify an instance of this custom object of type 'c_aCustomObject'.
-MDObjectInstance* aCustomObjectInstance;
-
-NSDictionary* body = @{ aCustomProp1Definition.name: @"a string value for prop 1",
-                        aCustomProp2Definition.name: @(7) };
-
-[[MDAPIClient sharedClient]
- editObject:aCustomObjectInstance
- withBody:body
- callback:^(MDObjectInstance *object, MDFault *fault)
- {
-     if (!fault)
-     {
-         // You did great, and successfully modded the instance.
-     }
- }];
-
-// As you see, you can get any information you need form an object, either custom or not, by accessing its definitions' reference properties.
-```
-
-### How do I post to a feed?
-
-##### References
-- [File](https://dev.medable.com/?objective_c#files)
-- [Post](https://dev.medable.com/?objective_c#posts)
-
-##### Sample code
-```objective-c
-
-/*
-   - In this case, let's suppose we have an object whose feed definition consists of posts of type "c_post".
-   - Each "c_post" has two body segments called "c_text" --of type String, and "c_image" --of type File[], that is, an array of File objects.
-   - Each File object is composed by four facets, called "c_original", "c_overlay", "c_thumbnail" and "c_content".
-   - There are two facet processors, that take "c_original" and "c_overlay" as inputs and produce "c_content" --the original image with the overlay included, and "c_thumbnail" --a reduced version of "c_content".
-*/
-
-// Let's create a post with a message saying "Hi, this is a post with text and images", and two images, one with overlay and one without overlay.
-
-// The context object
-MDObjectInstance *contextObject;
-
-// Message
-NSString *text = @"Hi, this is a post with text and images";
-    
-// Images
-// faceImage is the UIImage with the picture of the patient's face
-// chestImage is the UIImage with the picture of the patient's chest
-// faceOverlay is the UIImage with the transparent overlay to cover the patient's face
-UIImage *faceImage;
-UIImage *faceOverlay;
-UIImage *chestImage;
-
-// Prepare the body segments
-NSMutableArray *postSegments = [NSMutableArray new];
-
-// Get the object's feed definition
-MDFeedDefinition *feedDefinition = contextObject.object.feedDefinition;
-
-// Get the post's definition
-MDPostDefinition *postDefinition = [feedDefinition postDefinitionWithType:@"c_post"];
-
-for (MDPostSegmentDefinition *segmentDefinition in postDefinition.body)
-{
-    // Configure the Text segment
-    if ([segmentDefinition.name isEqualToString:@"c_text"] &&
-        [text length])
-    {
-        MDCallingPostSegment *textSegment = [MDCallingPostSegment new];
-        textSegment.postName = segmentDefinition.name;
-        
-        // Get the post segment property definition
-        [postSegment addProperty:@"c_text" withValue:text];
-        
-        // Add the post body's text segment
-        [postSegments addObject:[textSegment apiFormat]];
-    }
-    
-    // Configure the Image segment
-    else if ([segmentDefinition.name isEqualToString:@"c_image"])
-    {
-        // Get the post segment property's definition
-        MDPostSegmentPropertyDefinition *propertyDefinition = [segmentDefinition propertyWithName:@"c_image"];
-        
-        MDCallingPostSegment *imagesSegment = [MDCallingPostSegment new];
-        imagesSegment.postName = segmentDefinition.name;
-        
-        // It's an array of Files... In this case, we have 2
-        NSMutableArray* files = [[NSMutableArray alloc] initWithCapacity:2];
-
-        MDFileParameterValue* faceWithOverlayFile = [MDFileParameterValue new];
-        [faceWithOverlayFile addImage:faceImage forFacetNamed:@"c_original" inProperty:propertyDefinition];
-        [faceWithOverlayFile addImage:overlay forFacetNamed:@"c_overlay" inProperty:propertyDefinition];
-
-        MDFileParameterValue* chestWOOverlayFile = [MDFileParameterValue new];
-        [chestWOOverlayFile addImage:chestImage forFacetNamed:@"c_original" inProperty:propertyDefinition];
-            
-        [files addObject:faceWithOverlayFile];
-        [files addObject:chestWOOverlayFile];
-        
-        [imagesSegment addProperty:@"c_image" withValue:files];
-
-        [postSegments addObject:[imagesSegment apiFormat]];
-    }
-}
-
-[[MDAPIClient sharedClient]
- postToObject:[contextObject.object pluralNameForAPICalls]
- objectId:contextObject.Id
- postType:@"c_post"
- bodySegments:postSegments
- targets:nil
- voted:nil
- finishBlock:^(MDPost *post, MDFault *fault)
- {
-     if (fault)
-     {
-            // Fault handling
-     }
- }];
-```
-
-### Why can't I mod an object instance? why is that there are no setters?
-
-All the modifications need to go through the api, and then you need to synchronize your object instance. This is to make it easier to avoid inconsistences between the client and the api.
-That’s why all the modifications are done through MDAPIClient object modification methods.
-
-
-### About parameters validation in MDAPIClient
-
-MDAPIClient's header is annotated with nullability annotations; this enables compile time parameter nullability checksfor the methods listed in MDAPIClient's header file. Remember that XCode 6.3+ is needed for this to work properly. Read more about nullability annotations [here](https://developer.apple.com/swift/blog/?id=25).
-
-Besides that, required parameters are checked at runtime. If something is wrong, you'll get a MDLocalFault object in any method's callback block, providing validation error details. Also, these MDLocalFault obejcts are broadcasted inside NSNotifications using the default NSNotificationCenter. The notification name is **kMDNotificationLocalFaultNotification**. These are specially useful for when the validation error is that there's no callback block.
-
-In general, MDLocalFault objects are used to inform the user about error that are not related to the API server (MDFault objects are used for this), or when some API unrelated network issue was detected.
-
-You can handle such notifications the following way:
-```objective-c
-// First, listen for that kind of notifications
-[[NSNotificationCenter defaultCenter]
- addObserver:self
- selector:@selector(handleLocalFault:)
- name:kMDNotificationLocalFaultNotification
- object:nil];
-
-...
-
-// Handling
-- (void)handleLocalFault:(NSNotification*)notif
-{
-    MDLocalFault* localFault = (MDLocalFault*)notif.object;
-    
-    // Print details
-    NSLog(@"Local notification: %@", localFault.description);
-    
-    // Handle
-    ...
-}
-```
+Some common questions and answers can be found in the [FAQ](Documentation/faq.md).

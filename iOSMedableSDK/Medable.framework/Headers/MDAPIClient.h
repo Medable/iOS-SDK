@@ -22,6 +22,8 @@
 @class MDPost;
 @class MDPostComment;
 @class MDFeedDefinition;
+@class MDBody;
+@class MDPostBody;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface MDAPIClient : NSObject
@@ -334,17 +336,6 @@ NS_ASSUME_NONNULL_BEGIN
               callback:(void (^)(MDFault* fault))callback;
 
 /**
- * Modify an existing connection.
- *
- * @param connectionId The Object ID of the connection instance.
- * @param body The payload contents with the modifications to the instance.
- * @param callback Callback block called when the service call finishes. Check MDFault for errors.
- */
-- (void)updateConnectionWithId:(MDObjectId*)connectionId
-                          body:(NSDictionary*)body
-                      callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
-
-/**
  * Removes a collaboration.
  *  @param collaborationId Context Object Id (required)
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
@@ -433,8 +424,28 @@ NS_ASSUME_NONNULL_BEGIN
             callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
+ * Posts to a context's feed
+ *  @param objectName Name of the Object posting to (required)
+ *  @param objectId Object's Id (required)
+ *  @param postType Post type. See each object's list of supported post types and segments.
+ *  @param bodySegmentsObject A `MDPostBody` instance that represents the segments of the post type.
+ *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
+ *  Connected access any team targets. For teams, a roles array will limit the connections to those
+ *  members having the specified role(s).
+ *  @param voted
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)postToObject:(NSString *)objectName
+            objectId:(MDObjectId *)objectId
+            postType:(NSString*)postType
+  bodySegmentsObject:(MDPostBody *)bodySegmentsObject
+             targets:(nullable MDTargets*)targets
+               voted:(nullable NSNumber*)voted
+            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+
+/**
  * Posts a comment to a post
- *  @param post Post post (required)
+ *  @param post Post instance (required)
  *  @param bodySegments Array of body segments
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -442,6 +453,17 @@ NS_ASSUME_NONNULL_BEGIN
              bodySegments:(NSArray*)bodySegments
                     voted:(nullable NSNumber*)voted
                  callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback;
+
+/**
+ * Posts a comment to a post
+ *  @param post Post instance (required)
+ *  @param commentBody An 'MDPostBody' object with the comment data
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)postCommentToPost:(MDPost*)post
+              commentBody:(MDPostBody *)commentBody
+                    voted:(NSNumber*)voted
+                 callback:(void (^)(MDPostComment* post, MDFault* fault))callback;
 
 /**
  * Votes a post / comment
@@ -480,6 +502,22 @@ NS_ASSUME_NONNULL_BEGIN
         callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
+ * Edits an existing post
+ *  @param post Post Object (required)
+ *  @param postBody Post body instance with the editing post data.
+ *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
+ *  Connected access any team targets. For teams, a roles array will limit the connections to those
+ *  members having the specified role(s).
+ *  @param voted Whether this post gets voted.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)editPost:(MDPost *)post
+        postBody:(MDPostBody *)postBody
+         targets:(MDTargets*)targets
+           voted:(NSNumber*)voted
+        callback:(void (^)(MDPost* post, MDFault* fault))callback;
+
+/**
  * Modify a post comment.
  *
  * @param comment MDPostComment object.
@@ -489,6 +527,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)editComment:(MDPostComment *)comment
        bodySegments:(NSArray *)bodySegments
+              voted:(nullable NSNumber*)voted
+           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback;
+
+/**
+ * Modify a post comment.
+ *
+ * @param comment MDPostComment object.
+ * @param commentBody Comment body instance with the data of the fields being edited.
+ * @param voted Whether this post gets voted.
+ * @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)editComment:(MDPostComment *)comment
+        commentBody:(MDPostBody *)commentBody
               voted:(nullable NSNumber*)voted
            callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback;
 
@@ -630,6 +681,17 @@ NS_ASSUME_NONNULL_BEGIN
                        callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
 
 /**
+ * Create a new object
+ *
+ * @param context The Context type you are posting to
+ * @param body The representation for the new object in it's body format
+ * @param callback The completion callback
+ */
+- (void)createObjectWithContext:(NSString*)context
+                     bodyObject:(MDBody*)body
+                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+
+/**
  * Delete an existing object
  *
  * @param context The Context type you are deleting from
@@ -675,6 +737,18 @@ NS_ASSUME_NONNULL_BEGIN
                        objectId:(MDObjectId*)objectId
                            body:(NSDictionary*)body
                        callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+
+/**
+ * Updates a context object
+ *  @param context Context (required)
+ *  @param objectId Context ObjectId (required)
+ *  @param body Body object properties that are to be updated
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)updateObjectWithContext:(NSString*)context
+                       objectId:(MDObjectId*)objectId
+                     bodyObject:(MDBody*)bodyObj
+                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
 
 
 #pragma mark - Account

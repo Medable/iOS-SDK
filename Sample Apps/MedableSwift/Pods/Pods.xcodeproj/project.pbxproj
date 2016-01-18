@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D4A1FA1D665788729B95AC82F277FCD /* Pods-MedableSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F0249EAED1F13D776EC6AAE71DDC9 /* Pods-MedableSwift-dummy.m */; };
-		AD8BE439D6B6698D07DEC9583F26D187 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DBA4260702B0ECAF45DBE607A156BC /* Foundation.framework */; };
+		9836B12F076B71F5E556E977CEFDE39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		9D4A1FA1D665788729B95AC82F277FCD /* Pods-MedableSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06A7E1DB2BC0816076D597EFE20B97A0 /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		21A05011A9447B34F00973DD243C1ABB /* Pods-MedableSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
-		26DBA4260702B0ECAF45DBE607A156BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		281D674FBC379567EC5317C8789D833D /* Medable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medable.framework; path = iOSMedableSDK/Medable.framework; sourceTree = "<group>"; };
-		3C13A40CAF85DFC392146372BD37CD88 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4561D014AB9344097106F0EE88B42991 /* Pods-MedableSwift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-resources.sh"; sourceTree = "<group>"; };
-		675726F30A3A28EE7E034741D4E35FFD /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
-		7B53C2B6DAD0758723BBD1E2447338B4 /* Pods-MedableSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableSwift-acknowledgements.plist"; sourceTree = "<group>"; };
-		8A9F0249EAED1F13D776EC6AAE71DDC9 /* Pods-MedableSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableSwift-dummy.m"; sourceTree = "<group>"; };
+		297C10428CEB2FFC5F2DA49D88A915BA /* Pods-MedableSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableSwift-acknowledgements.plist"; sourceTree = "<group>"; };
+		2A412A7CE53598FEEE4053795AED3F6D /* Pods-MedableSwift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-resources.sh"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C0CABAE2F122EB60FBF94E7F2ECDC40 /* Pods-MedableSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableSwift-dummy.m"; sourceTree = "<group>"; };
+		A1097162BDDF9545E031E490ADF91886 /* Pods-MedableSwift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-frameworks.sh"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,41 +30,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD8BE439D6B6698D07DEC9583F26D187 /* Foundation.framework in Frameworks */,
+				9836B12F076B71F5E556E977CEFDE39A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		171AC15F2BA4DF890C91A4BA51730E92 /* Targets Support Files */ = {
+		036BFF488C16F624852F3EE77B343D13 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4CFB25FB83A0DBDB44E08E3EBDC4D1C9 /* Pods-MedableSwift */,
+				D92182FD90056CAF5190AA461FB0704F /* Pods-MedableSwift */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4CFB25FB83A0DBDB44E08E3EBDC4D1C9 /* Pods-MedableSwift */ = {
+		4AA091A77ECAD086CB5C186DEF1D3788 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21A05011A9447B34F00973DD243C1ABB /* Pods-MedableSwift-acknowledgements.markdown */,
-				7B53C2B6DAD0758723BBD1E2447338B4 /* Pods-MedableSwift-acknowledgements.plist */,
-				8A9F0249EAED1F13D776EC6AAE71DDC9 /* Pods-MedableSwift-dummy.m */,
-				4561D014AB9344097106F0EE88B42991 /* Pods-MedableSwift-resources.sh */,
-				06A7E1DB2BC0816076D597EFE20B97A0 /* Pods-MedableSwift.debug.xcconfig */,
-				675726F30A3A28EE7E034741D4E35FFD /* Pods-MedableSwift.release.xcconfig */,
+				D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */,
 			);
-			name = "Pods-MedableSwift";
-			path = "Target Support Files/Pods-MedableSwift";
-			sourceTree = "<group>";
-		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				26DBA4260702B0ECAF45DBE607A156BC /* Foundation.framework */,
-			);
-			name = iOS;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -72,17 +59,25 @@
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				D96831A93359C21151907FA1AE8C3636 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				171AC15F2BA4DF890C91A4BA51730E92 /* Targets Support Files */,
+				4AA091A77ECAD086CB5C186DEF1D3788 /* Products */,
+				036BFF488C16F624852F3EE77B343D13 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		C06675B1C822005283AFB171BCC64374 /* Frameworks */ = {
@@ -102,12 +97,19 @@
 			path = ../../..;
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		D92182FD90056CAF5190AA461FB0704F /* Pods-MedableSwift */ = {
 			isa = PBXGroup;
 			children = (
-				3C13A40CAF85DFC392146372BD37CD88 /* libPods-MedableSwift.a */,
+				7C0CABAE2F122EB60FBF94E7F2ECDC40 /* Pods-MedableSwift-acknowledgements.markdown */,
+				297C10428CEB2FFC5F2DA49D88A915BA /* Pods-MedableSwift-acknowledgements.plist */,
+				89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */,
+				A1097162BDDF9545E031E490ADF91886 /* Pods-MedableSwift-frameworks.sh */,
+				2A412A7CE53598FEEE4053795AED3F6D /* Pods-MedableSwift-resources.sh */,
+				25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */,
+				D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-MedableSwift";
+			path = "Target Support Files/Pods-MedableSwift";
 			sourceTree = "<group>";
 		};
 		D96831A93359C21151907FA1AE8C3636 /* Development Pods */ = {
@@ -134,7 +136,7 @@
 			);
 			name = "Pods-MedableSwift";
 			productName = "Pods-MedableSwift";
-			productReference = 3C13A40CAF85DFC392146372BD37CD88 /* libPods-MedableSwift.a */;
+			productReference = D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +156,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = 4AA091A77ECAD086CB5C186DEF1D3788 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -175,22 +177,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		00B142E81F94C82179EB5FF2F6360DA5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 675726F30A3A28EE7E034741D4E35FFD /* Pods-MedableSwift.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		052A17875CB827423D627183396CEB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -225,12 +211,13 @@
 			};
 			name = Release;
 		};
-		2957E7B2EA87FD6ABA042D827E5FF06C /* Debug */ = {
+		3AD9ECE94C1A1F7CE8DEEB0B62A91D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06A7E1DB2BC0816076D597EFE20B97A0 /* Pods-MedableSwift.debug.xcconfig */;
+			baseConfigurationReference = 25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -280,6 +267,23 @@
 			};
 			name = Debug;
 		};
+		B3C1DD2CCDB70110B138C7E12F8BEF90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -295,8 +299,8 @@
 		3166468E665D2B7C6EA63AF93B2494E9 /* Build configuration list for PBXNativeTarget "Pods-MedableSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2957E7B2EA87FD6ABA042D827E5FF06C /* Debug */,
-				00B142E81F94C82179EB5FF2F6360DA5 /* Release */,
+				3AD9ECE94C1A1F7CE8DEEB0B62A91D05 /* Debug */,
+				B3C1DD2CCDB70110B138C7E12F8BEF90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

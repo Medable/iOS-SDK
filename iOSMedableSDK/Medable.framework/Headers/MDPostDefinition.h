@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MDBaseDefinition.h"
+
 /**
  * Definition of a post type, this includes definitions on all the segments the post must include.
  */
-@interface MDPostDefinition : NSObject
-
-/// User ready string representing the name of the post type in the Org's locale.
-@property (nonatomic, readonly) NSString *label;
+@interface MDPostDefinition : MDBaseDefinition
 
 /// Read access on this definition.
 @property (nonatomic, readonly) MDACLLevel readAccess;
@@ -58,5 +57,8 @@
  *  Debug helper. Useful to get a minimum valid json representation of this object.
  **/
 - (NSDictionary*)friendlyRepresentation;
+
+/// Base definition for this post type
+@property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
 
 @end

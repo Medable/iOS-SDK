@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Medable/Medable.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Medable start];
+    
     return YES;
 }
 

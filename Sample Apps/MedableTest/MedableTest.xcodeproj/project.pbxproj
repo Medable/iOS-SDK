@@ -42,7 +42,7 @@
 		287269091AE82574001798C2 /* MedableTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedableTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2872690E1AE82574001798C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2872690F1AE82574001798C2 /* MedableTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedableTestTests.m; sourceTree = "<group>"; };
-		287269191AE825B4001798C2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		287269191AE825B4001798C2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2872691B1AE82902001798C2 /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
 		B1F9B21E4335F9B6A380BCAE /* libPods-MedableTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86D343120E459A1C410BF5F /* Pods-MedableTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +168,7 @@
 				287268ED1AE82574001798C2 /* Frameworks */,
 				287268EE1AE82574001798C2 /* Resources */,
 				15C0FC848A5679F3059FCFE3 /* Copy Pods Resources */,
+				0F6D9A3E525E57447DAFE040 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +256,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F6D9A3E525E57447DAFE040 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		15C0FC848A5679F3059FCFE3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -14,9 +14,9 @@ MDProfileInfo* profileInfo = [MDProfileInfo profileInfoWithSpecialty:@"Vascular 
                                                         licenseState:nil
                                                        licenseNumber:nil];
 
-MDAccount *currentUser = [MDAPIClient sharedClient].currentUser;
+MDAccount *currentUser = [Medable client].currentUser;
 
-[[MDAPIClient sharedClient]
+[[Medable client]
  updateAccountWithID:currentUser.Id
  firstName:nil
  lastName:nil
@@ -50,7 +50,7 @@ So, following a previous example, if you have extended the `Account` base object
 Imagine you've written an allergies selection screen for your user and are updating their account with this information, the code would look something like this:
 
 ```objective-c
-MDAccount *currentUser = [MDAPIClient sharedClient].currentUser;
+MDAccount *currentUser = [Medable client].currentUser;
 
 NSArray *allergies = @[ @"starch", @"pollen"];
 NSDictionary *customProperties = 
@@ -58,7 +58,7 @@ NSDictionary *customProperties =
 		@"c_allergies" = allergies
 	};
 
-[[MDAPIClient sharedClient]
+[[Medable client]
  updateAccountWithID:currentUser.Id
  firstName:nil
  lastName:nil

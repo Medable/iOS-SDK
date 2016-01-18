@@ -19,9 +19,6 @@
  */
 @interface MDFacet : NSObject
 
-/// Facet Id
-@property (nonatomic, readonly) MDObjectId* Id;
-
 /// ETag or hash value. This shouldn't concern most users but it's used by the system to know when to update a file.
 @property (nonatomic, readonly) NSString *ETag;
 

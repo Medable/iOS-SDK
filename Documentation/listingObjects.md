@@ -6,7 +6,7 @@ Listing all object of a given context is a simple task. But you have to be aware
 ```objective-c
 MDAPIParameters* parameters = [MDAPIParameterFactory parametersWithLimitPaths:@[ kNameKey ]];
 
-[[MDAPIClient sharedClient]
+[[Medable client]
  listObjectsWithContext:kPluralAccountContext
  parameters:parameters
  callback:^(NSArray *objects, NSNumber *hasMore, MDFault *fault)

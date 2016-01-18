@@ -24,7 +24,6 @@
  *
  * @param contextObject The context object, or instance for the feed.
  * @param pageSize Size of resulting pages.
- * @param delegate Delegate.
  * @return The feed object pagination helper instance.
  */
 - (MDFeedPaginationHelper*)initWithContextObject:(MDObjectInstance*)contextObject

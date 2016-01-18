@@ -40,4 +40,7 @@
  **/
 - (NSArray*)friendlyRepresentation;
 
+/// Base Definition for the object of this feed
+@property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
+
 @end

@@ -41,12 +41,21 @@
 - (MDObjectDefinition *)objectWithId:(MDObjectId*)Id NOTNULL(1);
 
 /**
- Get the object definition from an Object name.
+ Get the object definition from an Object of a certain name.
  
  @param name The name of the object.
  
  @return The `MDObjectDefinition` corresponding to this name.
  */
 - (MDObjectDefinition *)objectWithName:(NSString*)name NOTNULL(1);
+
+/**
+ Get the object definition from an Object which plural name matches the parameter.
+ 
+ @param name The plural name of the object.
+ 
+ @return The `MDObjectDefinition` corresponding to this name.
+ */
+- (MDObjectDefinition *)objectWithPluralName:(NSString*)name NOTNULL(1);
 
 @end

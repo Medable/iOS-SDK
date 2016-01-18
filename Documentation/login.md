@@ -29,7 +29,7 @@ For the full list, always refer to the API Documentation.
 The iOS SDK code to register an account follows this format:
 
 ```objective-c
-	[[MDAPIClient sharedClient]
+	[[Medable client]
   		registerAccountWithFirstName:@"Charles"
   		lastName:@"Best"
   		email:@"charles.best@example.org"
@@ -65,7 +65,7 @@ For preliminary information, read the [Request a Password Reset API](https://dev
 To request a password reset email, your app needs only to gather the Email of where it will be sent.
 
 ```objective-c
-	[[MDAPIClient sharedClient]
+	[[Medable client]
  	 requestPasswordResetWithEmail:@"charles.best@medable.com"
  	 callback:^(MDFault* fault)
  		{
@@ -95,7 +95,7 @@ As always, for optional data always refer to the API documentation as there are 
 The SDK code required for a simple sign in is:
 
 ```objective-c
-[[MDAPIClient sharedClient]
+[[Medable client]
  authenticateSessionWithEmail:@"james@example.com"
  password:@"this is not my passphrase"
  verificationToken:nil
@@ -124,7 +124,7 @@ The SDK code required for a simple sign in is:
 In case your Organization has enabled location verification and this user is using this device (location) for the first time then the response will have one of the two listed location verification errors. The user will receive an SMS text message to the phone number they used when registering with Medable which in turn should be passed in a consecutive authenticate call, like this:
 
 ```objective-c
-[[MDAPIClient sharedClient]
+[[Medable client]
  authenticateSessionWithEmail:@"james@example.com"
  password:@"this is not my passphrase"
  verificationToken:@"123123" //This was received via SMS to the phone

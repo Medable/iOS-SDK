@@ -39,7 +39,7 @@
 
 -(IBAction)getOrganization:(id)sender
 {
-    MDAPIClient *client = [MDAPIClient sharedClient];
+    MDAPIClient *client = [Medable client];
     
     [client getPublicOrgInfoWithCallback:^(NSDictionary *orgInfo, MDFault *fault)
     {

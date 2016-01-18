@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MDNotificationManager.h"
+#import "MDBaseInstance.h"
 
 @class MDObjectId;
 @class MDReference;
@@ -20,12 +21,7 @@
  * Notifications are automatically cleared for posts and comments when they are retrieved using the API. Otherwise,
  * clients should manually clear them using the notifications API.
  */
-@interface MDNotification : NSObject
-
-/**
- * The unique identifer
- */
-@property (nonatomic, readonly) MDObjectId* Id;
+@interface MDNotification : MDBaseInstance
 
 /**
  * The context for which the notification was created.
@@ -41,11 +37,6 @@
  * Type-specific metadata
  */
 @property (nonatomic, readonly) NSDictionary* meta;
-
-/**
- * The object name (notification).
- */
-@property (nonatomic, readonly) NSString* object;
 
 /**
  * Notification Type.

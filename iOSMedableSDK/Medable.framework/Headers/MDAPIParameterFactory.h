@@ -383,15 +383,15 @@
 + (NSDictionary *)checkDocumentValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
 
 /**
- * Check the validity of a Date for a date property definition. This will not control any restrictions
+ * Check the validity of a Date represented as a string for a date property definition. This will not control any restrictions
  * this value may have, only that the type of value corresponds to the expectations of the property definition.
  *
  * @param propertyDefinition The property definition for the custom class we are checking, should
  *  correspond to a Date type.
- * @param value The value to check.
- * @return The passed date value if the check holds, nil otherwise.
+ * @param value The string value to check.
+ * @return The passed date value (in a string format) if the check holds, nil otherwise.
  */
-+ (NSDate *)checkDateValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDate *)value;
++ (NSString *)checkDateValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
 
 /**
  * Check the validity of a String for an ObjectID property definition. This will not control any restrictions

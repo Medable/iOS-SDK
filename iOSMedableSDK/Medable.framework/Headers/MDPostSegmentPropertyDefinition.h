@@ -7,6 +7,8 @@
 
 #import "MDPropertyDefinition.h"
 
+@class MDPostSegmentDefinition;
+
 /**
  * Segment's property definition. They extend basic property definitions.
  */
@@ -24,5 +26,8 @@
 @property (nonatomic, readonly) NSNumber *trim;
 @property (nonatomic, readonly) NSNumber *lowercase;
 @property (nonatomic, readonly) NSNumber *uppercase;
+
+@property (nonatomic, weak, readonly) MDPostSegmentDefinition *postSegmentDefinition;
+@property (nonatomic, weak, readonly) MDPostDefinition *postDefinition;
 
 @end

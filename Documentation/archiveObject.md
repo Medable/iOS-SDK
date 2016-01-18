@@ -10,7 +10,7 @@ NSString *objectName = [self.context pluralNameForAPICalls];
 
 MDAPIParameters *archiveReason = [MDAPIParameterFactory parametersWithArchiveObjectReason:@"Moving to new object model"];
 
-[[MDAPIClient sharedClient]
+[[Medable client]
 	deleteObjectWithContext:objectName
 	objectId:object.Id
 	reason:archiveReason
@@ -27,4 +27,4 @@ MDAPIParameters *archiveReason = [MDAPIParameterFactory parametersWithArchiveObj
 	}];
 ```
 
-This is the last tutorial on the series, return to the [Tutorial Home](README.md) for the full list of available tutorials.
+This is the last tutorial on the series, return to the [Tutorial Home](tutorial.md) for the full list of available tutorials.

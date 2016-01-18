@@ -34,7 +34,7 @@ Optional Integration Steps
 ### Set log level
 ```objective-c
 // Change log level
-[MDAPIClient sharedClient].loggerLevel = MDAPIClientNetworkLoggerLevelDebug;
+[Medable client].loggerLevel = MDAPIClientNetworkLoggerLevelDebug;
 
 // If not set, the default loggerLevel is MDAPIClientNetworkLoggerLevelInfo.
 ```

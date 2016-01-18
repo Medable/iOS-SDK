@@ -25,7 +25,7 @@ class ViewController: UIViewController
 
     @IBAction func getOrganization(sender: AnyObject)
     {
-        let client = MDAPIClient.sharedClient()
+        let client = Medable.client()
         
         client.getPublicOrgInfoWithCallback(
             { (orgInfo, fault) -> Void in

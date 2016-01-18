@@ -37,6 +37,15 @@
 /// Caller's create access.
 @property (nonatomic, readonly) MDACLLevel createAccess;
 
+/// Whether this post segment definition is part of a comment segment
+@property (nonatomic, assign, readonly) BOOL isCommentSegment;
+
+/// Base Definition for the object of this segment
+@property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
+
+/// Post Definition for this segment
+@property (nonatomic, weak, readonly) MDPostDefinition *postDefinition;
+
 /**
  * Get one subproperty's definition from it's name.
  *

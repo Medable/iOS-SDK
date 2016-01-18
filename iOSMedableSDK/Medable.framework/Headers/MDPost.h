@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MDBaseInstance.h"
+
 @class MDConversation;
 @class MDPostSegment;
 
@@ -23,17 +25,7 @@
  *
  * This flexibility enables a multitude of use cases, from polls to question/answer to device data point storage.
  */
-@interface MDPost : NSObject
-
-/**
- * The unique identifer
- */
-@property (nonatomic, readonly) MDObjectId* Id;
-
-/**
- * The object that the post is associated with.
- */
-@property (nonatomic, readonly) MDObjectDefinition* object;
+@interface MDPost : MDBaseInstance
 
 /**
  * The object context that the post is associated with
@@ -46,24 +38,9 @@
 @property (nonatomic, readonly) MDPostDefinition* postDefinition;
 
 /**
- * The account that created the post
- */
-@property (nonatomic, readonly) MDReference* creator;
-
-/**
- * The updated Unix timestamp for the post when edited
- */
-@property (nonatomic, readonly) NSDate* updated;
-
-/**
  * The account that updated the post
  */
 @property (nonatomic, readonly) MDReference* updater;
-
-/**
- * The current caller’s level of access to the context
- */
-@property (nonatomic, readonly) MDACLLevel access;
 
 /**
  * The type of post being created. The type determines how the post is handled depending on the object feed configuration
@@ -109,15 +86,6 @@
  * The array of configured feed definition segments, discriminated by name.
  */
 @property (nonatomic, readonly) NSArray* body;
-
-/**
- * Synchronize this object with the latest from the backend.
- *
- * @param parameters Extra API parameters.
- * @param callback Asynchronous callback where the results are passed.
- */
-- (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
-                               callback:(MDObjectFaultCallback)callback;
 
 /**
  * Update the receiver with the latest data from the backend.

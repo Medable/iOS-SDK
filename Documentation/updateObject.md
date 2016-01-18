@@ -6,7 +6,7 @@ To update an object, create an update body following the same rules you read abo
 In this next example, assume `self.editingObject` is any object instance, and that `body` is a properly formed dictionary that maps a subset of this object's property names to the values you wish to update this object to:
 
 ```objective-c
-    [[MDAPIClient sharedClient]
+    [[Medable client]
      updateObjectWithContext:[self.editingObject.object pluralNameForAPICalls]
      objectId:self.editingObject.Id
      body:body
@@ -26,7 +26,7 @@ In this next example, assume `self.editingObject` is any object instance, and th
 Following the `Object` example in the simple approach to [Creating an Object Instance (a.k.a. a Context)](creatingObjects.md), this code will update only the value of `c_number` and `c_string` properties to new values:
 
 ```objective-c
-MDAPIClient *client = [MDAPIClient sharedClient];
+MDAPIClient *client = [Medable client];
 
 NSDictionary *body = 
 	@{
@@ -34,7 +34,7 @@ NSDictionary *body =
 		@"c_string" : @"Two roads diverged in a yellow wood",
 	};
 		
-[[MDAPIClient sharedClient]
+[[Medable client]
      updateObjectWithContext:[self.editingObject.object pluralNameForAPICalls] //This would yield @"c_objects"
      objectId:self.editingObject.Id
      body:body

@@ -164,6 +164,7 @@
 				287268B91AE7E494001798C2 /* Frameworks */,
 				287268BA1AE7E494001798C2 /* Resources */,
 				3CD0D929800E9B055A9E4E8D /* Copy Pods Resources */,
+				C22B3AC2D2A98DCF5A674E4E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,6 +267,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C22B3AC2D2A98DCF5A674E4E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE502646DF03AA25A28DB187 /* Check Pods Manifest.lock */ = {

@@ -2,7 +2,6 @@
 //  MDPostSegment.h
 //  iOSMedableSDK
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 

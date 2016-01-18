@@ -3,7 +3,7 @@ Setting up your Data Model
 
 This tutorial covers how to set up your data model with Medable. It *does not* cover how to choose an appropriate data model for your varied use cases, which is a topic best left for CS courses.
 
-If you still haven't set up your Medable Organization, head up to the [tutorial home](README.md).
+If you still haven't set up your Medable Organization, head up to the [tutorial home](tutorial.md).
 
 Medable supports a [list of base objects](https://dev.medable.com/#objects) that should suit your development needs for creating basic medical applications:
 

@@ -22,7 +22,7 @@ Make sure your Build Settings for the app target specify the bridging header (th
 
 Finally, you can use Medable classes directly:
 
-    let client = MDAPIClient.sharedClient()
+    let client = Medable.client()
 
 **Warning:** *There is currently no nullability annotations in the public Objective-C headers. This means that Swift will import your declarations as implicitly unwrapped optionals: `Type!`. Except in  MDAPIClient's header, which has such annotations.*
 

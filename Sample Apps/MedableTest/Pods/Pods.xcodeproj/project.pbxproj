@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F1469875BC4D0DD678C6218E540975C /* Pods-MedableTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EB2F9EB630FD3FCF7B611B74861A70 /* Pods-MedableTest-dummy.m */; };
-		C829DA3E63AE5D73E22047B88BCB9870 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137A4837E2D8BCE7B9006BFFADD0E7FE /* Foundation.framework */; };
+		7F1469875BC4D0DD678C6218E540975C /* Pods-MedableTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F433D38B9BA3AB0C544C29259856B /* Pods-MedableTest-dummy.m */; };
+		85A4CA4B72DB50426A2B8BB53DB9C703 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08EB2F9EB630FD3FCF7B611B74861A70 /* Pods-MedableTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableTest-dummy.m"; sourceTree = "<group>"; };
-		137A4837E2D8BCE7B9006BFFADD0E7FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		137C1F4A6E3F97335B9CD867CD435E87 /* Pods-MedableTest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableTest-acknowledgements.plist"; sourceTree = "<group>"; };
 		281D674FBC379567EC5317C8789D833D /* Medable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medable.framework; path = iOSMedableSDK/Medable.framework; sourceTree = "<group>"; };
-		2991804B17FE7A0EAB3E1885ABAD120C /* Pods-MedableTest-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableTest-resources.sh"; sourceTree = "<group>"; };
-		3F571C9568FD708C9D2335B6F6B51E00 /* Pods-MedableTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableTest.debug.xcconfig"; sourceTree = "<group>"; };
+		2E38626B238CA25231E5E33856B6C5DE /* Pods-MedableTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableTest.release.xcconfig"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		534F433D38B9BA3AB0C544C29259856B /* Pods-MedableTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableTest-dummy.m"; sourceTree = "<group>"; };
+		5BF8CABB13C13F68A6F711B3D3F91999 /* Pods-MedableTest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableTest-acknowledgements.markdown"; sourceTree = "<group>"; };
+		67AFA26259BD59F90903E432448FC8E6 /* Pods-MedableTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableTest.debug.xcconfig"; sourceTree = "<group>"; };
+		7449C99595AF14786BC04B8247216ADD /* Pods-MedableTest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableTest-acknowledgements.plist"; sourceTree = "<group>"; };
+		A5F871A1C54A27C44A8BCF72E1AB1738 /* Pods-MedableTest-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableTest-resources.sh"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CD0E3C085170953A898F003A34329FD0 /* libPods-MedableTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1DDEDE4D972E60B3E9BF948A9506773 /* Pods-MedableTest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableTest-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F7C218B503C5EFC6BB4CE741BCDE618C /* Pods-MedableTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableTest.release.xcconfig"; sourceTree = "<group>"; };
+		BEE715202C7F242FE181BCACF0CE3127 /* libPods-MedableTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABE8CD15B843B17AC3DE7696C81D7C9 /* Pods-MedableTest-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableTest-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,19 +30,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C829DA3E63AE5D73E22047B88BCB9870 /* Foundation.framework in Frameworks */,
+				85A4CA4B72DB50426A2B8BB53DB9C703 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+		32B70898788C87F6A8ACCA28C93FABD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				137A4837E2D8BCE7B9006BFFADD0E7FE /* Foundation.framework */,
+				BEE715202C7F242FE181BCACF0CE3127 /* libPods-MedableTest.a */,
 			);
-			name = iOS;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -50,17 +51,40 @@
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				D96831A93359C21151907FA1AE8C3636 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				FCA472170E0C2D4742B222A50E1470B8 /* Targets Support Files */,
+				32B70898788C87F6A8ACCA28C93FABD2 /* Products */,
+				C64141E3E42639DFB02B51B02AF342EA /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		B9261A4D156068A1963DB3096B08E9E0 /* Pods-MedableTest */ = {
+			isa = PBXGroup;
+			children = (
+				5BF8CABB13C13F68A6F711B3D3F91999 /* Pods-MedableTest-acknowledgements.markdown */,
+				7449C99595AF14786BC04B8247216ADD /* Pods-MedableTest-acknowledgements.plist */,
+				534F433D38B9BA3AB0C544C29259856B /* Pods-MedableTest-dummy.m */,
+				FABE8CD15B843B17AC3DE7696C81D7C9 /* Pods-MedableTest-frameworks.sh */,
+				A5F871A1C54A27C44A8BCF72E1AB1738 /* Pods-MedableTest-resources.sh */,
+				67AFA26259BD59F90903E432448FC8E6 /* Pods-MedableTest.debug.xcconfig */,
+				2E38626B238CA25231E5E33856B6C5DE /* Pods-MedableTest.release.xcconfig */,
+			);
+			name = "Pods-MedableTest";
+			path = "Target Support Files/Pods-MedableTest";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		C06675B1C822005283AFB171BCC64374 /* Frameworks */ = {
@@ -80,12 +104,12 @@
 			path = ../../..;
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		C64141E3E42639DFB02B51B02AF342EA /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD0E3C085170953A898F003A34329FD0 /* libPods-MedableTest.a */,
+				B9261A4D156068A1963DB3096B08E9E0 /* Pods-MedableTest */,
 			);
-			name = Products;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		D96831A93359C21151907FA1AE8C3636 /* Development Pods */ = {
@@ -94,28 +118,6 @@
 				C489EB0BE4FEF3F4383E736003DCB488 /* Medable */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		FCA472170E0C2D4742B222A50E1470B8 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FFD3DF132563FD8A165D0EAD0EC62B12 /* Pods-MedableTest */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		FFD3DF132563FD8A165D0EAD0EC62B12 /* Pods-MedableTest */ = {
-			isa = PBXGroup;
-			children = (
-				E1DDEDE4D972E60B3E9BF948A9506773 /* Pods-MedableTest-acknowledgements.markdown */,
-				137C1F4A6E3F97335B9CD867CD435E87 /* Pods-MedableTest-acknowledgements.plist */,
-				08EB2F9EB630FD3FCF7B611B74861A70 /* Pods-MedableTest-dummy.m */,
-				2991804B17FE7A0EAB3E1885ABAD120C /* Pods-MedableTest-resources.sh */,
-				3F571C9568FD708C9D2335B6F6B51E00 /* Pods-MedableTest.debug.xcconfig */,
-				F7C218B503C5EFC6BB4CE741BCDE618C /* Pods-MedableTest.release.xcconfig */,
-			);
-			name = "Pods-MedableTest";
-			path = "Target Support Files/Pods-MedableTest";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +136,7 @@
 			);
 			name = "Pods-MedableTest";
 			productName = "Pods-MedableTest";
-			productReference = CD0E3C085170953A898F003A34329FD0 /* libPods-MedableTest.a */;
+			productReference = BEE715202C7F242FE181BCACF0CE3127 /* libPods-MedableTest.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +156,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = 32B70898788C87F6A8ACCA28C93FABD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -209,12 +211,13 @@
 			};
 			name = Release;
 		};
-		2C14E15B59FB1611A3D0A123DE5F76AB /* Release */ = {
+		38AA6D258344B6E1BD4BA69E5C1FED1D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7C218B503C5EFC6BB4CE741BCDE618C /* Pods-MedableTest.release.xcconfig */;
+			baseConfigurationReference = 2E38626B238CA25231E5E33856B6C5DE /* Pods-MedableTest.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -224,6 +227,23 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		8094FF414567DF66EB3A818461DF92B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67AFA26259BD59F90903E432448FC8E6 /* Pods-MedableTest.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -264,22 +284,6 @@
 			};
 			name = Debug;
 		};
-		D18DE936628E78720BD1ABAD5698A00F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F571C9568FD708C9D2335B6F6B51E00 /* Pods-MedableTest.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -295,8 +299,8 @@
 		F57FAED36669830CD8B269266E68D8CD /* Build configuration list for PBXNativeTarget "Pods-MedableTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D18DE936628E78720BD1ABAD5698A00F /* Debug */,
-				2C14E15B59FB1611A3D0A123DE5F76AB /* Release */,
+				8094FF414567DF66EB3A818461DF92B7 /* Debug */,
+				38AA6D258344B6E1BD4BA69E5C1FED1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

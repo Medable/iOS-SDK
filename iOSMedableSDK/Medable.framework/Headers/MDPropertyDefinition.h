@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class MDBaseDefinition;
+
 /**
  * Basic property types.
  *
@@ -70,6 +72,9 @@ typedef enum : NSInteger
 /// Whether it's required.
 @property (nonatomic, readonly) NSNumber *required;
 
+/// Whether it's read only.
+@property (nonatomic, readonly) NSNumber *readOnly;
+
 /// Whether it can be searched.
 @property (nonatomic, readonly) NSNumber *searchable;
 
@@ -122,6 +127,20 @@ typedef enum : NSInteger
 
 /// Subproperties in case it's a Document type.
 @property (nonatomic, readonly) NSArray *properties;
+
+/// Path of this property
+@property (nonatomic, readonly) NSString *path;
+
+/// Points to the parent property definition if it has one, nil otherwise.
+@property (nonatomic, weak, readonly) MDPropertyDefinition *parent;
+
+/// Points to the parent property definition if it has one, nil otherwise.
+@property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
+
+/**
+ * Get the subproperty that matches a certain name.
+ */
+- (MDPropertyDefinition *)subPropertyWithName:(NSString *)name NOTNULL(1);
 
 /**
  * Convert string to property type (enum).

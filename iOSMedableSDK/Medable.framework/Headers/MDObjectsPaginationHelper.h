@@ -36,7 +36,7 @@
  *
  * @param callback Asynchronous callback, called on return of the API call.
  */
-- (void)loadObjectsNewerThan:(MDObjectId*)objecId callback:(MDObjectCallback)callback NOTNULL(1,2);
+- (void)loadObjectsNewerThan:(MDObjectId*)objectId callback:(MDObjectCallback)callback NOTNULL(1,2);
 
 /**
  * Reset, will start loading from page 0 again.

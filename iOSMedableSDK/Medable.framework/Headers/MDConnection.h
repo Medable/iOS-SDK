@@ -36,25 +36,7 @@
 /**
  * Represents a connection the current user has to another user with relationship to a context (an object instance).
  */
-@interface MDConnection : NSObject
-
-/// The Id of this connection object.
-@property (nonatomic, readonly) MDObjectId* Id;
-
-/**
- * The name of the object class this connection belongs to.
- */
-@property (nonatomic, readonly) NSString* object;
-
-/**
- * The date the connection was initiated
- */
-@property (nonatomic, readonly) NSDate* created;
-
-/**
- * The account id of the connection creator.
- */
-@property (nonatomic, readonly) MDReference* creator;
+@interface MDConnection : MDObjectInstance
 
 /**
  * The connection target recipient. The email property will only be present if the connection was created using an email address. Conversely, the account property will only be present if the connection was created using an account id. The name property will only be present if the connection creator added one.
@@ -85,11 +67,6 @@
  * For pending connections. the time at which the connection request will expire.
  */
 @property (nonatomic, readonly) NSDate* expiresAt;
-
-/**
- * The access level granted by the connection. In the case of an ownership transfer, the access level is the object’s default owner access.
- */
-@property (nonatomic, readonly) MDACLLevel access;
 
 /**
  * A thumbnail image representing the connection.

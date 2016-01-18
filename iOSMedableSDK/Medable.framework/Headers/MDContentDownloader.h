@@ -24,16 +24,16 @@ extern NSString* const kContentDownloadedDidFinishDownloads;
 @interface MDContentDownloader : NSObject
 
 /**
- * Initialize the downloader. Copy the callback to be used every time a new bundle is downloaded by this object.
+ * Get the latest bundle and download all class definition schemas. Call the asynchronous callback used
+ * when initializing this object once this process is completed.
  *
  * @param callback The asynchronous callback block that will be called every time a new bundle is downloaded.
  */
-- (instancetype)initWithCallback:(MDNoArgumentCallback)callback;
++ (void)checkForDownloads:(MDFaultCallback)callback;
 
 /**
- * Get the latest bundle and download all class definition schemas. Call the asynchronous callback used
- * when initializing this object once this process is completed.
+ * Checks if the contents are downloaded.
  */
-- (void)checkForDownloads;
++ (BOOL)didDownloadContents;
 
 @end

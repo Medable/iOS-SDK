@@ -18,6 +18,9 @@ extern NSString* const kOrgsKey;
 
 #pragma mark - APIClient
 extern NSString* const kMedableClientKey;
+extern NSString* const kMedableKey;
+extern NSString* const kOrganizationKey;
+extern NSString* const kClientKeyKey;
 extern NSString* const kMedableCSRFKey;
 extern NSString* const kAcceptHeaderKey;
 extern NSString* const kAcceptApplicationJsonKey;
@@ -397,6 +400,7 @@ extern NSString* const kSourceKey;
 extern NSString* const kUploadsKey;
 extern NSString* const kAllowUploadKey;
 extern NSString* const kRequiredKey;
+extern NSString* const kReadOnlyKey;
 extern NSString* const kPassMimesdKey;
 extern NSString* const kUploadUrlKey;
 extern NSString* const kFilenameKey;
