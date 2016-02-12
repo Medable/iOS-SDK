@@ -8,7 +8,7 @@ The Medable iOS SDK is targeted to be used in apps that have a base SDK of iOS 7
 Installation
 ======
 
-Using Cocoapods
+Using CocoaPods
 ------
 
 #### Step 1: Download CocoaPods
