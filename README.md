@@ -1,56 +1,65 @@
-### Usando o MoipSDK
+# Moltin iOS-SDK
 
-Veja abaixo como integrar o seu app com o Moip.
+The Moltin ios-sdk is a simple to use interface for the API to help you get off the ground quickly and efficiently within the iOS app.
 
+For full usage examples, check out the [Objective-C](https://github.com/moltin/ios-objc-example) example app, or the [Swift](https://github.com/moltin/ios-swift-example) example app.
 
-#### 1. Instalando
+## Installation
+There are two ways to install the Moltin SDK in your project:
 
-O SDK do Moip está no CocoaPods. Para instalar só adicionar ```pod 'MoipEncryptSDK', '~> 1.0'``` no seu ```Podfile```
+- Using CocoaPods (recommended)
+- Manual installation by copying all of the files in the Moltin directory into your project, and adding them to your target
 
+### Installation with CocoaPods
 
-#### 2. Criar o seu cartão de credito
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
 
-```objective-c
-NSString *myPublicKey = @"";
-[MoipSDK importPublicKey:myPublicKey];
+#### Podfile
+```objc
+platform :ios, '7.0'
+
+pod 'Moltin', :git => 'https://github.com/moltin/ios-sdk.git', :branch => 'master'
 ```
 
-#### 3. Criptografar os dados com base no seu MPKCreditCard
-```objective-c
-MPKCreditCard *creditCard = [MPKCreditCard new];
-creditCard.number = @"4111111111111111";
-creditCard.cvc = @"999";
-creditCard.expirationMonth = @"07";
-creditCard.expirationYear = @"15";
-    
-NSString * cryptData = [MoipSDK encryptCreditCard:creditCard];
+
+#### Usage
+
+```objc
+#import <Moltin/Moltin.h>;
 ```
 
-### Validações
+### Authentication
 
-Usando o MoipSDK, você pode realizar varias verificações para checar se os dados do cartão de credito.
+Just set your store `public ID` from the API console on Moltin website and you are ready to go.
 
-##### Número do cartão
-```objective-c
-MPKCreditCard *creditCard = [MPKCreditCard new];
-creditCard.number = @"4111111111111111";
-    
-BOOL isValidCreditCard = creditCard.isNumberValid;
+```objc
+[[Moltin sharedInstance] setPublicId:@"XXXXXXXXXXXXX"];
 ```
 
-##### Código de segurança
-```objective-c
-MPKCreditCard *creditCard = [MPKCreditCard new];
-creditCard.cvc = @"123";
-    
-BOOL isValid = creditCard.isSecurityCodeValid;
+### Resources
+
+The majority of our API calls can be mapped to Model-esque instance and don't need any low-level API calls. A full example store app is included showing every part of the shopping process - from listing products, to adding them to a cart, and allowing the user to checkout (via credit card or Apple Pay).
+
+Get a single product by ID
+```objc
+[[Moltin sharedInstance].product getWithId:@"6"
+                                  callback:^(NSDictionary *response, NSError *error){
+                                            if(!error) {
+                                                NSLog(@"PRODUCT: %@", response);
+                                            } else {
+                                                NSLog(@"ERROR: %d", error.code);
+                                            }
+                                }];
 ```
 
-##### Data de Expiração
-```objective-c
-MPKCreditCard *creditCard = [MPKCreditCard new];
-creditCard.expirationMonth = @"06";
-creditCard.expirationYear = @"2018";
-    
-BOOL isValid = creditCard.isExpiryDateValid;
+Creating a user's address
+```objc
+[[Moltin sharedInstance].address createWithParameters:@{  @"first_name": @"Joe", @"last_name": @"Black" }
+                                			 callback:^(NSDictionary *response, NSError *error){
+						                                if(!error) {
+						                                    NSLog(@"Address created.");
+						                                } else {
+						                                    NSLog(@"ERROR: %d", error.code);
+						                                }
+                                }];
 ```
