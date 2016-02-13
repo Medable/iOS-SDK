@@ -8,7 +8,7 @@ The Medable iOS SDK is targeted to be used in apps that have a base SDK of iOS 7
 Installation
 ======
 
-Using Cocoapods
+Using CocoaPods
 ------
 
 #### Step 1: Download CocoaPods
@@ -20,7 +20,7 @@ CocoaPods is distributed as a ruby gem, and is installed by running the followin
     $ sudo gem install cocoapods
     $ pod setup
 
-> Depending on your Ruby installation, you may have to run as `sudo` to install the cocoapods gem.
+> Depending on your Ruby installation, you may have to run as `sudo` to install the CocoaPods gem.
 
 #### Step 2: Create a Podfile
 
