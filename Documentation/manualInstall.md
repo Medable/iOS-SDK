@@ -1,7 +1,7 @@
 Manual iOS SDK Installation
 ====
 
-[Download the latest version](https://www.medable.com/downloads/ios/sdk/latest) and place it wherever you like inside your project structure.
+[Download the latest version](https://github.com/Medable/iOS-SDK/tree/master/iOSMedableSDK/Medable.framework) and place it wherever you like inside your project structure.
 
 ##### Now let’s link your project against the framework
 
