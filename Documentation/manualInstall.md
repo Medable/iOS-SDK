@@ -28,7 +28,7 @@ Add a linker flag (-ObjC), this allows you to use class extensions provided by o
 + In XCode, click in your project’s root, select ‘Build Settings’ tab on the right, and search for ‘other linker flags’.
 + Double click on the right side of it.
 + Press the plus button.
-+ And write ‘-Objc’, without the quotes.
++ And write ‘-ObjC’, without the quotes.
 
 Also, be sure to include the following system frameworks:
 
