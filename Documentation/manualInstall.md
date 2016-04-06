@@ -9,7 +9,7 @@ Manual iOS SDK Installation
 + Press the plus button.
 + Select ‘Add other…’, browse to where you put the framework, select it and click ‘Open’.
 + Now hit build and check everything goes well. 
-+ Good!, now you have your project linked to iOSMedableSDK.framework.
++ Good!, now you have your project linked to Medable.framework.
 
 ##### Now let’s link your project against required frameworks
 
