@@ -120,6 +120,21 @@
 + (void)start;
 
 /**
+ * This will set the organization and client key (overriding any org and client key),
+ * download your basic Organization information, which is required to communicate with the Medable backend.
+ *
+ * Place a call to this method within your application's delegate method (`didFinishLaunching`). Ideally, you should
+ * check for the notifications with these names:
+ *
+ * - `kContentDownloadedDidStartDownloads` : Downloads started.
+ * - `kContentDownloadedDidFinishDownloads` : Downloads completed.
+ *
+ * If the download fails and you don't retry it, then whenever an http request is made out to the Medable API, it will
+ * first attempt to download this information before making the call.
+ */
++ (void)startWithOrganization:(NSString*)org clientKey:(NSString*)clientKey;
+
+/**
  * Shared Medable API client (or singleton), same as calling `[MDAPIClient sharedClient]`.
  */
 + (MDAPIClient *)client;

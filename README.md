@@ -104,6 +104,8 @@ Other optional entries in the "Medable" dictionary include:
 
 It's possible to also define different environments for different build configurations (Debug, Release, etc) and even define your custom configurations. For a walkthrough of those steps, follow the [Advanced Integration Steps Guide](Documentation/integrationSteps.md).
 
+_Note_: If, for some reason, you need to provide the *_organization_* and *_clientKey_* programmatically read below in the _Optional Integration Steps_ section.
+
 
 Optional Integration Steps
 ------
@@ -114,6 +116,11 @@ It's not required, but is a good idea anyway, to initialize the Medable SDK in y
 
 ```objective-c
 [Medable start];
+```
+
+If you need to provide the *_organization_* and *_clientKey_* programmatically, initialize the Medable SDK this way instead:
+```objective-c
+[Medable startWithOrganization:@"your org name" clientKey:@"your client key"];
 ```
 
 You may also wish to register for notifications about that download process. To do so, check the [Advanced Integration Steps Guide](Documentation/integrationSteps.md) for further instructions.
