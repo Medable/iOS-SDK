@@ -20,11 +20,19 @@ typedef enum : NSUInteger
 /**
  * Convert a date string of a specified format to an NSDate object
  *
- * @param dateString Date of birth string.
+ * @param dateString Date string.
  * @param format Date format of the string.
- * @return An unsigned integer with the number of years from that birth date.
+ * @return A date object.
  */
 + (NSDate*)dateFromString:(NSString*)dateString format:(MDDateUtilitiesFormat)format NOTNULL(1);
+
+/**
+ * Convert a date string to an NSDate object. It tries with both MDDateUtilitiesFormat.
+ *
+ * @param dateString Date string.
+ * @return A date object.
+ */
++ (NSDate*)dateFromString:(NSString*)dateString NOTNULL(1);
 
 /**
  * Get number of years from date of birth string.
