@@ -10,6 +10,7 @@
 #import "MDBaseDefinition.h"
 #import "MDReference.h"
 #import "MDPropertyContainer.h"
+#import "MDFilePropertyValue.h"
 
 /**
  * An instance is a concrete object of a given class, not necessarily a context.
@@ -162,9 +163,9 @@
  * Dictionary value of the property of type File.
  *
  * @param name Property name.
- * @return The dictionary representing the value for this property.
+ * @return The MDFilePropertyValue representing the value for this property.
  */
-- (NSDictionary*)filesValueWithPropertyName:(NSString*)name NOTNULL(1);
+- (MDFilePropertyValue*)fileValueWithPropertyName:(NSString*)name NOTNULL(1);
 
 /**
  * Number value of the property of type Number.
