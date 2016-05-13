@@ -98,7 +98,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the expand paths.
  */
-+ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;;
++ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;
 
 /**
  * Creates a parameter with a list of optional paths to include. See each context object for
@@ -165,11 +165,29 @@
 + (MDAPIParameters*)parametersWithSkip:(NSUInteger)count;
 
 /**
+ * Sorting parameters.
+ *
+ * @param sortParams Sorting parameters.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.sort={ sort params here }
+ * @result The parameter collection containing a parameter that will sort the results.
+ */
++ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams prefixPath:(NSString*)prefixPath;
+
+/**
+ * Filtering queries.
+ *
+ * @param where Sorting filter parameters.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.where={ where params here }
+ * @result The parameter collection containing a parameter that will filter results.
+ */
++ (MDAPIParameters*)parametersWithWhere:(NSDictionary*)where prefixPath:(NSString*)prefixPath;
+
+/**
  * Sorting and filtering queries.
  *
  * @param sortParams Sorting parameters.
  * @param where Sorting filter parameters.
- * @result The parameter collection containing a parameter that will skip the amount of results.
+ * @result The parameter collection containing a parameter that will sort and filter results.
  */
 + (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams where:(NSDictionary*)where;
 
