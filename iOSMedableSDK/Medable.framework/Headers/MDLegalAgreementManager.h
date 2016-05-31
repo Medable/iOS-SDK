@@ -38,6 +38,6 @@ extern NSString* const kConsentKey;
  * @param callback The callback where the acceptance of agreements is returned on.
  * @return True if there are legal agreements still to accept.
  */
-- (BOOL)checkLegalAgreementsWithCallback:(MDBoolArgumentCallback)callback NOTNULL(1);
+- (BOOL)checkLegalAgreementsWithCallback:(MDBoolCallback)callback NOTNULL(1);
 
 @end

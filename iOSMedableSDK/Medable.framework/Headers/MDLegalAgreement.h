@@ -40,7 +40,7 @@
  *
  * @param callback Asynchronous callback called after the user agrees / disagrees on the legal agreement.
  */
-- (void)promptUserForAcceptanceWithCallback:(MDBoolArgumentCallback)callback NOTNULL(1);
+- (void)promptUserForAcceptanceWithCallback:(MDBoolCallback)callback NOTNULL(1);
 
 /**
  * Whether the user is pending acceptance of an agreement.

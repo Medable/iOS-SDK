@@ -19,6 +19,9 @@
 /*
  *  @Warning The image is not encrypted using this method. Use MDAssetManager instead if you want it to be encrypted.
  */
-- (NSString*)saveImageToCacheDirectory:(UIImage*)image png:(BOOL)png NOTNULL(1);
+- (void)saveImageToCacheDirectory:(UIImage*)image
+                         fileName:(NSString*)fileName
+                              png:(BOOL)png
+                         callback:(MDBoolCallback)callback NOTNULL(1,2,4);
 
 @end

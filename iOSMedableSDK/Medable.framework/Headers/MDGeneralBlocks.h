@@ -14,7 +14,7 @@
 typedef void (^MDNoArgumentCallback)(void);
 typedef void (^MDObjectCallback)(id object);
 typedef void (^MDObjectFaultCallback)(id object, MDFault* fault);
-typedef void (^MDBoolArgumentCallback)(BOOL boolean);
+typedef void (^MDBoolCallback)(BOOL boolean);
 typedef void (^MDPicsUpdateBlock)(NSString* imageId, UIImage* image, MDDataSource source, MDFault* fault);
 typedef void (^MDUIntegerCallback)(NSUInteger integer);
 typedef void (^MDImageCallback)(UIImage* image);

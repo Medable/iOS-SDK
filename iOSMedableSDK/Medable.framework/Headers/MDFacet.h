@@ -87,6 +87,6 @@
  * and the SDK will serve the incorrect image.
  */
 - (void)cacheImage:(UIImage *)image;
-- (void)cacheImage:(UIImage *)image finishBlock:(MDBoolArgumentCallback)finishBlock;
+- (void)cacheImage:(UIImage *)image finishBlock:(MDBoolCallback)finishBlock;
 
 @end

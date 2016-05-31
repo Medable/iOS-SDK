@@ -57,7 +57,7 @@
  */
 - (void)saveData:(NSData*)data
         fileName:(NSString*)fileName
-     finishBlock:(MDBoolArgumentCallback)finishBlock NOTNULL(1,2,3);
+     finishBlock:(MDBoolCallback)finishBlock NOTNULL(1,2,3);
 
 /**
  * Delete all files with file names matching a regular expression.
