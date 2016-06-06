@@ -30,6 +30,4 @@
 //for iOS 7.1, the most common version (this could have been fixed but this version is clearer)
 #define IS_OS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
-#define kSendGeoData    NO
-
 #endif

@@ -306,6 +306,8 @@ extern NSString* const kMDAPIErrorUnverifiedLocation;
 extern NSString* const kMDAPIErrorInvalidToken;
 extern NSString* const kMDAPIErrorAccountAlreadyVerified;
 extern NSString* const kMDAPIErrorNotLoggedIn;
+extern NSString* const kMDAPIErrorSessionExpired;
+extern NSString* const kMDAPIErrorLoggedInElsewhere;
 extern NSString* const kMDAPIErrorRegistrationInvitationRequired;
 extern NSString* const kMDAPIErrorLocationClientMismatch;
 extern NSString* const kMDAPIErrorAccessDenied;
