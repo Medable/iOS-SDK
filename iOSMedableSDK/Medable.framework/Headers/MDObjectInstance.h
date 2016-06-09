@@ -45,6 +45,11 @@
 @property (nonatomic, readonly) NSUInteger contextVersion;
 
 /**
+ * Creates an object instance form the attributes provided.
+ */
++ (MDObjectInstance*)objectInstanceWithAttributes:(NSDictionary*)attributes;
+
+/**
  * Update the receiver with the latest data from the backend.
  * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so
  * using the synchronizeObjectWithParameters:callback: method.

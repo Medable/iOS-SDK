@@ -66,6 +66,64 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setPushNotificationToken:(nullable NSData*)token;
 
 
+#pragma mark - Custom Routes
+
+/**
+ * GET method
+ *
+ * @param path Relative custom route
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ */
+- (void)getPath:(NSString *)path
+     parameters:(nullable MDAPIParameters *)parameters
+        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+        failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+/**
+ * POST method
+ *
+ * @param path Relative custom route
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ */
+- (void)postPath:(NSString *)path
+      parameters:(nullable MDAPIParameters *)parameters
+         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+         failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+/**
+ * PUT method
+ *
+ * @param path Relative custom route
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ */
+- (void)putPath:(NSString *)path
+     parameters:(nullable MDAPIParameters *)parameters
+        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+        failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+/**
+ * DELETE method
+ *
+ * @param path Relative custom route
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ */
+- (void)deletePath:(NSString *)path
+        parameters:(nullable MDAPIParameters *)parameters
+           success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+           failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+/**
+ * PATCH method
+ *
+ * @param path Relative custom route
+ * @param parameters Construct parameters using MDAPIParameterFactory.
+ */
+- (void)patchPath:(NSString *)path
+       parameters:(nullable MDAPIParameters *)parameters
+          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+          failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+
 #pragma mark - Root
 
 /**
