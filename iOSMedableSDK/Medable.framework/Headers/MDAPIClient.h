@@ -69,9 +69,16 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Custom Routes
 
 /**
+ * Method to create routes for the custom route methods below.
+ *
+ * @param routeComponents the components to create the route. The route components of the array are prefixed with the base URL.
+ */
+- (NSString*)routeWithComponents:(nullable NSArray*)routeComponents;
+
+/**
  * GET method
  *
- * @param path Relative custom route
+ * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
  */
 - (void)getPath:(NSString *)path
@@ -82,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * POST method
  *
- * @param path Relative custom route
+ * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
  */
 - (void)postPath:(NSString *)path
@@ -93,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * PUT method
  *
- * @param path Relative custom route
+ * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
  */
 - (void)putPath:(NSString *)path
@@ -104,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * DELETE method
  *
- * @param path Relative custom route
+ * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
  */
 - (void)deletePath:(NSString *)path
@@ -115,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * PATCH method
  *
- * @param path Relative custom route
+ * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
  */
 - (void)patchPath:(NSString *)path
