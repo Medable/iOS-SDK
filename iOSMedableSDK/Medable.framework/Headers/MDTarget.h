@@ -45,6 +45,20 @@
                            lastName:(NSString*)lastName
                              access:(MDACLLevel)access NOTNULL(1);
 
+/**
+ * Creates a connect target.
+ * @param email
+ * @param firstName
+ * @param lastName
+ * @param access
+ * @param autoAccept
+ **/
++ (MDConnectTarget*)targetWithEmail:(NSString*)email
+                          firstName:(NSString*)firstName
+                           lastName:(NSString*)lastName
+                             access:(MDACLLevel)access
+                         autoAccept:(NSNumber *)autoAccept NOTNULL(1);
+
 @end
 
 /*
