@@ -368,26 +368,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Sends a collaboration invitation.
- *  @param email Email address of invitee
- *  @param inviteeFirstName A placeholder name used for the invitation when no account exists
- *  @param inviteeLastName A placeholder name used for the invitation when no account exists
- *  @param context Context
- *  @param objectId Context Object Id. Some contexts suppport creation upon invitation. See the collaborationCreatable of each context object.
- *  @param accessLevel The access level to grant to the invitee. See the 'shareChain' for each context.
- *  @param autoAccept Whether the invitation should be automatically accepted
- *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
- */
-- (void)inviteByEmail:(NSString*)email
-     inviteeFirstName:(nullable NSString*)inviteeFirstName
-      inviteeLastName:(nullable NSString*)inviteeLastName
-              context:(NSString*)context
-             objectId:(MDObjectId*)objectId
-          accessLevel:(MDACLLevel)accessLevel
-           autoAccept:(nullable NSNumber *)autoAccept
-             callback:(void (^)(MDFault* fault))callback;
-
-/**
- * Sends a collaboration invitation.
  *  @param accountId Account id of invitee
  *  @param context Context
  *  @param objectId Context Object Id. Some contexts support creation upon invitation. See the collaborationCreatable of each context object.
