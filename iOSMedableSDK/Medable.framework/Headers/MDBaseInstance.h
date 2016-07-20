@@ -9,7 +9,6 @@
 
 #import "MDBaseDefinition.h"
 #import "MDReference.h"
-#import "MDPropertyContainer.h"
 #import "MDFilePropertyValue.h"
 
 /**
@@ -19,7 +18,6 @@
  * @see MDBaseDefinition
  */
 @interface MDBaseInstance : NSObject
-    <MDPropertyContainer>
 
 /**
  * Unique Id of this object.

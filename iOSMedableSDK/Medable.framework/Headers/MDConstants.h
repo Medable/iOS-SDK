@@ -110,6 +110,17 @@ extern NSString* const kLockedKey;
 extern NSString* const kMeKey;
 extern NSString* const kStartingAfterKey;
 extern NSString* const kEndingBeforeKey;
+extern NSString* const kGreaterThanOperator;
+extern NSString* const kGreaterThanOrEqualOperator;
+extern NSString* const kLessThanOperator;
+extern NSString* const kLessThanOrEqualOperator;
+extern NSString* const kInOperator;
+extern NSString* const kAndOperator;
+extern NSString* const kOrOperator;
+extern NSString* const kRegexOperator;
+extern NSString* const kAllOperator;
+extern NSString* const kSizeOperator;
+extern NSString* const kElementMatchOperator;
 
 #pragma mark - Bundle
 extern NSString* const kVersionKey;

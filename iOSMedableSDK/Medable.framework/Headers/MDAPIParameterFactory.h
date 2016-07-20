@@ -57,6 +57,11 @@
  */
 - (void)addParametersWithDictionary:(NSDictionary*)parameters;
 
+/**
+ * @returns the current parameters in NSDictionary format.
+ */
+- (NSDictionary*)apiParameters;
+
 @end
 
 /**
@@ -181,6 +186,74 @@
  * @result The parameter collection containing a parameter that will filter results.
  */
 + (MDAPIParameters*)parametersWithWhere:(NSDictionary*)where prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the value of the property is greater than the passed in value.
+ * Produces prefixPath.where={"propertyName": {"$gt": value}}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThan:(NSNumber*)value prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the value of the property is greater than or equal to the passed in value.
+ * Produces prefixPath.where={"propertyName": {"$gte": value}}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThanOrEqualTo:(NSNumber*)value prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the value of the property is lesser than the passed in value.
+ * Produces prefixPath.where={"propertyName": {"$lt": value}}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThan:(NSNumber*)value prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the value of the property is lesser than or equal to the passed in value.
+ * Produces prefixPath.where={"propertyName": {"$lte": value}}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThanOrEqualTo:(NSNumber*)value prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the property matches any of the passed in values.
+ * Produces prefixPath.where={"propertyName": {"$in": [ comma separated string values here ]}}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesValues:(NSArray<NSString*>*)values prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where all passed in conditions are met.
+ * Produces prefixPath.where={"$and": [ conditions here ] }
+ */
++ (MDAPIParameters*)parametersWithAndConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where any passed in conditions are met.
+ * Produces prefixPath.where={"$or": [ conditions here ] }
+ */
++ (MDAPIParameters*)parametersWithOrConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the string property matches the passed in regular expression.
+ * Produces prefixPath.where={"propertyName": {"$regex": "regex here" }}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesRegex:(NSString*)regex prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the string property matches the passed in regular expression.
+ * Produces prefixPath.where={"propertyName": {"$all": [ comma separated string values here ] }}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName containsAllValues:(NSArray<NSString*>*)values prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where the size of the array property matches the passed in values.
+ * Produces prefixPath.where={"propertyName": {"$size": "size" }}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName sizeMatches:(NSNumber*)size prefixPath:(NSString*)prefixPath;
+
+/*
+ * Selects documents where all properties of an array of document properties match the passed in expression. 
+ *  $elemMatch does not limit the results within the array, but filters the entire document for contained entries.
+ *
+ * Produces prefixPath.where={"propertyName": {"$elemMatch": { "propName1": "value1", ..., "propNameN": "valuen" } }}
+ */
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName elemMatches:(NSDictionary*)elemMatches prefixPath:(NSString*)prefixPath;
 
 /**
  * Sorting and filtering queries.
