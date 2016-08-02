@@ -361,6 +361,7 @@ extern NSString* const kContextKey;
 extern NSString* const kContextsKey;
 extern NSString* const kContextIdKey;
 extern NSString* const kTypeKey;
+extern NSString* const kTypesKey;
 extern NSString* const kAccessKey;
 extern NSString* const kConnectionsKey;
 extern NSString* const kFeedKey;

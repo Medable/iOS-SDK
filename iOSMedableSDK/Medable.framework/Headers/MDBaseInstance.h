@@ -30,6 +30,11 @@
 @property (nonatomic, readonly) MDBaseDefinition* object;
 
 /**
+ Type of definition. Used for subclassing definitions.
+ */
+@property (nonatomic, readonly) NSString *subclassType;
+
+/**
  *  A reference to the account id of the context creator.
  */
 @property (nonatomic, readonly) MDReference* creator;

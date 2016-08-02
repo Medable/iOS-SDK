@@ -55,6 +55,13 @@
 @property (nonatomic, readonly) NSArray *customProperties;
 
 /**
+ Array of the subclass properties for this object sub classes.
+ 
+ This is a dictionary with subclass "type"s as keys and the subclass properties `MDObjectProperty` as values.
+ */
+@property (nonatomic, readonly) NSDictionary *subClassesProperties;
+
+/**
  Whether this object class is extensible. Many base classes
  like Account are.
  */
@@ -65,21 +72,23 @@
  Get the Property Definition for a property of a certain name.
  
  @param name The name of the property of this class.
+ @param type The name of the subclass type (optional). Pass nil if it's not the case of a subclass or if you are looking for a non subclass property.
  
  @return The `MDPropertyDefinition` for the property if it exists, nil otherwise.
  
  @see MDPropertyDefinition hasPropertyWithName:
  */
-- (MDPropertyDefinition *)propertyWithName:(NSString*)name NOTNULL(1);
+- (MDPropertyDefinition *)propertyWithName:(NSString*)name type:(NSString*)type NOTNULL(1);
 
 /**
  Check for property membership.
  
  @param name The property name.
+ @param type The name of the subclass type (optional). Pass nil if it's not the case of a subclass or if you are looking for a non subclass property.
  
  @return YES if this class has property with this name.
  */
-- (BOOL)hasPropertyWithName:(NSString*)name NOTNULL(1);
+- (BOOL)hasPropertyWithName:(NSString*)name type:(NSString*)type NOTNULL(1);
 
 /**
  Helper method to return the API ready string for making API calls.
