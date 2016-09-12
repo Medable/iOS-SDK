@@ -22,7 +22,10 @@
 /// ETag or hash value. This shouldn't concern most users but it's used by the system to know when to update a file.
 @property (nonatomic, readonly) NSString *ETag;
 
-/// The URL of this facet.
+/// The URL of this facet. Note: This is not always present.
+@property (nonatomic, readonly) NSURL *url;
+
+/// The path of this facet. i.e.: context name/object Id/property name or path to property/facet name, etc
 @property (nonatomic, readonly) NSString *path;
 
 /// Facet's name.
