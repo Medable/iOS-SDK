@@ -133,6 +133,14 @@
  */
 + (MDAPIParameters*)parametersWithLimitResultsTo:(NSUInteger)count;
 
+/**
+ * Creates a parameter with a limit on the resulting list.
+ *
+ * @param count The maximum amount of results. Can be between 1 and 100.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.limit=
+ * @result The parameter collection containing a parameter that will limit the amount of results.
+ */
++ (MDAPIParameters*)parametersWithLimitResultsTo:(NSUInteger)count prefixPath:(NSString*)prefixPath;
 
 /**
  * Creates a parameter with a first and last object IDs you want in the results. Both parameters
@@ -168,6 +176,15 @@
  * @result The parameter collection containing a parameter that will skip the amount of results.
  */
 + (MDAPIParameters*)parametersWithSkip:(NSUInteger)count;
+
+/**
+ * Creates a parameter with a skip count on the resulting list.
+ *
+ * @param count The amount of results to skip. Useful when getting paginated results.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.skip=
+ * @result The parameter collection containing a parameter that will skip the amount of results.
+ */
++ (MDAPIParameters*)parametersWithSkip:(NSUInteger)count prefixPath:(NSString*)prefixPath;
 
 /**
  * Sorting parameters.

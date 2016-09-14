@@ -36,6 +36,15 @@ typedef enum : NSUInteger
 + (NSDate*)dateFromString:(NSString*)dateString NOTNULL(1);
 
 /**
+ * Get a string from a date.
+ *
+ * @param date Original date.
+ * @param format Date format of the returned string.
+ * @return Formatted date string from the date, in the specified format.
+ */
++ (NSString*)stringFromDate:(NSDate*)date format:(MDDateUtilitiesFormat)format;
+
+/**
  * Get number of years from date of birth string.
  *
  * @param dob Date of birth string in standard format.
@@ -59,14 +68,5 @@ typedef enum : NSUInteger
  * @return Formatted date string from 'age' years ago, in the specified format.
  */
 + (NSString*)dobStringFromAge:(NSUInteger)age format:(MDDateUtilitiesFormat)format;
-
-/**
- * Get a date string from a date.
- *
- * @param date Original date.
- * @param format Date format of the returned string.
- * @return Formatted date string from the date, in the specified format.
- */
-+ (NSString*)dobStringFromDate:(NSDate*)date format:(MDDateUtilitiesFormat)format;
 
 @end
