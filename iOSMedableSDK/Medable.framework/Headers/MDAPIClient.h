@@ -688,7 +688,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)uploadData:(NSData *)data forUpload:(MDFileUpload*)upload;
 
 /**
- * General purpose download for a property's facet
+ * General purpose file download. Provide full path.
  */
 + (void)downloadFileAtPath:(NSString *)filePath
                   callback:(void (^)(id streamData, MDFault* fault))callback;
