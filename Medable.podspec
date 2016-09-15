@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'BSD 3-clause', :file => 'LICENSE' }
     s.author           = { "Medable Inc." => "hello@medable.com" }
     s.source           = { :git => "https://github.com/Medable/iOS-SDK.git", :tag => s.version.to_s }
+    s.source_files     = 'iOSMedableSDK/Medable.framework/Headers/*.h'
     s.social_media_url = 'https://twitter.com/medableinc'
 
     s.platform     = :ios, '7.0'
