@@ -15,12 +15,6 @@
 /// Singleton Instance
 + (MDEnvironment*)environment;
 
-/// Current configuration
-- (NSString*)configuration;
-
-/// Base URL of the API
-- (NSString*)APIbaseURL;
-
 /// The API URL includes the organization and API version as part of it's path.
 - (NSString*)APIURL;
 

@@ -1,23 +1,30 @@
-Integration Steps
+Advanced Integration Steps
 =====
 
-### Add the Environments.plist configuration file
+### Provide baseUrl / organization / clientKey programmatically
 
-The Sample App contains an example configuration file, containing such things as your org code, api key, and target domain. The compound base URL produced will look like https://api.dev.medable.com/medable/v2.
++ To do this expose a `MDEnvironment` "hidden" method like this:
 
-+ Copy this file to your project and add a reference to it so you see it in your project’s navigator.
-+ Configure values in Environments.plist.
+```Objective-C
+@interface MDEnvironment ()
++ (MDEnvironment*)environmentWithBaseUrl:(NSString*)baseUrl
+                            organization:(NSString*)organization
+                               clientKey:(NSString*)clientKey;
 
-Note: If you have your project and our sample app opened, locate Environments.plist file in our Sample project, drag and drop the file to your project and make sure you check “Copy items into destination group’s folder (if needed)’ when you get the popup.
+@end
 
+```
 
-### Add an entry in the Info.plist file
++ Then make sure the following call is the first SDK call or at least it is called before any other SDK call. Otherwise the values from Info.plist will be loaded!
 
-The SDK uses this setup at runtime to read values from the Environments.plist file.
-+ Locate your project’s Info.plist file. In XCode 5 it’s located in ‘Supporting Files’ group. The file is called ‘YourProjectName-Info.plist’.
-+ Select it, right click and select ‘Add Row’.
-+ Specify ‘Configuration’ for Key and ‘${CONFIGURATION}’ for Value. Type is ‘String’ by default. Put those strings without the ‘’.
-+ Save.
+```Objective-C
+[MDEnvironment environmentWithBaseUrl:@"theBaseUrl"
+                         organization:@"orgName"
+                            clientKey:@"yourClientKey"];
+
+// After that you can call either [MDAPIClient sharedClient] or [Medable start] to init the SDK.
+```
+
 
 ### Setup Imports
 

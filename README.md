@@ -87,22 +87,19 @@ Here is a template of that format:
 ```
 "Medable" : 
 {
-    "ClientKey": "SomeObscureString",
-    "Organization": "theclinic"
+    "ClientKey": "AppKey",
+    "BaseURL": "theBaseUrl"
+    "Organization": "yourOrgName"
 }
+
+// Sample BaseURL: api.medable.com
 ```
 
 The next figure shows how this would look when viewing the main ```.plist``` file:
 
 ![Medable Entry](Documentation/png/dictionaryEntry.png)
 
-Other optional entries in the "Medable" dictionary include:
-
-- ```"url"```: Base URL of the medable backend, the default is ```"medable.com"```.
-- ```"Protocol"```: HTTP protocol used to communicate with the backend, the default is ```"https"```.
-- ```"APIPrefix"```: API Prefix of the backend, the default is ```"api"```.
-
-It's possible to also define different environments for different build configurations (Debug, Release, etc) and even define your custom configurations. For a walkthrough of those steps, follow the [Advanced Integration Steps Guide](Documentation/integrationSteps.md).
+For advanced integration steps, follow the [Advanced Integration Steps Guide](Documentation/integrationSteps.md).
 
 _Note_: If, for some reason, you need to provide the *_organization_* and *_clientKey_* programmatically read below in the _Optional Integration Steps_ section.
 
@@ -121,6 +118,8 @@ It's not required, but is a good idea anyway, to initialize the Medable SDK in y
 If you need to provide the *_organization_* and *_clientKey_* programmatically, initialize the Medable SDK this way instead:
 ```objective-c
 [Medable startWithOrganization:@"your org name" clientKey:@"your client key"];
+
+// Note: the baseUrl should be provided in your app's Info.plist file as described before.
 ```
 
 You may also wish to register for notifications about that download process. To do so, check the [Advanced Integration Steps Guide](Documentation/integrationSteps.md) for further instructions.

@@ -9,10 +9,7 @@
 
 #pragma mark - Environment
 extern NSString* const kConfigurationKey;
-extern NSString* const kEnvironmentsFileName;
 extern NSString* const kBaseURLKey;
-extern NSString* const kAPIPrefixKey;
-extern NSString* const kProtocolKey;
 extern NSString* const kOrgKey;
 extern NSString* const kOrgsKey;
 
