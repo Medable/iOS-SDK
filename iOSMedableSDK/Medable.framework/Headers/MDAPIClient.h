@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param routeComponents the components to create the route. The route components of the array are prefixed with the base URL.
  */
-- (NSString*)routeWithComponents:(nullable NSArray*)routeComponents;
++ (NSString*)routeWithComponents:(nullable NSArray*)routeComponents;
 
 /**
  * GET method
