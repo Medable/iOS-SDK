@@ -28,8 +28,10 @@ Project dependencies to be managed by CocoaPods are specified in a file called `
 
 Copy and paste the following lines into the file:  
     
-    platform :ios, '7.0'
-    pod 'Medable'
+    target 'yourTargetName' do
+        platform :ios, '7.0'
+        pod 'Medable'
+    end
 
 #### Step 3: Install Dependencies
 
