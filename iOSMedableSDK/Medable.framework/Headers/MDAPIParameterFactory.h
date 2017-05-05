@@ -30,7 +30,7 @@
 /**
  * Construct a path string from it's path components.
  *
- * @param pathComponents variadic list of components. Requires nil termination.
+ * @param pathComponent variadic list of components. Requires nil termination.
  * @return The string representing the assembled path.
  */
 + (NSString*)pathWithComponents:(NSString*)pathComponent, ... NS_REQUIRES_NIL_TERMINATION;

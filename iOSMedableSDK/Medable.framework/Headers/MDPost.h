@@ -92,7 +92,7 @@
  * This is the special call to update comments and be able to expand comments' subproperties, since it's not possible to do so
  * using the synchronizeObjectWithParameters:callback: method.
  *
- * @param parameter Extra parameters in the API call.
+ * @param parameters Extra parameters in the API call.
  * @param callback The asynchronous callback, called upon receiving a response from the backend.
  */
 - (void)synchronizeCommentsWithParameters:(MDAPIParameters *)parameters

@@ -54,7 +54,7 @@
  * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so
  * using the synchronizeObjectWithParameters:callback: method.
  *
- * @param parameter Extra parameters in the API call. Connections and posts may be included here.
+ * @param parameters Extra parameters in the API call. Connections and posts may be included here.
  * @param callback The asynchronous callback, called upon receiving a response from the backend.
  */
 - (void)synchronizeConnectionsWithParameters:(MDAPIParameters *)parameters
@@ -65,7 +65,7 @@
  * This is the special call to update posts and be able to expand posts' subproperties, since it's not possible to do so
  * using the synchronizeObjectWithParameters:callback: method.
  *
- * @param parameter Extra parameters in the API call. Connections and posts may be included here.
+ * @param parameters Extra parameters in the API call. Connections and posts may be included here.
  * @param callback The asynchronous callback, called upon receiving a response from the backend.
  */
 - (void)synchronizePostsWithParameters:(MDAPIParameters *)parameters

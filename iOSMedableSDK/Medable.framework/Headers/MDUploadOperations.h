@@ -45,6 +45,8 @@ extern NSString *const kOperationProgressChangedNotification;
 /// The NSProgress object associated with the operation.
 @property (nonatomic, readonly) NSProgress *operationProgress;
 
+@property (nonatomic) id responseObject;
+
 @end
 
 /**

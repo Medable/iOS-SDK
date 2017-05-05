@@ -21,11 +21,11 @@
 
 /**
  * Creates a connect target.
- * @param context
- * @param objectId
- * @param access
- * @param additionalInfo
- * @param autoAccept
+ * @param context target context
+ * @param objectId context object Id
+ * @param access access level
+ * @param additionalInfo additional info
+ * @param autoAccept auto accept connection
  **/
 + (MDConnectTarget*)targetWithContext:(NSString*)context
                             contextId:(MDObjectId*)objectId
@@ -35,10 +35,10 @@
 
 /**
  * Creates a connect target.
- * @param email
- * @param firstName
- * @param lastName
- * @param access
+ * @param email Target email
+ * @param firstName Target first name
+ * @param lastName Target last name
+ * @param access Target access
  **/
 + (MDConnectTarget*)targetWithEmail:(NSString*)email
                           firstName:(NSString*)firstName
@@ -54,13 +54,13 @@
 
 /**
  * Creates a connect target.
- * @param accountId
+ * @param accountId Target account Id
  */
 + (MDPostTarget*)targetWithAccountId:(MDObjectId*)accountId NOTNULL(1);
 
 /**
  * Creates a connect target.
- * @param role
+ * @param role Target role
  */
 + (MDPostTarget*)targetWithRole:(MDAccountRole*)role NOTNULL(1);
 
@@ -74,7 +74,7 @@
 
 /**
  * Creates a container with the targets array provided as varargs. The list must be nil terminated.
- * @param firstObject, ... Nil terminated array of MDTarget objects.
+ * @param firstObject Nil terminated array of MDTarget objects.
  */
 + (MDTargets*)instanceWithTargets:(MDTarget*)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 

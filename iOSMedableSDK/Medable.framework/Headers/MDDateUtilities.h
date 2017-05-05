@@ -14,7 +14,7 @@ typedef enum : NSUInteger
 } MDDateUtilitiesFormat;
 
 /**
- * Utility class with date conversion tools.
+ * Utility class with date conversion tools. TimeZone used is UTC.
  */
 @interface MDDateUtilities : NSObject
 

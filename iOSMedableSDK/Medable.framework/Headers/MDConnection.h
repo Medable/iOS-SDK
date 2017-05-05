@@ -78,7 +78,7 @@
 /**
  * Update the receiver with the latest data from the backend.
  *
- * @param parameter Extra parameters in the API call. Connections and posts may be included here.
+ * @param parameters Extra parameters in the API call. Connections and posts may be included here.
  * @param callback The asynchronous callback, called upon receiving a response from the backend.
  */
 - (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters

@@ -60,8 +60,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (MDAPIClient*)sharedClient;
 
 /**
+ * Start location services. In iOS8+ this requests location permissions to the user only if the app
+ * has an entry for the key NSLocationWhenInUseUsageDescription.
+ */
+- (void)startLocationServices;
+
+/**
  *  Stores current Apple Push Notification token.
- *  @param APN token received in UIApplicationDelegate's application:didRegisterForRemoteNotificationsWithDeviceToken:
+ *  @param token APN token received in UIApplicationDelegate's application:didRegisterForRemoteNotificationsWithDeviceToken:
  */
 - (void)setPushNotificationToken:(nullable NSData*)token;
 
@@ -195,11 +201,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param email (required)
  *  @param mobile (required)
  *  @param password (required)
- *  @param gender
- *  @param dob
- *  @param role
- *  @param profileInfo
- *  @param thumbImage
+ *  @param gender Gender
+ *  @param dob Date of birth
+ *  @param role Account role
+ *  @param profileInfo Packed profile info
+ *  @param thumbImage Thumbnail image
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)registerAccountWithFirstName:(NSString*)firstName
@@ -236,10 +242,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Authenticates using email and password credentials, and returns the current account object.
- *  @param email
- *  @param password
- *  @param token
- *  @param singleUse
+ *  @param email Account email
+ *  @param password Account password
+ *  @param token 2 factor authentication verification token
+ *  @param singleUse Single use
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)authenticateSessionWithEmail:(NSString*)email
@@ -250,7 +256,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Requests a password reset.
- *  @param email
+ *  @param email Email of the associated account
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)requestPasswordResetWithEmail:(NSString*)email
@@ -258,8 +264,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reset password.
- *  @param token
- *  @param password
+ *  @param token Password request generated token
+ *  @param password Password
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)passwordResetWithToken:(NSString*)token
@@ -280,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * - a context object's connections and invitations to/from the caller (optionally, within a given context). The resulting array will consist of account objects and invitation objects.
  *  @param context (required)
- *  @param contextId (required)
+ *  @param objectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -402,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Removes a collaboration.
- *  @param collaborationId Context Object Id (required)
+ *  @param connectionId Connection Object Id (required)
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)removeConnectionWithId:(MDObjectId*)connectionId
@@ -477,7 +483,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
  *  Connected access any team targets. For teams, a roles array will limit the connections to those
  *  members having the specified role(s).
- *  @param voted
+ *  @param voted Set this post as voted
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)postToObject:(NSString *)objectName
@@ -497,7 +503,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param targets An array of connection targets. Teams and accounts can be targeted. The caller must have
  *  Connected access any team targets. For teams, a roles array will limit the connections to those
  *  members having the specified role(s).
- *  @param voted
+ *  @param voted Set this post as voted
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)postToObject:(NSString *)objectName
@@ -760,7 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Delete an existing object
  *
  * @param context The Context type you are deleting from
- * @param objectID The object ID to be deleted
+ * @param objectId The object ID to be deleted
  * @param reason Information about the reason for deleting it
  * @param callback The completion callback
  */
@@ -807,7 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Updates a context object
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
- *  @param body Body object properties that are to be updated
+ *  @param bodyObj Body object properties that are to be updated
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateObjectWithContext:(NSString*)context
@@ -820,12 +826,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates context object
- *  @param userID
- *  @param accountInfo
- *  @param favorite
- *  @param preferences
- *  @param thumbnailImage
- *  @param customPropValues
+ *  @param userID Account object Id
+ *  @param firstName First name
+ *  @param lastName Last name
+ *  @param gender Gender
+ *  @param dob Date of birth
+ *  @param profileInfo Packed profile info
+ *  @param favorite Set this account as favorite
+ *  @param preferences Account preferences
+ *  @param image Account thumbnail image
+ *  @param customPropValues Account custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateAccountWithID:(MDObjectId*)userID
@@ -874,17 +884,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Creates a context object
- *  @param firstName
- *  @param lastName
- *  @param dob
- *  @param email
- *  @param favorite
- *  @param gender
- *  @param mrn
- *  @param phone
- *  @param account
- *  @param image
- *  @param customPropValues
+ *  @param firstName Patient first name
+ *  @param lastName Patient last name
+ *  @param dob Patient date of birth
+ *  @param email Patient email
+ *  @param favorite Set as favorite
+ *  @param gender Patient gender
+ *  @param mrn Patient MRN
+ *  @param phone Patient phone
+ *  @param account Patient account Id
+ *  @param image Patient avatar image
+ *  @param customPropValues Patient custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createPatientfileWithFirstName:(NSString*)firstName
@@ -902,17 +912,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates a context object
- *  @param patientFileId
- *  @param firstName
- *  @param lastName
- *  @param dob
- *  @param email
- *  @param favorite
- *  @param gender
- *  @param mrn
- *  @param phone
- *  @param image
- *  @param customPropValues
+ *  @param patientFileId PatientFile object Id
+ *  @param firstName Patient first name
+ *  @param lastName Patient last name
+ *  @param dob Patient date of birth
+ *  @param email Patient email
+ *  @param favorite Set as favorite
+ *  @param gender Patient gender
+ *  @param mrn Patient MRN
+ *  @param phone Patient phone
+ *  @param image Patient avatar image
+ *  @param customPropValues Patient custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updatePatientFileWithId:(MDObjectId*)patientFileId
@@ -930,8 +940,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Deletes a context object
- *  @param patientFileId
- *  @param parameters Construct reason parameters using MDAPIParameterFactory.
+ *  @param patientFileId PatientFile object Id
+ *  @param reason Construct reason parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deletePatientfileWithId:(MDObjectId*)patientFileId
@@ -951,7 +961,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Gets a context object
- *  @param objectId Context ObjectId (required)
+ *  @param conversationId Context ObjectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -962,11 +972,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Creates a conversation object
  *
- *  @param description
- *  @param favorite
- *  @param patientFile
- *  @param attachments
- *  @param customPropValues
+ *  @param description Conversation description
+ *  @param favorite Set this conversation as favorite
+ *  @param patientFile Associated PatientFile object
+ *  @param attachments Conversation's attachments
+ *  @param customPropValues Conversation custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createConversationWithDescription:(nullable NSString*)description
@@ -978,9 +988,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a conversation's attachments by appending more attachments to the existing ones
- *  @param conversationId   The conversation's Id
- *  @param attachments      An array of attachments to append
- *  @param callback
+ *  @param conversationId The conversation's Id
+ *  @param attachments An array of attachments to append
+ *  @param callback Asynchronous callback called when this task is done
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
           byAppendingAttachments:(MDAttachmentMaps*)attachments
@@ -988,10 +998,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a conversation's attachments by replacing a particular attachment with a new one
- *  @param conversationId   The conversation's Id
- *  @param attachmentId     The Id of the attachment to replace
- *  @param attachment       An attachment and optional overlay for the attachment
- *  @param callback
+ *  @param conversationId The conversation's Id
+ *  @param attachmentId The Id of the attachment to replace
+ *  @param attachment An attachment and optional overlay for the attachment
+ *  @param callback Asynchronous callback called when this task is done
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
      byReplacingAttachmentWithId:(MDObjectId*)attachmentId
@@ -1000,9 +1010,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a conversation's attachments by deleting a particular attachment
- *  @param conversationId   The conversation's Id
- *  @param attachmentId     The Id of the attachment to delete
- *  @param callback
+ *  @param conversationId The conversation's Id
+ *  @param attachmentId The Id of the attachment to delete
+ *  @param callback Asynchronous callback called when this task is done
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
       byDeletingAttachmentWithId:(MDObjectId*)attachmentId
@@ -1010,11 +1020,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Updates a context object
- *  @param conversationId
- *  @param description
- *  @param patientFile
- *  @param favorite
- *  @param customPropValues
+ *  @param conversationId Conversation object Id
+ *  @param description Conversation description
+ *  @param patientFile Conversation associated PatientFile object
+ *  @param favorite Set this converstaion as favorite
+ *  @param customPropValues Conversation custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
@@ -1026,8 +1036,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Deletes a context object
- *  @param conversationId
- *  @param deletion reason parameter
+ *  @param conversationId Conversation object Id
+ *  @param reason Create reason parameters with MDAPIParameterFactory
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)deleteConversationWithId:(MDObjectId*)conversationId
@@ -1047,7 +1057,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Gets a context object
- *  @param objectId Context ObjectId (required)
+ *  @param teamId Context ObjectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */

@@ -128,7 +128,7 @@
  * If the download fails and you don't retry it, then whenever an http request is made out to the Medable API, it will
  * first attempt to download this information before making the call.
  */
-+ (void)startWithOrganization:(NSString*)org clientKey:(NSString*)clientKey;
++ (void)setOrganization:(NSString*)org clientKey:(NSString*)clientKey;
 
 /**
  * Shared Medable API client (or singleton), same as calling `[MDAPIClient sharedClient]`.

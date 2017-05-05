@@ -62,7 +62,7 @@
 /**
  * Create a new notification object from a received notification.
  *
- * @param notifAttributes Notification information, as received.
+ * @param attributes Notification information, as received.
  *
  * @return Instance representing the received notification.
  */

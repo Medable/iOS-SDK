@@ -70,7 +70,7 @@ typedef enum
 /**
  * Validate NPI.
  *
- * @param candidate
+ * @param candidate NPI string to validate
  * @return True if the candidate is a valid NPI.
  */
 + (BOOL)validateNPI:(NSString *)candidate;
