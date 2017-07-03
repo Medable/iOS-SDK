@@ -32,6 +32,15 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>Medable</key>
+	<dict>
+		<key>ClientKey</key>
+		<string>&lt;put your Medable client key here&gt;</string>
+		<key>BaseUrl</key>
+		<string>&lt;medable.com based base URL, e.g. dev.medable.com&gt;</string>
+		<key>Organization</key>
+		<string>&lt;put your Medable org name here&gt;</string>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
