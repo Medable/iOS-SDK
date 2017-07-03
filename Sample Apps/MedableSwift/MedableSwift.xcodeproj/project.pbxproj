@@ -14,7 +14,6 @@
 		287268CC1AE7E494001798C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287268CA1AE7E494001798C2 /* LaunchScreen.xib */; };
 		287268D81AE7E495001798C2 /* MedableSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287268D71AE7E495001798C2 /* MedableSwiftTests.swift */; };
 		287268E21AE7E4AA001798C2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 287268E11AE7E4AA001798C2 /* Podfile */; };
-		287268E61AE7E82F001798C2 /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 287268E51AE7E82F001798C2 /* Environments.plist */; };
 		F5E854F90DE35E1ADA18C3E2 /* libPods-MedableSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 741EDC82C519F12A44508C07 /* libPods-MedableSwift.a */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		287268D71AE7E495001798C2 /* MedableSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedableSwiftTests.swift; sourceTree = "<group>"; };
 		287268E11AE7E4AA001798C2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		287268E31AE7E670001798C2 /* MedableSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MedableSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		287268E51AE7E82F001798C2 /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
 		4FDAB4FF2342DFC7E3AF3920 /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
 		741EDC82C519F12A44508C07 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85564F640E4BD0B8E5C36CD /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 		287268E41AE7E82F001798C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				287268E51AE7E82F001798C2 /* Environments.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -205,9 +202,11 @@
 				TargetAttributes = {
 					287268BB1AE7E494001798C2 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0830;
 					};
 					287268D01AE7E495001798C2 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0830;
 						TestTargetID = 287268BB1AE7E494001798C2;
 					};
 				};
@@ -239,7 +238,6 @@
 				287268C71AE7E494001798C2 /* Main.storyboard in Resources */,
 				287268CC1AE7E494001798C2 /* LaunchScreen.xib in Resources */,
 				287268E21AE7E4AA001798C2 /* Podfile in Resources */,
-				287268E61AE7E82F001798C2 /* Environments.plist in Resources */,
 				287268C91AE7E494001798C2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Medable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MedableSwift/MedableSwift-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -454,6 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Medable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MedableSwift/MedableSwift-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -473,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Medable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedableSwift.app/MedableSwift";
 			};
 			name = Debug;
@@ -489,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Medable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedableSwift.app/MedableSwift";
 			};
 			name = Release;

@@ -23,12 +23,12 @@ class ViewController: UIViewController
         self.status?.text = "Initialized"
     }
 
-    @IBAction func getOrganization(sender: AnyObject)
+    @IBAction func getOrganization(_ sender: AnyObject)
     {
         let client = Medable.client()
         
-        client.getPublicOrgInfoWithCallback(
-            { (orgInfo, fault) -> Void in
+        client?.getPublicOrgInfo(
+            callback: { (orgInfo, fault) -> Void in
                 
                 if let orgInfo = orgInfo
                 {
@@ -46,11 +46,11 @@ class ViewController: UIViewController
                         alert.title = "Error"
                         alert.message = fault.message
                         
-                        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                        let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
                         }
                         alert.addAction(cancelAction)
                         
-                        self.presentViewController(alert, animated: true, completion: { () -> Void in
+                        self.present(alert, animated: true, completion: { () -> Void in
                             
                         })
                     }
