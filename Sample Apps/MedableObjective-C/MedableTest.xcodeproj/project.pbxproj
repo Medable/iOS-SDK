@@ -14,7 +14,6 @@
 		287269011AE82574001798C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 287269001AE82574001798C2 /* Images.xcassets */; };
 		287269041AE82574001798C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287269021AE82574001798C2 /* LaunchScreen.xib */; };
 		287269101AE82574001798C2 /* MedableTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872690F1AE82574001798C2 /* MedableTestTests.m */; };
-		2872691C1AE82902001798C2 /* Environments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2872691B1AE82902001798C2 /* Environments.plist */; };
 		73C1436753FD64CC19242169 /* libPods-MedableTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F9B21E4335F9B6A380BCAE /* libPods-MedableTest.a */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		2872690E1AE82574001798C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2872690F1AE82574001798C2 /* MedableTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedableTestTests.m; sourceTree = "<group>"; };
 		287269191AE825B4001798C2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		2872691B1AE82902001798C2 /* Environments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
 		B1F9B21E4335F9B6A380BCAE /* libPods-MedableTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86D343120E459A1C410BF5F /* Pods-MedableTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E67CC451167CE7B39B0618C4 /* Pods-MedableTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				287268FD1AE82574001798C2 /* Main.storyboard */,
 				287269001AE82574001798C2 /* Images.xcassets */,
 				287269021AE82574001798C2 /* LaunchScreen.xib */,
-				2872691A1AE82902001798C2 /* Resources */,
 				287268F31AE82574001798C2 /* Supporting Files */,
 			);
 			path = MedableTest;
@@ -129,14 +126,6 @@
 				2872690E1AE82574001798C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2872691A1AE82902001798C2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2872691B1AE82902001798C2 /* Environments.plist */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		4820F77FB7747C1F2A42348C /* Pods */ = {
@@ -239,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2872691C1AE82902001798C2 /* Environments.plist in Resources */,
 				287268FF1AE82574001798C2 /* Main.storyboard in Resources */,
 				287269041AE82574001798C2 /* LaunchScreen.xib in Resources */,
 				287269011AE82574001798C2 /* Images.xcassets in Resources */,

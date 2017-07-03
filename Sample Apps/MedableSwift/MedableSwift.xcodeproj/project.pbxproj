@@ -93,7 +93,6 @@
 				287268C51AE7E494001798C2 /* Main.storyboard */,
 				287268C81AE7E494001798C2 /* Images.xcassets */,
 				287268CA1AE7E494001798C2 /* LaunchScreen.xib */,
-				287268E41AE7E82F001798C2 /* Resources */,
 				287268BF1AE7E494001798C2 /* Supporting Files */,
 				287268E31AE7E670001798C2 /* MedableSwift-Bridging-Header.h */,
 			);
@@ -123,13 +122,6 @@
 				287268D61AE7E495001798C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		287268E41AE7E82F001798C2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		567BA615D2D32E4DBE4A1DF4 /* Pods */ = {
