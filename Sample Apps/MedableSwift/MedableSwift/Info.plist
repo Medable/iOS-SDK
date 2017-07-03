@@ -36,7 +36,7 @@
 	<dict>
 		<key>ClientKey</key>
 		<string>&lt;put your Medable client key here&gt;</string>
-		<key>BaseUrl</key>
+		<key>BaseURL</key>
 		<string>&lt;medable.com based base URL, e.g. dev.medable.com&gt;</string>
 		<key>Organization</key>
 		<string>&lt;put your Medable org name here&gt;</string>
