@@ -25,6 +25,13 @@
 /// A reference to the target's account.
 @property (nonatomic, readonly) MDReference* account;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /// True is targeting the current user, False otherwise.
 - (BOOL)isTargetingCurrentUser;
 
@@ -67,6 +74,13 @@
  * For pending connections. the time at which the connection request will expire.
  */
 @property (nonatomic, readonly) NSDate* expiresAt;
+
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * A thumbnail image representing the connection.

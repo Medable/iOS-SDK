@@ -30,4 +30,11 @@
 @property (nonatomic, weak, readonly) MDPostSegmentDefinition *postSegmentDefinition;
 @property (nonatomic, weak, readonly) MDPostDefinition *postDefinition;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

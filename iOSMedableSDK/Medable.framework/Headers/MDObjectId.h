@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Unique identifier of any Medable Object.
  */
@@ -19,7 +21,7 @@
  * @param objectIdString Unique Identifier string.
  * @return The Object Unique Identifier object identified by this string.
  */
-+ (MDObjectId*)objectIdWithString:(NSString*)objectIdString NOTNULL(1);
++ (nullable MDObjectId*)objectIdWithString:(NSString*)objectIdString;
 
 /**
  * Get the unique identifier string.
@@ -29,3 +31,5 @@
 - (NSString*)stringRepresentation;
 
 @end
+
+NS_ASSUME_NONNULL_END

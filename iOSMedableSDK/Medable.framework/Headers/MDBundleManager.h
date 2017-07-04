@@ -10,7 +10,7 @@
 
 @class MDBundle;
 
-typedef void (^BundleLoaderCallback) (MDBundle* bundle, MDFault* fault);
+typedef void (^BundleLoaderCallback) (MDBundle* _Nullable bundle, MDFault* _Nullable fault);
 
 /**
  * Load and manage the local bundle.
@@ -22,16 +22,23 @@ typedef void (^BundleLoaderCallback) (MDBundle* bundle, MDFault* fault);
  *
  * @see -bundleWithCallback:
  */
-@property (nonatomic, readonly) MDBundle* localBundle;
+@property (nullable, nonatomic, readonly) MDBundle* localBundle;
 
 /// Singleton Instance
-+ (MDBundleManager*)sharedManager;
++ (nonnull MDBundleManager*)sharedManager;
+
+
+// unavailable
++ (nonnull instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /**
  * Fetch the latest version of the local bundle.
  *
  * @param callback Asynchronous callback block that gets called after processing.
  */
-- (void)bundleWithCallback:(BundleLoaderCallback)callback NOTNULL(1);
+- (void)bundleWithCallback:(nonnull BundleLoaderCallback)callback;
 
 @end

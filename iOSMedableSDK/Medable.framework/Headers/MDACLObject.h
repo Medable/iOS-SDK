@@ -16,13 +16,13 @@
 @interface MDACLObject : NSObject
 
 /// Id of this access control object.
-@property (nonatomic, readonly) MDObjectId* Id;
+@property (nonnull, nonatomic, readonly) MDObjectId* Id;
 
 /// Access level of the object.
 @property (nonatomic, readonly) MDACLLevel allow;
 
 /// The access object's target.
-@property (nonatomic, readonly) NSString* target;
+@property (nonnull, nonatomic, readonly) NSString* target;
 
 /// The type of the target in the object.
 @property (nonatomic, readonly) MDACLAccessTarget type;
@@ -33,7 +33,7 @@
  * @param attributes A dictionary mapping this object's attributes. Keys tributes _id, allow, target and type are expected.
  * @return The MDACLObject instance that maps to the parameter.
  */
-+ (MDACLObject*)aclObjectWithAttributes:(NSDictionary*)attributes NOTNULL(1);
++ (nonnull MDACLObject*)aclObjectWithAttributes:(nonnull NSDictionary*)attributes;
 
 /**
  * Helper method to construct a list of access control objects.
@@ -42,6 +42,6 @@
  * @return The Array mapping each object.
  * @see aclObjectWithAttributes:
  */
-+ (NSArray*)aclObjectsWithAttributes:(NSArray*)attributes NOTNULL(1);
++ (nullable NSArray<MDACLObject*> *)aclObjectsWithAttributes:(nonnull NSArray*)attributes;
 
 @end

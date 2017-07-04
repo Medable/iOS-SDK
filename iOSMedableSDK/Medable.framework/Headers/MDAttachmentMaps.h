@@ -16,19 +16,19 @@
 /*
  *  Adds a new mapping pair
  */
-- (void)addPair:(MDImageOverlayPair*)pair NOTNULL(1);
+- (void)addPair:(nonnull MDImageOverlayPair*)pair;
 
 /**
  *  Return all the mapped pairs. Overlays are optional.
  */
-- (NSArray*)pairs;
+- (nonnull NSArray*)pairs;
 
 /**
  *  Returns a representation of the mappings. Use this to send as parameter in the body
  *  before uploading. i.e. when creating an object with image uploads.
  */
-- (NSArray*)apiFormat;
+- (nonnull NSArray*)apiFormat;
 
-- (UIImage*)imageWithFilename:(NSString*)filename NOTNULL(1);
+- (nonnull UIImage*)imageWithFilename:(nonnull NSString*)filename;
 
 @end

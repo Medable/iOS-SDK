@@ -2,11 +2,12 @@
 //  MDNotificationManager.h
 //  Medable
 //
-
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
 #import "MDNotification.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Local notification manager.
@@ -22,7 +23,7 @@
  *
  * @param notifications Array of unattended notifications.
  */
-- (void)loadNotificationsWithArray:(NSArray*)notifications NOTNULL(1);
+- (void)loadNotificationsWithArray:(NSArray*)notifications;
 
 /**
  * Add a single notification as unattended.
@@ -30,7 +31,7 @@
  *
  * @param notification Unattended notifications.
  */
-- (BOOL)addNotification:(MDNotification*)notification NOTNULL(1);
+- (BOOL)addNotification:(MDNotification*)notification;
 
 /**
  * Single that a notification has been tended to.
@@ -39,7 +40,7 @@
  *
  * @param notification Unattended notification.
  */
-- (void)removeNotification:(MDNotification*)notification NOTNULL(1);
+- (void)removeNotification:(MDNotification*)notification;
 
 /**
  * Get the notification that matches a certain unique identifier.
@@ -47,12 +48,12 @@
  * @param notificationId The unique identifier of the notification.
  * @return The notification object that matches this identifier, or nil if none do.
  */
-- (MDNotification*)notificationWithId:(MDObjectId*)notificationId NOTNULL(1);
+- (nullable MDNotification*)notificationWithId:(MDObjectId*)notificationId;
 
 - (NSSet*)notificationsWithType:(MDNotificationType)type
                         context:(MDNotificationContext)context
-                      contextId:(MDObjectId*)contextId
-        optionalMetadataFilters:(NSDictionary*)optionalMetadataFilters;
+                      contextId:(nullable MDObjectId*)contextId
+        optionalMetadataFilters:(nullable NSDictionary*)optionalMetadataFilters;
 
 /**
  * List of unattended notifications.
@@ -65,3 +66,5 @@
 - (void)synchNotificationsWithServer;   // try not to call it for networking performance
 
 @end
+
+NS_ASSUME_NONNULL_END

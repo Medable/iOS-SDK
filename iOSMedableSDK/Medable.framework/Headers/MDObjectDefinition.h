@@ -107,4 +107,11 @@
  */
 @property (nonatomic, readonly) NSNumber *isCustom;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

@@ -40,6 +40,13 @@
 /// Array of fields that must be included when uploading this file.
 @property (nonatomic, readonly) NSArray *fields;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 - (NSString*)mimeType;
 
 @end

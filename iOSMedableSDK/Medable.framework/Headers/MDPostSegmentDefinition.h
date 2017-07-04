@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Definition of properties within post segments.
  *
@@ -46,13 +48,20 @@
 /// Post Definition for this segment
 @property (nonatomic, weak, readonly) MDPostDefinition *postDefinition;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Get one subproperty's definition from it's name.
  *
  * @param name The name of the property in this segment.
  * @return The subproperty definition if one exists, nil otherwise.
  */
-- (MDPostSegmentPropertyDefinition *)propertyWithName:(NSString *)name NOTNULL(1);
+- (nullable MDPostSegmentPropertyDefinition *)propertyWithName:(NSString *)name;
 
 /**
  *  Debug helper. Useful to get a minimum valid json representation of this object.
@@ -60,3 +69,5 @@
 - (NSDictionary*)friendlyRepresentation;
 
 @end
+
+NS_ASSUME_NONNULL_END

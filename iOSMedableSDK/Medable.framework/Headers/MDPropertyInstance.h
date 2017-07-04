@@ -15,6 +15,13 @@
  */
 @interface MDPropertyInstance : NSObject
 
+/// The definition of this property instance.
+@property (nonatomic, readonly) MDPropertyDefinition *definition;
+
+/// The value of the property instance.
+@property (nonatomic, readonly) id value;
+
+
 /**
  * Create a property instance with it's definition and value.
  *
@@ -25,10 +32,10 @@
  */
 + (instancetype)propertyInstanceWithDefinition:(MDPropertyDefinition *)propertyDefinition value:(id)value;
 
-/// The definition of this property instance.
-@property (nonatomic, readonly) MDPropertyDefinition *definition;
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
 
-/// The value of the property instance.
-@property (nonatomic, readonly) id value;
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

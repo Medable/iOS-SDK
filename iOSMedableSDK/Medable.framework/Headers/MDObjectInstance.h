@@ -49,6 +49,12 @@
  */
 + (MDObjectInstance*)objectInstanceWithAttributes:(NSDictionary*)attributes;
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Update the receiver with the latest data from the backend.
  * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so

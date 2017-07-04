@@ -26,6 +26,7 @@
 @class MDPostBody;
 
 NS_ASSUME_NONNULL_BEGIN
+
 @interface MDAPIClient : NSObject
 
 /**
@@ -55,9 +56,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) MDAPIClientNetworkLoggerLevel loggerLevel;
 
 /**
- *  Returns the shared API client instance.
+ *  @return The API client singleton instance.
  */
 + (MDAPIClient*)sharedClient;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Start location services. In iOS8+ this requests location permissions to the user only if the app
@@ -70,6 +77,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param token APN token received in UIApplicationDelegate's application:didRegisterForRemoteNotificationsWithDeviceToken:
  */
 - (void)setPushNotificationToken:(nullable NSData*)token;
+
+
+#pragma mark - Context class registration
+
+/**
+ *  Registers a context with a class.
+ *
+ *  Use this method to register custom classes to be used for when instanciating custom objects. If no class is registred for a context, instances of that context will be instances of `MDObjectInstance` objects.
+ *
+ *  @param context Singular context name. Required.
+ *  @param pluralContext Plural context name. Required.
+ *  @param aClass Class to be used to instanciate custom objects with context or pluralContext. aClass must be a subclass of `MDObjectInstance`.
+ *  @return Returns whether the registration was successful or not.
+ */
++ (BOOL)registerContex:(NSString *)context pluralContext:(NSString *)pluralContext withClass:(Class)aClass;
 
 
 #pragma mark - Custom Routes
@@ -186,13 +208,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Activates an account.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)activateAccountWithToken:(NSString*)token callback:(void (^)(MDFault* fault))callback;
+- (void)activateAccountWithToken:(NSString*)token callback:(MDFaultCallback)callback;
 
 /**
  *  Request account verification resend.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)resendAccountVerificationWithCallback:(void (^)(MDFault* fault))callback;
+- (void)resendAccountVerificationWithCallback:(MDFaultCallback)callback;
 
 /**
  *  Creates an account. User signup.
@@ -211,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerAccountWithFirstName:(NSString*)firstName
                             lastName:(NSString*)lastName
                                email:(NSString*)email
-                              mobile:(nullable NSString*)mobile
+                              mobile:(NSString*)mobile
                             password:(NSString*)password
                               gender:(nullable NSString*)gender
                                  dob:(nullable NSDate*)dob
@@ -229,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updatePasswordWithCurrentPassword:(NSString*)currentPassword
                               newPassword:(NSString*)newPassword
-                                 callback:(void (^)(MDFault* fault))callback;
+                                 callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Authentication
@@ -238,7 +260,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Logout an authenticated session client.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)logout:(void (^)(MDFault* fault))callback;
+- (void)logout:(MDFaultCallback)callback;
 
 /**
  *  Authenticates using email and password credentials, and returns the current account object.
@@ -260,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)requestPasswordResetWithEmail:(NSString*)email
-                             callback:(void (^)(MDFault* fault))callback;
+                             callback:(MDFaultCallback)callback;
 
 /**
  *  Reset password.
@@ -270,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)passwordResetWithToken:(NSString*)token
                       password:(NSString*)password
-                      callback:(void (^)(MDFault* fault))callback;
+                      callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Connections
@@ -281,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConnectionsWithParameters:(nullable MDAPIParameters*)parameters
-                             callback:(void (^)(NSArray* __nullable connections, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                             callback:(MDConnectionListFaultCallback)callback;
 
 /**
  * - a context object's connections and invitations to/from the caller (optionally, within a given context). The resulting array will consist of account objects and invitation objects.
@@ -293,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listConnectionsWithContext:(NSString*)context
                           objectId:(MDObjectId*)objectId
                         parameters:(nullable MDAPIParameters*)parameters
-                          callback:(void (^)(NSArray* __nullable connections, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                          callback:(MDConnectionListFaultCallback)callback;
 
 /**
  * Get connection by Id
@@ -321,7 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)rejectConnectionWithToken:(NSString*)token
-                         callback:(void (^)(MDFault* fault))callback;
+                         callback:(MDFaultCallback)callback;
 
 /**
  * Test a collaboration.
@@ -329,7 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)testCollaborationToken:(NSString*)token
-                      callback:(void (^)(MDFault* fault))callback;
+                      callback:(MDFaultCallback)callback;
 
 /**
  * Accept a collaboration invitation.
@@ -337,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)acceptConnectionWithToken:(NSString*)token
-                         callback:(void (^)(MDFault* fault))callback;
+                         callback:(MDFaultCallback)callback;
 
 /**
  * Create a new connection to an object instance and several targets.
@@ -352,7 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createConnectionWithContext:(NSString*)context
                            objectId:(MDObjectId*)objectId
                             targets:(MDTargets*)targets
-                           callback:(void (^)(MDFault* fault))callback;
+                           callback:(MDFaultCallback)callback;
 
 /**
  * Sends a collaboration invitation.
@@ -370,7 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
               context:(NSString*)context
              objectId:(MDObjectId*)objectId
           accessLevel:(MDACLLevel)accessLevel
-             callback:(void (^)(MDFault* fault))callback;
+             callback:(MDFaultCallback)callback;
 
 /**
  * Sends a collaboration invitation.
@@ -386,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
                  objectId:(MDObjectId*)objectId
               accessLevel:(MDACLLevel)accessLevel
                autoAccept:(nullable NSNumber*)autoAccept
-                 callback:(void (^)(MDFault* fault))callback;
+                 callback:(MDFaultCallback)callback;
 
 /**
  * Sends a collaboration invitation.
@@ -404,7 +426,7 @@ NS_ASSUME_NONNULL_BEGIN
            accessLevel:(MDACLLevel)accessLevel
                  roles:(nullable NSArray*)roles
             autoAccept:(nullable NSNumber*)autoAccept
-              callback:(void (^)(MDFault* fault))callback;
+              callback:(MDFaultCallback)callback;
 
 /**
  * Removes a collaboration.
@@ -412,7 +434,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)removeConnectionWithId:(MDObjectId*)connectionId
-                      callback:(void (^)(MDFault* fault))callback;
+                      callback:(MDFaultCallback)callback;
 
 /**
  * Gets a connection's creator thumbnail
@@ -440,7 +462,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  **/
 - (void)listAllPostsWithParameters:(nullable MDAPIParameters*)parameters
-                          callback:(void (^)(NSArray* __nullable feed, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                          callback:(MDPostListFaultCallback)callback;
 
 /**
  * Lists a context feed
@@ -452,7 +474,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listFeedWithContext:(NSString*)context
                    objectId:(MDObjectId*)objectId
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(void (^)(NSArray* __nullable feed, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                   callback:(MDPostListFaultCallback)callback;
 
 /**
  * Lists the comments in a post
@@ -462,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)listCommentsForPost:(MDPost*)post
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(void (^)(NSArray* __nullable comments, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                   callback:(MDCommentListFaultCallback)callback;
 
 /**
  * Gets a feed post
@@ -543,7 +565,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)votePostWithId:(MDObjectId*)postId
                  voted:(BOOL)voted
-              callback:(void (^)(MDFault* fault))callback;
+              callback:(MDFaultCallback)callback;
 
 /**
  * Vote a Post Comment.
@@ -554,7 +576,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)voteCommentWithId:(MDObjectId*)commentId
                     voted:(BOOL)voted
-                 callback:(void (^)(MDFault* fault))callback;
+                 callback:(MDFaultCallback)callback;
 
 /**
  * Edits an existing post
@@ -623,7 +645,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deletePostWithId:(MDObjectId*)postId
               parameters:(nullable MDAPIParameters*)parameters
-                callback:(void (^)(MDFault* fault))callback;
+                callback:(MDFaultCallback)callback;
 
 /**
  * Deletes an existing post comment.
@@ -634,7 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteCommentWithId:(MDObjectId*)commentId
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(void (^)(MDFault* fault))callback;
+                   callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Notifications
@@ -645,7 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listNotificationsWithParameters:(nullable MDAPIParameters*)parameters
-                               callback:(void (^)(NSArray* __nullable notifications, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                               callback:(MDNotificationListFaultCallback)callback;
 
 /**
  * Clears a notification
@@ -653,7 +675,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)clearNotificationWithId:(MDObjectId*)notificationId
-                       callback:(void (^)(MDFault* fault))callback;
+                       callback:(MDFaultCallback)callback;
 
 /**
  * Clears notifications by type / by context / by specific context object
@@ -665,7 +687,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)clearNotificationsWithType:(MDNotificationType)type
                            context:(nullable NSString*)context
                           objectId:(nullable MDObjectId*)objectId
-                          callback:(void (^)(MDFault* fault))callback;
+                          callback:(MDFaultCallback)callback;
 
 /**
  * Clears feed update (code 1) notifications. Returns the number of notifications removed.
@@ -749,7 +771,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)createObjectWithContext:(NSString*)context
                            body:(NSDictionary*)body
-                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+                       callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Create a new object
@@ -760,7 +782,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)createObjectWithContext:(NSString*)context
                      bodyObject:(MDBody*)body
-                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+                       callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Delete an existing object
@@ -773,7 +795,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
                          reason:(nullable MDAPIParameters*)reason
-                       callback:(void (^)(MDFault* fault))callback;
+                       callback:(MDFaultCallback)callback;
 
 /**
  * List context objects
@@ -783,7 +805,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)listObjectsWithContext:(NSString*)context
                     parameters:(nullable MDAPIParameters*)parameters
-                      callback:(void (^)(NSArray* __nullable objects, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                      callback:(MDObjectListFaultCallback)callback;
 
 /**
  * Gets a context object
@@ -795,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)objectWithContext:(NSString*)context
                  objectId:(MDObjectId*)objectId
                parameters:(nullable MDAPIParameters*)parameters
-                 callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+                 callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Updates a context object
@@ -807,7 +829,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
                            body:(NSDictionary*)body
-                       callback:(void (^)(MDObjectInstance* __nullable object, MDFault* __nullable fault))callback;
+                       callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Updates a context object
@@ -859,7 +881,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteAccountWithId:(MDObjectId*)accountId
                      reason:(nullable MDAPIParameters*)reason
-                   callback:(void (^)(MDFault* fault))callback;
+                   callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Patient File
@@ -870,7 +892,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listPatientFilesWithParameters:(nullable MDAPIParameters*)parameters
-                              callback:(void (^)(NSArray* __nullable patientFiles, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                              callback:(MDPatientFileListFaultCallback)callback;
 
 /**
  * Gets a context object
@@ -946,7 +968,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deletePatientfileWithId:(MDObjectId*)patientFileId
                          reason:(nullable MDAPIParameters*)reason
-                       callback:(void (^)(MDFault* fault))callback;
+                       callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Conversation
@@ -957,7 +979,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConversationsWithParameters:(nullable MDAPIParameters*)parameters
-                               callback:(void (^)(NSArray* __nullable conversations, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                               callback:(MDConversationListFaultCallback)callback;
 
 /**
  * Gets a context object
@@ -1016,7 +1038,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
       byDeletingAttachmentWithId:(MDObjectId*)attachmentId
-                        callback:(void (^)(MDFault* fault))callback;
+                        callback:(MDFaultCallback)callback;
 
 /**
  * Updates a context object
@@ -1042,7 +1064,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteConversationWithId:(MDObjectId*)conversationId
                           reason:(nullable MDAPIParameters*)reason
-                        callback:(void (^)(MDFault* fault))callback;
+                        callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Team
@@ -1053,7 +1075,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listTeamsWithParameters:(nullable MDAPIParameters*)parameters
-                       callback:(void (^)(NSArray* __nullable teams, NSNumber* hasMore, MDFault* __nullable fault))callback;
+                       callback:(MDTeamListFaultCallback)callback;
 
 /**
  * Gets a context object
@@ -1092,7 +1114,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteTeamWithId:(MDObjectId*)teamId
                   reason:(nullable MDAPIParameters*)reason
-                callback:(void (^)(MDFault* fault))callback;
+                callback:(MDFaultCallback)callback;
 
 @end
+
 NS_ASSUME_NONNULL_END

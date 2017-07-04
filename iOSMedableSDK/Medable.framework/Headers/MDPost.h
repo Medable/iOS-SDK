@@ -87,6 +87,12 @@
  */
 @property (nonatomic, readonly) NSArray* body;
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Update the receiver with the latest data from the backend.
  * This is the special call to update comments and be able to expand comments' subproperties, since it's not possible to do so

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * A definition counterpart to a File's facet.
  */
@@ -57,7 +59,14 @@
  *
  * @warning Usage of this method directly is not encouraged for SDK users on most cases.
  */
-+ (MDFacetDefinition*)facetDefinitionWithAttributes:(NSDictionary *)attributes NOTNULL(1);
++ (MDFacetDefinition*)facetDefinitionWithAttributes:(NSDictionary *)attributes;
+
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Whether this facet supports a certain mime type.
@@ -73,3 +82,5 @@
 - (NSDictionary*)friendlyRepresentation;
 
 @end
+
+NS_ASSUME_NONNULL_END

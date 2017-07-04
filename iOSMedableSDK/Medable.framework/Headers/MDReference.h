@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MDObjectInstance;
 
 /**
@@ -25,7 +27,7 @@
 @property (nonatomic, readonly) NSString* path;
 
 /// Expanded object of the reference (nil when not expanded).
-@property (nonatomic, readonly) MDObjectInstance* expandedObjectReference;
+@property (nullable, nonatomic, readonly) MDObjectInstance* expandedObjectReference;
 
 /**
  * Initialize a reference with a value.
@@ -33,9 +35,11 @@
  * @param value Value of the reference, can be expanded or not.
  * @return The reference value instance.
  */
-- (instancetype)initWithValue:(id)value NOTNULL(1);
+- (instancetype)initWithValue:(id)value;
 
 /// Whether this reference is expanded (contains the information) or just referenced.
 - (BOOL)isExpanded;
 
 @end
+
+NS_ASSUME_NONNULL_END

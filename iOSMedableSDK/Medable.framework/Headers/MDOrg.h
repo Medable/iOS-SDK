@@ -2,11 +2,12 @@
 //  MDOrg.h
 //  iOSMedableSDK
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * When you sign up with Medable, you are provisioned your own unique Medable Organization, or “Org.” 
@@ -32,28 +33,28 @@
 @property (nonatomic, readonly) NSString* code;
 
 /// File property value of the Org's logo
-@property (nonatomic, readonly) MDFilePropertyValue* logo;
+@property (nullable, nonatomic, readonly) MDFilePropertyValue* logo;
 
 /// Facet corresponding to the icon for this Org
-@property (nonatomic, readonly) MDFacet* favicon;
+@property (nullable, nonatomic, readonly) MDFacet* favicon;
 
 /// The Org’s configured roles.
-@property (nonatomic, readonly) NSArray* roles;
+@property (nullable, nonatomic, readonly) NSArray* roles;
 
 /// The Org’s configured applications.
-@property (nonatomic, readonly) NSArray* apps;
+@property (nullable, nonatomic, readonly) NSArray* apps;
 
 /// Org configuration settings.
-@property (nonatomic, readonly) NSDictionary* configuration;
+@property (nullable, nonatomic, readonly) NSDictionary* configuration;
 
 /// Org registration settings.
-@property (nonatomic, readonly) NSDictionary* registration;
+@property (nullable, nonatomic, readonly) NSDictionary* registration;
 
 /// Org security settings.
-@property (nonatomic, readonly) NSDictionary* security;
+@property (nullable, nonatomic, readonly) NSDictionary* security;
 
 /// The Org state.
-@property (nonatomic, readonly) NSString* state;
+@property (nullable, nonatomic, readonly) NSString* state;
 
 /// The Org website, available for use as a variable in email templates (org.website).
 @property (nonatomic, readonly) NSString* website;
@@ -64,6 +65,8 @@
  * @param roleName Name of the role.
  * @return Account role instance that matches the name, nil if none do.
  */
-- (MDAccountRole*)accountRoleWithName:(NSString*)roleName NOTNULL(1);
+- (nullable MDAccountRole*)accountRoleWithName:(NSString*)roleName;
 
 @end
+
+NS_ASSUME_NONNULL_END

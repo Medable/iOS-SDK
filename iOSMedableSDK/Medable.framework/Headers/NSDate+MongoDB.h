@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * NSDate extension to convert MDObjectId to NSDate.
  */
@@ -16,6 +18,14 @@
  * Converts a MDObjectId to NSDate object.
  *  @param objectId The object id to convert
  */
-+ (NSDate*)dateFromObjectId:(MDObjectId*)objectId NOTNULL(1);
++ (nullable NSDate*)dateFromObjectId:(MDObjectId*)objectId;
+
+/**
+ * Converts a Mongo DB ObjectId (String) to NSDate object.
+ *  @param objectIdString The object id to convert
+ */
++ (nullable NSDate*)dateFromMongoDBObjectIdString:(NSString*)objectIdString;
 
 @end
+
+NS_ASSUME_NONNULL_END

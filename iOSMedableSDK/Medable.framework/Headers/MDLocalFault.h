@@ -2,7 +2,6 @@
 //  MDLocalFault.h
 //  iOSMedableSDK
 //
-//  Created by fer on 6/7/15.
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
@@ -13,5 +12,12 @@
  * Also, required parameters are checked at runtime. If something is wrong, you'll get a MDLocalFault object in any method's callback block, providing validation error details. Also, these MDLocalFault obejcts are broadcasted inside NSNotifications using the default NSNotificationCenter. The notification name is kMDNotificationLocalFaultNotification. These are specially useful for when the validation error is that there's no callback block.
  **/
 @interface MDLocalFault : MDFault
+
+/**
+ * Convenience factory method.
+ */
++ (nonnull MDLocalFault*)localFaultWithCode:(nonnull NSString*)code
+                                    message:(nullable NSString*)message
+                                       path:(nullable NSString*)path;
 
 @end

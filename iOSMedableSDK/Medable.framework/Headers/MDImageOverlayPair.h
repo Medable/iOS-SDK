@@ -7,11 +7,21 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MDImageOverlayPair : NSObject
 
 @property (nonatomic, readonly) UIImage* image;
-@property (nonatomic, readonly) UIImage* overlay;
+@property (nullable, nonatomic, readonly) UIImage* overlay;
 
-+ (MDImageOverlayPair*)pairWithImage:(UIImage*)image overlay:(UIImage*)overlay NOTNULL(1);
++ (MDImageOverlayPair*)pairWithImage:(UIImage*)image overlay:(nullable UIImage*)overlay;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

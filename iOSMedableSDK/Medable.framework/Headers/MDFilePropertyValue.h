@@ -22,6 +22,13 @@
 /// Array of MDFacet objects.
 @property (nonatomic, readonly) NSArray *facets;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * The single upload for a file of a certain name.
  *

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MDBaseDefinition;
 
 /**
@@ -137,10 +139,17 @@ typedef enum : NSInteger
 /// Points to the parent property definition if it has one, nil otherwise.
 @property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Get the subproperty that matches a certain name.
  */
-- (MDPropertyDefinition *)subPropertyWithName:(NSString *)name NOTNULL(1);
+- (nullable MDPropertyDefinition *)subPropertyWithName:(NSString *)name;
 
 /**
  * Convert string to property type (enum).
@@ -148,7 +157,7 @@ typedef enum : NSInteger
  * @param type String representing the type.
  * @return The type that corresponds to the string if there is one, `MDPropertyTypeBaseUnknown` otherwise.
  */
-+ (MDPropertyType)propertyTypeFromString:(NSString*)type NOTNULL(1);
++ (MDPropertyType)propertyTypeFromString:(NSString*)type;
 
 /**
  * Convert property type (enum) to string.
@@ -156,7 +165,7 @@ typedef enum : NSInteger
  * @param type Enum matching the type.
  * @return The string that corresponds to the type if it's a valid enum value, nil otherwise.
  */
-+ (NSString*)stringFromPropertyType:(MDPropertyType)type;
++ (nullable NSString*)stringFromPropertyType:(MDPropertyType)type;
 
 /**
  * Create a property definition from it's attributes.
@@ -166,7 +175,7 @@ typedef enum : NSInteger
  *
  * @warning It's not encouraged to use this method directly.
  */
-+ (MDPropertyDefinition*)propertyWithAttributes:(NSDictionary *)attributes NOTNULL(1);
++ (MDPropertyDefinition*)propertyWithAttributes:(NSDictionary *)attributes;
 
 /**
  * Construct a list of properties from an array of attributes.
@@ -176,7 +185,7 @@ typedef enum : NSInteger
  *
  * @warning It's not encouraged to use this method directly.
  */
-+ (NSArray*)propertiesWithAttributes:(NSArray *)attributes NOTNULL(1);
++ (nullable NSArray*)propertiesWithAttributes:(NSArray *)attributes;
 
 #pragma mark - Access Control
 
@@ -234,3 +243,5 @@ typedef enum : NSInteger
 - (NSDictionary*)friendlyRepresentation;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
-@class MDLegalAgreement;
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * A bundle represents additional information about an Organization.
@@ -29,32 +29,11 @@
 @property (nonatomic, readonly) NSString* locale;
 
 /// Strings mapping.
-@property (nonatomic, readonly) NSDictionary* strings;
+@property (nullable, nonatomic, readonly) NSDictionary* strings;
 
 /// Custom faults information.
-@property (nonatomic, readonly) NSDictionary* faults;
-
-/// Symptoms enumeration.
-@property (nonatomic, readonly) NSArray* symptoms;
-
-/// Diagnoses enumeration.
-@property (nonatomic, readonly) NSArray* diagnoses;
-
-/// Treatments enumeration.
-@property (nonatomic, readonly) NSArray* treatments;
-
-/// List of latest legal agreements.
-@property (nonatomic, readonly) NSDictionary* latestAgreements;
-
-/// Tutorial.
-@property (nonatomic, readonly) NSDictionary* tutorial;
-
-/**
- * Get one of the legal agreements from it's name. Will go through the latestAgreements mapping.
- *
- * @param agreementName The name of the agreement.
- * @return The legal agreement that matches the name to the parameter.
- */
-- (MDLegalAgreement*)agreementWithName:(NSString*)agreementName NOTNULL(1);
+@property (nullable, nonatomic, readonly) NSDictionary* faults;
 
 @end
+
+NS_ASSUME_NONNULL_END

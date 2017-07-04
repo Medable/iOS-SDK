@@ -26,47 +26,53 @@
 /**
  The name of the Object, this name is not for UI purposes.
  */
-@property (nonatomic, readonly) NSString *name;
+@property (nonnull, nonatomic, readonly) NSString *name;
 
 /**
  Plural name for the object, this is mostly used for making API calls.
  */
-@property (nonatomic, readonly) NSString *pluralName;
+@property (nonnull, nonatomic, readonly) NSString *pluralName;
 
 /**
  If you need to display the name, use the label.
  
  It has 'en' localization.
  */
-@property (nonatomic, readonly) NSString *label;
+@property (nullable, nonatomic, readonly) NSString *label;
 
 /**
  Array of the base properties for this object class.
  
  This contains an NSArray of `MDObjectProperty`.
  */
-@property (nonatomic, readonly) NSArray *baseProperties;
+@property (nonnull, nonatomic, readonly) NSArray *baseProperties;
 
 /**
  Array of the custom properties for this object class.
  
  This contains an NSArray of `MDObjectProperty`.
  */
-@property (nonatomic, readonly) NSArray *customProperties;
+@property (nonnull, nonatomic, readonly) NSArray *customProperties;
 
 /**
  Array of the subclass properties for this object sub classes.
  
  This is a dictionary with subclass "type"s as keys and the subclass properties `MDObjectProperty` as values.
  */
-@property (nonatomic, readonly) NSDictionary *subClassesProperties;
+@property (nullable, nonatomic, readonly) NSDictionary *subClassesProperties;
 
 /**
  Whether this object class is extensible. Many base classes
  like Account are.
  */
-@property (nonatomic, readonly) NSNumber *isExtensible;
+@property (nonnull, nonatomic, readonly) NSNumber *isExtensible;
 
+
+// unavailable
++ (nonnull instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /**
  Get the Property Definition for a property of a certain name.
@@ -78,7 +84,7 @@
  
  @see MDPropertyDefinition hasPropertyWithName:
  */
-- (MDPropertyDefinition *)propertyWithName:(NSString*)name type:(NSString*)type NOTNULL(1);
+- (nullable MDPropertyDefinition *)propertyWithName:(nonnull NSString*)name type:(nullable NSString*)type;
 
 /**
  Check for property membership.
@@ -88,13 +94,13 @@
  
  @return YES if this class has property with this name.
  */
-- (BOOL)hasPropertyWithName:(NSString*)name type:(NSString*)type NOTNULL(1);
+- (BOOL)hasPropertyWithName:(nonnull NSString*)name type:(nullable NSString*)type;
 
 /**
  Helper method to return the API ready string for making API calls.
  
  @return This will attempt to return self.pluralName but will roll back to self.name if that is nil.
  */
-- (NSString *)pluralNameForAPICalls;
+- (nonnull NSString*)pluralNameForAPICalls;
 
 @end

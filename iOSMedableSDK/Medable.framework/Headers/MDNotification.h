@@ -6,11 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "MDNotificationManager.h"
 #import "MDBaseInstance.h"
 
 @class MDObjectId;
 @class MDReference;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Notifications are created as a result of modifications to contexts, posts and comment begin created or edited,
@@ -59,6 +62,12 @@
  */
 + (MDObjectId*)typeIdWithType:(MDNotificationType)type;
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Create a new notification object from a received notification.
  *
@@ -66,6 +75,8 @@
  *
  * @return Instance representing the received notification.
  */
-- (instancetype)initWithAttributes:(NSDictionary *)attributes NOTNULL(1);
+- (instancetype)initWithAttributes:(nonnull NSDictionary*)attributes;
 
 @end
+
+NS_ASSUME_NONNULL_END

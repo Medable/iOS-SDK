@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*
  * Target base class
  */
@@ -30,8 +32,8 @@
 + (MDConnectTarget*)targetWithContext:(NSString*)context
                             contextId:(MDObjectId*)objectId
                                access:(MDACLLevel)access
-                       additionalInfo:(NSDictionary*)additionalInfo
-                           autoAccept:(NSNumber*)autoAccept NOTNULL(1);
+                       additionalInfo:(nullable NSDictionary*)additionalInfo
+                           autoAccept:(nullable NSNumber*)autoAccept;
 
 /**
  * Creates a connect target.
@@ -41,9 +43,15 @@
  * @param access Target access
  **/
 + (MDConnectTarget*)targetWithEmail:(NSString*)email
-                          firstName:(NSString*)firstName
-                           lastName:(NSString*)lastName
-                             access:(MDACLLevel)access NOTNULL(1);
+                          firstName:(nullable NSString*)firstName
+                           lastName:(nullable NSString*)lastName
+                             access:(MDACLLevel)access;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -56,13 +64,19 @@
  * Creates a connect target.
  * @param accountId Target account Id
  */
-+ (MDPostTarget*)targetWithAccountId:(MDObjectId*)accountId NOTNULL(1);
++ (MDPostTarget*)targetWithAccountId:(MDObjectId*)accountId;
 
 /**
  * Creates a connect target.
  * @param role Target role
  */
-+ (MDPostTarget*)targetWithRole:(MDAccountRole*)role NOTNULL(1);
++ (MDPostTarget*)targetWithRole:(MDAccountRole*)role;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -78,11 +92,17 @@
  */
 + (MDTargets*)instanceWithTargets:(MDTarget*)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Adds a new target to the container.
  * @param target the target to add. Can't be nil.
  */
-- (void)addTarget:(MDTarget*)target NOTNULL(1);
+- (void)addTarget:(MDTarget*)target;
 
 /**
  * Returns the amount of targets this container has.
@@ -92,6 +112,8 @@
 /**
  * Provides API compatible target parameters.
  */
-- (NSDictionary*)apiFormat;
+- (nullable NSDictionary*)apiFormat;
 
 @end
+
+NS_ASSUME_NONNULL_END

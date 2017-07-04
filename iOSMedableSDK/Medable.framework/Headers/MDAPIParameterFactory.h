@@ -13,6 +13,9 @@
 
 #import "MDPropertyDefinition.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Helper class to assemble path strings.
  */
@@ -34,6 +37,12 @@
  * @return The string representing the assembled path.
  */
 + (NSString*)pathWithComponents:(NSString*)pathComponent, ... NS_REQUIRES_NIL_TERMINATION;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -103,7 +112,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the expand paths.
  */
-+ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithExpandPaths:(NSArray*)paths prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Creates a parameter with a list of optional paths to include. See each context object for
@@ -113,7 +122,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the include paths.
  */
-+ (MDAPIParameters*)parametersWithIncludePaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithIncludePaths:(NSArray*)paths prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Creates a parameter with a list of paths you only wish to see returned. See each context object for
@@ -123,7 +132,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the paths limitations.
  */
-+ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths prefixPath:(NSString*)prefixPath;;
++ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths prefixPath:(nullable NSString*)prefixPath;;
 
 /**
  * Creates a parameter with a limit on the resulting list.
@@ -140,34 +149,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.limit=
  * @result The parameter collection containing a parameter that will limit the amount of results.
  */
-+ (MDAPIParameters*)parametersWithLimitResultsTo:(NSUInteger)count prefixPath:(NSString*)prefixPath;
-
-/**
- * Creates a parameter with a first and last object IDs you want in the results. Both parameters
- * are optional, but at least one must be defined.
- *
- * @param startingAfter Returns the next page of results, not including the startingAfter id.
- * @param endingBefore Returns the previous page of results, not including the endingBefore id.
- * @result The parameter collection containing a parameter that will limit the range of results.
-*/
-+ (MDAPIParameters*)parametersWithStartingAfter:(MDObjectId*)startingAfter
-                                   endingBefore:(MDObjectId*)endingBefore __attribute__((deprecated));
-
-/**
- * Creates a parameter with the first object ID you want in the results.
- *
- * @param startingAfter Returns the next page of results, not including the startingAfter id.
- * @result The parameter collection containing a parameter that will limit the range of results.
-*/
-+ (MDAPIParameters*)parametersWithStartingAfter:(MDObjectId*)startingAfter;
-
-/**
- * Creates a parameter with the last object ID you want in the results.
- *
- * @param endingBefore Returns the previous page of results, not including the endingBefore id.
- * @result The parameter collection containing a parameter that will limit the range of results.
- */
-+ (MDAPIParameters*)parametersWithEndingBefore:(MDObjectId*)endingBefore;
++ (MDAPIParameters*)parametersWithLimitResultsTo:(NSUInteger)count prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Creates a parameter with a skip count on the resulting list.
@@ -184,7 +166,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.skip=
  * @result The parameter collection containing a parameter that will skip the amount of results.
  */
-+ (MDAPIParameters*)parametersWithSkip:(NSUInteger)count prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithSkip:(NSUInteger)count prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Sorting parameters.
@@ -193,7 +175,7 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.sort={ sort params here }
  * @result The parameter collection containing a parameter that will sort the results.
  */
-+ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Filtering queries.
@@ -202,67 +184,67 @@
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.where={ where params here }
  * @result The parameter collection containing a parameter that will filter results.
  */
-+ (MDAPIParameters*)parametersWithWhere:(NSDictionary*)where prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithWhere:(NSDictionary*)where prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the value of the property is greater than the passed in value.
  * Produces prefixPath.where={"propertyName": {"$gt": value}}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThan:(NSNumber*)value prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThan:(NSObject*)value prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the value of the property is greater than or equal to the passed in value.
  * Produces prefixPath.where={"propertyName": {"$gte": value}}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThanOrEqualTo:(NSNumber*)value prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName greaterThanOrEqualTo:(NSObject*)value prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the value of the property is lesser than the passed in value.
  * Produces prefixPath.where={"propertyName": {"$lt": value}}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThan:(NSNumber*)value prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThan:(NSObject*)value prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the value of the property is lesser than or equal to the passed in value.
  * Produces prefixPath.where={"propertyName": {"$lte": value}}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThanOrEqualTo:(NSNumber*)value prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName lessThanOrEqualTo:(NSObject*)value prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the property matches any of the passed in values.
  * Produces prefixPath.where={"propertyName": {"$in": [ comma separated string values here ]}}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesValues:(NSArray<NSString*>*)values prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesValues:(NSArray<NSString*>*)values prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where all passed in conditions are met.
  * Produces prefixPath.where={"$and": [ conditions here ] }
  */
-+ (MDAPIParameters*)parametersWithAndConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(NSString*)prefixPath;
++ (nullable MDAPIParameters*)parametersWithAndConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where any passed in conditions are met.
  * Produces prefixPath.where={"$or": [ conditions here ] }
  */
-+ (MDAPIParameters*)parametersWithOrConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(NSString*)prefixPath;
++ (nullable MDAPIParameters*)parametersWithOrConditions:(NSArray<NSDictionary*>*)conditions prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the string property matches the passed in regular expression.
  * Produces prefixPath.where={"propertyName": {"$regex": "regex here" }}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesRegex:(NSString*)regex prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName matchesRegex:(NSString*)regex prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the string property matches the passed in regular expression.
  * Produces prefixPath.where={"propertyName": {"$all": [ comma separated string values here ] }}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName containsAllValues:(NSArray<NSString*>*)values prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName containsAllValues:(NSArray<NSString*>*)values prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where the size of the array property matches the passed in values.
  * Produces prefixPath.where={"propertyName": {"$size": "size" }}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName sizeMatches:(NSNumber*)size prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName sizeMatches:(NSNumber*)size prefixPath:(nullable NSString*)prefixPath;
 
 /*
  * Selects documents where all properties of an array of document properties match the passed in expression. 
@@ -270,7 +252,7 @@
  *
  * Produces prefixPath.where={"propertyName": {"$elemMatch": { "propName1": "value1", ..., "propNameN": "valuen" } }}
  */
-+ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName elemMatches:(NSDictionary*)elemMatches prefixPath:(NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName elemMatches:(NSDictionary*)elemMatches prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Sorting and filtering queries.
@@ -297,8 +279,8 @@
  * @param excludePostTypes Post types to exclude.
  * @result The parameter collection containing a the list of include and/or exclude post types.
  */
-+ (MDAPIParameters*)parametersWithIncludePostTypes:(NSArray*)includePostTypes
-                                  excludePostTypes:(NSArray*)excludePostTypes;
++ (MDAPIParameters*)parametersWithIncludePostTypes:(nullable NSArray*)includePostTypes
+                                  excludePostTypes:(nullable NSArray*)excludePostTypes;
 
 /**
  * Creates a parameter to limit objects with a particular favorite value.
@@ -383,6 +365,9 @@
  */
 + (MDAPIParameters*)parametersWithNotificationType:(MDObjectId*)notificationType;
 
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 /**
@@ -417,7 +402,7 @@
  * @param value The value to check.
  * @return The passed value if the check holds, nil otherwise.
  */
-+ (id)checkPropertyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(id)value;
++ (nullable id)checkPropertyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(id)value;
 
 /**
  * Check the validity of an array for an array property type.
@@ -430,7 +415,7 @@
  * @param value The value to check.
  * @return The passed array value if the check holds, nil otherwise.
  */
-+ (NSArray *)checkArrayValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSArray *)value;
++ (nullable NSArray *)checkArrayValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSArray *)value;
 
 #pragma mark - Basic Types
 
@@ -443,7 +428,7 @@
  * @param value The value to check.
  * @return The passed string value if the check holds, nil otherwise.
  */
-+ (NSString *)checkStringValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
++ (nullable NSString *)checkStringValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
 
 /**
  * Check the validity of a Number for a number property definition. This will not control any restrictions
@@ -454,7 +439,7 @@
  * @param value The value to check.
  * @return The passed number value if the check holds, nil otherwise.
  */
-+ (NSNumber *)checkNumberValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
++ (nullable NSNumber *)checkNumberValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
 
 /**
  * Check the validity of a boolean value (represented by a number) for a boolean property definition. This will
@@ -466,7 +451,7 @@
  * @param value The value to check.
  * @return The passed number value if the check holds, nil otherwise.
  */
-+ (NSNumber *)checkBoolValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
++ (nullable NSNumber *)checkBoolValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
 
 /**
  * Check the validity of a Dictionary for a property definition of type Any. This will not control any restrictions
@@ -477,7 +462,7 @@
  * @param value The value to check.
  * @return The passed dictionary value if the check holds, nil otherwise.
  */
-+ (NSDictionary *)checkAnyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
++ (nullable NSDictionary *)checkAnyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
 
 /**
  * Check the validity of a Dictionary for a Document property definition. This will not control any restrictions
@@ -488,7 +473,7 @@
  * @param value The value to check.
  * @return The passed dictionary value if the check holds, nil otherwise.
  */
-+ (NSDictionary *)checkDocumentValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
++ (nullable NSDictionary *)checkDocumentValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
 
 /**
  * Check the validity of a Date represented as a string for a date property definition. This will not control any restrictions
@@ -499,7 +484,7 @@
  * @param value The string value to check.
  * @return The passed date value (in a string format) if the check holds, nil otherwise.
  */
-+ (NSString *)checkDateValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
++ (nullable NSString *)checkDateValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
 
 /**
  * Check the validity of a String for an ObjectID property definition. This will not control any restrictions
@@ -510,7 +495,7 @@
  * @param value The value to check.
  * @return The passed string value if the check holds, nil otherwise.
  */
-+ (NSString *)checkObjectIdValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
++ (nullable NSString *)checkObjectIdValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
 
 /**
  * Check the validity of a String for a reference property definition. This will not control any restrictions
@@ -521,7 +506,7 @@
  * @param value The value to check.
  * @return The passed string value if the check holds, nil otherwise.
  */
-+ (NSString *)checkReferenceValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
++ (nullable NSString *)checkReferenceValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
 
 /**
  * Check the validity of a Dictionary for a File property definition. This will control any mime type restrictions
@@ -535,7 +520,7 @@
  * @param value The value to check.
  * @return The passed dictionary value if the check holds, nil otherwise.
  */
-+ (NSDictionary *)checkFileValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
++ (nullable NSDictionary *)checkFileValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
 
 @end
 
@@ -628,3 +613,5 @@ typedef NSMutableDictionary MDFileParameterValue;
      inProperty:(MDPropertyDefinition *)propertyDefinition;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -12,7 +12,7 @@
 @interface MDAssetManager : NSObject
 
 /// Singleton instance
-+ (MDAssetManager*)sharedManager;
++ (nonnull MDAssetManager*)sharedManager;
 
 /**
  *  Once an image is decrypted it keeps a reference to it, if somebody else asks for it
@@ -21,12 +21,18 @@
  */
 @property (nonatomic, assign) BOOL useDecryptedDataMemoryCache;
 
+// unavailable
++ (nonnull instancetype)new NS_UNAVAILABLE;
+
+// use the singleton
+- (nonnull instancetype)init NS_UNAVAILABLE;
+
 /**
  * Check if a file is disk cached.
  *
  * @param fileName The name of the file.
  */
-- (BOOL)isFileCachedWithFileName:(NSString*)fileName NOTNULL(1);
+- (BOOL)isFileCachedWithFileName:(nonnull NSString*)fileName;
 
 /**
  * Get a file's data by retrieving it from it's most convenient location. Will pull from memory
@@ -35,8 +41,8 @@
  * @param fileName The name of the file.
  * @param callback The asynchronous callback block to be called after processing has completed.
  */
-- (void)dataFromFileWithName:(NSString*)fileName
-                    callback:(MDDataWithSourceOrFaultCallback)callback NOTNULL(1,2);
+- (void)dataFromFileWithName:(nonnull NSString*)fileName
+                    callback:(nonnull MDDataWithSourceOrFaultCallback)callback;
 
 /**
  * Conventional file moving which will also maintain internal consistencies in this class' instance.
@@ -46,7 +52,7 @@
  * @param destination Destination file.
  * @return True if the source file was moved successfully to it's destination, False otherwise.
  */
-- (BOOL)moveFile:(NSString *)origin to:(NSString *)destination;
+- (BOOL)moveFile:(nonnull NSString*)origin to:(nonnull NSString*)destination;
 
 /**
  * Store data to disk.
@@ -55,16 +61,16 @@
  * @param fileName The destination file.
  * @param finishBlock Asynchronous callback block to execute when processing is complete.
  */
-- (void)saveData:(NSData*)data
-        fileName:(NSString*)fileName
-     finishBlock:(MDBoolCallback)finishBlock NOTNULL(1,2,3);
+- (void)saveData:(nonnull NSData*)data
+        fileName:(nonnull NSString*)fileName
+     finishBlock:(nonnull MDBoolCallback)finishBlock;
 
 /**
  * Delete all files with file names matching a regular expression.
  *
  * @param regex The regular expression. All files that match this will be deleted.
  */
-- (void)deleteAllFilesMatchingRegularExpression:(NSRegularExpression *)regex NOTNULL(1);
+- (void)deleteAllFilesMatchingRegularExpression:(nonnull NSRegularExpression*)regex;
 
 /**
  * Remove all cached images from the decrypted memory cache.

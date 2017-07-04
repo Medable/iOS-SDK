@@ -2,11 +2,12 @@
 //  MDSchemaManager.h
 //  iOSMedableSDK
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  The Schema Manager contains the root level information for all data customization
@@ -21,6 +22,12 @@
  @return The singleton MDSChemaManager.
  */
 + (MDSchemaManager*)sharedInstance;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  Retrieve the list (array) of object definitions for the current organization.
@@ -38,16 +45,16 @@
  
  @return The `MDObjectDefinition` corresponding to this Id.
  */
-- (MDObjectDefinition *)objectWithId:(MDObjectId*)Id NOTNULL(1);
+- (nullable MDObjectDefinition *)objectWithId:(MDObjectId*)Id;
 
 /**
  Get the object definition from an Object of a certain name.
  
- @param name The name of the object.
+ @param name The name of the object (plural or singular).
  
  @return The `MDObjectDefinition` corresponding to this name.
  */
-- (MDObjectDefinition *)objectWithName:(NSString*)name NOTNULL(1);
+- (nullable MDObjectDefinition *)objectWithName:(NSString*)name;
 
 /**
  Get the object definition from an Object which plural name matches the parameter.
@@ -56,6 +63,8 @@
  
  @return The `MDObjectDefinition` corresponding to this name.
  */
-- (MDObjectDefinition *)objectWithPluralName:(NSString*)name NOTNULL(1);
+- (nullable MDObjectDefinition *)objectWithPluralName:(NSString*)name;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -34,7 +34,11 @@ typedef enum
     MDValidatorTypeNumericPositive,
     
     /// Validate date.
-    MDValidatorTypeDate
+    MDValidatorTypeDate,
+    
+    /// Validate ObjectId (Mongo DB)
+    MDValidatorTypeObjectId
+    
 } MDValidatorType;
 
 /**
@@ -82,6 +86,14 @@ typedef enum
  * @return True if the candidate is a valid date.
  */
 + (BOOL)validateDate:(NSString*)candidate;
+
+/**
+ * Validate ObjectId (MongoDB) string
+ *
+ * @param candidate Potential MongoDB ObjectId represented as a string.
+ * @return True if the candidate is a valid date.
+ */
++ (BOOL)validateObjectId:(NSString*)candidate;
 
 /**
  * Validate for a number within a certain numeric internal.

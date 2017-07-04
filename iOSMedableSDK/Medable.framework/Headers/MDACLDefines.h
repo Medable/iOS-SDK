@@ -58,6 +58,6 @@
  * @param aclNumber The number object (e.g. as received via a network call) corresponding to an access level.
  * @return The access level value corresponding to the parameter.
  */
-+ (MDACLLevel)aclLevelFromNumber:(NSNumber*)aclNumber NOTNULL(1);
++ (MDACLLevel)aclLevelFromNumber:(nonnull NSNumber*)aclNumber;
 
 @end

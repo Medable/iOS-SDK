@@ -10,6 +10,8 @@
 
 #import "MDObjectInstance.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * The Patient File is for providers to use as a collection for patient info, data, and 
  * collaborations. A patient file can be connected directly to a patient account to facilitate
@@ -20,12 +22,12 @@
 /**
  * First name
  */
-@property (nonatomic, readonly) NSString* firstName;
+@property (nullable, nonatomic, readonly) NSString* firstName;
 
 /**
  * Last name
  */
-@property (nonatomic, readonly) NSString* lastName;
+@property (nullable, nonatomic, readonly) NSString* lastName;
 
 /**
  * The Account id of the connected patient.
@@ -45,12 +47,12 @@
 /**
  * Patient age.
  */
-@property (nonatomic, readonly) NSNumber* age;
+@property (nullable, nonatomic, readonly) NSNumber* age;
 
 /**
  * A description of the Patient File. The result varies depending on the caller's access level.
  */
-@property (nonatomic, readonly) NSString* patientFileDescription;
+@property (nullable, nonatomic, readonly) NSString* patientFileDescription;
 
 /**
  * Patient date of birth.
@@ -70,12 +72,12 @@
 /**
  * The object image. To update it, set the property to the name of an uploaded file.
  */
-@property (nonatomic, readonly) MDFilePropertyValue* image;
+@property (nullable, nonatomic, readonly) MDFilePropertyValue* image;
 
 /**
  * Medical Record Number.
  */
-@property (nonatomic, readonly) NSString* mrn;
+@property (nullable, nonatomic, readonly) NSString* mrn;
 
 /**
  * The Org to which this object belongs.
@@ -92,11 +94,13 @@
  *
  * @param callback Asynchronous callback where the results are returned.
  */
-- (void)thumbnailWithCallback:(MDImageOrFaultCallback)callback NOTNULL(1);
+- (void)thumbnailWithCallback:(MDImageOrFaultCallback)callback;
 
 /**
  * Helper function to assemble the full name of the patient.
  */
-- (NSString*)fullName;
+- (nullable NSString*)fullName;
 
 @end
+
+NS_ASSUME_NONNULL_END

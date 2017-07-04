@@ -75,6 +75,12 @@ typedef enum : NSUInteger
 @property (nonatomic, strong) NSString* licenseNumber;
 
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Initializer
  *

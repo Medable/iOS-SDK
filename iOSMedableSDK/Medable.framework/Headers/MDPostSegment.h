@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * An instance of a segment inside of a post.
  */
@@ -30,7 +32,14 @@
  *
  * @warning Users of the SDK are encourage to avoid calling this method directly.
  */
-+ (MDPostSegment*)postSegmentWithAttributes:(NSDictionary*)attributes definition:(MDPostSegmentDefinition*)definition NOTNULL(1,2);
++ (MDPostSegment*)postSegmentWithAttributes:(NSDictionary*)attributes definition:(MDPostSegmentDefinition*)definition;
+
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Get the value of a property.
@@ -38,7 +47,7 @@
  * @param propertyName Name of the property.
  * @return The value of the property if it exists, nil otherwise.
  */
-- (id)valueForPropertyWithName:(NSString*)propertyName NOTNULL(1);
+- (nullable id)valueForPropertyWithName:(NSString*)propertyName;
 
 /**
  * Get the value of a property from it's definition.
@@ -46,6 +55,8 @@
  * @param propertyDefinition Definition of the property.
  * @return The value of the property if it exists, nil otherwise.
  */
-- (id)valueForProperty:(MDPostSegmentPropertyDefinition*)propertyDefinition NOTNULL(1);
+- (nullable id)valueForProperty:(MDPostSegmentPropertyDefinition*)propertyDefinition;
 
 @end
+
+NS_ASSUME_NONNULL_END

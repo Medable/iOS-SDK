@@ -15,6 +15,12 @@
 /// Singleton Instance
 + (MDEnvironment*)environment;
 
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /// The API URL includes the organization and API version as part of it's path.
 - (NSString*)APIURL;
 

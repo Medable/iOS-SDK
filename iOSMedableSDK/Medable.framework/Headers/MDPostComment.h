@@ -49,6 +49,13 @@
  */
 @property (nonatomic, readonly) MDPost* parentPost;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Get the body segment with name.
  *

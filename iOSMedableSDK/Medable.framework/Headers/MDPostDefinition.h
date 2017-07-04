@@ -2,13 +2,14 @@
 //  MDPostDefinition.h
 //  iOSMedableSDK
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 #import "MDBaseDefinition.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Definition of a post type, this includes definitions on all the segments the post must include.
@@ -37,13 +38,20 @@
 @property (nonatomic, readonly) NSArray *body;
 @property (nonatomic, readonly) NSArray *comments;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Get one comment segment definition from it's name.
  *
  * @param definitionName Name of the segment.
  * @return The post segment definition that corresponds to this name, nil if none do.
  */
-- (MDPostSegmentDefinition*)commentSegmentDefinitionWithName:(NSString*)definitionName NOTNULL(1);
+- (nullable MDPostSegmentDefinition*)commentSegmentDefinitionWithName:(NSString*)definitionName;
 
 /**
  * Get one segment definition from it's name.
@@ -51,7 +59,7 @@
  * @param definitionName Name of the segment.
  * @return The post segment definition that corresponds to this name, nil if none do.
  */
-- (MDPostSegmentDefinition*)segmentDefinitionWithName:(NSString*)definitionName NOTNULL(1);
+- (nullable MDPostSegmentDefinition*)segmentDefinitionWithName:(NSString*)definitionName;
 
 /**
  *  Debug helper. Useful to get a minimum valid json representation of this object.
@@ -62,3 +70,5 @@
 @property (nonatomic, weak, readonly) MDBaseDefinition *baseDefinition;
 
 @end
+
+NS_ASSUME_NONNULL_END

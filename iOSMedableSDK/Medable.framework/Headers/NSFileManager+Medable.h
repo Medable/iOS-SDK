@@ -2,17 +2,18 @@
 //  NSFileManager+Medable.h
 //  Patient
 //
-//  
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSFileManager (Medable)
 
 - (NSString*)cacheDirectoryPath;
+- (nullable NSString*)currentUserPath;
 
-- (NSString*)currentUserPath;
 - (BOOL)deleteCurrentUserDiskCache;
 - (BOOL)deleteCurrentUserTempFiles;
 
@@ -22,6 +23,8 @@
 - (void)saveImageToCacheDirectory:(UIImage*)image
                          fileName:(NSString*)fileName
                               png:(BOOL)png
-                         callback:(MDBoolCallback)callback NOTNULL(1,2,4);
+                         callback:(MDBoolCallback)callback;
 
 @end
+
+NS_ASSUME_NONNULL_END

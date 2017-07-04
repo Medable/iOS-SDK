@@ -23,8 +23,6 @@
 #import "MDDateUtilities.h"
 #import "MDAPIParameterFactory.h"
 #import "MDContentDownloader.h"
-#import "MDLegalAgreement.h"
-#import "MDLegalAgreementManager.h"
 #import "MDDataValidator.h"
 #import "MDInfoValidator.h"
 #import "MDNotificationManager.h"
@@ -79,9 +77,7 @@
 #import "MDSimpleBodyProperty.h"
 
 // Pagination
-#import "MDContextObjectPaginationHelper.h"
-#import "MDObjectsPaginationHelper.h"
-#import "MDFeedPaginationHelper.h"
+#import "MDPaginationHelper.h"
 
 // Client
 #import "MDAPIClient.h"

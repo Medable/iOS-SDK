@@ -13,6 +13,8 @@ typedef enum : NSUInteger
     MDDateUtilitiesFormatLong2      // yyyy'-'MM'-'dd HH':'mm':'ss Z        i.e. 1983-05-05 00:00:00 +0000
 } MDDateUtilitiesFormat;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Utility class with date conversion tools. TimeZone used is UTC.
  */
@@ -25,7 +27,7 @@ typedef enum : NSUInteger
  * @param format Date format of the string.
  * @return A date object.
  */
-+ (NSDate*)dateFromString:(NSString*)dateString format:(MDDateUtilitiesFormat)format NOTNULL(1);
++ (nullable NSDate*)dateFromString:(NSString*)dateString format:(MDDateUtilitiesFormat)format;
 
 /**
  * Convert a date string to an NSDate object. It tries with both MDDateUtilitiesFormat.
@@ -33,7 +35,7 @@ typedef enum : NSUInteger
  * @param dateString Date string.
  * @return A date object.
  */
-+ (NSDate*)dateFromString:(NSString*)dateString NOTNULL(1);
++ (nullable NSDate*)dateFromString:(NSString*)dateString;
 
 /**
  * Get a string from a date.
@@ -42,7 +44,7 @@ typedef enum : NSUInteger
  * @param format Date format of the returned string.
  * @return Formatted date string from the date, in the specified format.
  */
-+ (NSString*)stringFromDate:(NSDate*)date format:(MDDateUtilitiesFormat)format;
++ (nullable NSString*)stringFromDate:(NSDate*)date format:(MDDateUtilitiesFormat)format;
 
 /**
  * Get number of years from date of birth string.
@@ -50,7 +52,7 @@ typedef enum : NSUInteger
  * @param dob Date of birth string in standard format.
  * @return An unsigned integer with the number of years from that birth date.
  */
-+ (NSUInteger)ageFromDateOfBirth:(NSDate*)dob NOTNULL(1);
++ (NSUInteger)ageFromDateOfBirth:(NSDate*)dob;
 
 /**
  * Get a birth date from a person's age.
@@ -58,7 +60,7 @@ typedef enum : NSUInteger
  * @param age Unsigned integer with age (number of years of the person).
  * @return Date from 'age' years ago.
  */
-+ (NSDate*)dobFromAge:(NSUInteger)age;
++ (nullable NSDate*)dobFromAge:(NSUInteger)age;
 
 /**
  * Get a birth date string from a person's age.
@@ -67,6 +69,15 @@ typedef enum : NSUInteger
  * @param format Date format of the returned string.
  * @return Formatted date string from 'age' years ago, in the specified format.
  */
-+ (NSString*)dobStringFromAge:(NSUInteger)age format:(MDDateUtilitiesFormat)format;
++ (nullable NSString*)dobStringFromAge:(NSUInteger)age format:(MDDateUtilitiesFormat)format;
+
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -57,6 +57,13 @@
 /// Constructed by using path+ETag, will end with kUnknownETag if it's unknown.
 @property (nonatomic, readonly) NSString *fileName;
 
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Get the facet's data. It will be served from cache if the cached value matches 
  * the ETag or downloaded otherwise.
