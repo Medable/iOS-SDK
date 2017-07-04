@@ -1,6 +1,6 @@
 ## Cortex
 
-### Change log
+### Change log
 
 #### v1.8.0
 
