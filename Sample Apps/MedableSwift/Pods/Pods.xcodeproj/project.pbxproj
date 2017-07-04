@@ -1,630 +1,519 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>036BFF488C16F624852F3EE77B343D13</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D92182FD90056CAF5190AA461FB0704F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>052A17875CB827423D627183396CEB60</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>1BD67C07324B08659E1FBCA5BDA78CA3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>9836B12F076B71F5E556E977CEFDE39A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>25A875B500FB2D4D9AF509C70C1BBFFC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MedableSwift.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>281D674FBC379567EC5317C8789D833D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Medable.framework</string>
-			<key>path</key>
-			<string>iOSMedableSDK/Medable.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>297C10428CEB2FFC5F2DA49D88A915BA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-MedableSwift-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2A412A7CE53598FEEE4053795AED3F6D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-MedableSwift-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B37F0F91F85060E28F1DAAB522DC7EC1</string>
-				<string>052A17875CB827423D627183396CEB60</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>3166468E665D2B7C6EA63AF93B2494E9</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>3AD9ECE94C1A1F7CE8DEEB0B62A91D05</string>
-				<string>B3C1DD2CCDB70110B138C7E12F8BEF90</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>3AD9ECE94C1A1F7CE8DEEB0B62A91D05</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>25A875B500FB2D4D9AF509C70C1BBFFC</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>3E4E89230EF59BC255123B67864ACF77</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>4AA091A77ECAD086CB5C186DEF1D3788</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D1B57F95C8A8907C2F63898EBF703155</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7C0CABAE2F122EB60FBF94E7F2ECDC40</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-MedableSwift-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7D7BDA8C68323250DC60DE7578140E3B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>9D4A1FA1D665788729B95AC82F277FCD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>D96831A93359C21151907FA1AE8C3636</string>
-				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
-				<string>4AA091A77ECAD086CB5C186DEF1D3788</string>
-				<string>036BFF488C16F624852F3EE77B343D13</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>89A04BD921B05B7B7BD20E7AC8375FB4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-MedableSwift-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9836B12F076B71F5E556E977CEFDE39A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9D4A1FA1D665788729B95AC82F277FCD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>89A04BD921B05B7B7BD20E7AC8375FB4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A1097162BDDF9545E031E490ADF91886</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-MedableSwift-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A52824A4CA991FAE7F9418296606DD9F</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>3166468E665D2B7C6EA63AF93B2494E9</string>
-			<key>buildPhases</key>
-			<array>
-				<string>7D7BDA8C68323250DC60DE7578140E3B</string>
-				<string>1BD67C07324B08659E1FBCA5BDA78CA3</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-MedableSwift</string>
-			<key>productName</key>
-			<string>Pods-MedableSwift</string>
-			<key>productReference</key>
-			<string>D1B57F95C8A8907C2F63898EBF703155</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>B37F0F91F85060E28F1DAAB522DC7EC1</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B3C1DD2CCDB70110B138C7E12F8BEF90</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D26F09F73171551FB03871BC3819B0CB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BC3CA7F9E30CC8F7E2DD044DD34432FC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BF6342C8B29F4CEEA088EFF7AB4DE362</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BF6342C8B29F4CEEA088EFF7AB4DE362</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3E4E89230EF59BC255123B67864ACF77</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C06675B1C822005283AFB171BCC64374</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>281D674FBC379567EC5317C8789D833D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C489EB0BE4FEF3F4383E736003DCB488</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C06675B1C822005283AFB171BCC64374</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Medable</string>
-			<key>path</key>
-			<string>../../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D1B57F95C8A8907C2F63898EBF703155</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-MedableSwift.a</string>
-			<key>path</key>
-			<string>libPods-MedableSwift.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D26F09F73171551FB03871BC3819B0CB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MedableSwift.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>4AA091A77ECAD086CB5C186DEF1D3788</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>A52824A4CA991FAE7F9418296606DD9F</string>
-			</array>
-		</dict>
-		<key>D92182FD90056CAF5190AA461FB0704F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7C0CABAE2F122EB60FBF94E7F2ECDC40</string>
-				<string>297C10428CEB2FFC5F2DA49D88A915BA</string>
-				<string>89A04BD921B05B7B7BD20E7AC8375FB4</string>
-				<string>A1097162BDDF9545E031E490ADF91886</string>
-				<string>2A412A7CE53598FEEE4053795AED3F6D</string>
-				<string>25A875B500FB2D4D9AF509C70C1BBFFC</string>
-				<string>D26F09F73171551FB03871BC3819B0CB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-MedableSwift</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-MedableSwift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D96831A93359C21151907FA1AE8C3636</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C489EB0BE4FEF3F4383E736003DCB488</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C02E25D95FE8806D96C29176CAAC4AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A00D1708A86ADC139F24DDE93CED8A26 /* Pods-MedableSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02F4855372AD327CEA7A60D7F24ED37C /* MDBaseDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseDefinition.h; sourceTree = "<group>"; };
+		0B8ACE6EFDAC0183D20F59D5D58BDEA4 /* MDFacetDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacetDefinition.h; sourceTree = "<group>"; };
+		0F8D272FD50E030AE3EB165837276C05 /* MDBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBodyProperty.h; sourceTree = "<group>"; };
+		118ACC17F6FAC7DD62A633C6E09BF493 /* MDUploadOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDUploadOperations.h; sourceTree = "<group>"; };
+		11FFA3A3A2ED9ABB6B418921191F9E88 /* MDNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotification.h; sourceTree = "<group>"; };
+		16489F42EE24EA9500C09C164BEC3C87 /* MDPost.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPost.h; sourceTree = "<group>"; };
+		22F0E3692F501815B1DEF671EDEF8526 /* MDPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyDefinition.h; sourceTree = "<group>"; };
+		25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		27333FFF8C8955BC9B5F88289EA0B525 /* MDConversation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConversation.h; sourceTree = "<group>"; };
+		297C10428CEB2FFC5F2DA49D88A915BA /* Pods-MedableSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableSwift-acknowledgements.plist"; sourceTree = "<group>"; };
+		2A412A7CE53598FEEE4053795AED3F6D /* Pods-MedableSwift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-resources.sh"; sourceTree = "<group>"; };
+		2ACE38FF4CA6B493C87719DEED2716E2 /* MDPostComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostComment.h; sourceTree = "<group>"; };
+		2D2D9A54A8A9B0FEC64C7EEB88409477 /* MDPostDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostDefinition.h; sourceTree = "<group>"; };
+		2FCCCA49153D8A3E20FF359BCDAFF914 /* MDPropertyInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyInstance.h; sourceTree = "<group>"; };
+		33872EA98C6C008EAEEA89955EF56A37 /* MDPaginationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPaginationHelper.h; sourceTree = "<group>"; };
+		33F28B2D063F54E7D68B983AB8A4499F /* NSFileManager+Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Medable.h"; sourceTree = "<group>"; };
+		3B01525A50FBE548BC4D1FF539111BE3 /* MDFastBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFastBodyProperty.h; sourceTree = "<group>"; };
+		3BF865461C5D56B22C5915D77816EF0F /* MDBundleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundleManager.h; sourceTree = "<group>"; };
+		3E522C8324CAC27E791BB443D5E2E604 /* MDAttachmentMaps.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAttachmentMaps.h; sourceTree = "<group>"; };
+		445C240A810C0933935CEECAFB40B17C /* NSDictionary+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONPrettyString.h"; sourceTree = "<group>"; };
+		4E7C66B73FE8597F1D5281A4DEF86305 /* MDFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFault.h; sourceTree = "<group>"; };
+		50D60C7907F35A1E703925EED6009591 /* MDLocalFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDLocalFault.h; sourceTree = "<group>"; };
+		5486C4B98797D4AAE79C2CD649F72130 /* MDFacet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacet.h; sourceTree = "<group>"; };
+		5729367C31F1BC26DF127DE816DC9055 /* MDPostSegmentPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentPropertyDefinition.h; sourceTree = "<group>"; };
+		57474DBDABD9876314B099CF86A43084 /* MDInfoValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDInfoValidator.h; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6B50B6702338FC92FB761C504A219E07 /* MDDataValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataValidator.h; sourceTree = "<group>"; };
+		6CA86C9E7FE23491A80EB50F83459E83 /* MDTypedefs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTypedefs.h; sourceTree = "<group>"; };
+		6D7CD18C7F34F22FD5D6C81777931B35 /* MDPostSegmentDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentDefinition.h; sourceTree = "<group>"; };
+		6E9F46FA2B507D3CC7BFB98C51C875AE /* NSString+ThreeDigitsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+ThreeDigitsVersion.h"; sourceTree = "<group>"; };
+		777B61655250648D36DC6AA6E64D9464 /* MDDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDefines.h; sourceTree = "<group>"; };
+		78E54AC1056E3B82AECEE6561655EEC0 /* MDDateUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDateUtilities.h; sourceTree = "<group>"; };
+		790BC3C0372973378AA039CD93C228A7 /* MDConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConnection.h; sourceTree = "<group>"; };
+		793E1BD8EC38C21565A638766E1A5FD0 /* MDAssetManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAssetManager.h; sourceTree = "<group>"; };
+		7C0CABAE2F122EB60FBF94E7F2ECDC40 /* Pods-MedableSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7EA54E24718CFB7E374C611F6C2C84D1 /* MDSimpleBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSimpleBodyProperty.h; sourceTree = "<group>"; };
+		816FDCDD64AF0FA4BC49AE7B2A9CE753 /* MDOrg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDOrg.h; sourceTree = "<group>"; };
+		824DD66F7E044DF179ABB708B2778C43 /* MDBaseInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseInstance.h; sourceTree = "<group>"; };
+		85EFDAB0160F2C44A5F9F91B0E238C61 /* MDImageOverlayPair.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDImageOverlayPair.h; sourceTree = "<group>"; };
+		89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableSwift-dummy.m"; sourceTree = "<group>"; };
+		8F38215E3A4BBE12825FFCB2137AF3E6 /* MDACLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLObject.h; sourceTree = "<group>"; };
+		91E515D4825700F8BC2F085B38105246 /* Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Medable.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		959AA9B9B1AA57EEBBA6FBE6F096E7B2 /* MDAccountRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccountRole.h; sourceTree = "<group>"; };
+		9714DE68FBC07AB02776D2B126679B76 /* MDBundle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundle.h; sourceTree = "<group>"; };
+		98B68E589427BD350225A948B57BD93B /* MDReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDReference.h; sourceTree = "<group>"; };
+		99B32B5A62DF2440341DB848C6F9C87B /* MDContentDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDContentDownloader.h; sourceTree = "<group>"; };
+		A1097162BDDF9545E031E490ADF91886 /* Pods-MedableSwift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-frameworks.sh"; sourceTree = "<group>"; };
+		A36022E1F08452F1FC4E9CCD80600A4E /* MDTeam.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTeam.h; sourceTree = "<group>"; };
+		A739FD4CEC8293336A62B27C4E28188D /* MDEnvironment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDEnvironment.h; sourceTree = "<group>"; };
+		A74DD8BDFC1027E90C828A2F58B3F874 /* MDFileUpload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileUpload.h; sourceTree = "<group>"; };
+		AC6B9A61AEA1F6D67D7127E279AAF024 /* Medable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medable.framework; path = iOSMedableSDK/Medable.framework; sourceTree = "<group>"; };
+		ACBF99B5F425391F9347B9FAC7ED0271 /* MDConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConstants.h; sourceTree = "<group>"; };
+		B232BC847DAD4A7295C5F23C4C6FB0C1 /* MDDataFriendly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataFriendly.h; sourceTree = "<group>"; };
+		B4EE24131ECAE6FA14B9DE68327FD15E /* MDArrayBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDArrayBodyProperty.h; sourceTree = "<group>"; };
+		BA560B10FF1C285A5BC0175BD1243655 /* MDBaseBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseBodyProperty.h; sourceTree = "<group>"; };
+		BCCDA49782D6A9E6178AD6506317AC58 /* MDSchemaManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSchemaManager.h; sourceTree = "<group>"; };
+		BECDDDB5E784C89BA84801B300273BC3 /* MDFeedDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFeedDefinition.h; sourceTree = "<group>"; };
+		C2BFA8BAB46852B25B10D9A27CF48C54 /* MDObjectInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectInstance.h; sourceTree = "<group>"; };
+		C333155F740C7B89257C16E047A0CF30 /* MDBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBody.h; sourceTree = "<group>"; };
+		C6F56A7C4216CE02209CB4E014993C4F /* NSObject+JSONStringify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONStringify.h"; sourceTree = "<group>"; };
+		C931D6A1224D6A42749C569275891F60 /* NSDictionary+Path.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Path.h"; sourceTree = "<group>"; };
+		CA315F09555B4F834656465C0EF2498E /* MDAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccount.h; sourceTree = "<group>"; };
+		CC3B2382AF543A3D3805A0C29DC98CFF /* MDObjectDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectDefinition.h; sourceTree = "<group>"; };
+		CFA512EB58A0566C6F8081248F390BBB /* NSArray+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONPrettyString.h"; sourceTree = "<group>"; };
+		D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-MedableSwift.a"; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
+		D3A841AA3AC2046D3E853B4B4723BB3D /* MDProfileInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDProfileInfo.h; sourceTree = "<group>"; };
+		D509624C9C39796C15861B0C2F1B4A37 /* MDAPIParameterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIParameterFactory.h; sourceTree = "<group>"; };
+		D5A520D8ADEF1180800F1C3FBA3986B4 /* MDDocumentBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDocumentBodyProperty.h; sourceTree = "<group>"; };
+		D5AD8B7E09894E47DB4C8502EEFC29C9 /* MDTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTarget.h; sourceTree = "<group>"; };
+		D78547BE7F0389CC89C2A8B39BF94696 /* NSDate+MongoDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+MongoDB.h"; sourceTree = "<group>"; };
+		D817E5613896EE006C1E5809D284EEC0 /* MDPostSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegment.h; sourceTree = "<group>"; };
+		D8D8E20B9F3FB04370277A3776AFC05C /* NSString+URLExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+URLExtensions.h"; sourceTree = "<group>"; };
+		DF721FD70050D36BB46A6621185C4507 /* NXDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXDebug.h; sourceTree = "<group>"; };
+		E0ADCC22F9F4C35B1308E61D5519BBD3 /* MDAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIClient.h; sourceTree = "<group>"; };
+		E1142A7AED645CD5A49C67FB00C09125 /* MDGeneralBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDGeneralBlocks.h; sourceTree = "<group>"; };
+		E13668823478E51B1D70C39CD710DE01 /* MDNotificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotificationManager.h; sourceTree = "<group>"; };
+		E308E343E79DAABF0DAF3E74FD202A36 /* NSDictionary+RemoveNullObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemoveNullObjects.h"; sourceTree = "<group>"; };
+		E4D941B9CCDBFD8AC2246CF7C6429E00 /* MDAnyBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAnyBodyProperty.h; sourceTree = "<group>"; };
+		E7CDBD7EC9025AE14B5A93698A3AA5A1 /* MDPatientFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPatientFile.h; sourceTree = "<group>"; };
+		E7FE0916ACA84C7420D4E7724F267861 /* MDPostBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostBody.h; sourceTree = "<group>"; };
+		E938CD9B2A6A9FA611B424F32364F8B9 /* MDFilePropertyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFilePropertyValue.h; sourceTree = "<group>"; };
+		F512C77F34E6D75C42CE68A880219DEF /* MDObjectId.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectId.h; sourceTree = "<group>"; };
+		F9F6FFBA28A9B9BDC734CB53BCB47CCB /* MDACLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLDefines.h; sourceTree = "<group>"; };
+		FDCDAEA0D5A883A18E8C695716ED2E8E /* MDFileBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileBodyProperty.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		301C07712D078F24ACB12C57B38301B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C02E25D95FE8806D96C29176CAAC4AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		036BFF488C16F624852F3EE77B343D13 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D92182FD90056CAF5190AA461FB0704F /* Pods-MedableSwift */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		0BB25EA934E866560CF09A35751BB33B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CA315F09555B4F834656465C0EF2498E /* MDAccount.h */,
+				959AA9B9B1AA57EEBBA6FBE6F096E7B2 /* MDAccountRole.h */,
+				F9F6FFBA28A9B9BDC734CB53BCB47CCB /* MDACLDefines.h */,
+				8F38215E3A4BBE12825FFCB2137AF3E6 /* MDACLObject.h */,
+				E4D941B9CCDBFD8AC2246CF7C6429E00 /* MDAnyBodyProperty.h */,
+				E0ADCC22F9F4C35B1308E61D5519BBD3 /* MDAPIClient.h */,
+				D509624C9C39796C15861B0C2F1B4A37 /* MDAPIParameterFactory.h */,
+				B4EE24131ECAE6FA14B9DE68327FD15E /* MDArrayBodyProperty.h */,
+				793E1BD8EC38C21565A638766E1A5FD0 /* MDAssetManager.h */,
+				3E522C8324CAC27E791BB443D5E2E604 /* MDAttachmentMaps.h */,
+				BA560B10FF1C285A5BC0175BD1243655 /* MDBaseBodyProperty.h */,
+				02F4855372AD327CEA7A60D7F24ED37C /* MDBaseDefinition.h */,
+				824DD66F7E044DF179ABB708B2778C43 /* MDBaseInstance.h */,
+				C333155F740C7B89257C16E047A0CF30 /* MDBody.h */,
+				0F8D272FD50E030AE3EB165837276C05 /* MDBodyProperty.h */,
+				9714DE68FBC07AB02776D2B126679B76 /* MDBundle.h */,
+				3BF865461C5D56B22C5915D77816EF0F /* MDBundleManager.h */,
+				790BC3C0372973378AA039CD93C228A7 /* MDConnection.h */,
+				ACBF99B5F425391F9347B9FAC7ED0271 /* MDConstants.h */,
+				99B32B5A62DF2440341DB848C6F9C87B /* MDContentDownloader.h */,
+				27333FFF8C8955BC9B5F88289EA0B525 /* MDConversation.h */,
+				B232BC847DAD4A7295C5F23C4C6FB0C1 /* MDDataFriendly.h */,
+				6B50B6702338FC92FB761C504A219E07 /* MDDataValidator.h */,
+				78E54AC1056E3B82AECEE6561655EEC0 /* MDDateUtilities.h */,
+				777B61655250648D36DC6AA6E64D9464 /* MDDefines.h */,
+				D5A520D8ADEF1180800F1C3FBA3986B4 /* MDDocumentBodyProperty.h */,
+				A739FD4CEC8293336A62B27C4E28188D /* MDEnvironment.h */,
+				5486C4B98797D4AAE79C2CD649F72130 /* MDFacet.h */,
+				0B8ACE6EFDAC0183D20F59D5D58BDEA4 /* MDFacetDefinition.h */,
+				3B01525A50FBE548BC4D1FF539111BE3 /* MDFastBodyProperty.h */,
+				4E7C66B73FE8597F1D5281A4DEF86305 /* MDFault.h */,
+				BECDDDB5E784C89BA84801B300273BC3 /* MDFeedDefinition.h */,
+				FDCDAEA0D5A883A18E8C695716ED2E8E /* MDFileBodyProperty.h */,
+				E938CD9B2A6A9FA611B424F32364F8B9 /* MDFilePropertyValue.h */,
+				A74DD8BDFC1027E90C828A2F58B3F874 /* MDFileUpload.h */,
+				E1142A7AED645CD5A49C67FB00C09125 /* MDGeneralBlocks.h */,
+				85EFDAB0160F2C44A5F9F91B0E238C61 /* MDImageOverlayPair.h */,
+				57474DBDABD9876314B099CF86A43084 /* MDInfoValidator.h */,
+				50D60C7907F35A1E703925EED6009591 /* MDLocalFault.h */,
+				11FFA3A3A2ED9ABB6B418921191F9E88 /* MDNotification.h */,
+				E13668823478E51B1D70C39CD710DE01 /* MDNotificationManager.h */,
+				CC3B2382AF543A3D3805A0C29DC98CFF /* MDObjectDefinition.h */,
+				F512C77F34E6D75C42CE68A880219DEF /* MDObjectId.h */,
+				C2BFA8BAB46852B25B10D9A27CF48C54 /* MDObjectInstance.h */,
+				816FDCDD64AF0FA4BC49AE7B2A9CE753 /* MDOrg.h */,
+				33872EA98C6C008EAEEA89955EF56A37 /* MDPaginationHelper.h */,
+				E7CDBD7EC9025AE14B5A93698A3AA5A1 /* MDPatientFile.h */,
+				16489F42EE24EA9500C09C164BEC3C87 /* MDPost.h */,
+				E7FE0916ACA84C7420D4E7724F267861 /* MDPostBody.h */,
+				2ACE38FF4CA6B493C87719DEED2716E2 /* MDPostComment.h */,
+				2D2D9A54A8A9B0FEC64C7EEB88409477 /* MDPostDefinition.h */,
+				D817E5613896EE006C1E5809D284EEC0 /* MDPostSegment.h */,
+				6D7CD18C7F34F22FD5D6C81777931B35 /* MDPostSegmentDefinition.h */,
+				5729367C31F1BC26DF127DE816DC9055 /* MDPostSegmentPropertyDefinition.h */,
+				D3A841AA3AC2046D3E853B4B4723BB3D /* MDProfileInfo.h */,
+				22F0E3692F501815B1DEF671EDEF8526 /* MDPropertyDefinition.h */,
+				2FCCCA49153D8A3E20FF359BCDAFF914 /* MDPropertyInstance.h */,
+				98B68E589427BD350225A948B57BD93B /* MDReference.h */,
+				BCCDA49782D6A9E6178AD6506317AC58 /* MDSchemaManager.h */,
+				7EA54E24718CFB7E374C611F6C2C84D1 /* MDSimpleBodyProperty.h */,
+				D5AD8B7E09894E47DB4C8502EEFC29C9 /* MDTarget.h */,
+				A36022E1F08452F1FC4E9CCD80600A4E /* MDTeam.h */,
+				6CA86C9E7FE23491A80EB50F83459E83 /* MDTypedefs.h */,
+				118ACC17F6FAC7DD62A633C6E09BF493 /* MDUploadOperations.h */,
+				91E515D4825700F8BC2F085B38105246 /* Medable.h */,
+				CFA512EB58A0566C6F8081248F390BBB /* NSArray+JSONPrettyString.h */,
+				D78547BE7F0389CC89C2A8B39BF94696 /* NSDate+MongoDB.h */,
+				445C240A810C0933935CEECAFB40B17C /* NSDictionary+JSONPrettyString.h */,
+				C931D6A1224D6A42749C569275891F60 /* NSDictionary+Path.h */,
+				E308E343E79DAABF0DAF3E74FD202A36 /* NSDictionary+RemoveNullObjects.h */,
+				33F28B2D063F54E7D68B983AB8A4499F /* NSFileManager+Medable.h */,
+				C6F56A7C4216CE02209CB4E014993C4F /* NSObject+JSONStringify.h */,
+				6E9F46FA2B507D3CC7BFB98C51C875AE /* NSString+ThreeDigitsVersion.h */,
+				D8D8E20B9F3FB04370277A3776AFC05C /* NSString+URLExtensions.h */,
+				DF721FD70050D36BB46A6621185C4507 /* NXDebug.h */,
+			);
+			name = Headers;
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4AA091A77ECAD086CB5C186DEF1D3788 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E2438FF64389BDADB65018A18094A45 /* Medable.framework */ = {
+			isa = PBXGroup;
+			children = (
+				0BB25EA934E866560CF09A35751BB33B /* Headers */,
+			);
+			name = Medable.framework;
+			path = Medable.framework;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				EC523758528D40875B44B458CD05826C /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				4AA091A77ECAD086CB5C186DEF1D3788 /* Products */,
+				036BFF488C16F624852F3EE77B343D13 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8919349FAF86775B0393DFCC85A33440 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B9A61AEA1F6D67D7127E279AAF024 /* Medable.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8CC76593A4C6D9B6ACB7A27B3EA880F8 /* iOSMedableSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4E2438FF64389BDADB65018A18094A45 /* Medable.framework */,
+			);
+			name = iOSMedableSDK;
+			path = iOSMedableSDK;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D92182FD90056CAF5190AA461FB0704F /* Pods-MedableSwift */ = {
+			isa = PBXGroup;
+			children = (
+				7C0CABAE2F122EB60FBF94E7F2ECDC40 /* Pods-MedableSwift-acknowledgements.markdown */,
+				297C10428CEB2FFC5F2DA49D88A915BA /* Pods-MedableSwift-acknowledgements.plist */,
+				89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */,
+				A1097162BDDF9545E031E490ADF91886 /* Pods-MedableSwift-frameworks.sh */,
+				2A412A7CE53598FEEE4053795AED3F6D /* Pods-MedableSwift-resources.sh */,
+				25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */,
+				D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */,
+			);
+			name = "Pods-MedableSwift";
+			path = "Target Support Files/Pods-MedableSwift";
+			sourceTree = "<group>";
+		};
+		EC523758528D40875B44B458CD05826C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4A810ED0059FBBF6D968863A3A677B8 /* Medable */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		F4A810ED0059FBBF6D968863A3A677B8 /* Medable */ = {
+			isa = PBXGroup;
+			children = (
+				8919349FAF86775B0393DFCC85A33440 /* Frameworks */,
+				8CC76593A4C6D9B6ACB7A27B3EA880F8 /* iOSMedableSDK */,
+			);
+			name = Medable;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BD7341F1697E8D707EDE18EBB69D637 /* Pods-MedableSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73FCF0BC469BE5EF76E68CDF71B5E81E /* Build configuration list for PBXNativeTarget "Pods-MedableSwift" */;
+			buildPhases = (
+				47719B175E63845EB3F32F6670221F3B /* Sources */,
+				301C07712D078F24ACB12C57B38301B3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MedableSwift";
+			productName = "Pods-MedableSwift";
+			productReference = D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4AA091A77ECAD086CB5C186DEF1D3788 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BD7341F1697E8D707EDE18EBB69D637 /* Pods-MedableSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47719B175E63845EB3F32F6670221F3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00D1708A86ADC139F24DDE93CED8A26 /* Pods-MedableSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		305283FA0CEB9547EE83FAB4C0516F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3890D7C92DE120C2BA762135796CFA80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48B5D48D83C05067DB04DB79557AA80D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		587B8ECC28E3A9FF4796C121925DC113 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				587B8ECC28E3A9FF4796C121925DC113 /* Debug */,
+				3890D7C92DE120C2BA762135796CFA80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73FCF0BC469BE5EF76E68CDF71B5E81E /* Build configuration list for PBXNativeTarget "Pods-MedableSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				305283FA0CEB9547EE83FAB4C0516F2F /* Debug */,
+				48B5D48D83C05067DB04DB79557AA80D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

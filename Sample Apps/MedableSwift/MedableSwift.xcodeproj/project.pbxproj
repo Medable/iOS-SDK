@@ -14,7 +14,7 @@
 		287268CC1AE7E494001798C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287268CA1AE7E494001798C2 /* LaunchScreen.xib */; };
 		287268D81AE7E495001798C2 /* MedableSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287268D71AE7E495001798C2 /* MedableSwiftTests.swift */; };
 		287268E21AE7E4AA001798C2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 287268E11AE7E4AA001798C2 /* Podfile */; };
-		F5E854F90DE35E1ADA18C3E2 /* libPods-MedableSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 741EDC82C519F12A44508C07 /* libPods-MedableSwift.a */; };
+		984BDF654EE321A9B360406A /* libPods-MedableSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8078BF79CD4DBBCC32C1D50D /* libPods-MedableSwift.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19B3DF220E0AC49851C66B2E /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		287268BC1AE7E494001798C2 /* MedableSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedableSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		287268C01AE7E494001798C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		287268C11AE7E494001798C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,9 +41,8 @@
 		287268D71AE7E495001798C2 /* MedableSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedableSwiftTests.swift; sourceTree = "<group>"; };
 		287268E11AE7E4AA001798C2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		287268E31AE7E670001798C2 /* MedableSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MedableSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		4FDAB4FF2342DFC7E3AF3920 /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
-		741EDC82C519F12A44508C07 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F85564F640E4BD0B8E5C36CD /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		6BA4621BB967BF0CEC578542 /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedableSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
+		8078BF79CD4DBBCC32C1D50D /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E854F90DE35E1ADA18C3E2 /* libPods-MedableSwift.a in Frameworks */,
+				984BDF654EE321A9B360406A /* libPods-MedableSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +71,8 @@
 				287268BE1AE7E494001798C2 /* MedableSwift */,
 				287268D41AE7E495001798C2 /* MedableSwiftTests */,
 				287268BD1AE7E494001798C2 /* Products */,
-				567BA615D2D32E4DBE4A1DF4 /* Pods */,
-				E29A69F628C5AB8907847D43 /* Frameworks */,
+				A6189BA33BB5B259B0C5CCC8 /* Pods */,
+				C57F372AAA839B1C66F82E29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,19 +124,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		567BA615D2D32E4DBE4A1DF4 /* Pods */ = {
+		A6189BA33BB5B259B0C5CCC8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F85564F640E4BD0B8E5C36CD /* Pods-MedableSwift.debug.xcconfig */,
-				4FDAB4FF2342DFC7E3AF3920 /* Pods-MedableSwift.release.xcconfig */,
+				19B3DF220E0AC49851C66B2E /* Pods-MedableSwift.debug.xcconfig */,
+				6BA4621BB967BF0CEC578542 /* Pods-MedableSwift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E29A69F628C5AB8907847D43 /* Frameworks */ = {
+		C57F372AAA839B1C66F82E29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				741EDC82C519F12A44508C07 /* libPods-MedableSwift.a */,
+				8078BF79CD4DBBCC32C1D50D /* libPods-MedableSwift.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,12 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 287268DB1AE7E495001798C2 /* Build configuration list for PBXNativeTarget "MedableSwift" */;
 			buildPhases = (
-				DE502646DF03AA25A28DB187 /* Check Pods Manifest.lock */,
+				29AACBA43B8B0DEB1519040B /* [CP] Check Pods Manifest.lock */,
 				287268B81AE7E494001798C2 /* Sources */,
 				287268B91AE7E494001798C2 /* Frameworks */,
 				287268BA1AE7E494001798C2 /* Resources */,
-				3CD0D929800E9B055A9E4E8D /* Copy Pods Resources */,
-				C22B3AC2D2A98DCF5A674E4E /* Embed Pods Frameworks */,
+				5F35261349431FC08FB724ED /* [CP] Embed Pods Frameworks */,
+				ED238D523483DD175B7357C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,29 +244,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CD0D929800E9B055A9E4E8D /* Copy Pods Resources */ = {
+		29AACBA43B8B0DEB1519040B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C22B3AC2D2A98DCF5A674E4E /* Embed Pods Frameworks */ = {
+		5F35261349431FC08FB724ED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,19 +274,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE502646DF03AA25A28DB187 /* Check Pods Manifest.lock */ = {
+		ED238D523483DD175B7357C4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableSwift/Pods-MedableSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -423,7 +423,7 @@
 		};
 		287268DC1AE7E495001798C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F85564F640E4BD0B8E5C36CD /* Pods-MedableSwift.debug.xcconfig */;
+			baseConfigurationReference = 19B3DF220E0AC49851C66B2E /* Pods-MedableSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MedableSwift/Info.plist;
@@ -437,7 +437,7 @@
 		};
 		287268DD1AE7E495001798C2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FDAB4FF2342DFC7E3AF3920 /* Pods-MedableSwift.release.xcconfig */;
+			baseConfigurationReference = 6BA4621BB967BF0CEC578542 /* Pods-MedableSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MedableSwift/Info.plist;
