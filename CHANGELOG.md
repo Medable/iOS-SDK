@@ -1,6 +1,6 @@
 ## Cortex
 
-### Change log
+### Change log
 
 #### v1.8.0
 
@@ -20,3 +20,12 @@
 
 ---
 
+#### v1.8.1
+
+- API Client - Custom context/class registration - added support for paginating subclasses.
+Paginator helper - added support for paginating subclasses.
+- API Client - Support for getting List properties.
+- MDPaginationHelper - Added support for list property pagination. Added convenience initializers. Removed type parameter since that's not needed here. Improvements.
+- MDPaginationManager - Added a pagination manager to handle pagination helper instances, and make pagination handling easier.
+
+---
