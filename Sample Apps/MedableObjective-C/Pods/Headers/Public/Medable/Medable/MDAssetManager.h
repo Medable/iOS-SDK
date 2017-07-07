@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDAssetManager.h
+../../../../../../../Cortex/Medable.framework/Headers/MDAssetManager.h

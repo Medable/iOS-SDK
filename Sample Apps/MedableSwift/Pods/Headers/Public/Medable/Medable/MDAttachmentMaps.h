@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDAttachmentMaps.h
+../../../../../../../Cortex/Medable.framework/Headers/MDAttachmentMaps.h

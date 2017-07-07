@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDContentDownloader.h
+../../../../../../../Cortex/Medable.framework/Headers/MDContentDownloader.h

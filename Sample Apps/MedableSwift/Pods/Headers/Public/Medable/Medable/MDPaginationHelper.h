@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDPaginationHelper.h
+../../../../../../../Cortex/Medable.framework/Headers/MDPaginationHelper.h

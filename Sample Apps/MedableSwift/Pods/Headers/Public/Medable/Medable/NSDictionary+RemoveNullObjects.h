@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSDictionary+RemoveNullObjects.h
+../../../../../../../Cortex/Medable.framework/Headers/NSDictionary+RemoveNullObjects.h

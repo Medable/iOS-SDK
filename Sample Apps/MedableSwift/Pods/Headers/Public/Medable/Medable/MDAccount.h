@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDAccount.h
+../../../../../../../Cortex/Medable.framework/Headers/MDAccount.h

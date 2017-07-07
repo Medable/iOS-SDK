@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDNotification.h
+../../../../../../../Cortex/Medable.framework/Headers/MDNotification.h

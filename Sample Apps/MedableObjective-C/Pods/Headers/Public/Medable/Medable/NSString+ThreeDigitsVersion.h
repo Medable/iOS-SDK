@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSString+ThreeDigitsVersion.h
+../../../../../../../Cortex/Medable.framework/Headers/NSString+ThreeDigitsVersion.h

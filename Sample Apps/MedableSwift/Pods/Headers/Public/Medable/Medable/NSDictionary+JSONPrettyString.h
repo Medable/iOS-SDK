@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSDictionary+JSONPrettyString.h
+../../../../../../../Cortex/Medable.framework/Headers/NSDictionary+JSONPrettyString.h

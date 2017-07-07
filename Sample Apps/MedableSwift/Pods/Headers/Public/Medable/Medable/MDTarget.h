@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDTarget.h
+../../../../../../../Cortex/Medable.framework/Headers/MDTarget.h

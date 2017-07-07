@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDConversation.h
+../../../../../../../Cortex/Medable.framework/Headers/MDConversation.h

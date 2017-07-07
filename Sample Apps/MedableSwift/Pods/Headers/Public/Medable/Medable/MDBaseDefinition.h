@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDBaseDefinition.h
+../../../../../../../Cortex/Medable.framework/Headers/MDBaseDefinition.h

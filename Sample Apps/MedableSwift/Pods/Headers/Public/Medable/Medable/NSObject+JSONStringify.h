@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSObject+JSONStringify.h
+../../../../../../../Cortex/Medable.framework/Headers/NSObject+JSONStringify.h

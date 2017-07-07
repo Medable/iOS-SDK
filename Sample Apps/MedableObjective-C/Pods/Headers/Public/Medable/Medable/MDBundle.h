@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDBundle.h
+../../../../../../../Cortex/Medable.framework/Headers/MDBundle.h

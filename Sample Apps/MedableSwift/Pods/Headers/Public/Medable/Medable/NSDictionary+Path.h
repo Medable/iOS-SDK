@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSDictionary+Path.h
+../../../../../../../Cortex/Medable.framework/Headers/NSDictionary+Path.h

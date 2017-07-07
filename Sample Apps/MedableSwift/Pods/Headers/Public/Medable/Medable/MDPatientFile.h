@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDPatientFile.h
+../../../../../../../Cortex/Medable.framework/Headers/MDPatientFile.h

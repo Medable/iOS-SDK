@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NSString+URLExtensions.h
+../../../../../../../Cortex/Medable.framework/Headers/NSString+URLExtensions.h

@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDInfoValidator.h
+../../../../../../../Cortex/Medable.framework/Headers/MDInfoValidator.h

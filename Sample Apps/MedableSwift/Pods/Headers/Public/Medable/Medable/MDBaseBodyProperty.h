@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDBaseBodyProperty.h
+../../../../../../../Cortex/Medable.framework/Headers/MDBaseBodyProperty.h

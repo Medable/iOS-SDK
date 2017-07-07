@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/Medable.h
+../../../../../../../Cortex/Medable.framework/Headers/Medable.h

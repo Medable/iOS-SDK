@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/NXDebug.h
+../../../../../../../Cortex/Medable.framework/Headers/NXDebug.h

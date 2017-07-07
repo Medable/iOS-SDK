@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDProfileInfo.h
+../../../../../../../Cortex/Medable.framework/Headers/MDProfileInfo.h

@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDUploadOperations.h
+../../../../../../../Cortex/Medable.framework/Headers/MDUploadOperations.h

@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDBodyProperty.h
+../../../../../../../Cortex/Medable.framework/Headers/MDBodyProperty.h

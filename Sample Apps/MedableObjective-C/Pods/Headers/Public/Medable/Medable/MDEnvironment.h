@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDEnvironment.h
+../../../../../../../Cortex/Medable.framework/Headers/MDEnvironment.h

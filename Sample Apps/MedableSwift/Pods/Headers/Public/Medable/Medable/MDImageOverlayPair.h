@@ -1,1 +1,1 @@
-../../../../../../../iOSMedableSDK/Medable.framework/Headers/MDImageOverlayPair.h
+../../../../../../../Cortex/Medable.framework/Headers/MDImageOverlayPair.h
