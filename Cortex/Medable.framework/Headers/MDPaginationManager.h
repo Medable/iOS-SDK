@@ -20,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (MDPaginationManager *)sharedInstance;
 
 /**
+ * Method for creating random identifiers for paginators if providing an identifier is not what matters.
+ *
+ * @return A randomly generated identifier.
+ */
++ (NSString *)randomId;
+
+/**
  * Convenience initializer. The field/property used for pagination is `_id`.
  *
  * @param identifier A string identifier for the paginator helper.
@@ -102,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Adds an already existing paginator with an identifier.
  *
- * @return Returns YES if the paginator was successfully added. Returns NO if the paginator is already managed by this manager or if the identifier is not valid (i.e.: empty string).
+ * @return Returns YES if the paginator was successfully added. Returns NO if the paginator is already managed by this manager or if the identifier is not valid (i.e.: empty string, or identifier already in use).
  */
 - (BOOL)addPaginator:(MDPaginationHelper *)paginator withIdentifier:(NSString *)identifier;
 

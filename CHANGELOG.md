@@ -1,6 +1,21 @@
-## Cortex
+## Cortex iOS
 
-### Change log
+#### v1.8.2
+
+- MDPaginationManager - Improvements.
+- MDPaginationHelper - Improvements.
+
+---
+
+#### v1.8.1
+
+- API Client - Custom context/class registration - added support for paginating subclasses.
+Paginator helper - added support for paginating subclasses.
+- API Client - Support for getting List properties.
+- MDPaginationHelper - Added support for list property pagination. Added convenience initializers. Removed type parameter since that's not needed here. Improvements.
+- MDPaginationManager - Added a pagination manager to handle pagination helper instances, and make pagination handling easier.
+
+---
 
 #### v1.8.0
 
@@ -17,15 +32,5 @@
 - MDAPIParameterFactory - Added nullability annotations and changed NSString to NSObject for gt/gte/eq... parameters.
 - README.md - Removed unneeded integration steps (for the manual integration way).
 - Sample apps - Swift sample app - Updated swift syntax to latest swift.
-
----
-
-#### v1.8.1
-
-- API Client - Custom context/class registration - added support for paginating subclasses.
-Paginator helper - added support for paginating subclasses.
-- API Client - Support for getting List properties.
-- MDPaginationHelper - Added support for list property pagination. Added convenience initializers. Removed type parameter since that's not needed here. Improvements.
-- MDPaginationManager - Added a pagination manager to handle pagination helper instances, and make pagination handling easier.
 
 ---
