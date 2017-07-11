@@ -114,6 +114,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)addPaginator:(MDPaginationHelper *)paginator withIdentifier:(NSString *)identifier;
 
 /**
+ * Adds an already existing paginator. The identifier is created randomly when adding the paginator.
+ *
+ * @return Returns YES if the paginator was successfully added. Returns NO if the paginator couldn't be added.
+ */
+- (BOOL)addPaginator:(MDPaginationHelper *)paginator;
+
+/**
  * Remove a paginator.
  */
 - (void)removePaginator:(MDPaginationHelper*)paginator;

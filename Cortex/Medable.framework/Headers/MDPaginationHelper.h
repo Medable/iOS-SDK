@@ -15,14 +15,20 @@ typedef NS_ENUM(NSInteger, PaginatorState) {
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MDPaginationHelperDelegate <NSObject>
-- (void)paginator:(MDPaginationHelper *)paginator didLoadResults:(nullable NSArray<MDObjectInstance*> *)objects hasMore:(nullable NSNumber *)hasMore fault:(nullable MDFault *)fault;
 
 @optional
+
+/**
+ * Called every time the paginator gets new results. If loadAllPages is called and the method below is implemented, then this method is not called for those results, only the other method.
+ */
+- (void)paginator:(MDPaginationHelper *)paginator didLoadResults:(nullable NSArray<MDObjectInstance*> *)objects hasMore:(nullable NSNumber *)hasMore fault:(nullable MDFault *)fault;
+
 /**
  * If the delegate object implements this method then only this method will be called for loadAllPages results and the one above for loadNextPage results.
  * Otherwise all the results are sent to the delegate using the method above.
  */
 - (void)paginator:(MDPaginationHelper *)paginator didLoadAllResults:(nullable NSArray<MDObjectInstance*> *)objects fault:(nullable MDFault *)fault;
+
 @end
 
 /**

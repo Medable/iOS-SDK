@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.8.3
+
+- MDPaginationManager - Improvements.
+- MDPaginationHelper - Improvements.
+
+---
+
 #### v1.8.2
 
 - MDPaginationManager - Improvements.
