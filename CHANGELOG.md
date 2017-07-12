@@ -1,5 +1,11 @@
 ## Cortex iOS
 
+#### v1.8.4
+
+- MDPaginationManager - Thread safe.
+
+---
+
 #### v1.8.3
 
 - MDPaginationManager - Improvements.
