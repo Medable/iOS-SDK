@@ -391,6 +391,7 @@ extern NSString* const kLabelKey;
 extern NSString* const kDefaultKey;
 extern NSString* const kCommaKey;
 extern NSString* const kDotCharacterKey;
+extern NSString* const kForwardSlashKey;
 extern NSString* const kExclamationKey;
 extern NSString* const kUnderscoreKey;
 extern NSString* const kIPhoneKey;

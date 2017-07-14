@@ -1,5 +1,13 @@
 ## Cortex iOS
 
+#### v1.8.5
+
+- MDAPIClient - Added support for getting a list of objects from a path.
+- MDPaginationHelper - Added a paginator that paginates a list of objects in a path. Improved docs. Fixed a cacheResults bug.
+- MDPaginationManager - Added constructor for a paginator that paginates a list of objects in a path. Improved docs.
+
+---
+
 #### v1.8.4
 
 - MDPaginationManager - Thread safe.

@@ -66,7 +66,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- * Convenience initializer. The field/property used for pagination is `_id`.
+ * Convenience initializer to paginate a context.
+ *
+ * The field/property used for pagination is `_id`.
  *
  * @param context The context name for the objects to be paginated.
  * @param pageSize The size of the page.
@@ -77,7 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)paginatorWithContext:(NSString *)context pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
 
 /**
- * Convenience initializer. The field/property used for pagination is `_id`.
+ * Convenience initializer to paginate a list property in a context object.
+ *
+ * The field/property used for pagination is `_id`.
  *
  * Use this initializer to paginate list properties inside a context: i.e: `GET /context/objectId/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
@@ -92,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)listPropertyPaginatorWithContext:(NSString *)context objectId:(MDObjectId *)objectId listProperty:(NSString *)listProperty pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
 
 /**
- * Convenience Initializer.
+ * Convenience Initializer to paginate a context using a different paging field other than `_id`.
  *
  * @param context The context name (plural context) for the objects to be paginated.
  * @param pagingField The name of the field/property to use to paginate the objects. It has to be marked as indexed and unique in Medable API.
@@ -102,6 +106,21 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Initialized instance.
  */
 + (instancetype)paginatorWithContext:(NSString *)context pagingField:(NSString *)pagingField pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+
+/**
+ * Convenience initializer to paginate a list in a path.
+ *
+ * The field/property used for pagination is `_id`.
+ *
+ * Use this initializer to paginate list properties with a path: i.e: `GET /path/to/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ *
+ * @param path The path to the list property. The path ends with the property name. Don't finish the path with a trailing forward slash. ObjectIds might be used in the path and also in array subpathing. i.e.: path/to/listProperty
+ * @param pageSize The size of the page.
+ * @param cacheResults Specifies whether to cache the results or not.
+ * @param inverseOrder Pass in `YES` for inverse sorting of objects.
+ * @return Initialized instance.
+ */
++ (instancetype)paginatorWithPath:(NSString *)path pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
 
 
 /**
@@ -134,6 +153,19 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Initialized instance.
  */
 - (instancetype)initWithContext:(NSString *)context objectId:(MDObjectId *)objectId listProperty:(NSString *)listProperty pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+
+/**
+ * Custom initializer.
+ *
+ * Use this initializer to paginate a context: i.e.: `GET /context` or a list property inside a context: i.e: `GET /context/objectId/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ *
+ * @param path The path to paginate.
+ * @param pageSize The size of the page.
+ * @param cacheResults Specifies whether to cache the results or not.
+ * @param inverseOrder Pass in `YES` for inverse sorting of objects.
+ * @return Initialized instance.
+ */
+- (instancetype)initWithPath:(NSString *)path pagingField:(NSString *)pagingField pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Default Initializer.

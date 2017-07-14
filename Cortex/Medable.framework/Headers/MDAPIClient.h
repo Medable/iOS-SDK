@@ -828,6 +828,16 @@ NS_ASSUME_NONNULL_BEGIN
                       callback:(MDObjectListFaultCallback)callback;
 
 /**
+ * List objects from a list properties
+ *  @param path Path to a list property (required)
+ *  @param parameters Construct parameters using MDAPIParameterFactory.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)listObjectsWithPath:(NSString*)path
+                 parameters:(nullable MDAPIParameters*)parameters
+                   callback:(MDObjectListFaultCallback)callback;
+
+/**
  * Gets a context object
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
