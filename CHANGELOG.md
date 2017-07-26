@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.8.6
+
+- MDAPIClient - Fixed typo in method signature: `registerContext:pluralContext:type:withClass:`.
+
+
+---
+
 #### v1.8.5
 
 - MDAPIClient - Added support for getting a list of objects from a path.

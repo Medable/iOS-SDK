@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param aClass Class to be used to instanciate custom objects with context or pluralContext. aClass must be a subclass of `MDObjectInstance`.
  *  @return Returns whether the registration was successful or not.
  */
-+ (BOOL)registerContex:(NSString *)context pluralContext:(NSString *)pluralContext type:(nullable NSString *)type withClass:(Class)aClass;
++ (BOOL)registerContext:(NSString *)context pluralContext:(NSString *)pluralContext type:(nullable NSString *)type withClass:(Class)aClass;
 
 /**
  *  Returns information about regustered custom contexts.
