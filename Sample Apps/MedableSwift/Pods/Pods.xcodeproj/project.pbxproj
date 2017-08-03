@@ -12,93 +12,95 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		044A85D19CEAD268935EACA25E0AF011 /* MDDataValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataValidator.h; sourceTree = "<group>"; };
-		059DA28062DABBE78375238255E786FB /* MDPaginationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPaginationManager.h; sourceTree = "<group>"; };
-		0C5ED5B44990A04B20FB94B5FA5AF7C8 /* MDArrayBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDArrayBodyProperty.h; sourceTree = "<group>"; };
-		0F27E86E8DC447BF1391BE6FD8C2F61D /* MDDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDefines.h; sourceTree = "<group>"; };
-		104C5E1EF531A3AB435C22C268826760 /* MDConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConstants.h; sourceTree = "<group>"; };
-		122C4C4F38F6FFD450D331F6FB3EF00C /* MDBaseBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseBodyProperty.h; sourceTree = "<group>"; };
-		167FD94A7C2654C90A9F256F154D3928 /* MDObjectDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectDefinition.h; sourceTree = "<group>"; };
-		17A920FE0384C35435F2C5BEEF0D625D /* MDTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTarget.h; sourceTree = "<group>"; };
-		1CAB058A4ADCF07BCC181A02A5886D03 /* MDDateUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDateUtilities.h; sourceTree = "<group>"; };
+		00AE4F7450D98B730709CA5F5FE5426B /* MDTypedefs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTypedefs.h; sourceTree = "<group>"; };
+		01C88F9BB64EF38F35AA667047E526B4 /* MDPropertyInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyInstance.h; sourceTree = "<group>"; };
+		055032ED13FA19641C0BFAF5E922358E /* MDPostSegmentPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentPropertyDefinition.h; sourceTree = "<group>"; };
+		088815386D65DADE6AAC1A9950520C95 /* NSString+ThreeDigitsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+ThreeDigitsVersion.h"; sourceTree = "<group>"; };
+		0BAE5D4C834A21F4875D3AB00DDDA150 /* MDContentDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDContentDownloader.h; sourceTree = "<group>"; };
+		0C599D6D315D9B546991FD2727A927D5 /* MDPatientFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPatientFile.h; sourceTree = "<group>"; };
+		14ABE207DB7C09BC51D25FF37C887557 /* MDAnyBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAnyBodyProperty.h; sourceTree = "<group>"; };
+		1AF04934E1CD3A767A888BECFCEF69B1 /* NSDictionary+RemoveNullObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemoveNullObjects.h"; sourceTree = "<group>"; };
+		1B557CCD8C0A23AC9D56D017F9A52050 /* NSArray+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONPrettyString.h"; sourceTree = "<group>"; };
+		1D0B13DCD321FF514EF41EDBE2B36A86 /* MDPaginationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPaginationManager.h; sourceTree = "<group>"; };
+		1EB05823B8F66A2A836B69F47AFB70B2 /* MDPostDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostDefinition.h; sourceTree = "<group>"; };
+		207F2790D240A579FC8587D8F9D9165A /* MDAccountRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccountRole.h; sourceTree = "<group>"; };
 		25A875B500FB2D4D9AF509C70C1BBFFC /* Pods-MedableSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		28A6D70A4305E8CEA22F23398876FEFF /* MDAPIParameterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIParameterFactory.h; sourceTree = "<group>"; };
 		297C10428CEB2FFC5F2DA49D88A915BA /* Pods-MedableSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MedableSwift-acknowledgements.plist"; sourceTree = "<group>"; };
+		29B039A5DCBE2424EDE7FA16F5F637A1 /* MDPostSegmentDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentDefinition.h; sourceTree = "<group>"; };
+		29CBAD520DCD68AC0D3B12DBF9019772 /* MDPostSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegment.h; sourceTree = "<group>"; };
 		2A412A7CE53598FEEE4053795AED3F6D /* Pods-MedableSwift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-resources.sh"; sourceTree = "<group>"; };
-		2AB7D9AC9296D47988AA3E20604FFFF0 /* MDGeneralBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDGeneralBlocks.h; sourceTree = "<group>"; };
-		31ED2E78B56F317E08678B3FD721008B /* MDAnyBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAnyBodyProperty.h; sourceTree = "<group>"; };
-		3243B7F03024B69534A7ECBD8EB94662 /* MDBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBody.h; sourceTree = "<group>"; };
-		32E499D93434E1645FB55745310402A5 /* MDNotificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotificationManager.h; sourceTree = "<group>"; };
-		35F004066F97D49325FEF3A96A27CDF6 /* NSString+URLExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+URLExtensions.h"; sourceTree = "<group>"; };
-		39EEBB31BCBE1338AA1009641D9AFC3C /* MDPropertyInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyInstance.h; sourceTree = "<group>"; };
-		3BC28D8FC061177C233147AB76AB0140 /* MDAttachmentMaps.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAttachmentMaps.h; sourceTree = "<group>"; };
-		3D04A8611CF755CF522C6A81FAFB7F9F /* MDBundle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundle.h; sourceTree = "<group>"; };
-		42A40FDEA418B8D7A3DE0D0BC7986413 /* MDBundleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundleManager.h; sourceTree = "<group>"; };
-		4E67C04FFB81FB060A5A284ABFFFEA9A /* MDBaseDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseDefinition.h; sourceTree = "<group>"; };
-		4F4C69E4D6B9446FFAAE58B8DEB98544 /* MDObjectInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectInstance.h; sourceTree = "<group>"; };
-		5635C97F11A549119BCB22C4227EAC09 /* MDObjectId.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectId.h; sourceTree = "<group>"; };
-		5775616C618D7F80A51106B0B49E1AB3 /* MDContentDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDContentDownloader.h; sourceTree = "<group>"; };
-		5E373792108427ED80717DAF1792231C /* MDLocalFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDLocalFault.h; sourceTree = "<group>"; };
-		606429B0511B94BA88D29470039276DF /* MDACLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLDefines.h; sourceTree = "<group>"; };
-		613FBEF193EAD5C5BCDAAD2F3C3B55A9 /* MDSchemaManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSchemaManager.h; sourceTree = "<group>"; };
-		652D2FAFBD7769FF97EE497485D4FBEB /* MDPaginationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPaginationHelper.h; sourceTree = "<group>"; };
+		2CB7B3D81462262485C51318C0D6306A /* MDGeneralBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDGeneralBlocks.h; sourceTree = "<group>"; };
+		2F41C32297C7F6969F8955945225CA76 /* MDNotificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotificationManager.h; sourceTree = "<group>"; };
+		30FF3774EBB75A89F89A68BA4E2F5C97 /* MDReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDReference.h; sourceTree = "<group>"; };
+		35754ADD0314AAE3867A80D134EC02D7 /* MDPostComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostComment.h; sourceTree = "<group>"; };
+		379327DF658ECD2D2EB09E7E4B53E64B /* MDPaginationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPaginationHelper.h; sourceTree = "<group>"; };
+		37D769DA83BCAE5DAB5AB8A0548D82C2 /* MDSchemaManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSchemaManager.h; sourceTree = "<group>"; };
+		3AE3EA7DB00493FF2293CB4FAB823DDA /* MDFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFault.h; sourceTree = "<group>"; };
+		3C748BB4961778567480623DD1CB51B9 /* NSDictionary+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONPrettyString.h"; sourceTree = "<group>"; };
+		3D5B558D567442A84D44F68D105CD0A5 /* MDDataFriendly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataFriendly.h; sourceTree = "<group>"; };
+		3FA5494BF334009FA8B035BB2D9667B1 /* MDBundle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundle.h; sourceTree = "<group>"; };
+		40AB2E4A127CED402238B2520295C2B1 /* MDFastBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFastBodyProperty.h; sourceTree = "<group>"; };
+		4E507F802E303F3087EA2711BC984DA9 /* NSDate+MongoDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+MongoDB.h"; sourceTree = "<group>"; };
+		4F80625B9DDBC43B27ACBAB8F0B8EDA9 /* MDAPIParameterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIParameterFactory.h; sourceTree = "<group>"; };
+		5285F24A3CB61BF84DD051F671AD8EA4 /* MDDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDefines.h; sourceTree = "<group>"; };
+		595BDB0BF3CACBA22DDD1536E54025C7 /* MDAssetManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAssetManager.h; sourceTree = "<group>"; };
+		597BB50D8E2F18DCAA3E14AA416C7194 /* MDLocalFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDLocalFault.h; sourceTree = "<group>"; };
+		59DA0BD01C28F143356B12B555A34E8F /* MDAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccount.h; sourceTree = "<group>"; };
+		5C9DC4102C3B6B46CC05489B317224CB /* MDInfoValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDInfoValidator.h; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		68A929B843E0ED672D4766EA9ECA1C42 /* MDFault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFault.h; sourceTree = "<group>"; };
-		6C1934A37EC5A9E5CB607B6B1A961D6D /* MDBaseInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseInstance.h; sourceTree = "<group>"; };
-		6E7AFD8F826BE3D6C6D616D0DE413F59 /* MDFacetDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacetDefinition.h; sourceTree = "<group>"; };
-		6F1C8E6C163044E243999551ECC8FC12 /* MDEnvironment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDEnvironment.h; sourceTree = "<group>"; };
-		7534B9EC94049CEFCA87158FB2FFF2BF /* NSDictionary+Path.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Path.h"; sourceTree = "<group>"; };
-		75D9650C54D58011F45DE0D488862E83 /* NSDate+MongoDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+MongoDB.h"; sourceTree = "<group>"; };
-		77E67B97DF996C119F7C993F8F331256 /* MDInfoValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDInfoValidator.h; sourceTree = "<group>"; };
-		7A6956BD9615930E55848E02BBDE6864 /* MDFilePropertyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFilePropertyValue.h; sourceTree = "<group>"; };
+		69E16B8AB0ACE17653AD7FF280A3E52A /* NSObject+JSONStringify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONStringify.h"; sourceTree = "<group>"; };
+		69F1A3C7638ADCD5FD00CAB21EFF581A /* MDPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyDefinition.h; sourceTree = "<group>"; };
+		6DC71A898F772CFEE1A91741DF0C19E2 /* MDUploadOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDUploadOperations.h; sourceTree = "<group>"; };
+		710843D925F4098F1D663854479D2F64 /* MDDocumentBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDocumentBodyProperty.h; sourceTree = "<group>"; };
+		724E6F5D4027271C00E71E617AC47917 /* MDPost.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPost.h; sourceTree = "<group>"; };
+		784C942A9F5E1EA10C3AD5F91CF117B1 /* MDTeam.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTeam.h; sourceTree = "<group>"; };
 		7C0CABAE2F122EB60FBF94E7F2ECDC40 /* Pods-MedableSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MedableSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
-		846DC4768F466823EC6EDDA58A3E9DB7 /* MDReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDReference.h; sourceTree = "<group>"; };
-		850D6762E167222BCC2B373D4C5BD853 /* NSObject+JSONStringify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONStringify.h"; sourceTree = "<group>"; };
+		7CCBD73A1137DCE4ACA109E06994282D /* NSDictionary+Path.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Path.h"; sourceTree = "<group>"; };
+		7D183B1CE67F09F1604724EE9C9D2B71 /* MDConversation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConversation.h; sourceTree = "<group>"; };
 		89A04BD921B05B7B7BD20E7AC8375FB4 /* Pods-MedableSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MedableSwift-dummy.m"; sourceTree = "<group>"; };
-		9042E593F88F8749489B8EE31F97D715 /* MDAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccount.h; sourceTree = "<group>"; };
-		918D873E3D7B261FA4615FB460F14059 /* MDConversation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConversation.h; sourceTree = "<group>"; };
-		9360928D81DE9EB038E338A3E2C34E41 /* MDProfileInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDProfileInfo.h; sourceTree = "<group>"; };
+		8B8ADEA0E4E996DBB82729AE1B3D7D79 /* MDBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBodyProperty.h; sourceTree = "<group>"; };
+		8EED9A056E62E589ABE0F22C73F5A2E4 /* MDBundleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBundleManager.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94E98FDCD28601C2A7567C02E9F1F701 /* MDBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBodyProperty.h; sourceTree = "<group>"; };
-		966052AC2A88B6982A82531B1D592823 /* MDACLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLObject.h; sourceTree = "<group>"; };
-		9738CCA1DB8DAA2AE3944AC1428CAEFE /* MDFeedDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFeedDefinition.h; sourceTree = "<group>"; };
-		9C37CA60FD9497576EA2188D710EBABC /* NSFileManager+Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Medable.h"; sourceTree = "<group>"; };
-		9E30EB755138CF230D470AA77484D66E /* MDDataFriendly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataFriendly.h; sourceTree = "<group>"; };
+		94BF693D43FD7C662E846953A8D3A659 /* Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Medable.h; sourceTree = "<group>"; };
+		973EFE801AB6CF60D5BE74D2ACDE7C18 /* MDObjectId.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectId.h; sourceTree = "<group>"; };
+		9A2170F069659896442E0A10B53DF68C /* MDNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotification.h; sourceTree = "<group>"; };
+		9AFA8106CB13CA453B77A3C8A65A4C96 /* MDObjectInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectInstance.h; sourceTree = "<group>"; };
+		9B02F16181C4C1560863B4054137463E /* MDACLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLDefines.h; sourceTree = "<group>"; };
+		9F733EA5133B9EAC15CF81AA61E02C5C /* NSString+URLExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+URLExtensions.h"; sourceTree = "<group>"; };
 		A1097162BDDF9545E031E490ADF91886 /* Pods-MedableSwift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MedableSwift-frameworks.sh"; sourceTree = "<group>"; };
-		A1CA857293138185FFB15FA8BFA4512B /* Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Medable.h; sourceTree = "<group>"; };
-		A267AD16D94BFE45691A21FC77FAC6B6 /* MDPostBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostBody.h; sourceTree = "<group>"; };
-		A765432A28963089F6E6313FD049A30B /* MDFacet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacet.h; sourceTree = "<group>"; };
-		AAABDC9CC011AAE1C429F9A2CB9DA892 /* MDOrg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDOrg.h; sourceTree = "<group>"; };
-		ABF2C89A857101CBA15DC07AA27FFD43 /* NSDictionary+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONPrettyString.h"; sourceTree = "<group>"; };
-		AC19C7052423F6E25DDCE0EB909FB03B /* MDSimpleBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSimpleBodyProperty.h; sourceTree = "<group>"; };
-		B5359CB2B656D25D28A7EB68E0D879EE /* MDTeam.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTeam.h; sourceTree = "<group>"; };
-		B578E1EFCA43BA94636B46E555D54839 /* NSString+ThreeDigitsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+ThreeDigitsVersion.h"; sourceTree = "<group>"; };
-		B5BBDA7E2F563A021653CBBB8B24ED94 /* MDUploadOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDUploadOperations.h; sourceTree = "<group>"; };
-		BCCB295DB0F1A925BEDD831C9A0CF3D7 /* MDImageOverlayPair.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDImageOverlayPair.h; sourceTree = "<group>"; };
-		BD0BE2ADE667303039103A610A4B9443 /* MDFileUpload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileUpload.h; sourceTree = "<group>"; };
-		C01C1EA15BAFF43FFC957DD97EBED83D /* MDAccountRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAccountRole.h; sourceTree = "<group>"; };
-		C602D0464F7A95A5E5BBB5DC1FD04587 /* MDPostSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegment.h; sourceTree = "<group>"; };
-		C6F3CB6648AE5B16FAD1ABE54A047DD0 /* MDFileBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileBodyProperty.h; sourceTree = "<group>"; };
-		CBF3E5E29947F5B560F9B848FB47FE40 /* MDPostSegmentDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentDefinition.h; sourceTree = "<group>"; };
-		CD336C00BEF0497F08E9A233D3BBE777 /* MDAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIClient.h; sourceTree = "<group>"; };
-		CF1C459C03B71D4334964198D756AB42 /* MDConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConnection.h; sourceTree = "<group>"; };
+		ADA693A12B048FD869ED116A7434930F /* MDFileBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileBodyProperty.h; sourceTree = "<group>"; };
+		B049BF46429FDC449CD2B443A018DE6C /* MDAttachmentMaps.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAttachmentMaps.h; sourceTree = "<group>"; };
+		B15A8A067685D204E467668A506D8E7A /* MDAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAPIClient.h; sourceTree = "<group>"; };
+		B57377CA48DD284139EF7DD39D1308A6 /* MDFastFileBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFastFileBodyProperty.h; sourceTree = "<group>"; };
+		B5CDCA8E3FFF0ADCCF3CEABCAA7B2866 /* MDTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTarget.h; sourceTree = "<group>"; };
+		B644B72C74A82B4B4BAC1D7819263D37 /* MDProfileInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDProfileInfo.h; sourceTree = "<group>"; };
+		BA57AA6FFA12803D7FCBFEBC96EEFFFC /* MDConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConnection.h; sourceTree = "<group>"; };
+		BACCCFA1D0BE11F3B5CC0477694CA8F6 /* MDEnvironment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDEnvironment.h; sourceTree = "<group>"; };
+		BE3035E92936FD44EC08C2B8E9D94599 /* MDFacet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacet.h; sourceTree = "<group>"; };
+		C39AFC32E1A48FB49E35FCF1F80E1A45 /* MDBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBody.h; sourceTree = "<group>"; };
+		C3A690FBFDA958F420159F94C3229F6A /* MDDateUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDateUtilities.h; sourceTree = "<group>"; };
+		C64214B2521993FC5EBB597146E3EC31 /* MDFacetDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFacetDefinition.h; sourceTree = "<group>"; };
+		C68C875498D3674536EEE28E6C21DD12 /* MDBaseBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseBodyProperty.h; sourceTree = "<group>"; };
+		C6F332472597EBA7F4972D45F417A9F0 /* MDDataValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDataValidator.h; sourceTree = "<group>"; };
+		C785933B396D49A7DB1C7BF4F19C5437 /* MDImageOverlayPair.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDImageOverlayPair.h; sourceTree = "<group>"; };
 		D007155421E982A6232F685A7CF44FCF /* Medable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medable.framework; path = Cortex/Medable.framework; sourceTree = "<group>"; };
 		D1B57F95C8A8907C2F63898EBF703155 /* libPods-MedableSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-MedableSwift.a"; path = "libPods-MedableSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26F09F73171551FB03871BC3819B0CB /* Pods-MedableSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MedableSwift.release.xcconfig"; sourceTree = "<group>"; };
-		D2EE9D3E11036ACCF7300731A3F0A50E /* MDPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPropertyDefinition.h; sourceTree = "<group>"; };
-		DA0F20938FBF3D529EA40E94F32C98D1 /* MDPostComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostComment.h; sourceTree = "<group>"; };
-		E01D07C2030D733234F2E97C8D41126A /* NSDictionary+RemoveNullObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemoveNullObjects.h"; sourceTree = "<group>"; };
-		E496C55B35B3A3388913EEF20630C4CF /* MDDocumentBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDDocumentBodyProperty.h; sourceTree = "<group>"; };
-		ECC23C5F2F25FEC13D6219A7AA42C945 /* MDPost.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPost.h; sourceTree = "<group>"; };
-		EE846B55713DC679764A8C0F5F645D9D /* MDPostSegmentPropertyDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostSegmentPropertyDefinition.h; sourceTree = "<group>"; };
-		F03F93D162B94EC46EBEB4EFCFA2014A /* MDPostDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostDefinition.h; sourceTree = "<group>"; };
-		F07B3E72222AB3A1F80F43EEAF4DF08F /* NSArray+JSONPrettyString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONPrettyString.h"; sourceTree = "<group>"; };
-		F18829A29701B0DD8C1505B2DC7AE02B /* MDFastBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFastBodyProperty.h; sourceTree = "<group>"; };
-		F18C5F4EEE1ACDE78F567A2D5E9FAEB1 /* MDTypedefs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDTypedefs.h; sourceTree = "<group>"; };
-		F42A59E5621EA4C5B0D2FC63EB77678E /* NXDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXDebug.h; sourceTree = "<group>"; };
-		FDC364BF696EB4E29E2299462502BD41 /* MDNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDNotification.h; sourceTree = "<group>"; };
-		FE6F66CA85EC3DA92D3CE3B2E24D66C5 /* MDPatientFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPatientFile.h; sourceTree = "<group>"; };
-		FF7CA9C5BB8EF3A16F24FF3A023E3374 /* MDAssetManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDAssetManager.h; sourceTree = "<group>"; };
+		D63774842BECF9C0E26F52B9328A905A /* MDBaseInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseInstance.h; sourceTree = "<group>"; };
+		D6C796D6FE9FF5981BF5C9FC93499542 /* NSData+Mime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+Mime.h"; sourceTree = "<group>"; };
+		D7B3A294AFEB12FEAB6E401AB29F879B /* MDFilePropertyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFilePropertyValue.h; sourceTree = "<group>"; };
+		D8B8AE0997661091826BA24C584D2DE4 /* MDObjectDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDObjectDefinition.h; sourceTree = "<group>"; };
+		D96D657392CBF7EC5F8C4781AC955A69 /* NXDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXDebug.h; sourceTree = "<group>"; };
+		DA247644750DB215E97652A443B2B5ED /* MDOrg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDOrg.h; sourceTree = "<group>"; };
+		DAF0B499BD1F42A1992FC0A7E94DB746 /* MDFeedDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFeedDefinition.h; sourceTree = "<group>"; };
+		DCD21E0157665C39EAF0788C2B5DB945 /* MDConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDConstants.h; sourceTree = "<group>"; };
+		E04D0B988870FE4153C4896C33ADA055 /* MDArrayBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDArrayBodyProperty.h; sourceTree = "<group>"; };
+		E0D9E9F34CF0B51473F7D523DDAB1DC5 /* MDFileUpload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDFileUpload.h; sourceTree = "<group>"; };
+		E310A137236A24985DBBFC8C87A65896 /* NSFileManager+Medable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Medable.h"; sourceTree = "<group>"; };
+		E70338267AFADB08FD587DC12DF97880 /* MDSimpleBodyProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDSimpleBodyProperty.h; sourceTree = "<group>"; };
+		EA3EA504BE2F444F87980DACF6C0BA4E /* MDPostBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDPostBody.h; sourceTree = "<group>"; };
+		EB129CB39B99BAB2C0661BCD6DC722D0 /* MDBaseDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDBaseDefinition.h; sourceTree = "<group>"; };
+		EF70BCBFF18610A949C87C52DE1FCD7D /* MDACLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MDACLObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,13 +131,90 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		68EDE4DA43862E781B30E0E4536E0090 /* Medable.framework */ = {
+		75546065343A123935720E75A8E478B5 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				C52BC6923FD73978A7A8275697CEEF14 /* Headers */,
+				59DA0BD01C28F143356B12B555A34E8F /* MDAccount.h */,
+				207F2790D240A579FC8587D8F9D9165A /* MDAccountRole.h */,
+				9B02F16181C4C1560863B4054137463E /* MDACLDefines.h */,
+				EF70BCBFF18610A949C87C52DE1FCD7D /* MDACLObject.h */,
+				14ABE207DB7C09BC51D25FF37C887557 /* MDAnyBodyProperty.h */,
+				B15A8A067685D204E467668A506D8E7A /* MDAPIClient.h */,
+				4F80625B9DDBC43B27ACBAB8F0B8EDA9 /* MDAPIParameterFactory.h */,
+				E04D0B988870FE4153C4896C33ADA055 /* MDArrayBodyProperty.h */,
+				595BDB0BF3CACBA22DDD1536E54025C7 /* MDAssetManager.h */,
+				B049BF46429FDC449CD2B443A018DE6C /* MDAttachmentMaps.h */,
+				C68C875498D3674536EEE28E6C21DD12 /* MDBaseBodyProperty.h */,
+				EB129CB39B99BAB2C0661BCD6DC722D0 /* MDBaseDefinition.h */,
+				D63774842BECF9C0E26F52B9328A905A /* MDBaseInstance.h */,
+				C39AFC32E1A48FB49E35FCF1F80E1A45 /* MDBody.h */,
+				8B8ADEA0E4E996DBB82729AE1B3D7D79 /* MDBodyProperty.h */,
+				3FA5494BF334009FA8B035BB2D9667B1 /* MDBundle.h */,
+				8EED9A056E62E589ABE0F22C73F5A2E4 /* MDBundleManager.h */,
+				BA57AA6FFA12803D7FCBFEBC96EEFFFC /* MDConnection.h */,
+				DCD21E0157665C39EAF0788C2B5DB945 /* MDConstants.h */,
+				0BAE5D4C834A21F4875D3AB00DDDA150 /* MDContentDownloader.h */,
+				7D183B1CE67F09F1604724EE9C9D2B71 /* MDConversation.h */,
+				3D5B558D567442A84D44F68D105CD0A5 /* MDDataFriendly.h */,
+				C6F332472597EBA7F4972D45F417A9F0 /* MDDataValidator.h */,
+				C3A690FBFDA958F420159F94C3229F6A /* MDDateUtilities.h */,
+				5285F24A3CB61BF84DD051F671AD8EA4 /* MDDefines.h */,
+				710843D925F4098F1D663854479D2F64 /* MDDocumentBodyProperty.h */,
+				BACCCFA1D0BE11F3B5CC0477694CA8F6 /* MDEnvironment.h */,
+				BE3035E92936FD44EC08C2B8E9D94599 /* MDFacet.h */,
+				C64214B2521993FC5EBB597146E3EC31 /* MDFacetDefinition.h */,
+				40AB2E4A127CED402238B2520295C2B1 /* MDFastBodyProperty.h */,
+				B57377CA48DD284139EF7DD39D1308A6 /* MDFastFileBodyProperty.h */,
+				3AE3EA7DB00493FF2293CB4FAB823DDA /* MDFault.h */,
+				DAF0B499BD1F42A1992FC0A7E94DB746 /* MDFeedDefinition.h */,
+				ADA693A12B048FD869ED116A7434930F /* MDFileBodyProperty.h */,
+				D7B3A294AFEB12FEAB6E401AB29F879B /* MDFilePropertyValue.h */,
+				E0D9E9F34CF0B51473F7D523DDAB1DC5 /* MDFileUpload.h */,
+				2CB7B3D81462262485C51318C0D6306A /* MDGeneralBlocks.h */,
+				C785933B396D49A7DB1C7BF4F19C5437 /* MDImageOverlayPair.h */,
+				5C9DC4102C3B6B46CC05489B317224CB /* MDInfoValidator.h */,
+				597BB50D8E2F18DCAA3E14AA416C7194 /* MDLocalFault.h */,
+				9A2170F069659896442E0A10B53DF68C /* MDNotification.h */,
+				2F41C32297C7F6969F8955945225CA76 /* MDNotificationManager.h */,
+				D8B8AE0997661091826BA24C584D2DE4 /* MDObjectDefinition.h */,
+				973EFE801AB6CF60D5BE74D2ACDE7C18 /* MDObjectId.h */,
+				9AFA8106CB13CA453B77A3C8A65A4C96 /* MDObjectInstance.h */,
+				DA247644750DB215E97652A443B2B5ED /* MDOrg.h */,
+				379327DF658ECD2D2EB09E7E4B53E64B /* MDPaginationHelper.h */,
+				1D0B13DCD321FF514EF41EDBE2B36A86 /* MDPaginationManager.h */,
+				0C599D6D315D9B546991FD2727A927D5 /* MDPatientFile.h */,
+				724E6F5D4027271C00E71E617AC47917 /* MDPost.h */,
+				EA3EA504BE2F444F87980DACF6C0BA4E /* MDPostBody.h */,
+				35754ADD0314AAE3867A80D134EC02D7 /* MDPostComment.h */,
+				1EB05823B8F66A2A836B69F47AFB70B2 /* MDPostDefinition.h */,
+				29CBAD520DCD68AC0D3B12DBF9019772 /* MDPostSegment.h */,
+				29B039A5DCBE2424EDE7FA16F5F637A1 /* MDPostSegmentDefinition.h */,
+				055032ED13FA19641C0BFAF5E922358E /* MDPostSegmentPropertyDefinition.h */,
+				B644B72C74A82B4B4BAC1D7819263D37 /* MDProfileInfo.h */,
+				69F1A3C7638ADCD5FD00CAB21EFF581A /* MDPropertyDefinition.h */,
+				01C88F9BB64EF38F35AA667047E526B4 /* MDPropertyInstance.h */,
+				30FF3774EBB75A89F89A68BA4E2F5C97 /* MDReference.h */,
+				37D769DA83BCAE5DAB5AB8A0548D82C2 /* MDSchemaManager.h */,
+				E70338267AFADB08FD587DC12DF97880 /* MDSimpleBodyProperty.h */,
+				B5CDCA8E3FFF0ADCCF3CEABCAA7B2866 /* MDTarget.h */,
+				784C942A9F5E1EA10C3AD5F91CF117B1 /* MDTeam.h */,
+				00AE4F7450D98B730709CA5F5FE5426B /* MDTypedefs.h */,
+				6DC71A898F772CFEE1A91741DF0C19E2 /* MDUploadOperations.h */,
+				94BF693D43FD7C662E846953A8D3A659 /* Medable.h */,
+				1B557CCD8C0A23AC9D56D017F9A52050 /* NSArray+JSONPrettyString.h */,
+				D6C796D6FE9FF5981BF5C9FC93499542 /* NSData+Mime.h */,
+				4E507F802E303F3087EA2711BC984DA9 /* NSDate+MongoDB.h */,
+				3C748BB4961778567480623DD1CB51B9 /* NSDictionary+JSONPrettyString.h */,
+				7CCBD73A1137DCE4ACA109E06994282D /* NSDictionary+Path.h */,
+				1AF04934E1CD3A767A888BECFCEF69B1 /* NSDictionary+RemoveNullObjects.h */,
+				E310A137236A24985DBBFC8C87A65896 /* NSFileManager+Medable.h */,
+				69E16B8AB0ACE17653AD7FF280A3E52A /* NSObject+JSONStringify.h */,
+				088815386D65DADE6AAC1A9950520C95 /* NSString+ThreeDigitsVersion.h */,
+				9F733EA5133B9EAC15CF81AA61E02C5C /* NSString+URLExtensions.h */,
+				D96D657392CBF7EC5F8C4781AC955A69 /* NXDebug.h */,
 			);
-			name = Medable.framework;
-			path = Medable.framework;
+			name = Headers;
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -159,6 +238,15 @@
 			path = ../../..;
 			sourceTree = "<group>";
 		};
+		9650B5B86B2D71B1936D2396BF2FD049 /* Medable.framework */ = {
+			isa = PBXGroup;
+			children = (
+				75546065343A123935720E75A8E478B5 /* Headers */,
+			);
+			name = Medable.framework;
+			path = Medable.framework;
+			sourceTree = "<group>";
+		};
 		9D6CD280A0AAF42A9ED2DEC60BE0C35D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,90 +261,6 @@
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C52BC6923FD73978A7A8275697CEEF14 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				9042E593F88F8749489B8EE31F97D715 /* MDAccount.h */,
-				C01C1EA15BAFF43FFC957DD97EBED83D /* MDAccountRole.h */,
-				606429B0511B94BA88D29470039276DF /* MDACLDefines.h */,
-				966052AC2A88B6982A82531B1D592823 /* MDACLObject.h */,
-				31ED2E78B56F317E08678B3FD721008B /* MDAnyBodyProperty.h */,
-				CD336C00BEF0497F08E9A233D3BBE777 /* MDAPIClient.h */,
-				28A6D70A4305E8CEA22F23398876FEFF /* MDAPIParameterFactory.h */,
-				0C5ED5B44990A04B20FB94B5FA5AF7C8 /* MDArrayBodyProperty.h */,
-				FF7CA9C5BB8EF3A16F24FF3A023E3374 /* MDAssetManager.h */,
-				3BC28D8FC061177C233147AB76AB0140 /* MDAttachmentMaps.h */,
-				122C4C4F38F6FFD450D331F6FB3EF00C /* MDBaseBodyProperty.h */,
-				4E67C04FFB81FB060A5A284ABFFFEA9A /* MDBaseDefinition.h */,
-				6C1934A37EC5A9E5CB607B6B1A961D6D /* MDBaseInstance.h */,
-				3243B7F03024B69534A7ECBD8EB94662 /* MDBody.h */,
-				94E98FDCD28601C2A7567C02E9F1F701 /* MDBodyProperty.h */,
-				3D04A8611CF755CF522C6A81FAFB7F9F /* MDBundle.h */,
-				42A40FDEA418B8D7A3DE0D0BC7986413 /* MDBundleManager.h */,
-				CF1C459C03B71D4334964198D756AB42 /* MDConnection.h */,
-				104C5E1EF531A3AB435C22C268826760 /* MDConstants.h */,
-				5775616C618D7F80A51106B0B49E1AB3 /* MDContentDownloader.h */,
-				918D873E3D7B261FA4615FB460F14059 /* MDConversation.h */,
-				9E30EB755138CF230D470AA77484D66E /* MDDataFriendly.h */,
-				044A85D19CEAD268935EACA25E0AF011 /* MDDataValidator.h */,
-				1CAB058A4ADCF07BCC181A02A5886D03 /* MDDateUtilities.h */,
-				0F27E86E8DC447BF1391BE6FD8C2F61D /* MDDefines.h */,
-				E496C55B35B3A3388913EEF20630C4CF /* MDDocumentBodyProperty.h */,
-				6F1C8E6C163044E243999551ECC8FC12 /* MDEnvironment.h */,
-				A765432A28963089F6E6313FD049A30B /* MDFacet.h */,
-				6E7AFD8F826BE3D6C6D616D0DE413F59 /* MDFacetDefinition.h */,
-				F18829A29701B0DD8C1505B2DC7AE02B /* MDFastBodyProperty.h */,
-				68A929B843E0ED672D4766EA9ECA1C42 /* MDFault.h */,
-				9738CCA1DB8DAA2AE3944AC1428CAEFE /* MDFeedDefinition.h */,
-				C6F3CB6648AE5B16FAD1ABE54A047DD0 /* MDFileBodyProperty.h */,
-				7A6956BD9615930E55848E02BBDE6864 /* MDFilePropertyValue.h */,
-				BD0BE2ADE667303039103A610A4B9443 /* MDFileUpload.h */,
-				2AB7D9AC9296D47988AA3E20604FFFF0 /* MDGeneralBlocks.h */,
-				BCCB295DB0F1A925BEDD831C9A0CF3D7 /* MDImageOverlayPair.h */,
-				77E67B97DF996C119F7C993F8F331256 /* MDInfoValidator.h */,
-				5E373792108427ED80717DAF1792231C /* MDLocalFault.h */,
-				FDC364BF696EB4E29E2299462502BD41 /* MDNotification.h */,
-				32E499D93434E1645FB55745310402A5 /* MDNotificationManager.h */,
-				167FD94A7C2654C90A9F256F154D3928 /* MDObjectDefinition.h */,
-				5635C97F11A549119BCB22C4227EAC09 /* MDObjectId.h */,
-				4F4C69E4D6B9446FFAAE58B8DEB98544 /* MDObjectInstance.h */,
-				AAABDC9CC011AAE1C429F9A2CB9DA892 /* MDOrg.h */,
-				652D2FAFBD7769FF97EE497485D4FBEB /* MDPaginationHelper.h */,
-				059DA28062DABBE78375238255E786FB /* MDPaginationManager.h */,
-				FE6F66CA85EC3DA92D3CE3B2E24D66C5 /* MDPatientFile.h */,
-				ECC23C5F2F25FEC13D6219A7AA42C945 /* MDPost.h */,
-				A267AD16D94BFE45691A21FC77FAC6B6 /* MDPostBody.h */,
-				DA0F20938FBF3D529EA40E94F32C98D1 /* MDPostComment.h */,
-				F03F93D162B94EC46EBEB4EFCFA2014A /* MDPostDefinition.h */,
-				C602D0464F7A95A5E5BBB5DC1FD04587 /* MDPostSegment.h */,
-				CBF3E5E29947F5B560F9B848FB47FE40 /* MDPostSegmentDefinition.h */,
-				EE846B55713DC679764A8C0F5F645D9D /* MDPostSegmentPropertyDefinition.h */,
-				9360928D81DE9EB038E338A3E2C34E41 /* MDProfileInfo.h */,
-				D2EE9D3E11036ACCF7300731A3F0A50E /* MDPropertyDefinition.h */,
-				39EEBB31BCBE1338AA1009641D9AFC3C /* MDPropertyInstance.h */,
-				846DC4768F466823EC6EDDA58A3E9DB7 /* MDReference.h */,
-				613FBEF193EAD5C5BCDAAD2F3C3B55A9 /* MDSchemaManager.h */,
-				AC19C7052423F6E25DDCE0EB909FB03B /* MDSimpleBodyProperty.h */,
-				17A920FE0384C35435F2C5BEEF0D625D /* MDTarget.h */,
-				B5359CB2B656D25D28A7EB68E0D879EE /* MDTeam.h */,
-				F18C5F4EEE1ACDE78F567A2D5E9FAEB1 /* MDTypedefs.h */,
-				B5BBDA7E2F563A021653CBBB8B24ED94 /* MDUploadOperations.h */,
-				A1CA857293138185FFB15FA8BFA4512B /* Medable.h */,
-				F07B3E72222AB3A1F80F43EEAF4DF08F /* NSArray+JSONPrettyString.h */,
-				75D9650C54D58011F45DE0D488862E83 /* NSDate+MongoDB.h */,
-				ABF2C89A857101CBA15DC07AA27FFD43 /* NSDictionary+JSONPrettyString.h */,
-				7534B9EC94049CEFCA87158FB2FFF2BF /* NSDictionary+Path.h */,
-				E01D07C2030D733234F2E97C8D41126A /* NSDictionary+RemoveNullObjects.h */,
-				9C37CA60FD9497576EA2188D710EBABC /* NSFileManager+Medable.h */,
-				850D6762E167222BCC2B373D4C5BD853 /* NSObject+JSONStringify.h */,
-				B578E1EFCA43BA94636B46E555D54839 /* NSString+ThreeDigitsVersion.h */,
-				35F004066F97D49325FEF3A96A27CDF6 /* NSString+URLExtensions.h */,
-				F42A59E5621EA4C5B0D2FC63EB77678E /* NXDebug.h */,
-			);
-			name = Headers;
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -285,7 +289,7 @@
 		E7027A7850A384807DDE1DB4EEB2388B /* Cortex */ = {
 			isa = PBXGroup;
 			children = (
-				68EDE4DA43862E781B30E0E4536E0090 /* Medable.framework */,
+				9650B5B86B2D71B1936D2396BF2FD049 /* Medable.framework */,
 			);
 			name = Cortex;
 			path = Cortex;
