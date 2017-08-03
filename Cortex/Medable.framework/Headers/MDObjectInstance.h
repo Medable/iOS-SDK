@@ -57,24 +57,22 @@
 
 /**
  * Update the receiver with the latest data from the backend.
- * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so
- * using the synchronizeObjectWithParameters:callback: method.
+ * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so using the synchronizeObjectWithParameters:callback: method.
  *
- * @param parameters Extra parameters in the API call. Connections and posts may be included here.
- * @param callback The asynchronous callback, called upon receiving a response from the backend.
+ * @param parameters Extra parameters in the API call.
+ * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `connections` property.
  */
 - (void)synchronizeConnectionsWithParameters:(MDAPIParameters *)parameters
-                                    callback:(MDObjectFaultCallback)callback;
+                                    callback:(MDFaultCallback)callback;
 
 /**
  * Update the receiver with the latest data from the backend.
- * This is the special call to update posts and be able to expand posts' subproperties, since it's not possible to do so
- * using the synchronizeObjectWithParameters:callback: method.
+ * This is the special call to update posts and be able to expand posts' subproperties, since it's not possible to do so using the synchronizeObjectWithParameters:callback: method.
  *
- * @param parameters Extra parameters in the API call. Connections and posts may be included here.
- * @param callback The asynchronous callback, called upon receiving a response from the backend.
+ * @param parameters Extra parameters in the API call.
+ * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `posts` property.
  */
 - (void)synchronizePostsWithParameters:(MDAPIParameters *)parameters
-                              callback:(MDObjectFaultCallback)callback;
+                              callback:(MDFaultCallback)callback;
 
 @end

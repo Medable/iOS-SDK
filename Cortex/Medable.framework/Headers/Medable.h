@@ -73,6 +73,7 @@
 #import "MDBodyProperty.h"
 #import "MDFastBodyProperty.h"
 #import "MDFileBodyProperty.h"
+#import "MDFastFileBodyProperty.h"
 #import "MDPostBody.h"
 #import "MDSimpleBodyProperty.h"
 
@@ -93,6 +94,7 @@
 #import "NSFileManager+Medable.h"
 #import "NSString+ThreeDigitsVersion.h"
 #import "NSString+URLExtensions.h"
+#import "NSData+Mime.h"
 
 #endif
 

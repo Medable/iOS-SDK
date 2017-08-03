@@ -88,7 +88,7 @@
 - (BOOL)isCached;
 
 /**
- * Locally cache an image for this facet. Since the ETag value is unknown, it will be cached
+ * Locally cache an image or data for this facet. Since the ETag value is unknown, it will be cached
  * with a suffix of kUnknownETag.
  *
  * @warning Synchronize the parent object after making this call (the object instance that owns the File
@@ -98,5 +98,6 @@
  */
 - (void)cacheImage:(UIImage *)image;
 - (void)cacheImage:(UIImage *)image finishBlock:(MDBoolCallback)finishBlock;
+- (void)cacheData:(NSData *)data finishBlock:(MDBoolCallback)finishBlock;
 
 @end

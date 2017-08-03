@@ -38,6 +38,13 @@
 - (MDFileUpload *)uploadForName:(NSString *)name;
 
 /**
+ * Pending uploads for this File property.
+ *
+ * @return The pending uploads for this File property.
+ */
+- (NSArray<MDFileUpload *> *)pendingUploads;
+
+/**
  * Get the File's facet that matches a certain name.
  *
  * @param name The name of the facet.

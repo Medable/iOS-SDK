@@ -7,6 +7,8 @@
 
 #import "MDBaseBodyProperty.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Simple workaround for adding properties without having to retrieve the property definition.
  *
@@ -17,7 +19,12 @@
 /**
  * This will be returned as the API representation of the propery value.
  * You should ensure that the dictionary maps the property name to its intended value.
+ * Important: The content can be set only once.
  */
-@property (nonatomic, strong) NSDictionary *content;
+@property (nonatomic, strong, nullable) NSDictionary *content;
+
++ (instancetype)fastBodyWithContent:(NSDictionary *)content;
 
 @end
+
+NS_ASSUME_NONNULL_END

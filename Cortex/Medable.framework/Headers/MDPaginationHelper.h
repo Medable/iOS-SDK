@@ -76,14 +76,17 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-+ (instancetype)paginatorWithContext:(NSString *)context pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
++ (nullable instancetype)paginatorWithContext:(NSString *)context
+                                     pageSize:(NSUInteger)pageSize
+                                 cacheResults:(BOOL)cacheResults
+                                 inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience initializer to paginate a list property in a context object.
  *
  * The field/property used for pagination is `_id`.
  *
- * Use this initializer to paginate list properties inside a context: i.e: `GET /context/objectId/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ * Use this initializer to paginate list properties inside a context: i.e: `GET /context/objectId/listProperty?where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
  * @param context The context name.
  * @param objectId The object Id.
@@ -93,7 +96,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-+ (instancetype)listPropertyPaginatorWithContext:(NSString *)context objectId:(MDObjectId *)objectId listProperty:(NSString *)listProperty pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
++ (nullable instancetype)listPropertyPaginatorWithContext:(NSString *)context
+                                                 objectId:(MDObjectId *)objectId
+                                             listProperty:(NSString *)listProperty
+                                                 pageSize:(NSUInteger)pageSize
+                                             cacheResults:(BOOL)cacheResults
+                                             inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience Initializer to paginate a context using a different paging field other than `_id`.
@@ -105,14 +113,18 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-+ (instancetype)paginatorWithContext:(NSString *)context pagingField:(NSString *)pagingField pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
++ (nullable instancetype)paginatorWithContext:(NSString *)context
+                                  pagingField:(NSString *)pagingField
+                                     pageSize:(NSUInteger)pageSize
+                                 cacheResults:(BOOL)cacheResults
+                                 inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience initializer to paginate a list in a path.
  *
  * The field/property used for pagination is `_id`.
  *
- * Use this initializer to paginate list properties with a path: i.e: `GET /path/to/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ * Use this initializer to paginate list properties with a path: i.e: `GET /path/to/listProperty?where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
  * @param path The path to the list property. The path ends with the property name. Don't finish the path with a trailing forward slash. ObjectIds might be used in the path and also in array subpathing. i.e.: path/to/listProperty
  * @param pageSize The size of the page.
@@ -120,7 +132,10 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-+ (instancetype)paginatorWithPath:(NSString *)path pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
++ (nullable instancetype)paginatorWithPath:(NSString *)path
+                                  pageSize:(NSUInteger)pageSize
+                              cacheResults:(BOOL)cacheResults
+                              inverseOrder:(BOOL)inverseOrder;
 
 
 /**
@@ -137,12 +152,15 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-- (instancetype)initWithContext:(NSString *)context pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+- (nullable instancetype)initWithContext:(NSString *)context
+                                pageSize:(NSUInteger)pageSize
+                            cacheResults:(BOOL)cacheResults
+                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Custom initializer. The field/property used for pagination is `_id`.
  *
- * Use this initializer to paginate list properties inside a context: i.e: `GET /context/objectId/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ * Use this initializer to paginate list properties inside a context: i.e: `GET /context/objectId/listProperty?where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
  * @param context The context name.
  * @param objectId The object Id.
@@ -152,12 +170,17 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-- (instancetype)initWithContext:(NSString *)context objectId:(MDObjectId *)objectId listProperty:(NSString *)listProperty pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+- (nullable instancetype)initWithContext:(NSString *)context
+                                objectId:(MDObjectId *)objectId
+                            listProperty:(NSString *)listProperty
+                                pageSize:(NSUInteger)pageSize
+                            cacheResults:(BOOL)cacheResults
+                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Custom initializer.
  *
- * Use this initializer to paginate a context: i.e.: `GET /context` or a list property inside a context: i.e: `GET /context/objectId/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ * Use this initializer to paginate a context: i.e.: `GET /context` or a list property inside a context: i.e: `GET /context/objectId/listProperty?where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
  * @param path The path to paginate.
  * @param pageSize The size of the page.
@@ -165,7 +188,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-- (instancetype)initWithPath:(NSString *)path pagingField:(NSString *)pagingField pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+- (nullable instancetype)initWithPath:(NSString *)path
+                          pagingField:(NSString *)pagingField
+                             pageSize:(NSUInteger)pageSize
+                         cacheResults:(BOOL)cacheResults
+                         inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Default Initializer.
@@ -177,7 +204,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
  * @return Initialized instance.
  */
-- (instancetype)initWithContext:(NSString *)context pagingField:(NSString *)pagingField pageSize:(NSUInteger)pageSize cacheResults:(BOOL)cacheResults inverseOrder:(BOOL)inverseOrder;
+- (nullable instancetype)initWithContext:(NSString *)context
+                             pagingField:(NSString *)pagingField
+                                pageSize:(NSUInteger)pageSize
+                            cacheResults:(BOOL)cacheResults
+                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  *  Current state for this paginator.

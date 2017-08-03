@@ -123,11 +123,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * A property name is mapped to a `MDPropertyInstance`. This return's that property instance's value.
  *
+ * @param name Property name.
  * @return Value for the property instance mapped to this property name.
  *
  * @see MDPropertyInstance
  */
 - (nullable id)valueForPropertyWithName:(NSString*)name;
+
+/**
+ * Get the value for a given property at a path. This path can correspond to either a base or custom property.
+ * Notice that pathing to a property only makes sense for properties inside Document properties.
+ *
+ * A property path is mapped to a `MDPropertyInstance`. This return's that property instance's value.
+ *
+ * @param path Path to the property. The path components should be separated by dots '.'. i.e.: path.to.property.propertyName
+ * @return Value for the property instance mapped to this property name.
+ *
+ * @see MDPropertyInstance
+ */
+- (nullable id)valueForPropertyAtPath:(NSString*)path;
+
+/**
+ * Get the value for a given property at a path. This path can correspond to either a base or custom property.
+ * Notice that pathing to a property only makes sense for properties inside Document properties.
+ *
+ * A property path is mapped to a `MDPropertyInstance`. This return's that property instance's value.
+ *
+ * @param pathComponents Path to the property. The components of the array are the components of the path. i.e.: [ path, to, property, propertyName ].
+ * @return Value for the property instance mapped to this property name.
+ *
+ * @see MDPropertyInstance
+ */
+- (nullable id)valueForPropertyAtPathWithComponents:(NSArray<NSString *> *)pathComponents;
 
 /**
  * Type (enum) of a given property.

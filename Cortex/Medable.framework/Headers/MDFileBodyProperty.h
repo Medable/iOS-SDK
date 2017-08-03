@@ -21,6 +21,6 @@
  */
 - (void)addFacetAttachment:(NSString * _Nonnull) facetName
                       mime:(NSString * _Nonnull) mime
-                      data:(NSObject * _Nonnull) data;
+                      data:(NSData * _Nonnull) data;
 
 @end
