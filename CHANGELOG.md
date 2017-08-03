@@ -1,9 +1,20 @@
 ## Cortex iOS
 
+#### v1.8.7
+
+- Adds convenience initializer for creating instances of MDBody, MDFastBodyProperty.
+- Improvements to MDFileBodyProperty.
+- Adds faster ways for adding File attachments to MDBody (POST body) objects using the new MDFastFileBodyProperty.
+- Adds a NSData extension to extract the mime type from an instance by analyzing its file signature (not all mime types are supported).
+- Adds a pendingUploads getter for MDFilePropertyValue.
+- Adds a method to add NSData to the local assets cache through its corresponding MDFacet.
+- Fixes cache bug on create/update objects.
+
+---
+
 #### v1.8.6
 
 - MDAPIClient - Fixed typo in method signature: `registerContext:pluralContext:type:withClass:`.
-
 
 ---
 
