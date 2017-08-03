@@ -9,6 +9,8 @@
 - Adds a pendingUploads getter for MDFilePropertyValue.
 - Adds a method to add NSData to the local assets cache through its corresponding MDFacet.
 - Fixes cache bug on create/update objects.
+- MDBaseInstance - Adds a method to get the value (Medable Primitive) of a property inside a "path" (Document inner properties).
+- MDPaginationHelper - Changed the way the pagination helper builds the query parameters. Adapted to API v2.9.8's new format.
 
 ---
 
