@@ -105,7 +105,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Method to create routes for the custom route methods below.
  *
- * @param routeComponents the components to create the route. The route components of the array are prefixed with the base URL.
+ * @param routeComponents the components to create the route.
+ * @return The route components of the array are prefixed with the base URL. If routeComponents is nil, the base URL is returned.
  */
 + (NSString*)routeWithComponents:(nullable NSArray*)routeComponents;
 
@@ -187,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)propertyValueWithInstance:(MDObjectInstance*)instance
                      propertyPath:(NSString*)propertyPath
                        parameters:(nullable MDAPIParameters*)parameters
-                         callback:(void (^)(id value, MDFault* fault))callback;
+                         callback:(MDObjectFaultCallback)callback;
 
 /**
  * Modify the value of a property for a certain instance.
@@ -562,7 +563,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postCommentToPost:(MDPost*)post
               commentBody:(MDPostBody *)commentBody
                     voted:(NSNumber*)voted
-                 callback:(void (^)(MDPostComment* post, MDFault* fault))callback;
+                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Votes a post / comment
@@ -614,7 +615,7 @@ NS_ASSUME_NONNULL_BEGIN
         postBody:(MDPostBody *)postBody
          targets:(MDTargets*)targets
            voted:(NSNumber*)voted
-        callback:(void (^)(MDPost* post, MDFault* fault))callback;
+        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
 
 /**
  * Modify a post comment.
@@ -703,7 +704,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)clearPostNotificationsWithIDs:(NSArray*)postsIds
                             postTypes:(nullable NSArray*)postTypes
-                             callback:(void (^)(MDFault *))callback;
+                             callback:(MDFaultCallback)callback;
 
 /**
  * Clears comment update (code 4) notifications. Returns the number of notifications removed.
@@ -711,7 +712,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)clearCommentNotificationsWithIDs:(NSArray*)commentsIds
-                                callback:(void (^)(MDFault *))callback;
+                                callback:(MDFaultCallback)callback;
 
 
 #pragma mark - Media Upload / Download
@@ -725,7 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
  * General purpose file download. Provide full path.
  */
 + (void)downloadFileAtPath:(NSString *)filePath
-                  callback:(void (^)(id streamData, MDFault* fault))callback;
+                  callback:(void (^)(id __nullable streamData, MDFault* __nullable fault))callback;
 
 
 #pragma mark - Bundle
@@ -737,7 +738,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)getBundleWithUrl:(NSString *)bundleUrl
-                callback:(void (^)(NSDictionary *response, MDFault* fault))callback;
+                callback:(void (^)(NSDictionary* __nullable response, MDFault* __nullable fault))callback;
 
 
 #pragma mark - Org
@@ -871,7 +872,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateObjectWithContext:(NSString*)context
                        objectId:(MDObjectId*)objectId
                      bodyObject:(MDBody*)bodyObj
-                       callback:(void (^)(MDObjectInstance* object, MDFault* fault))callback;
+                       callback:(MDObjectInstanceFaultCallback)callback;
 
 
 #pragma mark - Account

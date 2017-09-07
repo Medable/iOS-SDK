@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.8.8
+
+- Base Instance - Custom property parsers - Return nil if property is not present.
+- Parameter Factory - Fix for merging sort and where parameters.
+
+---
+
 #### v1.8.7
 
 - Adds convenience initializer for creating instances of MDBody, MDFastBodyProperty.
