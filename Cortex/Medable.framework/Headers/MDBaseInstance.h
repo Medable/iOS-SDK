@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) MDReference* creator;
 
+/**
+ * Creation date.
+ */
+@property (nonatomic, readonly) NSDate* created;
 
 /**
  * The date the latest update was made to a context’s properties.
@@ -48,44 +52,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSDate* updated;
 
 /**
+ ETag is (re)generated on an instance whenever it is updated.
+ */
+@property (nullable, nonatomic, readonly) NSString *ETag;
+
+/**
  * The current caller’s level of access to the context.
  */
 @property (nonatomic, readonly) MDACLLevel access;
 
 /**
- * Whether this context is archived.
+ * The Id of the roles that have access to the context.
  */
-@property (nullable, nonatomic, readonly) NSNumber* archived;
-
-/**
- * Date of archival for the context.
- */
-@property (nullable, nonatomic, readonly) NSDate* archiveDate;
-
-/**
- * A reference to the account ID of the archiver.
- */
-@property (nullable, nonatomic, readonly) MDReference* archiver;
+@property (nullable, nonatomic, readonly) NSArray<MDObjectId*>* accessRoles;
 
 /**
  * True if there are any active or pending connections for this context.
  */
 @property (nonatomic, readonly) NSNumber* shared;
-
-/**
- * Set of tags in the context.
- */
-@property (nonatomic, readonly) NSArray* tags;
-
-/**
- * Version number of the instance.
- */
-@property (nonatomic, readonly) NSUInteger version;
-
-/**
- * Creation date.
- */
-@property (nonatomic, readonly) NSDate* created;
 
 /**
  * Maps base property keys to their values.
@@ -102,14 +86,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This property is nil unless synchronizeConnectionsWithParameters:callback: is called and there are available posts for this object.
  */
-@property (nullable, nonatomic, readonly) NSArray* connections;
+@property (nullable, nonatomic, readonly) NSArray<MDConnection*>* connections;
 
 /**
  * The object feed. This allows a single call to get both an object and it's first page of posts. Feed query arguments are supported.
  *
  * This property is nil unless synchronizePostsWithParameters:callback: is called and there are available posts for this object.
  */
-@property (nullable, nonatomic, readonly) NSArray* posts;
+@property (nullable, nonatomic, readonly) NSArray<MDPost*>* posts DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 
 // unavailable

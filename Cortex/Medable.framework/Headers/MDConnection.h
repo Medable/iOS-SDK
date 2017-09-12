@@ -13,16 +13,24 @@
  */
 @interface MDConnectionTarget : NSObject
 
-/// The target's first name.
+/**
+ The target's first name.
+ */
 @property (nonatomic, readonly) NSString* firstName;
 
-/// The target's last name.
+/**
+ The target's last name.
+ */
 @property (nonatomic, readonly) NSString* lastName;
 
-/// The target's email.
+/**
+ The target's email.
+ */
 @property (nonatomic, readonly) NSString* email;
 
-/// A reference to the target's account.
+/**
+ A reference to the target's account.
+ */
 @property (nonatomic, readonly) MDReference* account;
 
 
@@ -32,10 +40,14 @@
 // unavailable init
 - (instancetype)init NS_UNAVAILABLE;
 
-/// True is targeting the current user, False otherwise.
+/**
+ True is targeting the current user, False otherwise.
+ */
 - (BOOL)isTargetingCurrentUser;
 
-/// Id of the targeted account.
+/**
+ Id of the targeted account.
+ */
 - (MDObjectId*)targetedId;
 
 @end

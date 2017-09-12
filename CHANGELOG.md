@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.8.9
+
+- Updated definition objects.
+- Pagination Helper - Improvements.
+
+---
+
 #### v1.8.8
 
 - Base Instance - Custom property parsers - Return nil if property is not present.
