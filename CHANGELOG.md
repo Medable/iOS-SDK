@@ -1,6 +1,6 @@
 ## Cortex iOS
 
-#### v1.9.0
+#### v1.9.1
 
 - Feed related routes - Marked as deprecated.
 - Account - Update route - Added support for modifying the account's time zone.
