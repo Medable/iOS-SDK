@@ -1,6 +1,6 @@
 {
   "name": "Medable",
-  "version": "1.8.9",
+  "version": "1.9.1",
   "summary": "Medable Cortex iOS SDK.",
   "description": "Medable is a cloud platform that provides HIPAA-compliant services to mobile\nand web applications. Using this iOS SDK, you can build applications that\ncommunicate securely with Medable’s cloud platform to incorporate Medable\ncapabilities into your application.",
   "homepage": "https://github.com/Medable/iOS-SDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Medable/iOS-SDK.git",
-    "tag": "1.8.9"
+    "tag": "1.9.1"
   },
   "source_files": "Cortex/Medable.framework/Headers/*.h",
   "social_media_url": "https://twitter.com/medableinc",
