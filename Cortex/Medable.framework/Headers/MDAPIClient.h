@@ -235,6 +235,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param role Account role
  *  @param profileInfo Packed profile info
  *  @param thumbImage Thumbnail image
+ *  @param timeZone Account's time zone
+ *  @param customPropValues Dictionary used to pass custom property values.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)registerAccountWithFirstName:(NSString*)firstName
@@ -247,6 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
                                 role:(nullable NSString*)role
                          profileInfo:(nullable MDProfileInfo*)profileInfo
                           thumbImage:(nullable UIImage *)thumbImage
+                            timeZone:(nullable NSTimeZone *)timeZone
                     customPropValues:(nullable NSDictionary*)customPropValues
                             callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 
@@ -469,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  **/
 - (void)listAllPostsWithParameters:(nullable MDAPIParameters*)parameters
-                          callback:(MDPostListFaultCallback)callback;
+                          callback:(MDPostListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Lists a context feed
@@ -481,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listFeedWithContext:(NSString*)context
                    objectId:(MDObjectId*)objectId
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(MDPostListFaultCallback)callback;
+                   callback:(MDPostListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Lists the comments in a post
@@ -491,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)listCommentsForPost:(MDPost*)post
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(MDCommentListFaultCallback)callback;
+                   callback:(MDCommentListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Gets a feed post
@@ -501,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)postWithId:(MDObjectId*)postId
         parameters:(nullable MDAPIParameters*)parameters
-          callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+          callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts to a context's feed
@@ -521,7 +524,7 @@ NS_ASSUME_NONNULL_BEGIN
         bodySegments:(NSArray *)bodySegments
              targets:(nullable MDTargets*)targets
                voted:(nullable NSNumber*)voted
-            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts to a context's feed
@@ -541,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
   bodySegmentsObject:(MDPostBody *)bodySegmentsObject
              targets:(nullable MDTargets*)targets
                voted:(nullable NSNumber*)voted
-            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts a comment to a post
@@ -552,7 +555,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postCommentToPost:(MDPost*)post
              bodySegments:(NSArray*)bodySegments
                     voted:(nullable NSNumber*)voted
-                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback;
+                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts a comment to a post
@@ -563,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postCommentToPost:(MDPost*)post
               commentBody:(MDPostBody *)commentBody
                     voted:(NSNumber*)voted
-                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback;
+                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Votes a post / comment
@@ -572,7 +575,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)votePostWithId:(MDObjectId*)postId
                  voted:(BOOL)voted
-              callback:(MDFaultCallback)callback;
+              callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Vote a Post Comment.
@@ -583,7 +586,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)voteCommentWithId:(MDObjectId*)commentId
                     voted:(BOOL)voted
-                 callback:(MDFaultCallback)callback;
+                 callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Edits an existing post
@@ -599,7 +602,7 @@ NS_ASSUME_NONNULL_BEGIN
     bodySegments:(NSArray *)bodySegments
          targets:(nullable MDTargets*)targets
            voted:(nullable NSNumber*)voted
-        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Edits an existing post
@@ -615,7 +618,7 @@ NS_ASSUME_NONNULL_BEGIN
         postBody:(MDPostBody *)postBody
          targets:(MDTargets*)targets
            voted:(NSNumber*)voted
-        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback;
+        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Modify a post comment.
@@ -628,7 +631,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)editComment:(MDPostComment *)comment
        bodySegments:(NSArray *)bodySegments
               voted:(nullable NSNumber*)voted
-           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback;
+           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Modify a post comment.
@@ -641,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)editComment:(MDPostComment *)comment
         commentBody:(MDPostBody *)commentBody
               voted:(nullable NSNumber*)voted
-           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback;
+           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes an existing post.
@@ -652,7 +655,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deletePostWithId:(MDObjectId*)postId
               parameters:(nullable MDAPIParameters*)parameters
-                callback:(MDFaultCallback)callback;
+                callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes an existing post comment.
@@ -663,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteCommentWithId:(MDObjectId*)commentId
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(MDFaultCallback)callback;
+                   callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 
 #pragma mark - Notifications
@@ -888,6 +891,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param favorite Set this account as favorite
  *  @param preferences Account preferences
  *  @param image Account thumbnail image
+ *  @param timeZone Account's time zone
  *  @param customPropValues Account custom properties and values
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -901,6 +905,7 @@ NS_ASSUME_NONNULL_BEGIN
                    favorite:(nullable NSNumber*)favorite
                 preferences:(nullable NSDictionary*)preferences
                       image:(nullable UIImage*)image
+                   timeZone:(nullable NSTimeZone*)timeZone
            customPropValues:(nullable NSDictionary*)customPropValues
                    callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 

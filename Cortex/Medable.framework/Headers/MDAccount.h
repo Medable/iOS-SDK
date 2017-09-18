@@ -115,6 +115,11 @@
  */
 @property (nullable, nonatomic, readonly) NSNumber* locked;
 
+/**
+ * Account's time zone name.
+ */
+@property (nullable, nonatomic, readonly) NSString* timeZone;
+
 
 /**
  * Returns True if the account has a role with this name.
@@ -146,12 +151,5 @@
  * @param callback The asynchronous callback where the image is returned.
  */
 - (void)thumbnailWithCallback:(nonnull MDImageOrFaultCallback)callback;
-
-/**
- * Assemble the full name on the account.
- *
- * @return Full Name.
- */
-- (nonnull NSString*)fullName;
 
 @end

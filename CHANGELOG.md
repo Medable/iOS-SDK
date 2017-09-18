@@ -1,5 +1,18 @@
 ## Cortex iOS
 
+#### v1.9.0
+
+- Feed related routes - Marked as deprecated.
+- Account - Update route - Added support for modifying the account's time zone.
+- MDDateUtilities - Exposed the date format strings.
+- MDAPIClient - Registration - Added an optional timeZone to bind the account to.
+- Org / Account - Added timeZone property.
+- Org header - Better documentation.
+- Account - Removed fullName.
+- Added a NSDate+TimeZoneChange extension to convert the receiver between time zones.
+
+---
+
 #### v1.8.9
 
 - Updated definition objects.

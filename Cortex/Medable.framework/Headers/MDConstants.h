@@ -118,6 +118,7 @@ extern NSString* const kRegexOperator;
 extern NSString* const kAllOperator;
 extern NSString* const kSizeOperator;
 extern NSString* const kElementMatchOperator;
+extern NSString* const kTz;
 
 #pragma mark - Bundle
 extern NSString* const kVersionKey;

@@ -17,46 +17,79 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MDOrg : MDObjectInstance
 
-/// Name of the organization.
+/**
+ Name of the organization.
+ */
 @property (nonatomic, readonly) NSString* name;
 
-/// ETag for the bundle.
+/**
+ ETag for the bundle.
+ */
 @property (nonatomic, readonly) NSString* bundleVersion;
 
-/// ETag for the schemas.
+/**
+ ETag for the schemas.
+ */
 @property (nonatomic, readonly) NSString* schemasETag;
 
-/// Organization's locale
+/**
+ Organization's locale
+ */
 @property (nonatomic, readonly) NSString* locale;
 
-/// The Org’s code, used to access the api, uniquely identifies the org.
+/**
+ Organization's time zone name.
+ */
+@property (nonatomic, readonly) NSString* timeZone;
+
+/**
+ The Org’s code, used to access the api, uniquely identifies the org.
+ */
 @property (nonatomic, readonly) NSString* code;
 
-/// File property value of the Org's logo
+/**
+ File property value of the Org's logo
+ */
 @property (nullable, nonatomic, readonly) MDFilePropertyValue* logo;
 
-/// Facet corresponding to the icon for this Org
+/**
+ Facet corresponding to the icon for this Org
+ */
 @property (nullable, nonatomic, readonly) MDFacet* favicon;
 
-/// The Org’s configured roles.
+/**
+ The Org’s configured roles.
+ */
 @property (nullable, nonatomic, readonly) NSArray* roles;
 
-/// The Org’s configured applications.
+/**
+ The Org’s configured applications.
+ */
 @property (nullable, nonatomic, readonly) NSArray* apps;
 
-/// Org configuration settings.
+/**
+ Org configuration settings.
+ */
 @property (nullable, nonatomic, readonly) NSDictionary* configuration;
 
-/// Org registration settings.
+/**
+ Org registration settings.
+ */
 @property (nullable, nonatomic, readonly) NSDictionary* registration;
 
-/// Org security settings.
+/**
+ Org security settings.
+ */
 @property (nullable, nonatomic, readonly) NSDictionary* security;
 
-/// The Org state.
+/**
+ The Org state.
+ */
 @property (nullable, nonatomic, readonly) NSString* state;
 
-/// The Org website, available for use as a variable in email templates (org.website).
+/**
+ The Org website, available for use as a variable in email templates (org.website).
+ */
 @property (nonatomic, readonly) NSString* website;
 
 /**

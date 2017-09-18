@@ -15,6 +15,10 @@ typedef enum : NSUInteger
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString* const kDateFormatString;
+extern NSString* const kDateFormatStringLong;
+extern NSString* const kDateFormatStringLong2;
+
 /**
  * Utility class with date conversion tools. TimeZone used is UTC.
  */
