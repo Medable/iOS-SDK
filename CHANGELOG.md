@@ -1,5 +1,15 @@
 ## Cortex iOS
 
+#### v1.9.2
+
+- MDUploadOperations - Improved return types of methods for better Swift translation.
+- MDAPIClient - routeWithComponents - updated doc.
+- MDAPIClient - Added login method, marked the less intuitive authenticateSession as deprecated.
+- Documentation - All documentation is now in docs.medable.com.
+- MDDateUtilities - Fixed typo in constant.
+
+---
+
 #### v1.9.1
 
 - Feed related routes - Marked as deprecated.

@@ -59,7 +59,7 @@ extern NSString *const kOperationProgressChangedNotification;
 + (MDUploadOperations *)instance;
 
 /// List of file operations that are currently uploading a file.
-+ (NSArray *)ongoingOperations;
++ (NSArray<MDUploadOperation *> *)ongoingOperations;
 
 /** 
  * List of recently completed operations.
@@ -67,7 +67,7 @@ extern NSString *const kOperationProgressChangedNotification;
  * After completion, the operation objects will stay in this list for at least 10 seconds.
  * After this time, they'll be removed from the list.
  */
-+ (NSArray *)completedOperations;
++ (NSArray<MDUploadOperation *> *)completedOperations;
 
 /**
  * List of recently failed operations.
@@ -75,7 +75,7 @@ extern NSString *const kOperationProgressChangedNotification;
  * After failing, the operation objects will stay in this list for at least 1 minute.
  * After this time, they'll be removed from the list.
  */
-+ (NSArray *)failedOperations;
++ (NSArray<MDUploadOperation *> *)failedOperations;
 
 /// Clear all operations from every queue. Ongoing operations won't be interrupted.
 + (void)flushOperations;

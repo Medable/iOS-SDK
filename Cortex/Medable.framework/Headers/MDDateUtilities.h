@@ -8,9 +8,9 @@
 
 typedef enum : NSUInteger
 {
-    MDDateUtilitiesFormatYYYYDDMM,  // i.e 
-    MDDateUtilitiesFormatLong,      // yyyy'-'MM'-'dd'T'HH':'mm':'SS'.000Z' i.e. 1983-05-05T00:00:00.000Z
-    MDDateUtilitiesFormatLong2      // yyyy'-'MM'-'dd HH':'mm':'ss Z        i.e. 1983-05-05 00:00:00 +0000
+    MDDateUtilitiesFormatYYYYMMDD,  // yyyy-MM-dd                           i.e. 1983-12-31
+    MDDateUtilitiesFormatLong,      // yyyy'-'MM'-'dd'T'HH':'mm':'SS'.000Z' i.e. 1983-12-31T00:00:00.000Z
+    MDDateUtilitiesFormatLong2      // yyyy'-'MM'-'dd HH':'mm':'ss Z        i.e. 1983-12-31 00:00:00 +0000
 } MDDateUtilitiesFormat;
 
 NS_ASSUME_NONNULL_BEGIN

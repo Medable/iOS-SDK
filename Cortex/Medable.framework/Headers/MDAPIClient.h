@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param context Singular context name. Required.
  *  @param pluralContext Plural context name. Required.
- *  @param type Optionally used for when there is a Medable object with a type and more than one class client side representing each one of those objects. For more information check the documentation here: https://docs.medable.com/v2.9.7/reference#object-types .
+ *  @param type Optionally used for when there is a Medable object with a type and more than one class client side representing each one of those objects. For more information check the documentation here: https://docs.medable.com/reference#object-types .
  *  @param aClass Class to be used to instanciate custom objects with context or pluralContext. aClass must be a subclass of `MDObjectInstance`.
  *  @return Returns whether the registration was successful or not.
  */
@@ -104,6 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Method to create routes for the custom route methods below.
+ *
+ * This method prefixes the `routeComponents` with the "base URL" returned by `[[MDEnvironment environment] APIURL]`.
  *
  * @param routeComponents the components to create the route.
  * @return The route components of the array are prefixed with the base URL. If routeComponents is nil, the base URL is returned.
@@ -267,6 +269,20 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Authentication
 
 /**
+ *  Authenticates using email and password credentials, and returns the current account object.
+ *  @param email Account email
+ *  @param password Account password
+ *  @param token 2 factor authentication verification token
+ *  @param singleUse Single use
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)loginWithEmail:(NSString*)email
+              password:(NSString*)password
+     verificationToken:(nullable NSString*)token
+             singleUse:(BOOL)singleUse
+              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
+
+/**
  *  Logout an authenticated session client.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
@@ -284,8 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
                             password:(NSString*)password
                    verificationToken:(nullable NSString*)token
                            singleUse:(BOOL)singleUse
-                            callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
-
+                            callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 /**
  *  Requests a password reset.
  *  @param email Email of the associated account
