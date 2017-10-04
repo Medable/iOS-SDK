@@ -1,5 +1,5 @@
 PODS:
-  - Medable (1.9.1)
+  - Medable (1.9.2)
 
 DEPENDENCIES:
   - Medable (from `../../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  Medable: 04ca728e3e22ec37d2d4085f87db67d51af74dc6
+  Medable: 2026a0595aefe20b8e6e3e36c76de40a23b86215
 
 PODFILE CHECKSUM: f8f8a9d79a062a4c10d52add727f60644cc443fc
 
