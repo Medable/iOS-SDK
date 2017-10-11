@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @class MDPostSegmentPropertyDefinition;
 
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostSegmentDefinition : NSObject
 
 /// Human readable label in the Org's locale

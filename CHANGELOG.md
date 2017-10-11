@@ -1,12 +1,25 @@
 ## Cortex iOS
 
+#### v1.9.3
+
+- `MDAPIClient`
+   - Removed "startLocationServices" since it's not used internally.
+   - Updated methods documentation. Marked deprecated methods.
+- `MDSerialization` - Added this class to serialize/deserialize data.
+- `MDDateUtilities` - Exposed the internal date formatter so the time zone can be changed. - **Note:** It is not used anymore to serialize/deserialize dates within: `MDAPIClient`, `MDAccount`, `MDOrg`, or custom object classes. - Default time zone is local time zone.
+- Marked old base objects as deprecated.
+- Bug fixes and improvements.
+
+---
+
 #### v1.9.2
 
-- MDUploadOperations - Improved return types of methods for better Swift translation.
-- MDAPIClient - routeWithComponents - updated doc.
-- MDAPIClient - Added login method, marked the less intuitive authenticateSession as deprecated.
+- `MDUploadOperations` - Improved return types of methods for better Swift translation.
+- `MDAPIClient`
+   - routeWithComponents - updated doc.
+   - Added login method, marked the less intuitive authenticateSession as deprecated.
 - Documentation - All documentation is now in docs.medable.com.
-- MDDateUtilities - Fixed typo in constant.
+- `MDDateUtilities` - Fixed typo in constant.
 
 ---
 

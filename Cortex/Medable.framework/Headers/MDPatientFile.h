@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  * collaborations. A patient file can be connected directly to a patient account to facilitate
  * collaboration, through it’s account property.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPatientFile : MDObjectInstance
 
 /**

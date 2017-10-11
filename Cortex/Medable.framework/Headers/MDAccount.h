@@ -93,7 +93,7 @@
 /**
  * Account holder date of birth
  */
-@property (nullable, nonatomic, readonly) NSString* dob;
+@property (nullable, nonatomic, readonly) NSDate* dob;
 
 /**
  * A dictionary with preferences like 'notifications'

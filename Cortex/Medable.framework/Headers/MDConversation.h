@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  * among providers, for a virtual visit between a patient and provider(s), or for just 
  * about any care related interaction.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDConversation : MDObjectInstance
 
 /**

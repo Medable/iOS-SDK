@@ -17,6 +17,7 @@
  *
  * @see MDFeedDefinition, MDPostDefinition
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostComment : MDBaseInstance
 
 /**

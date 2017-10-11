@@ -12,6 +12,7 @@
 /**
  * Represents a the POST body of a backend post.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostBody : NSObject
 
 /**

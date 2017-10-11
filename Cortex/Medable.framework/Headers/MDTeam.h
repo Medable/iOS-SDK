@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  * be used in place of users when creating collaborations as a means to invite multiple accounts
  * at once.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDTeam : MDObjectInstance
 
 /**

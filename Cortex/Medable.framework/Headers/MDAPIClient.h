@@ -66,11 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
 // unavailable init
 - (instancetype)init NS_UNAVAILABLE;
 
-/**
- * Start location services. In iOS8+ this requests location permissions to the user only if the app
- * has an entry for the key NSLocationWhenInUseUsageDescription.
- */
-- (void)startLocationServices;
+
+#pragma mark - Push Notification token
 
 /**
  *  Stores current Apple Push Notification token.
@@ -226,7 +223,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)resendAccountVerificationWithCallback:(MDFaultCallback)callback;
 
 /**
- *  Creates an account. User signup.
+ *  Creates an account. User Signup.
+ *
  *  @param firstName (required)
  *  @param lastName (required)
  *  @param email (required)
@@ -238,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param profileInfo Packed profile info
  *  @param thumbImage Thumbnail image
  *  @param timeZone Account's time zone
- *  @param customPropValues Dictionary used to pass custom property values.
+ *  @param customPropValues Dictionary used to pass custom property values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)registerAccountWithFirstName:(NSString*)firstName
@@ -896,7 +894,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Account
 
 /**
- * Updates context object
+ *  Updates Account object
+ *
  *  @param userID Account object Id
  *  @param firstName First name
  *  @param lastName Last name
@@ -907,7 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param preferences Account preferences
  *  @param image Account thumbnail image
  *  @param timeZone Account's time zone
- *  @param customPropValues Account custom properties and values
+ *  @param customPropValues Account custom properties and values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateAccountWithID:(MDObjectId*)userID
@@ -925,7 +924,9 @@ NS_ASSUME_NONNULL_BEGIN
                    callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
 
 /**
- * Deletes context object
+ *  Deletes context object
+ *  This has to be enabled in the org's settings to work properly.
+ *
  *  @param accountId MDObjectId the Id of the account to be deleted.
  *  @param reason MDAPIParameters deletion reason.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
@@ -943,7 +944,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listPatientFilesWithParameters:(nullable MDAPIParameters*)parameters
-                              callback:(MDPatientFileListFaultCallback)callback;
+                              callback:(MDPatientFileListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Gets a context object
@@ -953,7 +954,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)patientFileWithId:(MDObjectId*)patientFileId
                parameters:(nullable MDAPIParameters*)parameters
-                 callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
+                 callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a context object
@@ -967,7 +968,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param phone Patient phone
  *  @param account Patient account Id
  *  @param image Patient avatar image
- *  @param customPropValues Patient custom properties and values
+ *  @param customPropValues Patient custom properties and values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createPatientfileWithFirstName:(NSString*)firstName
@@ -981,7 +982,7 @@ NS_ASSUME_NONNULL_BEGIN
                                account:(nullable NSObject*)account
                                  image:(nullable UIImage*)image
                       customPropValues:(nullable NSDictionary*)customPropValues
-                              callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
+                              callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Updates a context object
@@ -995,7 +996,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param mrn Patient MRN
  *  @param phone Patient phone
  *  @param image Patient avatar image
- *  @param customPropValues Patient custom properties and values
+ *  @param customPropValues Patient custom properties and values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updatePatientFileWithId:(MDObjectId*)patientFileId
@@ -1009,7 +1010,7 @@ NS_ASSUME_NONNULL_BEGIN
                           phone:(nullable NSString*)phone
                           image:(nullable UIImage*)image
                customPropValues:(nullable NSDictionary*)customPropValues
-                       callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback;
+                       callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
@@ -1019,7 +1020,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deletePatientfileWithId:(MDObjectId*)patientFileId
                          reason:(nullable MDAPIParameters*)reason
-                       callback:(MDFaultCallback)callback;
+                       callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 
 #pragma mark - Conversation
@@ -1030,7 +1031,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listConversationsWithParameters:(nullable MDAPIParameters*)parameters
-                               callback:(MDConversationListFaultCallback)callback;
+                               callback:(MDConversationListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Gets a context object
@@ -1040,7 +1041,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)conversationWithId:(MDObjectId*)conversationId
                 parameters:(nullable MDAPIParameters*)parameters
-                  callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
+                  callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a conversation object
@@ -1049,7 +1050,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param favorite Set this conversation as favorite
  *  @param patientFile Associated PatientFile object
  *  @param attachments Conversation's attachments
- *  @param customPropValues Conversation custom properties and values
+ *  @param customPropValues Conversation custom properties and values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createConversationWithDescription:(nullable NSString*)description
@@ -1057,7 +1058,7 @@ NS_ASSUME_NONNULL_BEGIN
                               patientFile:(nullable MDPatientFile*)patientFile
                               attachments:(nullable MDAttachmentMaps*)attachments
                          customPropValues:(nullable NSDictionary*)customPropValues
-                                 callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
+                                 callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by appending more attachments to the existing ones
@@ -1067,7 +1068,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
           byAppendingAttachments:(MDAttachmentMaps*)attachments
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by replacing a particular attachment with a new one
@@ -1079,7 +1080,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateConversationWithId:(MDObjectId*)conversationId
      byReplacingAttachmentWithId:(MDObjectId*)attachmentId
                       attachment:(MDAttachmentMaps*)attachment
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by deleting a particular attachment
@@ -1089,7 +1090,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
       byDeletingAttachmentWithId:(MDObjectId*)attachmentId
-                        callback:(MDFaultCallback)callback;
+                        callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Updates a context object
@@ -1097,7 +1098,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param description Conversation description
  *  @param patientFile Conversation associated PatientFile object
  *  @param favorite Set this converstaion as favorite
- *  @param customPropValues Conversation custom properties and values
+ *  @param customPropValues Conversation custom properties and values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
@@ -1105,7 +1106,7 @@ NS_ASSUME_NONNULL_BEGIN
                      patientFile:(nullable MDPatientFile*)patientFile
                         favorite:(nullable NSNumber*)favorite
                 customPropValues:(nullable NSDictionary*)customPropValues
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback;
+                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
@@ -1115,7 +1116,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteConversationWithId:(MDObjectId*)conversationId
                           reason:(nullable MDAPIParameters*)reason
-                        callback:(MDFaultCallback)callback;
+                        callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 
 #pragma mark - Team
@@ -1126,7 +1127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)listTeamsWithParameters:(nullable MDAPIParameters*)parameters
-                       callback:(MDTeamListFaultCallback)callback;
+                       callback:(MDTeamListFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Gets a context object
@@ -1136,28 +1137,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)teamWithId:(MDObjectId*)teamId
         parameters:(nullable MDAPIParameters*)parameters
-          callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
+          callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a context object
+ *
+ *  @param name Team name
+ *  @param description Team description
+ *  @param favorite Marks the team as favorite upon creation
+ *  @param customPropValues Use this to send custom property values. If you need to pass NSDate(s), convert them to strings.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)createTeamWithName:(NSString*)name
                description:(NSString*)description
                   favorite:(nullable NSNumber*)favorite
           customPropValues:(nullable NSDictionary*)customPropValues
-                  callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
+                  callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Updates a context object
- *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ *  @param teamId Id of the team to be edited.
+ *  @param name Team name
+ *  @param description Team description
+ *  @param favorite Marks the team as favorite
+ *  @param customPropValues Use this to send custom property values. If you need to pass NSDate(s), convert them to strings.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for error
  */
 - (void)updateTeamWithId:(MDObjectId*)teamId
                     name:(nullable NSString*)name
              description:(nullable NSString*)description
                 favorite:(nullable NSNumber*)favorite
         customPropValues:(nullable NSDictionary*)customPropValues
-                callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback;
+                callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
@@ -1165,7 +1177,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteTeamWithId:(MDObjectId*)teamId
                   reason:(nullable MDAPIParameters*)reason
-                callback:(MDFaultCallback)callback;
+                callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 @end
 

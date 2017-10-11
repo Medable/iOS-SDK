@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * An instance of a segment inside of a post.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostSegment : NSObject
 
 /// Definition for this segment

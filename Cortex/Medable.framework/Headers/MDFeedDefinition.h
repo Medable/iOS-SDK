@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
  * Defines the form of the Feed of a certain class of objects.
  * Put another way, it specifies the types of posts and what their forms are.
  */
+
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDFeedDefinition : NSObject
 
 /// Array of definitions for each possible post type in this instance.

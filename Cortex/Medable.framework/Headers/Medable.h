@@ -82,6 +82,7 @@
 #import "MDPaginationHelper.h"
 
 // Client
+#import "MDSerialization.h"
 #import "MDAPIClient.h"
 
 // Extensions

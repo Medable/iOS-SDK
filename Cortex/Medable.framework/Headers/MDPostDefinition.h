@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Definition of a post type, this includes definitions on all the segments the post must include.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostDefinition : MDBaseDefinition
 
 /// Read access on this definition.

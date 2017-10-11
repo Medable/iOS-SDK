@@ -25,6 +25,7 @@
  *
  * This flexibility enables a multitude of use cases, from polls to question/answer to device data point storage.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPost : MDBaseInstance
 
 /**

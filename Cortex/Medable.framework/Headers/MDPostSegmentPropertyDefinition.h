@@ -12,6 +12,7 @@
 /**
  * Segment's property definition. They extend basic property definitions.
  */
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDPostSegmentPropertyDefinition : MDPropertyDefinition
 
 @property (nonatomic, readonly) NSNumber *canPull;

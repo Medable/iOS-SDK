@@ -20,9 +20,18 @@ extern NSString* const kDateFormatStringLong;
 extern NSString* const kDateFormatStringLong2;
 
 /**
- * Utility class with date conversion tools. TimeZone used is UTC.
+ * Utility class with date conversion tools.
  */
 @interface MDDateUtilities : NSObject
+
+/*
+ * The date formatter used to make the conversions.
+ *
+ * You can change the time zone. Default is local time zone.
+ *
+ * @return the date formatter used to make the conversions.
+ */
++ (NSDateFormatter*)dateFormatter;
 
 /**
  * Convert a date string of a specified format to an NSDate object
