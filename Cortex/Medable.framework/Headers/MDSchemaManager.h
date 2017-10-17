@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return The `MDObjectDefinition` corresponding to this name.
  */
-- (nullable MDObjectDefinition *)objectWithPluralName:(NSString*)name;
+- (nullable MDObjectDefinition *)objectWithPluralName:(NSString*)name DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use `objectWithName:` instead.");
 
 @end
 

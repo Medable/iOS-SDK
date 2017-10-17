@@ -516,6 +516,7 @@ extern NSString* const kImageJpgFilename;
 extern NSString* const kCensorPngFilename;
 extern NSString* const kAllMimeTypesAllowed;
 extern NSString* const kJpgKey;
+extern NSString* const kJpegKey;
 extern NSString* const kPngKey;
 
 #pragma mark - HTTP (some) response codes

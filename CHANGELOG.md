@@ -1,5 +1,19 @@
 ## Cortex iOS
 
+#### v1.9.4
+
+- `MDAPIClient` - File uploads for the `NSDictionary` approach of create/updateObject methods are now more flexible. Full documentation [here](https://docs.medable.com/docs/code-samples#section-file-upload).
+- `MDSchemaManager`:
+   - Contexts can be queried by singular and plural name. 
+   - Deprecated `objectwithPluralName:`. 
+   - Optimized search context. 
+   - Optimized schemas disk storage. 
+- `MDBaseInstance` - synchronizeObject - made parameters and callback optional.
+- `MDObjectInstance` - `synchronizePosts` / `synchronizeConnections` - made parameters and callback optional parameters. 
+- `MDObjectInstance` - `synchronizePosts` - marked as deprecated.
+
+---
+
 #### v1.9.3
 
 - `MDAPIClient`

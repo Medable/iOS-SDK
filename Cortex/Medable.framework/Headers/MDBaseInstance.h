@@ -236,8 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @param parameters Extra parameters in the API call. Connections and posts may be included here.
  * @param callback The asynchronous callback, called upon receiving a response from the backend.
  */
-- (void)synchronizeObjectWithParameters:(MDAPIParameters *)parameters
-                               callback:(MDObjectFaultCallback)callback;
+- (void)synchronizeObjectWithParameters:(nullable MDAPIParameters *)parameters
+                               callback:(nullable MDObjectFaultCallback)callback;
 
 @end
 

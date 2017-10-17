@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `connections` property.
  */
 - (void)synchronizeConnectionsWithParameters:(nullable MDAPIParameters *)parameters
-                                    callback:(MDFaultCallback)callback;
+                                    callback:(nullable MDFaultCallback)callback;
 
 /**
  * Update the receiver with the latest data from the backend.
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `posts` property.
  */
 - (void)synchronizePostsWithParameters:(nullable MDAPIParameters *)parameters
-                              callback:(MDFaultCallback)callback;
+                              callback:(nullable MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 @end
 

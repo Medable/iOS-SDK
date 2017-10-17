@@ -788,9 +788,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Create a new object
  *
- * @param context The Context type you are posting to
- * @param body The information of the new object
- * @param callback The completion callback
+ * @param context The object type.
+ * @param body The information of the new object. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
+ * @param callback The completion callback.
  */
 - (void)createObjectWithContext:(NSString*)context
                            body:(NSDictionary*)body
@@ -799,9 +799,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Create a new object
  *
- * @param context The Context type you are posting to
- * @param body The representation for the new object in it's body format
- * @param callback The completion callback
+ * @param context The object type.
+ * @param body The representation for the new object in it's body format.
+ * @param callback The completion callback.
  */
 - (void)createObjectWithContext:(NSString*)context
                      bodyObject:(MDBody*)body
@@ -870,7 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Updates a context object
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
- *  @param body Object properties that are updated
+ *  @param body Object properties that are updated. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)updateObjectWithContext:(NSString*)context
