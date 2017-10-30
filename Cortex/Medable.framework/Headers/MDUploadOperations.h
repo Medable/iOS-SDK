@@ -2,11 +2,12 @@
 //  MDOperationsProgress.h
 //  Medable
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * String used to notify that an upload operation has changed it's state.
@@ -43,7 +44,7 @@ extern NSString *const kOperationProgressChangedNotification;
 @property (nonatomic, readonly) NSString *mimeType;
 
 /// The NSProgress object associated with the operation.
-@property (nonatomic, readonly) NSProgress *operationProgress;
+@property (nullable, nonatomic, readonly) NSProgress *operationProgress;
 
 @property (nonatomic, readonly) id responseObject;
 
@@ -91,3 +92,6 @@ extern NSString *const kOperationProgressChangedNotification;
 + (void)retryOperation:(MDUploadOperation *)operation;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

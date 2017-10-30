@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param parameters The other parameter collection.
  */
 - (void)addParameters:(MDAPIParameters*)parameters;
-- (void)addParametersWithParameters:(MDAPIParameters*)parameters __attribute__((deprecated));
+- (void)addParametersWithParameters:(MDAPIParameters*)parameters DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use `addParameters:` instead.");;
 
 /**
  * Add parameters from a dictionary instead of another collection.
@@ -71,6 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSDictionary*)apiParameters;
 
+/**
+ * @returns the current parameters in NSDictionary format transformed to be used as query parameters
+ */
+- (NSDictionary*)apiParametersAsQueryValues;
 @end
 
 /**
@@ -87,6 +91,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @return An instance with the combination of all parameter collections.
  */
 + (MDAPIParameters*)parametersWithParameters:(MDAPIParameters*)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
+
+/**
+ * Combine several parameters into one.
+ *
+ * @param parameters An array of parameters to combine.
+ * @return An instance with the combination of all parameter collections.
+ */
++ (MDAPIParameters*)parametersWithParameterArray:(NSArray<MDAPIParameters *> *)parameters;
 
 /**
  * Add custom parameters from a dictionary.
@@ -171,11 +183,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Sorting parameters.
  *
+ * @param sortParams An array of sorting parameters. The array order is preserved. i.e.: [ { "_id": 1, "name": -1 }].
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.sort={ sort params here }
+ * @result The parameter collection containing a parameter that will sort the results.
+ */
++ (MDAPIParameters*)parametersWithOrderedSort:(NSArray<NSDictionary*>*)sortParams prefixPath:(nullable NSString*)prefixPath;
+
+/**
+ * Sorting parameters.
+ *
+ * Note: Building sort parameters with this method doesn't ensure sort parameter order since NSDictionary doesn't ensure key order.
+ *          It is recommended to use the `parametersWithOrderedSort:prefixPath:` instead.
+ *
  * @param sortParams Sorting parameters.
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.sort={ sort params here }
  * @result The parameter collection containing a parameter that will sort the results.
  */
-+ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams prefixPath:(nullable NSString*)prefixPath;
++ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams prefixPath:(nullable NSString*)prefixPath DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use parametersWithOrderedSort:prefixPath instead");
 
 /**
  * Filtering queries.
@@ -261,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param where Sorting filter parameters.
  * @result The parameter collection containing a parameter that will sort and filter results.
  */
-+ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams where:(NSDictionary*)where;
++ (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams where:(NSDictionary*)where DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use parametersOrderedWithSort:prefixPath: or parametersWithWhere:prefixPath: instead");
 
 /**
  * Creates a parameter with a reason for archiving the object.

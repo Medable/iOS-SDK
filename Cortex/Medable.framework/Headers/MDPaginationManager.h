@@ -36,13 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @param pageSize The size of the page.
  * @param cacheResults Specifies whether to cache the results or not.
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
- * @return Initialized instance.
+ * @return Initialized instance. `nil` if a paginator with the same `identifier` already exists.
  */
-+ (MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
-                                        context:(NSString *)context
-                                       pageSize:(NSUInteger)pageSize
-                                   cacheResults:(BOOL)cacheResults
-                                   inverseOrder:(BOOL)inverseOrder;
++ (nullable MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
+                                                 context:(NSString *)context
+                                                pageSize:(NSUInteger)pageSize
+                                            cacheResults:(BOOL)cacheResults
+                                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience initializer to paginate list properties.
@@ -56,15 +56,15 @@ NS_ASSUME_NONNULL_BEGIN
  * @param pageSize The size of the page.
  * @param cacheResults Specifies whether to cache the results or not.
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
- * @return Initialized instance.
+ * @return Initialized instance. `nil` if a paginator with the same `identifier` already exists.
  */
-+ (MDPaginationHelper *)listPropertyPaginatorWithIdentifier:(NSString *)identifier
-                                                    context:(NSString *)context
-                                                   objectId:(MDObjectId *)objectId
-                                               listProperty:(NSString *)listProperty
-                                                   pageSize:(NSUInteger)pageSize
-                                               cacheResults:(BOOL)cacheResults
-                                               inverseOrder:(BOOL)inverseOrder;
++ (nullable MDPaginationHelper *)listPropertyPaginatorWithIdentifier:(NSString *)identifier
+                                                             context:(NSString *)context
+                                                            objectId:(MDObjectId *)objectId
+                                                        listProperty:(NSString *)listProperty
+                                                            pageSize:(NSUInteger)pageSize
+                                                        cacheResults:(BOOL)cacheResults
+                                                        inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience initializer to paginate a list in a path.
@@ -76,13 +76,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @param pageSize The size of the page.
  * @param cacheResults Specifies whether to cache the results or not.
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
- * @return Initialized instance.
+ * @return Initialized instance. `nil` if a paginator with the same `identifier` already exists.
  */
-+ (MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
-                                           path:(NSString *)path
-                                       pageSize:(NSUInteger)pageSize
-                                   cacheResults:(BOOL)cacheResults
-                                   inverseOrder:(BOOL)inverseOrder;
++ (nullable MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
+                                                    path:(NSString *)path
+                                                pageSize:(NSUInteger)pageSize
+                                            cacheResults:(BOOL)cacheResults
+                                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Convenience initializer to paginate context objects with a different paging field other than _id.
@@ -93,14 +93,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param pageSize The size of the page.
  * @param cacheResults Specifies whether to cache the results or not.
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
- * @return Initialized instance.
+ * @return Initialized instance. `nil` if a paginator with the same `identifier` already exists.
  */
-+ (MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
-                                        context:(NSString *)context
-                                    pagingField:(NSString *)pagingField
-                                       pageSize:(NSUInteger)pageSize
-                                   cacheResults:(BOOL)cacheResults
-                                   inverseOrder:(BOOL)inverseOrder;
++ (nullable MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
+                                                 context:(NSString *)context
+                                             pagingField:(NSString *)pagingField
+                                                pageSize:(NSUInteger)pageSize
+                                            cacheResults:(BOOL)cacheResults
+                                            inverseOrder:(BOOL)inverseOrder;
 
 /**
  * Unavailable.

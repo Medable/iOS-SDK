@@ -1,5 +1,15 @@
 ## Cortex iOS
 
+#### v1.9.5
+
+- `MDAPIParameterFactory` 
+    - Added support for adding parameters from an array of parameters (Improving Swift support).
+    - Added ordered sort support for complex sort queries.
+    - `parametersWithSort` - marked as deprecated.
+- Bug fixes and improvements.
+
+---
+
 #### v1.9.4
 
 - `MDAPIClient` - File uploads for the `NSDictionary` approach of create/updateObject methods are now more flexible. Full documentation [here](https://docs.medable.com/docs/code-samples#section-file-upload).
