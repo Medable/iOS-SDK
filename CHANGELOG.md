@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.9.6
+
+- `MDAPIClient` - Added support for custom login routes, and custom login with optional HTTP headers.
+- `MDFault` - Better support for parsing XML errors coming from the server.
+
+---
+
 #### v1.9.5
 
 - `MDAPIParameterFactory` 

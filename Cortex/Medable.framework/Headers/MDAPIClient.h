@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Authentication
 
 /**
- *  Authenticates using email and password credentials, and returns the current account object.
+ *  Login using email and password credentials, and returns the current account object.
  *  @param email Account email
  *  @param password Account password
  *  @param token 2 factor authentication verification token
@@ -281,10 +281,34 @@ NS_ASSUME_NONNULL_BEGIN
               callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
 
 /**
- *  Logout an authenticated session client.
+ *  Login using a custom route by passing email and password credentials, and returns the current account object.
+ *
+ *  @param route Custom route to be used for login
+ *  @param email Account email
+ *  @param password Account password
+ *  @param token 2 factor authentication verification token
+ *  @param singleUse Single use
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)logout:(MDFaultCallback)callback;
+- (void)loginWithRoute:(NSString *)route
+                 email:(NSString*)email
+              password:(NSString*)password
+     verificationToken:(nullable NSString*)token
+             singleUse:(BOOL)singleUse
+              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
+
+/**
+ *  Custom Login using a custom route, custom body, and (optional) custom HTTP headers.
+ *
+ *  @param route Custom route to be used for login.
+ *  @param body Custom login request body.
+ *  @param customHTTPHeaders Custom HTTP headers can be included in a dictionary: key = header/field name, value = header/field value.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)loginWithRoute:(NSString *)route
+                  body:(NSDictionary *)body
+     customHTTPHeaders:(nullable NSDictionary<NSString *, NSString *> *)customHTTPHeaders
+              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
 
 /**
  *  Authenticates using email and password credentials, and returns the current account object.
@@ -299,6 +323,13 @@ NS_ASSUME_NONNULL_BEGIN
                    verificationToken:(nullable NSString*)token
                            singleUse:(BOOL)singleUse
                             callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+
+/**
+ *  Logout an authenticated session client.
+ *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)logout:(MDFaultCallback)callback;
+
 /**
  *  Requests a password reset.
  *  @param email Email of the associated account
