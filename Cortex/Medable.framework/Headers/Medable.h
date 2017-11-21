@@ -21,6 +21,7 @@
 // Utils
 #import "MDDataFriendly.h"
 #import "MDDateUtilities.h"
+#import "MDAPIPathFactory.h"
 #import "MDAPIParameterFactory.h"
 #import "MDContentDownloader.h"
 #import "MDDataValidator.h"

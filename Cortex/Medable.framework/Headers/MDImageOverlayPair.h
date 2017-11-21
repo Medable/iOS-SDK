@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDImageOverlayPair : NSObject
 
 @property (nonatomic, readonly) UIImage* image;

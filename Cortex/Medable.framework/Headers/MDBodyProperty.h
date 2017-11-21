@@ -7,6 +7,8 @@
 
 #import "MDBaseBodyProperty.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MDPropertyDefinition;
 
 /**
@@ -17,10 +19,21 @@
 @interface MDBodyProperty : MDBaseBodyProperty
 
 /**
+ * Convenience initializer for body properties with their definition.
+ *
+ * @param propertyDefinition The MDPropertyDefinition instance representing the property this instance will contain. Use MDSchemaManager to get object and property definitions.
+ * @return Initialized instance.
+ */
++ (instancetype)bodyPropertyWithDefinition:(MDPropertyDefinition *)propertyDefinition;
+
+/**
  * Initialize body properties with their definition.
  *
- * @param propertyDefinition The MDPropertyDefinition instance representing the property this instance will contain.
+ * @param propertyDefinition The MDPropertyDefinition instance representing the property this instance will contain. Use MDSchemaManager to get object and property definitions.
+ * @return Initialized instance.
  */
 - (instancetype)initWithPropertyDefinition:(MDPropertyDefinition *)propertyDefinition;
 
 @end
+
+NS_ASSUME_NONNULL_END

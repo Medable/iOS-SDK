@@ -2,12 +2,13 @@
 //  MDFilePropertyInstance.h
 //  Medable
 //
-
 //  Copyright (c) 2015 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "MDFacet.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class MDFileUpload;
 
@@ -16,11 +17,15 @@
  */
 @interface MDFilePropertyValue : MDFacet
 
-/// Array of MDFileUpload instances, this contains temporary information regarding where to upload files for this property.
-@property (nonatomic, readonly) NSArray *uploads;
+/**
+ * Array of pending file uploads.
+ */
+@property (nullable, nonatomic, readonly) NSArray<MDFileUpload *> *uploads;
 
-/// Array of MDFacet objects.
-@property (nonatomic, readonly) NSArray *facets;
+/**
+ * Array of facets.
+ */
+@property (nonatomic, readonly) NSArray<MDFacet *> *facets;
 
 
 // unavailable
@@ -35,14 +40,14 @@
  * @param name The name used as the value of a facet when posting or editing a File property.
  * @return The file upload information for this facet.
  */
-- (MDFileUpload *)uploadForName:(NSString *)name;
+- (nullable MDFileUpload *)uploadForName:(NSString *)name;
 
 /**
  * Pending uploads for this File property.
  *
  * @return The pending uploads for this File property.
  */
-- (NSArray<MDFileUpload *> *)pendingUploads;
+- (nullable NSArray<MDFileUpload *> *)pendingUploads;
 
 /**
  * Get the File's facet that matches a certain name.
@@ -50,6 +55,16 @@
  * @param name The name of the facet.
  * @return The facet object representing that facet.
  */
-- (MDFacet *)facetForName:(NSString *)name;
+- (nullable MDFacet *)facetForName:(NSString *)name;
+
+/**
+ * Get the File's facet for a pending upload.
+ *
+ * @param upload The upload object.
+ * @return The facet object for that upload.
+ */
+- (nullable MDFacet *)facetForUpload:(MDFileUpload *)upload;
 
 @end
+
+NS_ASSUME_NONNULL_END

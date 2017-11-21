@@ -1,5 +1,39 @@
 ## Cortex iOS
 
+#### v1.9.7
+
+- `MDAPIClient` 
+   - `downloadFileAtPath` - Support for other than images.
+   - Don't compress jpeg images before uploading.
+   - Better documentation.
+- `MDUploadOperation` 
+   - Added refresh upload headers mechanism --this is automatic.
+   - Better documentation. 
+   - Added annotations to avoid instance creation.
+- `MDFileUpload` 
+   - Added nullability annotations. 
+   - Better documentation.
+- `MDAPIParameters` 
+   - Added basic support for pipelines.
+   - Improvements.
+   - Marked some factory methods as deprecated. Will be removed in a future version.
+- `MDAttachmentMaps` 
+   - Marked as deprecated. 
+- `MDImageOverlayPair` 
+   - Marked as deprecated.
+- `MDFileBodyProperty` 
+   - Return the generated file name to be able to map the upload with the notifications from `MDUploadOperations`.
+- `MDFilePropertyValue` 
+   - Better typing for array properties.
+- `MDFacet` 
+   - Added nullability annotations. Changed the type of isPrivate from `BOOL` to `NSNumber`. Better documentation. 
+- `MDFilePropertyValue` 
+   - Better typing for array properties. Added nullability annotations. Fixed documentation. 
+- `MDBodyProperty` 
+   - Added convenience initializer.
+
+---
+
 #### v1.9.6
 
 - `MDAPIClient` - Added support for custom login routes, and custom login with optional HTTP headers.

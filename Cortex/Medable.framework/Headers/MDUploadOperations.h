@@ -22,31 +22,56 @@ extern NSString *const kOperationProgressChangedNotification;
  */
 @interface MDUploadOperation : NSObject
 
-///The underlying url session data task.
+/**
+ * The underlying url session data task.
+ */
 @property (nonatomic, readonly) NSURLSessionDataTask *operation;
 
-/// The operation's name.
+/**
+ * The operation's name.
+ */
 @property (nonatomic, readonly) NSString *name;
 
-/// The number representing it's progress [0..1].
+/**
+ * The number representing it's progress [0..1].
+ */
 @property (nonatomic, readonly) NSNumber *progressNumber;
 
-/// The name of the file being uploaded.
+/**
+ * The name of the file being uploaded.
+ */
 @property (nonatomic, readonly) NSString *fileName;
 
-/// The body of this request.
+/**
+ * The body of this request.
+ */
 @property (nonatomic, readonly) NSDictionary *body;
 
-/// The binary blob of data being uploaded.
+/**
+ * The binary blob of data being uploaded.
+ */
 @property (nonatomic, readonly) NSData *data;
 
-/// The mime type of the file being uploaded.
+/**
+ * The mime type of the file being uploaded.
+ */
 @property (nonatomic, readonly) NSString *mimeType;
 
-/// The NSProgress object associated with the operation.
+/**
+ * The NSProgress object associated with the operation.
+ */
 @property (nullable, nonatomic, readonly) NSProgress *operationProgress;
 
-@property (nonatomic, readonly) id responseObject;
+/**
+ * The upload request's response object, in both cases, success and failure.
+ */
+@property (nullable, nonatomic, readonly) id responseObject;
+
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -56,10 +81,22 @@ extern NSString *const kOperationProgressChangedNotification;
  */
 @interface MDUploadOperations : NSObject
 
-/// Singleton instance.
+/**
+ * Singleton instance.
+ */
 + (MDUploadOperations *)instance;
 
-/// List of file operations that are currently uploading a file.
+// unavailable
++ (instancetype)new NS_UNAVAILABLE;
+
+// unavailable init
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ * List of file operations that are currently uploading a file.
+ *
+ * @return The list of file operations that are currently uploading a file.
+ */
 + (NSArray<MDUploadOperation *> *)ongoingOperations;
 
 /** 
@@ -67,6 +104,8 @@ extern NSString *const kOperationProgressChangedNotification;
  *
  * After completion, the operation objects will stay in this list for at least 10 seconds.
  * After this time, they'll be removed from the list.
+ *
+ * @return The list of recently completed operations.
  */
 + (NSArray<MDUploadOperation *> *)completedOperations;
 
@@ -75,10 +114,14 @@ extern NSString *const kOperationProgressChangedNotification;
  *
  * After failing, the operation objects will stay in this list for at least 1 minute.
  * After this time, they'll be removed from the list.
+ *
+ * @return The list of recently failed operations. Use this list to retry them if needed.
  */
 + (NSArray<MDUploadOperation *> *)failedOperations;
 
-/// Clear all operations from every queue. Ongoing operations won't be interrupted.
+/**
+ * Clear all operations from every queue. Ongoing operations won't be interrupted.
+ */
 + (void)flushOperations;
 
 /**

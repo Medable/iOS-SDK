@@ -2,49 +2,16 @@
 //  MDAPIParameterFactory.h
 //  Medable
 //
-
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "MDPropertyDefinition.h"
 
 @class MDObjectId;
 @class MDAccountRole;
 
-#import "MDPropertyDefinition.h"
-
-
 NS_ASSUME_NONNULL_BEGIN
-
-/**
- * Helper class to assemble path strings.
- */
-@interface MDAPIPathFactory : NSObject
-
-/**
- * Construct a path string from it's path components.
- *
- * @param pathComponents Array of individual path components.
- * @return The string representing the assembled path.
- */
-+ (NSString*)pathStringWithComponents:(NSArray*)pathComponents;
-
-
-/**
- * Construct a path string from it's path components.
- *
- * @param pathComponent variadic list of components. Requires nil termination.
- * @return The string representing the assembled path.
- */
-+ (NSString*)pathWithComponents:(NSString*)pathComponent, ... NS_REQUIRES_NIL_TERMINATION;
-
-// unavailable
-+ (instancetype)new NS_UNAVAILABLE;
-
-// unavailable init
-- (instancetype)init NS_UNAVAILABLE;
-
-@end
 
 /**
  * Represents a collection of API parameters. These can be composed and aggregated on.
@@ -57,24 +24,29 @@ NS_ASSUME_NONNULL_BEGIN
  * @param parameters The other parameter collection.
  */
 - (void)addParameters:(MDAPIParameters*)parameters;
-- (void)addParametersWithParameters:(MDAPIParameters*)parameters DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use `addParameters:` instead.");;
+- (void)addParametersWithParameters:(MDAPIParameters*)parameters DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use `addParameters:` instead.");
 
 /**
- * Add parameters from a dictionary instead of another collection.
+ * Add parameters from a dictionary.
  *
- * @param parameters The parameter collection in a dictionary format.
+ * @param parameters The parameter collection in a dictionary format. key = parameter name, value = parameter value.
  */
-- (void)addParametersWithDictionary:(NSDictionary*)parameters;
+- (void)addParametersWithDictionary:(NSDictionary *)parameters;
 
 /**
- * @returns the current parameters in NSDictionary format.
+ * Current aggregated parameters in NSDicitionary format. Useful for debugging purposes.
+ *
+ * @returns the current aggregated parameters in NSDictionary format.
  */
-- (NSDictionary*)apiParameters;
+- (NSDictionary *)apiParameters;
 
 /**
- * @returns the current parameters in NSDictionary format transformed to be used as query parameters
+ * Current parameters in a format used by `MDAPIClient` internally for making the service calls.
+ *
+ * @returns The current parameters a format used by `MDAPIClient` internally for making the service calls.
  */
-- (NSDictionary*)apiParametersAsQueryValues;
+- (NSObject *)apiParametersForHTTPRequest;
+
 @end
 
 /**
@@ -109,12 +81,36 @@ NS_ASSUME_NONNULL_BEGIN
 + (MDAPIParameters*)parametersWithCustomParameters:(NSDictionary*)customParameters;
 
 /**
+ * Add custom parameters from an array.
+ *
+ * @param customParameters The parameters array.
+ * @return The instance representing the parameters in the array.
+ */
++ (MDAPIParameters*)parametersWithArrayParameters:(NSArray*)customParameters;
+
+/**
+ * Add custom parameters from a "primitive". This is used in request body contents.
+ *
+ * @param primitive The primitive represented as a `NSNumber`. i.e.: true/false, 1, 34.55, etc.
+ * @return The instance representing the parameters.
+ */
++ (MDAPIParameters*)parametersWithPrimitive:(NSNumber *)primitive;
+
+/**
+ * Add custom parameters from a "primitive". This is used in request body contents.
+ *
+ * @param primitive The primitive represented as a `NSString`. i.e.: "something".
+ * @return The instance representing the parameters.
+ */
++ (MDAPIParameters*)parametersWithStringPrimitive:(NSString *)primitive;
+
+/**
  * Adding this parameter will filter results by a minimum access level.
  *
  * @param accessLevel The minium access level to filter with.
  * @result The paramter collection containing the minimum access level parameter only.
  */
-+ (MDAPIParameters*)parametersWithminimumAccessLevel:(MDACLLevel)accessLevel;
++ (MDAPIParameters*)parametersWithMinimumAccessLevel:(MDACLLevel)accessLevel DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter with a list of paths to expand from referenced ids. See each context object for
@@ -144,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.include[]=pathsValues
  * @result The parameter collection containing all the paths limitations.
  */
-+ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths prefixPath:(nullable NSString*)prefixPath;;
++ (MDAPIParameters*)parametersWithLimitPaths:(NSArray*)paths prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Creates a parameter with a limit on the resulting list.
@@ -204,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Filtering queries.
  *
- * @param where Sorting filter parameters.
+ * @param where Where filter parameters.
  * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.where={ where params here }
  * @result The parameter collection containing a parameter that will filter results.
  */
@@ -271,12 +267,23 @@ NS_ASSUME_NONNULL_BEGIN
 + (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName sizeMatches:(NSNumber*)size prefixPath:(nullable NSString*)prefixPath;
 
 /*
- * Selects documents where all properties of an array of document properties match the passed in expression. 
+ * Selects documents where all properties of an array of document properties match the passed in expression.
  *  $elemMatch does not limit the results within the array, but filters the entire document for contained entries.
  *
  * Produces prefixPath.where={"propertyName": {"$elemMatch": { "propName1": "value1", ..., "propNameN": "valuen" } }}
  */
 + (MDAPIParameters*)parametersWithPropertyName:(NSString*)propertyName elemMatches:(NSDictionary*)elemMatches prefixPath:(nullable NSString*)prefixPath;
+
+/*
+ * Pipeline aggregation.
+ *
+ * For more information, please refer to: https://docs.medable.com/reference#pipeline .
+ *
+ * @param stages An array with the pipeline stages.
+ * @param prefixPath A dot separated string path to prefix the operator. i.e. prefix.path.to.property.pipeline=[ { stage 1}, ..., { stageN } ]
+ * @result The generated pipeline parameter.
+ */
++ (MDAPIParameters*)parametersWithPipelineStages:(NSArray<NSDictionary *> *)stages prefixPath:(nullable NSString*)prefixPath;
 
 /**
  * Sorting and filtering queries.
@@ -288,14 +295,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (MDAPIParameters*)parametersWithSort:(NSDictionary*)sortParams where:(NSDictionary*)where DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version. Use parametersOrderedWithSort:prefixPath: or parametersWithWhere:prefixPath: instead");
 
 /**
- * Creates a parameter with a reason for archiving the object.
- *
- * @param reason The reason for archiving.
- * @result The parameter collection containing a parameter that provide a reason for achiving.
- */
-+ (MDAPIParameters*)parametersWithArchiveObjectReason:(NSString*)reason;
-
-/**
  * Creates a parameter with a set of include and/or exclude post types.  Both parameters
  * are optional, but at least one must include one or more elements.
  *
@@ -304,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @result The parameter collection containing a the list of include and/or exclude post types.
  */
 + (MDAPIParameters*)parametersWithIncludePostTypes:(nullable NSArray*)includePostTypes
-                                  excludePostTypes:(nullable NSArray*)excludePostTypes;
+                                  excludePostTypes:(nullable NSArray*)excludePostTypes DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit objects with a particular favorite value.
@@ -312,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param favorites Whether it should target favorited or not favorited objects.
  * @result The parameter collection containing a parameter specifying whether results should be favorited ones or not.
  */
-+ (MDAPIParameters*)parametersWithFavorites:(BOOL)favorites;
++ (MDAPIParameters*)parametersWithFavorites:(BOOL)favorites DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the result to a certain set of objects.
@@ -320,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param objects The list of objects to limit the results to.
  * @result The parameter collection containing a parameter specifying which objects to limit results to.
  */
-+ (MDAPIParameters*)parametersWithObjects:(NSArray*)objects;
++ (MDAPIParameters*)parametersWithObjects:(NSArray*)objects DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the list of connections to those in a pending or active state.
@@ -328,7 +327,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectionState The state of the connection to limit the results to.
  * @result The parameter collection containing a parameter specifying which connection state to limit results to.
  */
-+ (MDAPIParameters*)parametersWithConnectionState:(MDConnectionState)connectionState;
++ (MDAPIParameters*)parametersWithConnectionState:(MDConnectionState)connectionState DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the list of connections to those in a particular pending state.
@@ -337,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param pendingConnectionType The state of the connection to limit the results to.
  * @result The parameter collection containing a parameter specifying which connection state to limit results to.
  */
-+ (MDAPIParameters*)parametersWithPendingConnectionType:(MDPendingConnectionType)pendingConnectionType;
++ (MDAPIParameters*)parametersWithPendingConnectionType:(MDPendingConnectionType)pendingConnectionType DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the results to those involving the specified account. Cannot be combined with the “patientFile”
@@ -346,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param accountId The account Id to limit to.
  * @result The parameter collection containing a parameter specifying which account to limit results to.
  */
-+ (MDAPIParameters*)parametersWithAccountId:(MDObjectId*)accountId;
++ (MDAPIParameters*)parametersWithAccountId:(MDObjectId*)accountId DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the results to those posts created by the specified account id. Cannot be combined
@@ -355,14 +354,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param accountId The account Id to limit to.
  * @result The parameter collection containing a parameter specifying which account to limit results to.
  */
-+ (MDAPIParameters*)parametersWithCreatorId:(MDObjectId*)accountId;
++ (MDAPIParameters*)parametersWithCreatorId:(MDObjectId*)accountId DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the results by excluding the caller.
  *
  * @result The parameter collection containing a parameter specifying to filter out the caller in the results.
  */
-+ (MDAPIParameters*)parametersWithFilterCaller;
++ (MDAPIParameters*)parametersWithFilterCaller DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to limit the results by only including the targeted IDs.
@@ -370,16 +369,16 @@ NS_ASSUME_NONNULL_BEGIN
  * @param postTargetsIdsArray A list of post targets. Only targeted posts where all the participants are included will be returned.
  * @result The parameter collection containing a parameter specifying to include only targeted posts.
  */
-+ (MDAPIParameters*)parametersWithPostTargets:(NSArray*)postTargetsIdsArray;
++ (MDAPIParameters*)parametersWithPostTargets:(NSArray*)postTargetsIdsArray DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
- * Creates a parameter to limit the results by only including a patient file. annot be combined with 
+ * Creates a parameter to limit the results by only including a patient file. annot be combined with
  * the “account” argument, which it supersedes.
  *
  * @param patientFileId The patient you wish to filter for.
  * @result The parameter collection containing a parameter specifying to include only a certain patient file.
  */
-+ (MDAPIParameters*)parametersWithPatientFileId:(MDObjectId*)patientFileId;
++ (MDAPIParameters*)parametersWithPatientFileId:(MDObjectId*)patientFileId DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a parameter to specify a notification type.
@@ -387,255 +386,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param notificationType The type (ObjectId) of the notifications.
  * @result The parameter specifying the type of notifications.
  */
-+ (MDAPIParameters*)parametersWithNotificationType:(MDObjectId*)notificationType;
++ (MDAPIParameters*)parametersWithNotificationType:(MDObjectId*)notificationType DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 // unavailable init
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
 
-/**
- * Helper class to check whether property values are accepted as proper values given a property definition.
- */
-@interface MDCustomClassParameterFactory : NSObject
-
-/**
- * Check the validity of any value to see if it can be used as the value of a given property. If so,
- * return the original.
- *
- * The checks performed follow a best effort approach and don't ensure the values will ultimately be
- * accepted by the backend. This is because many properties have value restrictions of varying complexity,
- * which may include valid ranges or javascript code to control the value's validity.
- *
- * Methods here perform mostly type checking tests.
- *
- * There is a correspondance between the original property definition type and the type of the value
- * being passed. These types should be self explanatory:
- *      `MDPropertyTypeBoolean`
- *      `MDPropertyTypeAny`
- *      `MDPropertyTypeDate`
- *      `MDPropertyTypeDocument`
- *      `MDPropertyTypeFile`
- *      `MDPropertyTypeNumber`
- *      `MDPropertyTypeObjectId`
- *      `MDPropertyTypeReference`
- *      `MDPropertyTypeString`
- *      Arrays
- *
- * @param propertyDefinition The property definition for the custom class we are checking.
- * @param value The value to check.
- * @return The passed value if the check holds, nil otherwise.
- */
-+ (nullable id)checkPropertyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(id)value;
-
-/**
- * Check the validity of an array for an array property type.
- * This method will do a recursive check on each individual item of the original to ensure it matches the
- * underlying property. For instance, if the original type is a String[] and the value parameter is an array
- * of several strings but one number, this method will ensure the check fails.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an Array type.
- * @param value The value to check.
- * @return The passed array value if the check holds, nil otherwise.
- */
-+ (nullable NSArray *)checkArrayValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSArray *)value;
-
-#pragma mark - Basic Types
-
-/**
- * Check the validity of a String for a string property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an String type.
- * @param value The value to check.
- * @return The passed string value if the check holds, nil otherwise.
- */
-+ (nullable NSString *)checkStringValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
-
-/**
- * Check the validity of a Number for a number property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an Number type.
- * @param value The value to check.
- * @return The passed number value if the check holds, nil otherwise.
- */
-+ (nullable NSNumber *)checkNumberValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
-
-/**
- * Check the validity of a boolean value (represented by a number) for a boolean property definition. This will
- * not control any restrictions this value may have, only that the type of value corresponds to the expectations
- * of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an Bool type.
- * @param value The value to check.
- * @return The passed number value if the check holds, nil otherwise.
- */
-+ (nullable NSNumber *)checkBoolValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSNumber *)value;
-
-/**
- * Check the validity of a Dictionary for a property definition of type Any. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an Any type.
- * @param value The value to check.
- * @return The passed dictionary value if the check holds, nil otherwise.
- */
-+ (nullable NSDictionary *)checkAnyValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
-
-/**
- * Check the validity of a Dictionary for a Document property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to a Document type.
- * @param value The value to check.
- * @return The passed dictionary value if the check holds, nil otherwise.
- */
-+ (nullable NSDictionary *)checkDocumentValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
-
-/**
- * Check the validity of a Date represented as a string for a date property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to a Date type.
- * @param value The string value to check.
- * @return The passed date value (in a string format) if the check holds, nil otherwise.
- */
-+ (nullable NSString *)checkDateValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
-
-/**
- * Check the validity of a String for an ObjectID property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an String type.
- * @param value The value to check.
- * @return The passed string value if the check holds, nil otherwise.
- */
-+ (nullable NSString *)checkObjectIdValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
-
-/**
- * Check the validity of a String for a reference property definition. This will not control any restrictions
- * this value may have, only that the type of value corresponds to the expectations of the property definition.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to an Reference type.
- * @param value The value to check.
- * @return The passed string value if the check holds, nil otherwise.
- */
-+ (nullable NSString *)checkReferenceValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSString *)value;
-
-/**
- * Check the validity of a Dictionary for a File property definition. This will control any mime type restrictions
- * this value may have.
- *
- * As an example, if a File's facet is expending a png overlay image but this passes a an UIImage alongside a .jpg
- * mime type, the checks will fail and the method returns nil.
- *
- * @param propertyDefinition The property definition for the custom class we are checking, should
- *  correspond to a File type.
- * @param value The value to check.
- * @return The passed dictionary value if the check holds, nil otherwise.
- */
-+ (nullable NSDictionary *)checkFileValueForProperty:(MDPropertyDefinition *)propertyDefinition withValue:(NSDictionary *)value;
-
-@end
-
-/**
- * Wrapper for the body of a custom class parameter when creating or modifying instances.
- *
- * @see -addValue:forProperty:
- */
-typedef NSMutableDictionary MDCustomClassParameter;
-
-/**
- * Wrapper for the body of a File property's value.
- *
- * @see -addImage:forFacetNamed:
- * @see -addImageAsJpeg:compressionQuality:forFacetNamed:inProperty:
- * @see -addImageAsPng:forFacetNamed:inProperty:
- * @see -addData:withMimeType:forFacetNamed:inProperty:
- */
-typedef NSMutableDictionary MDFileParameterValue;
-
-/**
- * Parameter assembly extensions for mutable dictionaries.
- */
-@interface NSMutableDictionary(MDExtensions)
-
-#pragma mark - Custom Class Body
-
-/**
- * Add a value to a custom class body parameter for a certain property, as given by it's definition.
- *
- * @param value The value being set for the property.
- * @param propertyDefinition The property's definition.
- * @return True if the value checks out for the property and was added to the body, False otherwise.
- */
-- (BOOL)addValue:(id)value forProperty:(MDPropertyDefinition *)propertyDefinition;
-
-#pragma mark - File Properties
-
-/**
- * Add an image to File parameter's body for a certain facet. This method will check the expected mime type
- * and attempt to pass the parameter along those expectations.
- *
- * @param image The UIImage object.
- * @param facet The name of the facet in the File property.
- * @param propertyDefinition The property's definition.
- * @return True if the value checks out for the facet in the property and it was added to the body, False otherwise.
- */
-- (BOOL)addImage:(UIImage *)image
-   forFacetNamed:(NSString *)facet
-      inProperty:(MDPropertyDefinition *)propertyDefinition;
-
-/**
- * Add an image as .jpg to nthe File parameter's body for a certain facet.
- *
- * @param image The UIImage object.
- * @param compression A value between 0 and 1 representing the image's compression quality.
- * @param facet The name of the facet in the File property.
- * @param propertyDefinition The property's definition.
- * @return True if the image was added to the body, False otherwise.
- */
-- (BOOL)addImageAsJpeg:(UIImage *)image
-    compressionQuality:(CGFloat)compression
-         forFacetNamed:(NSString *)facet
-            inProperty:(MDPropertyDefinition *)propertyDefinition;
-
-/**
- * Add an image as .png to File parameter's body for a certain facet.
- *
- * @param image The UIImage object.
- * @param facet The name of the facet in the File property.
- * @param propertyDefinition The property's definition.
- * @return True if the image was added to the body, False otherwise.
- */
-- (BOOL)addImageAsPng:(UIImage *)image
-        forFacetNamed:(NSString *)facet
-           inProperty:(MDPropertyDefinition *)propertyDefinition;
-
-/**
- * Add a binary data blob with a certain mime type to the facet value in a File's body.
- *
- * @param data The binary data blob.
- * @param mimeType The mime type of this data.
- * @param facet The name of the facet in the File property.
- * @param propertyDefinition The property's definition.
- * @return True if the data parameter was added properly, False otherwise.
- */
-- (BOOL)addData:(NSData *)data
-   withMimeType:(NSString *)mimeType
-  forFacetNamed:(NSString *)facet
-     inProperty:(MDPropertyDefinition *)propertyDefinition;
-
-@end
-
 NS_ASSUME_NONNULL_END
+

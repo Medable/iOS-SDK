@@ -119,6 +119,8 @@ extern NSString* const kAllOperator;
 extern NSString* const kSizeOperator;
 extern NSString* const kElementMatchOperator;
 extern NSString* const kTz;
+extern NSString* const kRefreshKey;
+extern NSString* const kPipelineKey;
 
 #pragma mark - Bundle
 extern NSString* const kVersionKey;

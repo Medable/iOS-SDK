@@ -10,7 +10,7 @@
 /**
  * Helper to construct post segment parameters.
  */
-
+DEPRECATED_MSG_ATTRIBUTE("This class will be removed in future versions.")
 @interface MDAttachmentMaps : NSObject
 
 /*

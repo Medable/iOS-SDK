@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * A Facet is essentially a File's subproperty and in itself represents a single file.
  *
@@ -19,16 +21,24 @@
  */
 @interface MDFacet : NSObject
 
-/// ETag or hash value. This shouldn't concern most users but it's used by the system to know when to update a file.
-@property (nonatomic, readonly) NSString *ETag;
+/**
+ * ETag or hash value. This shouldn't concern most users but it's used by the system to know when to update a file.
+ */
+@property (nullable, nonatomic, readonly) NSString *ETag;
 
-/// The URL of this facet. Note: This is not always present.
-@property (nonatomic, readonly) NSURL *url;
+/**
+ * The URL of this facet. Note: This is not always present.
+ */
+@property (nullable, nonatomic, readonly) NSURL *url;
 
-/// The path of this facet. i.e.: context name/object Id/property name or path to property/facet name, etc
+/**
+ * The path of this facet. i.e.: context name/object Id/property name or path to property/facet name, etc
+ */
 @property (nonatomic, readonly) NSString *path;
 
-/// Facet's name.
+/**
+ * Facet's name.
+ */
 @property (nonatomic, readonly) NSString *name;
 
 /**
@@ -39,22 +49,34 @@
  */
 @property (nonatomic, readonly) MDFileState state;
 
-/// Location.
+/**
+ * Location.
+ */
 @property (nonatomic, readonly) NSNumber* location;
 
-/// Mime type. Examples include "image/jpeg".
-@property (nonatomic, readonly) NSString* mime;
+/**
+ * Mime type.
+ */
+@property (nullable, nonatomic, readonly) NSString* mime;
 
-/// Number of bytes.
-@property (nonatomic, readonly) NSNumber* size;
+/**
+ * Number of bytes.
+ */
+@property (nullable, nonatomic, readonly) NSNumber* size;
 
-/// Creator for the content of this facet.
+/**
+ * Creator for the content of this facet.
+ */
 @property (nonatomic, readonly) MDObjectId* creator;
 
-/// Whether it's a private facet.
-@property (nonatomic, readonly) BOOL isPrivate;
+/**
+ * Whether it's a private facet.
+ */
+@property (nullable, nonatomic, readonly) NSNumber *isPrivate;
 
-/// Constructed by using path+ETag, will end with kUnknownETag if it's unknown.
+/**
+ * Constructed by using path+ETag, will end with kUnknownETag if it's unknown.
+ */
 @property (nonatomic, readonly) NSString *fileName;
 
 
@@ -96,8 +118,30 @@
  * do so and backend image is updated in the interim, then the cache will be out of sync with the backend
  * and the SDK will serve the incorrect image.
  */
+
+/**
+ * Cache image in local cache
+ *
+ * @param image The image to be encrypted and cached in local cache.
+ */
 - (void)cacheImage:(UIImage *)image;
+
+/**
+ * Cache image in local cache
+ *
+ * @param image The image to be encrypted and cached in local cache.
+ * @param finishBlock Callback block called after the image has been cached, or if an error occurred. The callback block's parameter is a BOOL and indicates 'success'.
+ */
 - (void)cacheImage:(UIImage *)image finishBlock:(MDBoolCallback)finishBlock;
+
+/**
+ * Cache data in local cache
+ *
+ * @param data The data to be encrypted and cached in local cache.
+ * @param finishBlock Callback block called after the image has been cached, or if an error occurred. The callback block's parameter is a BOOL and indicates 'success'.
+ */
 - (void)cacheData:(NSData *)data finishBlock:(MDBoolCallback)finishBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

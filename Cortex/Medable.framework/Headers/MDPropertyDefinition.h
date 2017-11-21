@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MDObjectId;
 @class MDBaseDefinition;
 
 /**

@@ -817,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Object
 
 /**
- * Create a new object
+ * Create a new object using a NSDictionary body
  *
  * @param context The object type.
  * @param body The information of the new object. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
@@ -828,7 +828,7 @@ NS_ASSUME_NONNULL_BEGIN
                        callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
- * Create a new object
+ * Create a new object using a MDBody body
  *
  * @param context The object type.
  * @param body The representation for the new object in it's body format.
@@ -898,7 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
                  callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
- * Updates a context object
+ * Update a context object using a NSDictionary body
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
  *  @param body Object properties that are updated. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
@@ -910,7 +910,7 @@ NS_ASSUME_NONNULL_BEGIN
                        callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
- * Updates a context object
+ * Update a context object using a MDBody body
  *  @param context Context (required)
  *  @param objectId Context ObjectId (required)
  *  @param bodyObj Body object properties that are to be updated
