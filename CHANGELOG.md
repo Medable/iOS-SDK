@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.8
+
+- Bug fixes and improvements.
+
 #### v1.9.7
 
 - `MDAPIClient` 
