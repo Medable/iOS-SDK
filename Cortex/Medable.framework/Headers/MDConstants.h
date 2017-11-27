@@ -315,7 +315,7 @@ extern NSString* const kLegalTargetNoneKey;
 extern NSString* const kLegalTargetAllKey;
 extern NSString* const kClientKey;
 
-#pragma mark - Server errors
+#pragma mark - #pragma mark - Medable Faults
 extern NSString* const kMDAPIErrorNewLocation;
 extern NSString* const kMDAPIErrorUnverifiedLocation;
 extern NSString* const kMDAPIErrorInvalidToken;
@@ -329,6 +329,7 @@ extern NSString* const kMDAPIErrorAccessDenied;
 extern NSString* const kMDAPIErrorInvalidCredentials;
 extern NSString* const kMDAPIErrorCallbackNotFound;
 extern NSString* const kMDAPIErrorInvalidFingerprint;
+extern NSString* const kMDAPIErrorMediaNotReady;
 
 #pragma mark - Local Faults
 extern NSString* const kLocalFaultName;

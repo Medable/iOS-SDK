@@ -5,6 +5,16 @@
 //  Copyright (c) 2014 Medable. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
+extern NSErrorDomain const MDAssetManagerErrorDomain;
+
+NS_ERROR_ENUM(MDAssetManagerErrorDomain)
+{
+    MDAssetManagerErrorUnknown =             -1,
+    MDAssetManagerErrorInvalidParameters =   -1000
+};
+
 /**
  * File manager to store encrypted files to persistent storage and (optionally) manage them
  * (unencrypted) in memory as well.
@@ -12,7 +22,7 @@
 @interface MDAssetManager : NSObject
 
 /// Singleton instance
-+ (nonnull MDAssetManager*)sharedManager;
++ (MDAssetManager*)sharedManager;
 
 /**
  *  Once an image is decrypted it keeps a reference to it, if somebody else asks for it
@@ -22,17 +32,18 @@
 @property (nonatomic, assign) BOOL useDecryptedDataMemoryCache;
 
 // unavailable
-+ (nonnull instancetype)new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 // use the singleton
-- (nonnull instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Check if a file is disk cached.
  *
  * @param fileName The name of the file.
+ * @return whether the file is cached.
  */
-- (BOOL)isFileCachedWithFileName:(nonnull NSString*)fileName;
+- (BOOL)isFileCachedWithFileName:(NSString*)fileName;
 
 /**
  * Get a file's data by retrieving it from it's most convenient location. Will pull from memory
@@ -41,8 +52,8 @@
  * @param fileName The name of the file.
  * @param callback The asynchronous callback block to be called after processing has completed.
  */
-- (void)dataFromFileWithName:(nonnull NSString*)fileName
-                    callback:(nonnull MDDataWithSourceOrFaultCallback)callback;
+- (void)dataFromFileWithName:(NSString*)fileName
+                    callback:(MDDataWithSourceOrFaultCallback)callback;
 
 /**
  * Conventional file moving which will also maintain internal consistencies in this class' instance.
@@ -52,7 +63,7 @@
  * @param destination Destination file.
  * @return True if the source file was moved successfully to it's destination, False otherwise.
  */
-- (BOOL)moveFile:(nonnull NSString*)origin to:(nonnull NSString*)destination;
+- (BOOL)moveFile:(NSString*)origin to:(NSString*)destination;
 
 /**
  * Store data to disk.
@@ -61,16 +72,16 @@
  * @param fileName The destination file.
  * @param finishBlock Asynchronous callback block to execute when processing is complete.
  */
-- (void)saveData:(nonnull NSData*)data
-        fileName:(nonnull NSString*)fileName
-     finishBlock:(nonnull MDBoolCallback)finishBlock;
+- (void)saveData:(NSData*)data
+        fileName:(NSString*)fileName
+     finishBlock:(MDBoolCallback)finishBlock;
 
 /**
  * Delete all files with file names matching a regular expression.
  *
  * @param regex The regular expression. All files that match this will be deleted.
  */
-- (void)deleteAllFilesMatchingRegularExpression:(nonnull NSRegularExpression*)regex;
+- (void)deleteAllFilesMatchingRegularExpression:(NSRegularExpression*)regex;
 
 /**
  * Remove all cached images from the decrypted memory cache.
@@ -78,3 +89,6 @@
 - (void)cleanMemoryCache;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
