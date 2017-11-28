@@ -4,7 +4,7 @@
 
 - Bug fixes and improvements.
 - `MDAssetManager` - Now supports caching of non-sensitive data in a non-encrypted cache for when there is no active session, that is, there is no logged in user.
-- `NSFileManager+Medable` - Added more helper methods to store non-encrypted data. Howerver if you want those to be cached by `MDAssetManager`, store the data through it.
+- `NSFileManager+Medable` - Added more helper methods to store non-encrypted data. However, if you want those to be cached by `MDAssetManager`, store the data through it.
 - `MDFacet` - Improvements and bug fixes on caching data.
 
 #### v1.9.8
