@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.10
+
+- `MDAPIClient` - Added support for Medable Faults in HTTP 200 responses. Cortex will call fault callbacks in these cases.
+
 #### v1.9.9
 
 - Bug fixes and improvements.
