@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  * This is the special call to update connections and be able to expand connections' subproperties, since it's not possible to do so using the synchronizeObjectWithParameters:callback: method.
  *
  * @param parameters Extra parameters in the API call.
- * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `connections` property.
+ * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are available through the `connections` property.
  */
 - (void)synchronizeConnectionsWithParameters:(nullable MDAPIParameters *)parameters
                                     callback:(nullable MDFaultCallback)callback;
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  * This is the special call to update posts and be able to expand posts' subproperties, since it's not possible to do so using the synchronizeObjectWithParameters:callback: method.
  *
  * @param parameters Extra parameters in the API call.
- * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are availble through the `posts` property.
+ * @param callback The asynchronous callback, called upon receiving a response from the backend. If no MDFault is received in the callback, the synchronized connections are available through the `posts` property.
  */
 - (void)synchronizePostsWithParameters:(nullable MDAPIParameters *)parameters
                               callback:(nullable MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");

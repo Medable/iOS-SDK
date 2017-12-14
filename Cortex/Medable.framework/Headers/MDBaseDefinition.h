@@ -138,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<MDPropertyDefinition *> *customProperties;
 
 /**
- Array of the subclass properties for this object sub classes.
+ Dictionary of the subclass properties for this object sub classes.
  
  This is a dictionary with subclass 'types' as keys and the subclass properties `MDObjectProperty` as values.
  */
@@ -169,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param name The property name.
  @param type The name of the subclass type (optional). Pass nil if it's not the case of a subclass or if you are looking for a non subclass property.
  
- @return YES if this class has property with this name.
+ @return YES if this class has a property with this name.
  */
 - (BOOL)hasPropertyWithName:(NSString*)name type:(nullable NSString*)type;
 

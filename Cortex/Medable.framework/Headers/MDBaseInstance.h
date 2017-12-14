@@ -9,7 +9,9 @@
 
 #import "MDBaseDefinition.h"
 #import "MDReference.h"
+#import "MDPropertyInstance.h"
 #import "MDFilePropertyValue.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -101,6 +103,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 // unavailable init
 - (nonnull instancetype)init NS_UNAVAILABLE;
+
+/**
+ * Get a property instance.
+ *
+ * @param name Property name.
+ * @return A PropertyInstance representing the property if found.
+ * @see PropertyInstance
+ */
+- (nullable MDPropertyInstance *)propertyWithName:(NSString *)name;
 
 /**
  * Get the value for a given property name. This name can correspond to either a base or custom property.

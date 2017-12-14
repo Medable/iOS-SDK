@@ -75,9 +75,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) NSNumber *isPrivate;
 
 /**
+ * The filename.
+ */
+@property (nullable, nonatomic, readonly) NSString *filename;
+
+/**
  * Constructed by using path+ETag, will end with kUnknownETag if it's unknown.
  */
-@property (nonatomic, readonly) NSString *fileName;
+@property (nonatomic, readonly) NSString *cacheFilename;
 
 
 // unavailable

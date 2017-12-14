@@ -81,12 +81,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Registers a context with a class.
  *
- *  Use this method to register custom classes to be used for when instanciating custom objects. If no class is registred for a context, instances of that context will be instances of `MDObjectInstance` objects.
+ *  Use this method to register custom classes to be used for when instantiating custom objects. If no class is registred for a context, instances of that context will be instances of `MDObjectInstance` objects.
  *
  *  @param context Singular context name. Required.
  *  @param pluralContext Plural context name. Required.
  *  @param type Optionally used for when there is a Medable object with a type and more than one class client side representing each one of those objects. For more information check the documentation here: https://docs.medable.com/reference#object-types .
- *  @param aClass Class to be used to instanciate custom objects with context or pluralContext. aClass must be a subclass of `MDObjectInstance`.
+ *  @param aClass Class to be used to instantiate custom objects with context or pluralContext. aClass must be a subclass of `MDObjectInstance`.
  *  @return Returns whether the registration was successful or not.
  */
 + (BOOL)registerContext:(NSString *)context pluralContext:(NSString *)pluralContext type:(nullable NSString *)type withClass:(Class)aClass;
@@ -163,6 +163,30 @@ NS_ASSUME_NONNULL_BEGIN
        parameters:(nullable MDAPIParameters *)parameters
           success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
           failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+
+
+#pragma mark - Custom HTTP headers
+
+/**
+ * Adds an HTTP header, it will be sent from the next request and on.
+ * @param name header name
+ * @param value header value
+ */
+- (void)addHTTPHeaderWithName:(NSString *)name value:(NSString *)value;
+
+/**
+ * Checks if headerName is currently sent as an HTTP header in every request.
+ * @param headerName the name of the HTTP header
+ * @return true if there is a header with that name, false otherwise.
+ */
+- (BOOL)containsHTTPHeaderWithName:(NSString *)headerName;
+
+/**
+ * Removes an HTTP header by name
+ * @param headerName the name of the HTTP header
+ * @return true if the header was removed, false otherwise.
+ */
+- (BOOL)removeHTTPHeaderWithName:(NSString *)headerName;
 
 
 #pragma mark - Root

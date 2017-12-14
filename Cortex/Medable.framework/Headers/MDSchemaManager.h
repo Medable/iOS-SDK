@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Retrieve the list (array) of object definitions for the current organization.
  
- This list is kept up to date with regards to the latests changes on the backend.
+ This list is kept up to date with regards to the latest changes on the backend.
  
  @param callback The callback where the NSArray and `MDFault` (if any) are returned.
  */

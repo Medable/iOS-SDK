@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.9.11
+
+- `MDAPIClient`
+   - Added support for custom HTTP headers.
+- `Facet` - Renamed 'filename' to 'cacheFilename' which was the generated file name used for the local cache, and added the real Facet 'filename' property.
+- Bug fixes and improvements.
+
 #### v1.9.10
 
 - `MDAPIClient` - Added support for Medable Faults in HTTP 200 responses. Cortex will call fault callbacks in these cases.
