@@ -1,5 +1,10 @@
 ## Cortex iOS
 
+#### v1.9.12
+
+- `NSData+Mime`: Added support for mimeExtension. Better mime detection.
+- `MDFileBodyProperty`: Added a method without mime, where mime detection is used.
+
 #### v1.9.11
 
 - `MDAPIClient`
