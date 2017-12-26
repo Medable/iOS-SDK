@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.13
+
+- Bug fixes and improvements.
+
 #### v1.9.12
 
 - `NSData+Mime`: Added support for mimeExtension. Better mime detection.
