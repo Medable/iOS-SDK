@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.16
+
+- Bug fixes and improvements.
+
 #### v1.9.15
 
 - `MDUploadOperations`
