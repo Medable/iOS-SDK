@@ -1,5 +1,10 @@
 ## Cortex iOS
 
+#### v1.9.14
+
+- `MDFileUpload`
+   - Added serialization/deserialization support.
+
 #### v1.9.13
 
 - Bug fixes and improvements.

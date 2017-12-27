@@ -80,6 +80,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)refreshUploadWithCallback:(MDBoolCallback)callback;
 
+
+#pragma mark - Serialization
+
+/**
+ * Creates a FileUpload from a valid serialized MDFileUpload dictionary.
+ * @return Initialized instance if info has valid information.
+ */
++ (instancetype)deserializedFileUploadWithInfo:(NSDictionary *)info;
+
+/**
+ * Serializes this instance of MDFileUpload into a dictionary.
+ * @return NSDictionary representation of this instance.
+ */
+- (NSDictionary *)serialize;
+
 @end
 
 NS_ASSUME_NONNULL_END
