@@ -67,6 +67,11 @@ extern NSString *const kOperationProgressChangedNotification;
  */
 @property (nullable, nonatomic, readonly) id responseObject;
 
+/**
+ * The upload request's error if any.
+ */
+@property (nullable, nonatomic, readonly) NSError *responseError;
+
 // unavailable
 + (instancetype)new NS_UNAVAILABLE;
 

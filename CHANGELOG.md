@@ -1,5 +1,11 @@
 ## Cortex iOS
 
+#### v1.9.15
+
+- `MDUploadOperations`
+   - Failed upload operations contain the associated `NSError` through the `responseError` property.
+- Bug fixes and improvements.
+
 #### v1.9.14
 
 - `MDFileUpload`
