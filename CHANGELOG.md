@@ -1,5 +1,10 @@
 ## Cortex iOS
 
+#### v1.9.17
+
+- Bug fixes and improvements. 
+   - API Parameters: Where merging.
+
 #### v1.9.16
 
 - Bug fixes and improvements.
