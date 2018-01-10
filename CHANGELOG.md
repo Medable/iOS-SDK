@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.18
+
+- Bug fixes and improvements. 
+
 #### v1.9.17
 
 - Bug fixes and improvements. 
