@@ -1,5 +1,11 @@
 ## Cortex iOS
 
+#### v1.9.19
+
+- `MDAPIClient`
+   - The custom headers passed as arguments in the `loginWithRoute:body:customHTTPHeaders:callback:` method are only used for that call. They are removed right after the call succeeded/failed. If you want to make them permanent, use the `addHTTPHeaderWithName:value:` method.
+   - Added support for `403` `kTokenExpired` faults.
+
 #### v1.9.18
 
 - Bug fixes and improvements. 

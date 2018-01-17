@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param route Custom route to be used for login.
  *  @param body Custom login request body.
- *  @param customHTTPHeaders Custom HTTP headers can be included in a dictionary: key = header/field name, value = header/field value.
+ *  @param customHTTPHeaders Custom HTTP headers can be included in a dictionary: key = header/field name, value = header/field value. These are only used in this call. If you want to make them permanent, use the `addHTTPHeaderWithName:value:` method.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)loginWithRoute:(NSString *)route
