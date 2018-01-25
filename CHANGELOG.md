@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.9.20
+
+- `MDFileBodyProperty` 
+   - Better filename generation. Use the passed mime type to determine the extension before using the guessing algorithm.
+- `MDFastFileBodyProperty` 
+   - Better filename generation.
+
 #### v1.9.19
 
 - `MDAPIClient`

@@ -429,6 +429,7 @@ extern NSString* const kFilenameKey;
 extern NSString* const kUploadKeyKey;
 extern NSString* const kUploadMethodKey;
 extern NSString* const kFieldsKey;
+extern NSString* const kMaxFileSizeKey;
 extern NSString* const kFacetsKey;
 extern NSString* const kPrivateKey;
 extern NSString* const kUnknownETag;

@@ -34,9 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)fastFileBodyWithProperty:(NSString*)propertyName facet:(NSString *)facet data:(NSData *)data;
 
-- (void)addFacetAttachment:(NSString * _Nonnull) facetName
-                      mime:(NSString * _Nonnull) mime
-                      data:(NSData * _Nonnull) data NS_UNAVAILABLE;
+- (void)addFacetAttachment:(NSString *)facetName
+                      mime:(NSString *)mime
+                      data:(NSData *)data NS_UNAVAILABLE;
 
 @end
 
