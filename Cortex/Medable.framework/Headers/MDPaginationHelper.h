@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * An alternative to the delegate approach to receive results. Both can be used at the same time.
  *
- * Note: Use with caution. The block is being copied and any strong reference that is captured by this.
+ * @discussion: Use with caution. The block is being copied and any strong reference that is captured by this.
  */
 @property (nullable, copy) MDObjectListFaultCallback resultsCallback;
 

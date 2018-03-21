@@ -12,8 +12,11 @@
  */
 @interface MDEnvironment : NSObject
 
+/// Singleton Instance - For Swift users, this method is lost in translation, use sharedEnvironment instead.
++ (MDEnvironment*)environment DEPRECATED_MSG_ATTRIBUTE("Will be removed in future releases.");
+
 /// Singleton Instance
-+ (MDEnvironment*)environment;
++ (MDEnvironment*)sharedEnvironment;
 
 // unavailable
 + (instancetype)new NS_UNAVAILABLE;

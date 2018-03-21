@@ -11,7 +11,7 @@
 /**
  * Encapsulates a single access control object. It matches a target, a type and an access level.
  *
- * @see MDACLLevel MDACLAccessTarget
+ * @see MDACLLevel MDACLAccessType
  */
 @interface MDACLObject : NSObject
 
@@ -21,11 +21,14 @@
 /// Access level of the object.
 @property (nonatomic, readonly) MDACLLevel allow;
 
+/// Access level of the object as role Id. If this is set allow will be MDACLLevelNotSet.
+@property (nullable, nonatomic, readonly) MDObjectId* allowRoleId;
+
 /// The access object's target.
 @property (nonnull, nonatomic, readonly) NSString* target;
 
 /// The type of the target in the object.
-@property (nonatomic, readonly) MDACLAccessTarget type;
+@property (nonatomic, readonly) MDACLAccessType type;
 
 /**
  * Helper method to construct an access control object from a dictionary mapping it's attributes.

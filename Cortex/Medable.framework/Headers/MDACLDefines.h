@@ -36,19 +36,25 @@
 ///Delete: Grants access to delete delete/archive a context.
 + (MDACLLevel)aclLevelDelete;
 
-///Admin: Administrator access.
-+ (MDACLLevel)aclLevelAdmin;
+///Script: The highest assignable access level, it can only be granted at runtime in a script.
++ (MDACLLevel)aclLevelScript;
 
 #pragma mark - Targets
 
 /// Type value used when targeting accounts. Set this as the type and accompany it with an account ID to connect to other accounts.
-+ (MDACLAccessTarget)aclAccessTargetAccount;
++ (MDACLAccessType)aclAccessTargetAccount;
 
-/// Type value used when targeting teams. Set this as the type and accompany it with a team ID to connect to other teams.
-+ (MDACLAccessTarget)aclAccessTargetTeam;
+/// Applies to ACL on Account object only. Access principal is the same as the Account instance being accessed.
++ (MDACLAccessType)aclAccessTargetSelf;
 
 /// Type value used when targeting roles.
-+ (MDACLAccessTarget)aclAccessTargetRole;
++ (MDACLAccessType)aclAccessTargetRole;
+
+/// Access principal is the object instance owner.
++ (MDACLAccessType)aclAccessTargetOwner;
+
+/// For share ACL only, allows the access target to be an access level. This overrides the share chain behaviour and enables more fine-tuning.
++ (MDACLAccessType)aclAccessTargetAccess;
 
 #pragma mark - Helpers
 

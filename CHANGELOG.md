@@ -1,11 +1,19 @@
 ## Cortex iOS
 
+#### v1.9.21
+
+- `MDAssetManager` - Improved encryption key handling for when session gets invalidated.
+- `MDEnvironment` - Added a singleton method that is visible from Swift code. Deprecated the old one, but still valid.
+- Updated ACL objects.
+- Bug fixes and improvements.
+
 #### v1.9.20
 
 - `MDFileBodyProperty` 
    - Better filename generation. Use the passed mime type to determine the extension before using the guessing algorithm.
 - `MDFastFileBodyProperty` 
    - Better filename generation.
+- `ACL` objects updated to current API implementation.
 
 #### v1.9.19
 

@@ -385,7 +385,6 @@ extern NSString* const kPostSeqKey;
 extern NSString* const kValueKey;
 extern NSString* const kFromKey;
 extern NSString* const kToKey;
-extern NSString* const kConnectionsKey;
 extern NSString* const kInvitationKey;
 extern NSString* const kRevokeKey;
 extern NSString* const kTestKey;

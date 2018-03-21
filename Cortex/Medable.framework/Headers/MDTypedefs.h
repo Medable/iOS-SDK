@@ -38,22 +38,13 @@ typedef enum : NSUInteger
 
 
 #pragma mark - ACL typedefs
-/*
- AccessLevels:
- Public: 1,              // can scan a minimum of public object details (ie. thumbnail image, name. eg. members on the same team)
- Connected: 2,           // can read non-private object details (ie. 'colleagues' get this access level)
- Reserved: 3,            // reserved for a future release
- Read: 4,                // can read all object details
- Share: 5,               // can share/invite others to the object context (eg. update colleagues) promote/demote access at this level or lower.
- Update: 6,              // can update the object properties (base and accessible profiles)
- Delete: 7,              // can delete the object
- Admin: 8                // can administer the object (assign org roles and edit acl entries)
- */
 
+/**
+ * https://docs.medable.com/reference#section-access-levels
+ */
 typedef enum : NSInteger
 {
     MDACLLevelNotSet = -1,
-    MDACLLevelUniversallyReadable = 0,
     MDACLLevelPublic = 1,
     MDACLLevelConnected = 2,
     MDACLLevelReserved = 3,
@@ -61,23 +52,26 @@ typedef enum : NSInteger
     MDACLLevelShare = 5,
     MDACLLevelUpdate = 6,
     MDACLLevelDelete = 7,
-    MDACLLevelAdmin = 8
+    MDACLLevelScript = 8
 } MDACLLevel;
 
 inline static bool isAccessLevel(MDACLLevel level)
 {
-    bool retVal = ((level > MDACLLevelNotSet) &&
-                   (level <= MDACLLevelAdmin));
-    
+    bool retVal = ((level > MDACLLevelNotSet) && (level <= MDACLLevelScript));
     return retVal;
 }
 
+/**
+ * https://docs.medable.com/reference#section-access-types
+ */
 typedef enum : NSUInteger
 {
-    MDACLAccessTargetAccount = 1,
-    MDACLAccessTargetTeam = 2,
-    MDACLAccessTargetRole = 3
-} MDACLAccessTarget;
+    MDACLAccessTypeAccount = 1,
+    MDACLAccessTypeSelf = 2,
+    MDACLAccessTypeRole = 3,
+    MDACLAccessTypeOwner = 4,
+    MDACLAccessTypeAccess
+} MDACLAccessType;
 
 #pragma mark - MDNotifications
 

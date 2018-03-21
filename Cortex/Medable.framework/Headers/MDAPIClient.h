@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param callback The callback for asynchronous return.
  */
-- (void)getPublicOrgInfoWithCallback:(void (^)(NSDictionary* __nullable orgInfo, MDFault* __nullable fault))callback;
+- (void)getPublicOrgInfoWithCallback:(void (^)(NSDictionary* _Nullable orgInfo, MDFault* _Nullable fault))callback;
 
 #pragma mark - Property pathing
 
@@ -223,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)modifyPropertyValueForInstance:(MDObjectInstance*)instance
                           propertyPath:(NSString*)propertyPath
                                  value:(id)value
-                              callback:(void (^)(MDObjectInstance* __nullable modifiedInstance, MDFault* __nullable fault))callback;
+                              callback:(void (^)(MDObjectInstance* _Nullable modifiedInstance, MDFault* _Nullable fault))callback;
 
 
 #pragma mark - Current account methods
@@ -232,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets latest data for current logged in account
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
-- (void)currentAccount:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
+- (void)currentAccount:(void (^)(MDAccount* _Nullable account, MDFault* _Nullable fault))callback;
 
 /**
  *  Activates an account.
@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
                           thumbImage:(nullable UIImage *)thumbImage
                             timeZone:(nullable NSTimeZone *)timeZone
                     customPropValues:(nullable NSDictionary*)customPropValues
-                            callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
+                            callback:(void (^)(MDAccount* _Nullable account, MDFault* _Nullable fault))callback;
 
 /**
  *  Changes current account's password.
@@ -302,7 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
               password:(NSString*)password
      verificationToken:(nullable NSString*)token
              singleUse:(BOOL)singleUse
-              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
+              callback:(void (^)(MDAccount* _Nullable localUser, MDFault* _Nullable fault))callback;
 
 /**
  *  Login using a custom route by passing email and password credentials, and returns the current account object.
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
               password:(NSString*)password
      verificationToken:(nullable NSString*)token
              singleUse:(BOOL)singleUse
-              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
+              callback:(void (^)(MDAccount* _Nullable localUser, MDFault* _Nullable fault))callback;
 
 /**
  *  Custom Login using a custom route, custom body, and (optional) custom HTTP headers.
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)loginWithRoute:(NSString *)route
                   body:(NSDictionary *)body
      customHTTPHeaders:(nullable NSDictionary<NSString *, NSString *> *)customHTTPHeaders
-              callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback;
+              callback:(void (^)(MDAccount* _Nullable localUser, MDFault* _Nullable fault))callback;
 
 /**
  *  Authenticates using email and password credentials, and returns the current account object.
@@ -346,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
                             password:(NSString*)password
                    verificationToken:(nullable NSString*)token
                            singleUse:(BOOL)singleUse
-                            callback:(void (^)(MDAccount* __nullable localUser, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                            callback:(void (^)(MDAccount* _Nullable localUser, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Logout an authenticated session client.
@@ -403,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)connectionWithId:(MDObjectId*)connectionId
               parameters:(nullable MDAPIParameters*)parameters
-                callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
+                callback:(void (^)(MDConnection* _Nullable connection, MDFault* _Nullable fault))callback;
 
 /**
  * Get connection by token for annonymous users
@@ -413,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)connectionWithToken:(NSString*)token
                  parameters:(nullable MDAPIParameters*)parameters
-                   callback:(void (^)(MDConnection* __nullable connection, MDFault* __nullable fault))callback;
+                   callback:(void (^)(MDConnection* _Nullable connection, MDFault* _Nullable fault))callback;
 
 /**
  * Reject a collaboration invitation.
@@ -572,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)postWithId:(MDObjectId*)postId
         parameters:(nullable MDAPIParameters*)parameters
-          callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+          callback:(void (^)(MDPost* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts to a context's feed
@@ -592,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
         bodySegments:(NSArray *)bodySegments
              targets:(nullable MDTargets*)targets
                voted:(nullable NSNumber*)voted
-            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+            callback:(void (^)(MDPost* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts to a context's feed
@@ -612,7 +612,7 @@ NS_ASSUME_NONNULL_BEGIN
   bodySegmentsObject:(MDPostBody *)bodySegmentsObject
              targets:(nullable MDTargets*)targets
                voted:(nullable NSNumber*)voted
-            callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+            callback:(void (^)(MDPost* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts a comment to a post
@@ -623,7 +623,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postCommentToPost:(MDPost*)post
              bodySegments:(NSArray*)bodySegments
                     voted:(nullable NSNumber*)voted
-                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                 callback:(void (^)(MDPostComment* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Posts a comment to a post
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postCommentToPost:(MDPost*)post
               commentBody:(MDPostBody *)commentBody
                     voted:(NSNumber*)voted
-                 callback:(void (^)(MDPostComment* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                 callback:(void (^)(MDPostComment* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Votes a post / comment
@@ -670,7 +670,7 @@ NS_ASSUME_NONNULL_BEGIN
     bodySegments:(NSArray *)bodySegments
          targets:(nullable MDTargets*)targets
            voted:(nullable NSNumber*)voted
-        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+        callback:(void (^)(MDPost* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Edits an existing post
@@ -686,7 +686,7 @@ NS_ASSUME_NONNULL_BEGIN
         postBody:(MDPostBody *)postBody
          targets:(MDTargets*)targets
            voted:(NSNumber*)voted
-        callback:(void (^)(MDPost* __nullable post, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+        callback:(void (^)(MDPost* _Nullable post, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Modify a post comment.
@@ -699,7 +699,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)editComment:(MDPostComment *)comment
        bodySegments:(NSArray *)bodySegments
               voted:(nullable NSNumber*)voted
-           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+           callback:(void (^)(MDPostComment* _Nullable postComment, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Modify a post comment.
@@ -712,7 +712,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)editComment:(MDPostComment *)comment
         commentBody:(MDPostBody *)commentBody
               voted:(nullable NSNumber*)voted
-           callback:(void (^)(MDPostComment* __nullable postComment, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+           callback:(void (^)(MDPostComment* _Nullable postComment, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes an existing post.
@@ -797,7 +797,7 @@ NS_ASSUME_NONNULL_BEGIN
  * General purpose file download. Provide full path.
  */
 + (void)downloadFileAtPath:(NSString *)filePath
-                  callback:(void (^)(id __nullable streamData, MDFault* __nullable fault))callback;
+                  callback:(void (^)(id _Nullable streamData, MDFault* _Nullable fault))callback;
 
 
 #pragma mark - Bundle
@@ -809,7 +809,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback Callback block called when the service call finishes. Check MDFault for errors.
  */
 - (void)getBundleWithUrl:(NSString *)bundleUrl
-                callback:(void (^)(NSDictionary* __nullable response, MDFault* __nullable fault))callback;
+                callback:(void (^)(NSDictionary* _Nullable response, MDFault* _Nullable fault))callback;
 
 
 #pragma mark - Org
@@ -823,7 +823,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)orgWithId:(MDObjectId*)orgId
        parameters:(nullable MDAPIParameters*)parameters
-         callback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
+         callback:(void (^)(MDOrg* _Nullable org, MDFault* _Nullable fault))callback;
 
 /**
  * Update an Org object by Id.
@@ -834,7 +834,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateOrgWithId:(MDObjectId*)orgId
                    body:(NSDictionary*)body
-               callback:(void (^)(MDOrg* __nullable org, MDFault* __nullable fault))callback;
+               callback:(void (^)(MDOrg* _Nullable org, MDFault* _Nullable fault))callback;
 
 #pragma mark -
 #pragma mark Context Objects
@@ -976,7 +976,7 @@ NS_ASSUME_NONNULL_BEGIN
                       image:(nullable UIImage*)image
                    timeZone:(nullable NSTimeZone*)timeZone
            customPropValues:(nullable NSDictionary*)customPropValues
-                   callback:(void (^)(MDAccount* __nullable account, MDFault* __nullable fault))callback;
+                   callback:(void (^)(MDAccount* _Nullable account, MDFault* _Nullable fault))callback;
 
 /**
  *  Deletes context object
@@ -1009,7 +1009,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)patientFileWithId:(MDObjectId*)patientFileId
                parameters:(nullable MDAPIParameters*)parameters
-                 callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                 callback:(void (^)(MDPatientFile* _Nullable patientFile, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a context object
@@ -1037,7 +1037,7 @@ NS_ASSUME_NONNULL_BEGIN
                                account:(nullable NSObject*)account
                                  image:(nullable UIImage*)image
                       customPropValues:(nullable NSDictionary*)customPropValues
-                              callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                              callback:(void (^)(MDPatientFile* _Nullable patientFile, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Updates a context object
@@ -1065,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
                           phone:(nullable NSString*)phone
                           image:(nullable UIImage*)image
                customPropValues:(nullable NSDictionary*)customPropValues
-                       callback:(void (^)(MDPatientFile* __nullable patientFile, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                       callback:(void (^)(MDPatientFile* _Nullable patientFile, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
@@ -1096,7 +1096,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)conversationWithId:(MDObjectId*)conversationId
                 parameters:(nullable MDAPIParameters*)parameters
-                  callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                  callback:(void (^)(MDConversation* _Nullable conversation, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a conversation object
@@ -1113,7 +1113,7 @@ NS_ASSUME_NONNULL_BEGIN
                               patientFile:(nullable MDPatientFile*)patientFile
                               attachments:(nullable MDAttachmentMaps*)attachments
                          customPropValues:(nullable NSDictionary*)customPropValues
-                                 callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                                 callback:(void (^)(MDConversation* _Nullable conversation, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by appending more attachments to the existing ones
@@ -1123,7 +1123,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateConversationWithId:(MDObjectId*)conversationId
           byAppendingAttachments:(MDAttachmentMaps*)attachments
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                        callback:(void (^)(MDConversation* _Nullable conversation, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by replacing a particular attachment with a new one
@@ -1135,7 +1135,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateConversationWithId:(MDObjectId*)conversationId
      byReplacingAttachmentWithId:(MDObjectId*)attachmentId
                       attachment:(MDAttachmentMaps*)attachment
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                        callback:(void (^)(MDConversation* _Nullable conversation, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  *  Updates a conversation's attachments by deleting a particular attachment
@@ -1161,7 +1161,7 @@ NS_ASSUME_NONNULL_BEGIN
                      patientFile:(nullable MDPatientFile*)patientFile
                         favorite:(nullable NSNumber*)favorite
                 customPropValues:(nullable NSDictionary*)customPropValues
-                        callback:(void (^)(MDConversation* __nullable conversation, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                        callback:(void (^)(MDConversation* _Nullable conversation, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
@@ -1192,7 +1192,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)teamWithId:(MDObjectId*)teamId
         parameters:(nullable MDAPIParameters*)parameters
-          callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+          callback:(void (^)(MDTeam* _Nullable team, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Creates a context object
@@ -1207,7 +1207,7 @@ NS_ASSUME_NONNULL_BEGIN
                description:(NSString*)description
                   favorite:(nullable NSNumber*)favorite
           customPropValues:(nullable NSDictionary*)customPropValues
-                  callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                  callback:(void (^)(MDTeam* _Nullable team, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Updates a context object
@@ -1224,7 +1224,7 @@ NS_ASSUME_NONNULL_BEGIN
              description:(nullable NSString*)description
                 favorite:(nullable NSNumber*)favorite
         customPropValues:(nullable NSDictionary*)customPropValues
-                callback:(void (^)(MDTeam* __nullable team, MDFault* __nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+                callback:(void (^)(MDTeam* _Nullable team, MDFault* _Nullable fault))callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 /**
  * Deletes a context object
