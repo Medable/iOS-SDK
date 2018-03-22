@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Get the facet's data. It will be served from cache if the cached value matches 
  * the ETag or downloaded otherwise.
  *
- * @param callback The asynchronous callback called when downloading is complete.
+ * @param callback The asynchronous callback called when downloading is complete. Returned data can be either NSData or UIImage.
  */
 - (void)fileDataWithCallback:(MDDataWithSourceOrFaultCallback)callback;
 

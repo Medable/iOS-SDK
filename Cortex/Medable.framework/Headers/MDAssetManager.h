@@ -11,8 +11,9 @@ extern NSErrorDomain const MDAssetManagerErrorDomain;
 
 NS_ERROR_ENUM(MDAssetManagerErrorDomain)
 {
-    MDAssetManagerErrorUnknown =             -1,
-    MDAssetManagerErrorInvalidParameters =   -1000
+    MDAssetManagerErrorUnknown =                    -1,
+    MDAssetManagerErrorInvalidParameters =          -1000,
+    MDAssetManagerErrorEncryptionFinishedAbruptly = -1001
 };
 
 /**
@@ -56,14 +57,23 @@ NS_ERROR_ENUM(MDAssetManagerErrorDomain)
                     callback:(MDDataWithSourceOrFaultCallback)callback;
 
 /**
- * Conventional file moving which will also maintain internal consistencies in this class' instance.
- * Do not use NSFileManager to move files.
+ * Conventional file moving which will also maintain internal file inventories.
+ * Do not use NSFileManager to move files that are managed by MDAssetManager.
  *
  * @param origin Source file.
  * @param destination Destination file.
- * @return True if the source file was moved successfully to it's destination, False otherwise.
+ * @return An NSError if there was an error moving the source file to the destination.
  */
-- (BOOL)moveFile:(NSString*)origin to:(NSString*)destination;
+- (NSError *)moveFile:(NSString*)origin to:(NSString*)destination;
+
+/**
+ * Conventional file deletion which will also maintain internal file inventories.
+ * Do not use NSFileManager to delete files that are managed by MDAssetManager.
+ *
+ * @param filename The name of the file (not the whole path).
+ * @return An NSError if there was an error deleting the file.
+ */
+- (NSError *)deleteFileWithName:(NSString *)filename;
 
 /**
  * Store data to disk.

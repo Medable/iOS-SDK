@@ -33,7 +33,7 @@ typedef void (^MDUIntegerCallback)(NSUInteger integer);
 typedef void (^MDImageCallback)(UIImage * _Nullable image);
 typedef void (^MDFaultCallback)(MDFault * _Nullable fault);
 typedef void (^MDImageOrFaultCallback)(UIImage * _Nullable image, MDFault * _Nullable fault);
-typedef void (^MDDataWithSourceOrFaultCallback)(NSData * _Nullable data, MDDataSource source, MDFault * _Nullable fault);
+typedef void (^MDDataWithSourceOrFaultCallback)(NSObject * _Nullable data, MDDataSource source, MDFault * _Nullable fault);
 typedef void (^MDImageWithSourceOrFaultCallback)(UIImage * _Nullable image, MDDataSource source, MDFault * _Nullable fault);
 typedef void (^MDObjectBoolCallback)(NSObject * _Nullable object, BOOL condition);
 

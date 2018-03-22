@@ -1,5 +1,12 @@
 ## Cortex iOS
 
+#### v1.9.22
+
+- `MDAssetManager` - Improved encryption/decryption code.
+- `MDFacet` - Better handling of file downloads, data caching, and facet refreshing/updating. Deletes invalid cached data.
+- Update the `currentUser` if the account is edited through the custom object update/edit route.
+- Bug fixes and improvements.
+
 #### v1.9.21
 
 - `MDAssetManager` - Improved encryption key handling for when session gets invalidated.
