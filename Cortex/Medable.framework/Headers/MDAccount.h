@@ -16,14 +16,34 @@
 @interface MDAccount : MDObjectInstance
 
 /**
+ * Name Prefix
+ */
+@property (nonatomic, readonly) NSString* namePrefix;
+
+/**
  * First Name
  */
 @property (nonnull, nonatomic, readonly) NSString* firstName;
 
 /**
+ * Middle Name
+ */
+@property (nonatomic, readonly) NSString* middleName;
+
+/**
  * Last Name
  */
 @property (nonnull, nonatomic, readonly) NSString* lastName;
+
+/**
+ * Name Suffix
+ */
+@property (nonatomic, readonly) NSString* nameSuffix;
+
+/**
+ * Name Additionals
+ */
+@property (nonatomic, readonly) NSArray<NSString *> *nameAdditionals;
 
 /**
  * Account holder gender.
@@ -43,7 +63,7 @@
 /**
  * Account roles (e.g. Provider, Administrator, Developer). Accounts can have more than one role.
  */
-@property (nullable, nonatomic, readonly) NSArray* roles;
+@property (nullable, nonatomic, readonly) NSArray<MDObjectId *> *roles;
 
 /**
  * True if the account must be activated before use. Dependant on Org settings.

@@ -1,5 +1,10 @@
 ## Cortex iOS
 
+#### v1.9.23
+
+- `MDAccount` - Added name prefix, middle, suffix, additional.
+- Bug fixes and improvements.
+
 #### v1.9.22
 
 - `MDAssetManager` - Improved encryption/decryption code.

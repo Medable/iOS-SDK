@@ -259,6 +259,10 @@ extern NSString* const kNativeIdTeam;
 #pragma mark - Account
 extern NSString* const kStatusKey;
 extern NSString* const kLoggedInKey;
+extern NSString* const kPrefixKey;
+extern NSString* const kMiddleKey;
+extern NSString* const kSuffixKey;
+extern NSString* const kAdditionalKey;
 extern NSString* const kFirstNameKey;
 extern NSString* const kLastNameKey;
 extern NSString* const kMobileKey;
