@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.9.24
+
+- Bug fixes and improvements.
+
 #### v1.9.23
 
 - `MDAccount` - Added name prefix, middle, suffix, additional.
