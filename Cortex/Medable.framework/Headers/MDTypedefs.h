@@ -24,7 +24,10 @@ typedef enum : NSUInteger
 {
     MDGenderUnspecified = 0,
     MDGenderMale,
-    MDGenderFemale
+    MDGenderFemale,
+    MDGenderTrans,
+    MDGenderOther,
+    MDGenderNeither
 } MDGender;
 
 #pragma mark - Account state

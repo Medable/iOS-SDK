@@ -268,12 +268,6 @@ extern NSString* const kLastNameKey;
 extern NSString* const kMobileKey;
 extern NSString* const kPhoneKey;
 extern NSString* const kGenderKey;
-extern NSString* const kShortMalePlaceholder;
-extern NSString* const kShortFemalePlaceholder;
-extern NSString* const kShortOtherGenderPlaceholder;
-extern NSString* const kMaleString;
-extern NSString* const kFemaleString;
-extern NSString* const kUnspecifiedString;
 extern NSString* const kAgeKey;
 extern NSString* const kDOBKey;
 extern NSString* const kProfileKey;
@@ -307,6 +301,20 @@ extern NSString* const kDeveloperKey;
 extern NSString* const kAdminKey;
 extern NSString* const kFractionCompletedKey;
 extern NSString* const kContentTypeFieldKey;
+
+// Gender
+extern NSString* const kShortUnspecifiedPlaceholder;
+extern NSString* const kShortMalePlaceholder;
+extern NSString* const kShortFemalePlaceholder;
+extern NSString* const kShortTransPlaceholder;
+extern NSString* const kShortOtherPlaceholder;
+extern NSString* const kShortNeitherPlaceholder;
+extern NSString* const kUnspecifiedString;
+extern NSString* const kMaleString;
+extern NSString* const kFemaleString;
+extern NSString* const kTransString;
+extern NSString* const kOtherString;
+extern NSString* const kNeitherString;
 
 #pragma mark - Data Encryption
 extern NSString* const kClientKeyVirtual;

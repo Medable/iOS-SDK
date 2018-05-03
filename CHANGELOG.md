@@ -1,5 +1,11 @@
 ## Cortex iOS
 
+#### v1.9.25
+
+- `MDGender` support for more genders.
+- `MDAccount` - Added missing nullability annotations.
+- Bug fixes and improvements.
+
 #### v1.9.24
 
 - Bug fixes and improvements.

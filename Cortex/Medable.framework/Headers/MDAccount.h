@@ -18,7 +18,7 @@
 /**
  * Name Prefix
  */
-@property (nonatomic, readonly) NSString* namePrefix;
+@property (nullable, nonatomic, readonly) NSString* namePrefix;
 
 /**
  * First Name
@@ -28,7 +28,7 @@
 /**
  * Middle Name
  */
-@property (nonatomic, readonly) NSString* middleName;
+@property (nullable, nonatomic, readonly) NSString* middleName;
 
 /**
  * Last Name
@@ -38,12 +38,12 @@
 /**
  * Name Suffix
  */
-@property (nonatomic, readonly) NSString* nameSuffix;
+@property (nullable, nonatomic, readonly) NSString* nameSuffix;
 
 /**
  * Name Additionals
  */
-@property (nonatomic, readonly) NSArray<NSString *> *nameAdditionals;
+@property (nullable, nonatomic, readonly) NSArray<NSString *> *nameAdditionals;
 
 /**
  * Account holder gender.
