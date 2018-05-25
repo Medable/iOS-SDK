@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "Medable"
-    s.version          = "1.9.25"
+    s.version          = "1.10.0"
     s.summary          = "Medable Cortex iOS SDK."
     s.description      = <<-DESC
             Medable is a cloud platform that provides HIPAA-compliant services to mobile
@@ -14,15 +14,15 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'BSD 3-clause', :file => 'LICENSE' }
     s.author           = { "Medable Inc." => "hello@medable.com" }
     s.source           = { :git => "https://github.com/Medable/iOS-SDK.git", :tag => s.version.to_s }
-    s.source_files     = 'Cortex/Medable.framework/Headers/*.h'
+    s.source_files     = 'Cortex/MedableCortex.framework/Headers/*.h'
     s.social_media_url = 'https://twitter.com/medableinc'
 
-    s.platform     = :ios, '7.0'
+    s.platform     = :ios, '8.0'
     s.requires_arc = true
     s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
-    s.ios.vendored_frameworks = 'Cortex/Medable.framework'
+    s.ios.vendored_frameworks = 'Cortex/MedableCortex.framework'
 
-    s.public_header_files = 'Cortex/Medable.framework/Headers/M*.h'
+    s.public_header_files = 'Cortex/MedableCortex.framework/Headers/M*.h'
     s.frameworks = 'ImageIO', 'SystemConfiguration', 'CoreText', 'MobileCoreServices', 'QuartzCore', 'CoreLocation','CFNetwork','CoreGraphics'
 end

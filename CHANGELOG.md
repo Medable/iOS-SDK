@@ -1,5 +1,9 @@
 ## Cortex iOS
 
+#### v1.10.0
+- Changed the integration steps. 
+- [Migration guide](https://dash.readme.io/project/medable/v2.9.9/docs/migration-guide)
+
 #### v1.9.25
 
 - `MDGender` support for more genders.

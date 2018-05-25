@@ -1,0 +1,6 @@
+framework module MedableCortex {
+  umbrella header "MedableCortex.h"
+
+  export *
+  module * { export * }
+}
