@@ -156,8 +156,6 @@
 				287268EC1AE82574001798C2 /* Sources */,
 				287268ED1AE82574001798C2 /* Frameworks */,
 				287268EE1AE82574001798C2 /* Resources */,
-				1943890141F1C2DE30B7C36B /* [CP] Embed Pods Frameworks */,
-				73A96AF6F94453D001706B65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,36 +242,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1943890141F1C2DE30B7C36B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73A96AF6F94453D001706B65 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedableTest/Pods-MedableTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		ECF2D56AD01C448648BCAFDF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

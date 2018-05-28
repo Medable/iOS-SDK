@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import <Medable/Medable.h>
+#import <MedableCortex/MedableCortex.h>
 
 @interface AppDelegate ()
 
