@@ -2,7 +2,7 @@
 
 #### v1.10.0
 - Changed the integration steps. 
-- [Migration guide](https://dash.readme.io/project/medable/v2.9.9/docs/migration-guide)
+- [Migration guide](https://docs.medable.com/docs/migration-guide)
 
 #### v1.9.25
 
