@@ -27,7 +27,7 @@ class ViewController: UIViewController
     {
         let client = Medable.client()
         
-        client?.getPublicOrgInfo(
+        client.getPublicOrgInfo(
             callback: { (orgInfo, fault) -> Void in
                 
                 if let orgInfo = orgInfo

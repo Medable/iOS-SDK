@@ -5,4 +5,4 @@
 //  Copyright (c) 2015 Medable Inc. All rights reserved.
 //
 
-#import <Medable/Medable.h>
+#import <MedableCortex/MedableCortex.h>
