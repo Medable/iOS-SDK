@@ -12,9 +12,6 @@
  */
 @interface MDEnvironment : NSObject
 
-/// Singleton Instance - For Swift users, this method is lost in translation, use sharedEnvironment instead.
-+ (MDEnvironment*)environment DEPRECATED_MSG_ATTRIBUTE("Will be removed in future releases.");
-
 /// Singleton Instance
 + (MDEnvironment*)sharedEnvironment;
 
@@ -36,5 +33,9 @@
  * @see MDOrg
  */
 - (NSString*)orgName;
+
+// Deprecated methods
++ (MDEnvironment*)environmentWithBaseUrl:(NSString*)baseUrl organization:(NSString*)organization clientKey:(NSString*)clientKey DEPRECATED_MSG_ATTRIBUTE("Use -[MDEnvironment resetEnvironmentWithBaseUrl:organization:clientKey:] instead.");
++ (MDEnvironment*)environment DEPRECATED_MSG_ATTRIBUTE("Will be removed in future releases. Use +[MDEnvironment sharedEnvironment] instead.");
 
 @end

@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Method to create routes for the custom route methods below.
  *
- * This method prefixes the `routeComponents` with the "base URL" returned by `[[MDEnvironment environment] APIURL]`.
+ * This method prefixes the `routeComponents` with the "base URL" returned by `[[MDEnvironment sharedEnvironment] APIURL]`.
  *
  * @param routeComponents the components to create the route.
  * @return The route components of the array are prefixed with the base URL. If routeComponents is nil, the base URL is returned.
@@ -1253,6 +1253,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)start;
 
 /**
+ * DEPRECATED - Use
  * This will set the organization and client key (overriding any org and client key),
  * download your basic Organization information, which is required to communicate with the Medable backend.
  *
@@ -1265,7 +1266,22 @@ NS_ASSUME_NONNULL_BEGIN
  * If the download fails and you don't retry it, then whenever an http request is made out to the Medable API, it will
  * first attempt to download this information before making the call.
  */
-+ (void)setOrganization:(NSString*)org clientKey:(NSString*)clientKey;
++ (void)setOrganization:(NSString*)org clientKey:(NSString*)clientKey DEPRECATED_MSG_ATTRIBUTE("Use +[Medable setOrganization:clientKey:baseURL:] instead.");
+
+/**
+ * This will set the organization, client key and base URL (overriding any org and client key, and base URL if provided),
+ * download your basic Organization information, which is required to communicate with the Medable backend.
+ *
+ * Place a call to this method within your application's delegate method (`didFinishLaunching`). Ideally, you should
+ * check for the notifications with these names:
+ *
+ * - `kContentDownloadedDidStartDownloads` : Downloads started.
+ * - `kContentDownloadedDidFinishDownloads` : Downloads completed.
+ *
+ * If the download fails and you don't retry it, then whenever an http request is made out to the Medable API, it will
+ * first attempt to download this information before making the call.
+ */
++ (void)setOrganization:(NSString*)organization clientKey:(NSString*)clientKey baseURL:(nullable NSString*)baseURL;
 
 /**
  * Shared Medable API client (or singleton), same as calling `[MDAPIClient sharedClient]`.

@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char MedableCortexVersionString[];
 #import <MedableCortex/MDTypedefs.h>
 #import <MedableCortex/MDEnvironment.h>
 #import <MedableCortex/MDGeneralBlocks.h>
+#import <MedableCortex/MDVersion.h>
 
 // Utils
 #import <MedableCortex/MDDataFriendly.h>
