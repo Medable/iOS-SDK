@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol MDVersion
-+(NSString*)version;
-+(NSString*)name;
-+(NSString*)sha;
++(NSString *)version;
++(NSString *)name;
++(NSString *)sha;
++(NSNumber *)build;
 @end
 

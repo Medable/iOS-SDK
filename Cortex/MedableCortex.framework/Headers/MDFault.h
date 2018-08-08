@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Fault's code. See the API Documentation for standard error codes.
 @property (nonatomic, readonly) NSString* code;
 
+/// Fault's status.
+@property (nonatomic, readonly) NSNumber* status;
+
 /// Fault's message, localized in the Org's locale.
 @property (nullable, nonatomic, readonly) NSString* message;
 

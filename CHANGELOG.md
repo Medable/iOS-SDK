@@ -1,5 +1,15 @@
 ## Cortex iOS
 
+#### v2.0.0
+- Major project reconfiguration. Reconfigured as a "normal framework" instead of a fat library, reducing the binary file size.
+- Pagination helpers: Added Skip + Limit pagination support.
+- Adds programmatic version check.
+- `MDAPClient` - Return the URL that's being used for calls.
+- `MDBaseInstance` - Keeps additional fields, even if those aren't properties.
+- `MDSignature` - Added support for 21 CFR part 11 signatures.
+- `MDFault` - Added status.
+- `MDReference` - Support for embedded faults.
+
 #### v1.10.0
 - Changed the integration steps. 
 - [Migration guide](https://docs.medable.com/docs/migration-guide)

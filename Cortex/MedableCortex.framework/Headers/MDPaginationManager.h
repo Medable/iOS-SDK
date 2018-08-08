@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
                                                         inverseOrder:(BOOL)inverseOrder;
 
 /**
- * Convenience initializer to paginate a list in a path.
+ * Convenience initializer to paginate a list in a path with _id as the paging field.
  *
  * The field/property used for pagination is `_id`. Use this initializer to paginate list properties with a path: i.e: `GET /path/to/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
  *
@@ -85,11 +85,31 @@ NS_ASSUME_NONNULL_BEGIN
                                             inverseOrder:(BOOL)inverseOrder;
 
 /**
+ * Convenience initializer to paginate a list in a path with (optional) `pagingField` as the paging field.
+ *
+ * The field/property used for pagination is `_id`. Use this initializer to paginate list properties with a path: i.e: `GET /path/to/listProperty?listProperty.where={"_id":{"$gt":"lastValue"}}&limit=pageSize`
+ *
+ * @param identifier A string identifier for the paginator helper.
+ * @param path The path to the list property. The path ends with the property name. Don't finish the path with a trailing forward slash. ObjectIds might be used in the path and also in array subpathing. i.e.: path/to/listProperty
+ * @param pagingField The name of the field/property to use to paginate the objects. It has to be marked as indexed and unique in Medable API. If `nil` is passed, skip+limit pagination method is used.
+ * @param pageSize The size of the page.
+ * @param cacheResults Specifies whether to cache the results or not.
+ * @param inverseOrder Pass in `YES` for inverse sorting of objects.
+ * @return Initialized instance. `nil` if a paginator with the same `identifier` already exists.
+ */
++ (nullable MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
+                                                    path:(NSString *)path
+                                             pagingField:(nullable NSString *)pagingField
+                                                pageSize:(NSUInteger)pageSize
+                                            cacheResults:(BOOL)cacheResults
+                                            inverseOrder:(BOOL)inverseOrder;
+
+/**
  * Convenience initializer to paginate context objects with a different paging field other than _id.
  *
  * @param identifier A string identifier for the paginator helper.
  * @param context The context name (plural context) for the objects to be paginated.
- * @param pagingField The name of the field/property to use to paginate the objects. It has to be marked as indexed and unique in Medable API.
+ * @param pagingField The name of the field/property to use to paginate the objects. It has to be marked as indexed and unique in Medable API. If `nil` is passed, skip+limit pagination method is used.
  * @param pageSize The size of the page.
  * @param cacheResults Specifies whether to cache the results or not.
  * @param inverseOrder Pass in `YES` for inverse sorting of objects.
@@ -97,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable MDPaginationHelper *)paginatorWithIdentifier:(NSString *)identifier
                                                  context:(NSString *)context
-                                             pagingField:(NSString *)pagingField
+                                             pagingField:(nullable NSString *)pagingField
                                                 pageSize:(NSUInteger)pageSize
                                             cacheResults:(BOOL)cacheResults
                                             inverseOrder:(BOOL)inverseOrder;

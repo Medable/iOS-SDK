@@ -114,55 +114,65 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
+ *
+ * @return The request URL.
  */
-- (void)getPath:(NSString *)path
-     parameters:(nullable MDAPIParameters *)parameters
-        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-        failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+- (nullable NSString *)getPath:(NSString *)path
+                    parameters:(nullable MDAPIParameters *)parameters
+                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                       failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
 
 /**
  * POST method
  *
  * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
+ *
+ * @return The request URL.
  */
-- (void)postPath:(NSString *)path
-      parameters:(nullable MDAPIParameters *)parameters
-         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-         failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+- (nullable NSString *)postPath:(NSString *)path
+                     parameters:(nullable MDAPIParameters *)parameters
+                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                        failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
 
 /**
  * PUT method
  *
  * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
+ *
+ * @return The request URL.
  */
-- (void)putPath:(NSString *)path
-     parameters:(nullable MDAPIParameters *)parameters
-        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-        failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+- (nullable NSString *)putPath:(NSString *)path
+                    parameters:(nullable MDAPIParameters *)parameters
+                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                       failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
 
 /**
  * DELETE method
  *
  * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
+ *
+ * @return The request URL.
  */
-- (void)deletePath:(NSString *)path
-        parameters:(nullable MDAPIParameters *)parameters
-           success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-           failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+- (nullable NSString *)deletePath:(NSString *)path
+                       parameters:(nullable MDAPIParameters *)parameters
+                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                          failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
 
 /**
  * PATCH method
  *
  * @param path Custom route. Use routeWithComponents: to create the paths.
  * @param parameters Construct parameters using MDAPIParameterFactory.
+ *
+ * @return The request URL.
  */
-- (void)patchPath:(NSString *)path
-       parameters:(nullable MDAPIParameters *)parameters
-          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-          failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
+- (nullable NSString *)patchPath:(NSString *)path
+                      parameters:(nullable MDAPIParameters *)parameters
+                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                         failure:(void (^)(NSURLSessionDataTask *task, MDFault *fault))failure;
 
 
 #pragma mark - Custom HTTP headers
@@ -197,6 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback The callback for asynchronous return.
  */
 - (void)getPublicOrgInfoWithCallback:(void (^)(NSDictionary* _Nullable orgInfo, MDFault* _Nullable fault))callback;
+
 
 #pragma mark - Property pathing
 
@@ -846,10 +857,46 @@ NS_ASSUME_NONNULL_BEGIN
  * @param context The object type.
  * @param body The information of the new object. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
  * @param callback The completion callback.
+ *
+ * @return The request URL.
  */
-- (void)createObjectWithContext:(NSString*)context
-                           body:(NSDictionary*)body
-                       callback:(MDObjectInstanceFaultCallback)callback;
+- (nullable NSString *)createObjectWithContext:(NSString*)context
+                                          body:(NSDictionary*)body
+                                      callback:(MDObjectInstanceFaultCallback)callback;
+
+/**
+ * Creates a new list object using a NSDictionary body
+ *
+ * @discussion Creates an object using POST /context/objectId/path/to/list/property
+ *
+ * @param context The context name of the object to be created.
+ * @param path Forward slash separated, full path to the list property. i.e.: containerObjectContext/containerObjectId/path/to/list/property
+ * @param body The information of the new object. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
+ * @param callback The completion callback.
+ *
+ * @return The request URL.
+ */
+- (nullable NSString *)createListObjectWithContext:(NSString *)context
+                                              path:(NSString *)path
+                                              body:(NSDictionary *)body
+                                          callback:(MDObjectInstanceFaultCallback)callback;
+
+/**
+ * Creates a new list object using a MDBody body
+ *
+ * @discussion Creates an object using POST /context/objectId/path/to/list/property
+ *
+ * @param context The object type.
+ * @param path Forward slash separated, full path to the list property. i.e.: containerObjectContext/containerObjectId/path/to/list/property
+ * @param body The representation for the new object in it's body format.
+ * @param callback The completion callback.
+ *
+ * @return The request URL.
+ */
+- (nullable NSString *)createListObjectWithContext:(NSString *)context
+                                              path:(NSString *)path
+                                        bodyObject:(MDBody *)body
+                                          callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Create a new object using a MDBody body
@@ -857,10 +904,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param context The object type.
  * @param body The representation for the new object in it's body format.
  * @param callback The completion callback.
+ *
+ * @return The request URL.
  */
-- (void)createObjectWithContext:(NSString*)context
-                     bodyObject:(MDBody*)body
-                       callback:(MDObjectInstanceFaultCallback)callback;
+- (nullable NSString *)createObjectWithContext:(NSString*)context
+                                    bodyObject:(MDBody*)body
+                                      callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Delete an existing object
@@ -870,20 +919,22 @@ NS_ASSUME_NONNULL_BEGIN
  * @param reason Information about the reason for deleting it
  * @param callback The completion callback
  */
-- (void)deleteObjectWithContext:(NSString*)context
-                       objectId:(MDObjectId*)objectId
-                         reason:(nullable MDAPIParameters*)reason
-                       callback:(MDFaultCallback)callback;
+- (nullable NSString *)deleteObjectWithContext:(NSString*)context
+                                      objectId:(MDObjectId*)objectId
+                                        reason:(nullable MDAPIParameters*)reason
+                                      callback:(MDFaultCallback)callback;
 
 /**
  * List context objects
  *  @param context Context (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)listObjectsWithContext:(NSString*)context
-                    parameters:(nullable MDAPIParameters*)parameters
-                      callback:(MDObjectListFaultCallback)callback;
+- (nullable NSString *)listObjectsWithContext:(NSString*)context
+                                   parameters:(nullable MDAPIParameters*)parameters
+                                     callback:(MDObjectListFaultCallback)callback;
 
 /**
  * List context objects' list properties
@@ -892,22 +943,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param listPropertyName The name of the list property (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)listObjectsWithContext:(NSString*)context
-                      objectId:(MDObjectId*)objectId
-                  listProperty:(NSString *)listPropertyName
-                    parameters:(nullable MDAPIParameters*)parameters
-                      callback:(MDObjectListFaultCallback)callback;
+- (nullable NSString *)listObjectsWithContext:(NSString*)context
+                                     objectId:(MDObjectId*)objectId
+                                 listProperty:(NSString *)listPropertyName
+                                   parameters:(nullable MDAPIParameters*)parameters
+                                     callback:(MDObjectListFaultCallback)callback;
 
 /**
  * List objects from a list properties
  *  @param path Path to a list property (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)listObjectsWithPath:(NSString*)path
-                 parameters:(nullable MDAPIParameters*)parameters
-                   callback:(MDObjectListFaultCallback)callback;
+- (nullable NSString *)listObjectsWithPath:(NSString*)path
+                                parameters:(nullable MDAPIParameters*)parameters
+                                  callback:(MDObjectListFaultCallback)callback;
 
 /**
  * Gets a context object
@@ -915,11 +970,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param objectId Context ObjectId (required)
  *  @param parameters Construct parameters using MDAPIParameterFactory.
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)objectWithContext:(NSString*)context
-                 objectId:(MDObjectId*)objectId
-               parameters:(nullable MDAPIParameters*)parameters
-                 callback:(MDObjectInstanceFaultCallback)callback;
+- (nullable NSString *)objectWithContext:(NSString*)context
+                                objectId:(MDObjectId*)objectId
+                              parameters:(nullable MDAPIParameters*)parameters
+                                callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Update a context object using a NSDictionary body
@@ -927,11 +984,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param objectId Context ObjectId (required)
  *  @param body Object properties that are updated. For information about how to upload files using this approach check: https://docs.medable.com/docs/code-samples#section-file-upload
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)updateObjectWithContext:(NSString*)context
-                       objectId:(MDObjectId*)objectId
-                           body:(NSDictionary*)body
-                       callback:(MDObjectInstanceFaultCallback)callback;
+- (nullable NSString *)updateObjectWithContext:(NSString*)context
+                                      objectId:(MDObjectId*)objectId
+                                          body:(NSDictionary*)body
+                                      callback:(MDObjectInstanceFaultCallback)callback;
 
 /**
  * Update a context object using a MDBody body
@@ -939,11 +998,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param objectId Context ObjectId (required)
  *  @param bodyObj Body object properties that are to be updated
  *  @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ *
+ * @return The request URL.
  */
-- (void)updateObjectWithContext:(NSString*)context
-                       objectId:(MDObjectId*)objectId
-                     bodyObject:(MDBody*)bodyObj
-                       callback:(MDObjectInstanceFaultCallback)callback;
+- (nullable NSString *)updateObjectWithContext:(NSString*)context
+                                      objectId:(MDObjectId*)objectId
+                                    bodyObject:(MDBody*)bodyObj
+                                      callback:(MDObjectInstanceFaultCallback)callback;
 
 
 #pragma mark - Account
@@ -1233,6 +1294,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteTeamWithId:(MDObjectId*)teamId
                   reason:(nullable MDAPIParameters*)reason
                 callback:(MDFaultCallback)callback DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+
+
+#pragma mark - Signature (21 CFR part 11)
+
+/**
+ * Adds a 21 CFR part 11 signature to an object.
+ *
+ * @param path Forward slash path to the signatures list property.
+ * @param signer Signer full name.
+ * @param date Signature date.
+ * @param value (optional) any additional information to attach to the signature (JSON compatible).
+ * @param callback Callback block called when the service call finishes. Check MDFault for errors.
+ */
+- (void)signObjectWithSignaturePath:(NSString *)path
+                             signer:(NSString *)signer
+                               date:(NSDate *)date
+                              value:(NSObject *)value
+                           callback:(MDObjectFaultCallback)callback;
 
 @end
 

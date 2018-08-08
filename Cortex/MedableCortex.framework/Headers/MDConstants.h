@@ -56,6 +56,7 @@ extern NSString* const kLimitKey;
 extern NSString* const kSkipKey;
 extern NSString* const kSortKey;
 extern NSString* const kWhereKey;
+extern NSString* const kGroupKey;
 extern NSString* const kShowKey;
 extern NSString* const kRangeStartKey;
 extern NSString* const kRangeEndKey;
@@ -239,12 +240,14 @@ extern NSString* const kConversationContext;
 extern NSString* const kTeamContext;
 extern NSString* const kOrgContext;
 extern NSString* const kPatientContext;
+extern NSString* const kSignatureContext;
 
 extern NSString* const kPluralAccountContext;
 extern NSString* const kPluralConversationContext;
 extern NSString* const kPluralTeamContext;
 extern NSString* const kPluralOrgContext;
 extern NSString* const kPluralPatientContext;
+extern NSString* const kPluralSignatureContext;
 
 #pragma mark - Native Ids
 extern NSString* const kNativeIdAccount;
@@ -453,6 +456,8 @@ extern NSString* const kRegistrationKey;
 extern NSString* const kSecurityKey;
 extern NSString* const kWebsiteKey;
 extern NSString* const kLookupKey;
+extern NSString* const kDateKey;
+extern NSString* const kSignerKey;
 
 #pragma mark - Notifications
 extern NSString* const kMDNotificationAPIIsNotLoggedIn;

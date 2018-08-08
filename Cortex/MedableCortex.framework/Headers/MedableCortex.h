@@ -80,6 +80,7 @@ FOUNDATION_EXPORT const unsigned char MedableCortexVersionString[];
 #import <MedableCortex/MDFastFileBodyProperty.h>
 #import <MedableCortex/MDPostBody.h>
 #import <MedableCortex/MDSimpleBodyProperty.h>
+#import <MedableCortex/MDSignature.h>
 
 // Pagination
 #import <MedableCortex/MDPaginationManager.h>

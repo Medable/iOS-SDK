@@ -26,12 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Unique Id of this object.
  */
-@property (nonatomic, readonly) MDObjectId* Id;
+@property (nonatomic, readonly) MDObjectId *Id;
 
 /**
  * Base object definition for this instance.
  */
-@property (nonatomic, readonly) MDBaseDefinition* object;
+@property (nonatomic, readonly) MDBaseDefinition *object;
 
 /**
  Type of definition. Used for subclassing definitions.
@@ -41,17 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A reference to the account id of the context creator.
  */
-@property (nonatomic, readonly) MDReference* creator;
+@property (nonatomic, readonly) MDReference *creator;
 
 /**
  * Creation date.
  */
-@property (nonatomic, readonly) NSDate* created;
+@property (nonatomic, readonly) NSDate *created;
 
 /**
  * The date the latest update was made to a context’s properties.
  */
-@property (nullable, nonatomic, readonly) NSDate* updated;
+@property (nullable, nonatomic, readonly) NSDate *updated;
 
 /**
  ETag is (re)generated on an instance whenever it is updated.
@@ -66,36 +66,41 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The Id of the roles that have access to the context.
  */
-@property (nullable, nonatomic, readonly) NSArray<MDObjectId*>* accessRoles;
+@property (nullable, nonatomic, readonly) NSArray<MDObjectId *> *accessRoles;
 
 /**
  * True if there are any active or pending connections for this context.
  */
-@property (nonatomic, readonly) NSNumber* shared;
+@property (nonatomic, readonly) NSNumber *shared;
 
 /**
  * Maps base property keys to their values.
  */
-@property (nonatomic, readonly) NSDictionary* baseProperties;
+@property (nonatomic, readonly) NSDictionary<NSString *, MDPropertyInstance *> *baseProperties;
 
 /**
  * Maps custom property keys to their values, these custom properties have a "c_" prefix.
  */
-@property (nonatomic, readonly) NSDictionary* customProperties;
+@property (nonatomic, readonly) NSDictionary<NSString *, MDPropertyInstance *> *customProperties;
+
+/**
+ * Maps additional fields that aren not properties with definitions.
+ */
+@property (nullable, nonatomic, readonly) NSDictionary<NSString *, NSObject *> *additionalFields;
 
 /**
  * A list of connection objects. Connections might be either in active or pending state.
  *
  * This property is nil unless synchronizeConnectionsWithParameters:callback: is called and there are available posts for this object.
  */
-@property (nullable, nonatomic, readonly) NSArray<MDConnection*>* connections;
+@property (nullable, nonatomic, readonly) NSArray<MDConnection *> *connections;
 
 /**
  * The object feed. This allows a single call to get both an object and it's first page of posts. Feed query arguments are supported.
  *
  * This property is nil unless synchronizePostsWithParameters:callback: is called and there are available posts for this object.
  */
-@property (nullable, nonatomic, readonly) NSArray<MDPost*>* posts DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
+@property (nullable, nonatomic, readonly) NSArray<MDPost *> *posts DEPRECATED_MSG_ATTRIBUTE("Will be removed in future version.");
 
 
 // unavailable
@@ -173,9 +178,9 @@ NS_ASSUME_NONNULL_BEGIN
  * Dictionary value of the property of type Any.
  *
  * @param name Property name.
- * @return The dictionary representing the value for this property.
+ * @return The object representing the value for this property.
  */
-- (nullable NSDictionary*)anyValueWithPropertyName:(NSString*)name;
+- (nullable NSObject*)anyValueWithPropertyName:(NSString*)name;
 
 /**
  * Date value of the property of type Date.

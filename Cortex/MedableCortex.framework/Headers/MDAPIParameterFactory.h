@@ -206,6 +206,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (MDAPIParameters*)parametersWithWhere:(NSDictionary*)where prefixPath:(nullable NSString*)prefixPath;
 
+/**
+ * Grouping queries.
+ *
+ * @param group Group contents. i.e.: { "_id", "c_someReference._id", "count": { "$count": "_id" } }.
+ * @param prefixPath String a string path to prefix paths. i.e. prefix.path.to.property.group={ group params here }
+ * @result The parameter collection containing a parameter that will filter results.
+ */
++ (MDAPIParameters*)parametersWithGroup:(NSDictionary *)group prefixPath:(nullable NSString*)prefixPath;
+
 /*
  * Selects documents where the value of the property is greater than the passed in value.
  * Produces prefixPath.where={"propertyName": {"$gt": value}}
